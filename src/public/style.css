@@ -1,0 +1,22 @@
+body {
+  padding: 0;
+  display: flex;
+}
+
+.box {
+  display: block;
+  padding: 0;
+  background: #e994f5;
+  margin-left: 1px;
+  border-radius: 5px;
+  margin-right: 1px;
+  width: 400px;
+  height: 50px;
+  position: relative 
+}
+
+#title {
+  display: block;
+  padding-top: 0px;
+  text-align: center;
+}
