@@ -1,0 +1,98 @@
+  .footer {
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+/* 
+  .header {
+    width: 100%;
+    height: 80px;
+    display: block;
+  }
+ 
+  .nav {
+    width: 80rem;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 1px solid #393b3f;
+  }
+
+  .logo_container {
+    height: 100%;
+    display: inline-table;
+  }
+
+
+  .logo_container img {
+    width: 48px;
+    height: 48px;
+    margin-top: 13px;
+    margin-right: 10px;
+    float: left;
+  }
+
+  .navigation {
+    float: right;
+    height: 100%;
+  }
+
+  .navigation a {
+    height: 100%;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+  }
+
+  .navigation a li{
+    
+    align-items: center;
+    align-content: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+    height: 100%;
+    display: table;
+    border-radius: 150px;
+    display: table-cell;
+    height: 30px;
+    width: 30px;
+  }
+
+  .nav a {
+    align-content: center;
+    height: 50%;
+    padding-left: 50px;
+    text-decoration: none;
+    border-radius: 15px;
+    color: inherit;
+  } */
+
+  #heart {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  @keyframes example {
+    0%   {font-size: 100%;}
+    15%  {font-size: 120%;}
+    30%  {font-size: 140%;}
+    45%  {font-size: 120%;}
+    60%  {font-size: 140%;}
+    100% {font-size: 100%;}
+  }
+  .footer:hover #heart {
+    animation-name: example;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+  }
