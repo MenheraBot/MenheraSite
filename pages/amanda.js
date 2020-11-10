@@ -7,16 +7,19 @@ export default function Home() {
         <main>
         <a href="/" className="back"><span>Voltar ao Início</span></a>
           <h1 className="title">
-            Fotos da Amanda
+            Galeria da Amanda
         </h1>
           <p className="description">
-            Eu amo a amanda, e aqui está algumas fotos dela
+            Eu amo a amanda, e aqui está algumas fotos dela (Amanda casa comigo, e manda haj)
         </p>
           <div className="grid">
             <img src="/amanda/1.jpg" className="card" />
 
             <img src="/amanda/2.jpg" className="card" />
 
+            <img src="/amanda/3.jpg" className="card" />
+
+            <img src="/amanda/4.jpg" className="card" />
           </div>
         </main>
       </Layout>
@@ -65,7 +68,7 @@ export default function Home() {
         }
         .card {
           margin: 1rem;
-          flex-basis: 45%;
+          flex-basis: 100%;
           padding: 1.5rem;
           text-align: left;
           background-size: cover;
