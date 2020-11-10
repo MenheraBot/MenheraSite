@@ -1,59 +1,43 @@
-import Head from 'next/head'
+import Layout from '../components/default_layout'
 
 export default function Home() {
   return (
-    <div className="container">
-      <Head>
-        <title>Menhera's Site</title>
-        <link rel="icon" href="/favicon/favicon.png" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          <img src="/icons/logo.png" alt="Menhera Logo" id="mainLogo" />
-          Menhera Bot
+    
+      <Layout>
+      <div className="container">
+        <main>
+          <h1 className="title">
+          <img src="/icons/logo.png" alt="Logo" />
+            Menhera Bot
         </h1>
-
-        <p className="description">
-          Um bot brasileiro com foco em Diversão e RPG
+          <p className="description">
+            Um bot brasileiro com foco em Diversão e RPG
         </p>
 
-        <div className="grid">
-          <a href="https://Vrau" className="card">
-            <h3>Salve fuzer &rarr;</h3>
-            <p>Clica aqui pra dar aquela sugadinha em mim.</p>
-          </a>
+          <div className="grid">
+            <a href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot" className="card">
+              <h3>Adicionar</h3>
+              <p>Clique aqui para adicionar a Menhera em um servidor.</p>
+            </a>
 
-          <a href="https://testezao" className="card">
-            <h3>É meme moon &rarr;</h3>
-            <p>Eu não vou mamar ele por que eu sei que ele é teu.</p>
-          </a>
+            <a href="https://discord.gg/fZMdQbA" className="card">
+              <h3>Servidor de Suporte</h3>
+              <p>Clique aqui para entrar no servidor de suporte da Menhera.</p>
+            </a>
 
-          <a
-            href="https://www.vitoria.linda.gostosa.com.br/manda-pack-da/?type=mão"
-            className="card"
-          >
-            <h3>Mas tipo &rarr;</h3>
-            <p>Se a irmã dele quiser, eu quero.</p>
-          </a>
+            <a href="https://top.gg/bot/708014856711962654/vote" className="card">
+              <h3>Vote em Mim</h3>
+              <p>Clique aqui para votar em mim. Votos ajudam na divulgação.</p>
+            </a>
 
-          <a
-            href="https://www.vitoria.linda.gostosa.com.br/manda-pack-da/?type=mão"
-            className="card"
-          >
-            <h3>PAREI PAREI &rarr;</h3>
-            <p>
-              Parei o caralho manda ela vir.
+            <a href="https://github.com/ySnoopyDogy/MenheraBot" className="card">
+              <h3>Código Fonte</h3>
+              <p>
+                Clique aqui para ir diretamente para meu respositório no GitHub.
             </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a href="https://github.com/ySnoopyDogy/MenheraBot" target="_blank" rel="noopener noreferrer" >
-          Menhera foi feito com ❤️ por Luxanna
-        </a>
-      </footer>
+            </a>
+          </div>
+        </main>
 
       <style jsx>{`
         .container {
@@ -72,27 +56,16 @@ export default function Home() {
           justify-content: center;
           align-items: center;
         }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
+      
         .title {
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
+        }
+        .title img {
+          width: 100px;
+          height: 100px;
+          margin-right: 15px;
         }
         .title,
         .description {
@@ -107,7 +80,7 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           flex-wrap: wrap;
-          max-width: 800px;
+          max-width: 1000px;
           margin-top: 3rem;
         }
         .card {
@@ -115,30 +88,35 @@ export default function Home() {
           flex-basis: 45%;
           padding: 1.5rem;
           text-align: left;
+          background-size: cover;
+          width: 100%;
+          height: 100%;
           color: inherit;
           text-decoration: none;
           border: 1px solid #eaeaea;
           border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          transition: color 0.15s ease, border-color 0.15s ease, 0.15s;
         }
         .card:hover,
         .card:focus,
         .card:active {
           color: #9c5ddb;
           border-color: #9c5ddb;
+          transition: 0.15s;
+          width: 55%;
+          height: 55%; 
+          border-radius: 25px;
+          border: 3px solid;
         }
         .card h3 {
           margin: 0 0 1rem 0;
           font-size: 1.5rem;
+          text-align: center;
         }
         .card p {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
-        }
-        #mainLogo {
-          height: 1em;
-          padding-right: 20px;
         }
         @media (max-width: 600px) {
           .grid {
@@ -147,22 +125,7 @@ export default function Home() {
           }
         }
       `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          background: #0e0b16;
-          color: #FFFFFF;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
+    </Layout>
   )
 }
