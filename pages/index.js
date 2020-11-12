@@ -2,12 +2,12 @@ import Layout from '../components/default_layout'
 
 export default function Home() {
   return (
-    
-      <Layout>
+
+    <Layout>
       <div className="container">
         <main>
           <h1 className="title">
-          <img src="/icons/logo.png" alt="Logo" />
+            <img src="/icons/logo.png" alt="Logo" />
             Menhera Bot
         </h1>
           <p className="description">
@@ -16,22 +16,22 @@ export default function Home() {
 
           <div className="grid">
             <a href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot" className="card">
-              <h3><center><img src="/icons/please.gif" className="icon" width="64"/></center>Adicionar</h3>
+              <h3><center><img src="/icons/please.gif" className="icon" width="64" /></center>Adicionar</h3>
               <p>Clique aqui para adicionar a Menhera em um servidor.</p>
             </a>
 
             <a href="https://discord.gg/fZMdQbA" className="card">
-              <h3><center><img src="/icons/discord.png" className="icon" width="64"/></center>Servidor de Suporte</h3>
+              <h3><center><img src="/icons/discord.png" className="icon" width="64" /></center>Servidor de Suporte</h3>
               <p>Clique aqui para entrar no servidor de suporte da Menhera.</p>
             </a>
 
             <a href="https://top.gg/bot/708014856711962654/vote" className="card">
-              <h3><center><img src="/icons/topgg.png" className="icon" width="48"/></center>Vote em Mim</h3>
+              <h3><center><img src="/icons/topgg.png" className="icon" width="48" /></center>Vote em Mim</h3>
               <p>Clique aqui para votar em mim. Votos ajudam na divulgação.</p>
             </a>
 
             <a href="https://github.com/ySnoopyDogy/MenheraBot" className="card">
-              <h3><center><img src="/icons/github.svg" className="icon" width="64"/></center>Código Fonte</h3>
+              <h3><center><img src="/icons/github.svg" className="icon" width="64" /></center>Código Fonte</h3>
               <p>
                 Clique aqui para ir diretamente para meu respositório no GitHub.
             </p>
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </main>
 
-      <style jsx>{`
+        <style jsx>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -129,7 +129,7 @@ export default function Home() {
           }
         }
       `}</style>
-    </div>
+      </div>
     </Layout>
   )
 }

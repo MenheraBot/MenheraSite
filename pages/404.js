@@ -3,21 +3,21 @@ import Head from "next/head";
 export default function Custom404() {
     return (
         <div className="box">
-        <Head>
-        <title>404 - Página não encontrada</title>
-        <link rel="icon" href="/favicon/favicon.png" />
-        </Head>
-        <img src="/icons/404.png" />
-        <h1><span> 404 </span> - Página não encontrada<br />
-        <h3>
-        Eu não sei o que tu procuras, <br />
-        mas certamente não está aqui... 
+            <Head>
+                <title>404 - Página não encontrada</title>
+                <link rel="icon" href="/favicon/favicon.png" />
+            </Head>
+            <img src="/icons/404.png" />
+            <h1><span> 404 </span> - Página não encontrada<br />
+                <h3>
+                    Eu não sei o que tu procuras, <br />
+        mas certamente não está aqui...
         <p>
-        <a href="/"> Voltar para o início </a>
-        </p>
-        </h3>
-        </h1>
-        <style jsx>{`
+                        <a href="/"> Voltar para o início </a>
+                    </p>
+                </h3>
+            </h1>
+            <style jsx>{`
         
         .box {
             display: flex;
@@ -61,7 +61,7 @@ export default function Custom404() {
         }
 
         `}
-        </style>
+            </style>
         </div>
     )
 }

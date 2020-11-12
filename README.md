@@ -1,6 +1,6 @@
 # Menhera Site
 
-<img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="MenheraBot" src="https://i.imgur.com/jjgBki0.png"> 
+<img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="MenheraBot" src="https://i.imgur.com/jjgBki0.png">
 
 MenheraBot is an open source Discord bot made in JavaScript with [Discord.js](https://discord.js.org) by [Luxanna](https://github.com/ySnoopyDogy)
 And this is her [site](https://menhera-site.vercel.app/)! It was made with [Next.js](https://nextjs.org/)

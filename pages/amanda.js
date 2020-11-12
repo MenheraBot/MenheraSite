@@ -5,7 +5,7 @@ export default function Home() {
     <div className="container">
       <Layout>
         <main>
-        <a href="/" className="back"><span>Voltar ao Início</span></a>
+          <a href="/" className="back"><span>Voltar ao Início</span></a>
           <h1 className="title">
             Galeria da Amanda
         </h1>
