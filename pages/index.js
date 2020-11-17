@@ -1,17 +1,18 @@
 import Layout from '../components/default_layout'
 
 export default function Home() {
+  
   return (
-
     <Layout>
-
-
       <div className="container">
         <header>
           <div className="inner-header">
-            <a href="/classes">Classes</a>
+          <ul className="links">
+            <a href="#contribute"><li>Contribua</li></a>
+            <a href="/classes"><li>Classes</li></a>
+            </ul>
           </div>
-        </header>
+        </header> 
         <main>
           <h1 className="title">
             <img src="/icons/logo.png" alt="Logo" />
@@ -41,8 +42,99 @@ export default function Home() {
             </a>
           </div>
         </main>
+      </div>
 
-        <style jsx>{`
+      <script src="/buttom.js"></script>
+
+      <section id="contribute" className="contribute">
+        <div className="contribute-container">
+          <h1>Ajude a Menhera</h1>
+          <div className="contribute-text">
+            <p>Oi gente, meu nome é Lux, e eu sou a dona da Menhera. Pra quem não sabe, eu tenho 16 anos e pago a hospedagem da Menhera sozinha. Eu não trabalho kekw, então a Menhera é 100% por meu dinheiro, por isso, criei uma forma para quem puder e quiser ajudar meu trabalho, pode usar o PicPay para doar money 💸</p>
+          </div>
+          <ul className="donation">
+            <div className="li_buttom"><a href="https://picpay.me/ySnoopyDogy"><li>Link para doar</li></a></div>
+            <li><img src="./icons/QRCode.jpeg" /></li> 
+            
+            <script type="text/javascript" src="buttom.js"></script>
+            <div className="li_buttom"><li>Meu usuário do PicPay: <span className="user">@ySnoopyDogy</span></li></div>
+          </ul>
+        </div>
+      </section>
+     
+
+
+      <style jsx>{`
+ 
+        .contribute {
+          justify-content: center;
+          min-height: 100vh;
+        }
+
+        .user {
+          font-size: 1.7rem;
+          color: lightgreen;
+        }
+
+        .links li{
+          text-decoration: none;
+          display: table-cell;
+        }
+
+        .links {
+          text-decoration: none;
+        }
+
+        .donation {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .li_buttom a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .li_buttom {
+          border: 1px solid #eaeaea;
+          border-radius: 15px;
+          transition: color 0.15s ease, border-color 0.15s ease, 0.15s;
+        }
+
+        .li_buttom:hover,
+        .li_buttom:focus,
+        .li_buttom:active {
+          border-color: #9c5ddb;
+          border-radius: 15px;
+          padding: 5px;
+          transition: color 0.15s ease, border-color 0.15s ease, 0.15s;
+        }
+
+        .donation li{
+          text-decoration: none;
+          display: table-cell;
+          padding: 20px;
+          font-size: 1.3rem;
+        }
+
+        .contribute-container h1{
+          display: flex;
+          justify-content: center;
+        }
+
+        .contribute-text{
+          float: left;
+          font-size: 1.5rem;
+          margin-left: 15px;
+        }
+
+        .contribute-container {
+          margin-top: 20px;
+          justify-content: center;
+          font-size: 2rem;
+        }
+
         .container {
           min-height: 100vh;
           display: flex;
@@ -54,6 +146,7 @@ export default function Home() {
         header { 
           background-color: #222620;
           border-bottom: 1px solid #eaeaea;
+          font-decoration: none;
           display: flex;
           width: 100%;
           justify-content: flex-end;
@@ -69,7 +162,8 @@ export default function Home() {
           float: right;
           width: 100px;
           height: 45px;
-          margin-right: 50px;
+          margin-right: 20px;
+          margin-bottom: 20px;
           border: 1px solid pink;
           border-radius: 90px;
           background-color: inherit;
@@ -181,9 +275,18 @@ export default function Home() {
             height: 300px;
             float: none;
           }
+          .donation li{
+            flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          display: flex;
+        }
+        .donation img {
+          display: none;
+        }
         }
       `}</style>
-      </div>
     </Layout>
   )
 }

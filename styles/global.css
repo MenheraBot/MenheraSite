@@ -10,6 +10,15 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.contribute {
+  border-top: 1px solid #eaeaea;
+  width: 100%;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
