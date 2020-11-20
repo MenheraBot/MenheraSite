@@ -43,9 +43,6 @@ export default function Home() {
           </div>
         </main>
       </div>
-
-      <script src="/buttom.js"></script>
-
       <section id="contribute" className="contribute">
         <div className="contribute-container">
           <h1>Ajude a Menhera</h1>
@@ -55,8 +52,7 @@ export default function Home() {
           <ul className="donation">
             <div className="li_buttom"><a href="https://picpay.me/ySnoopyDogy"><li>Link para doar</li></a></div>
             <li><img src="./icons/QRCode.jpeg" /></li> 
-            
-            <script type="text/javascript" src="buttom.js"></script>
+            <div className="li_buttom"><a href='https://ko-fi.com/ysnoopydogy'><li>Compre-me um café</li></a></div>           
             <div className="li_buttom"><li>Meu usuário do PicPay: <span className="user">@ySnoopyDogy</span></li></div>
           </ul>
         </div>
@@ -100,6 +96,7 @@ export default function Home() {
           border: 1px solid #eaeaea;
           border-radius: 15px;
           transition: color 0.15s ease, border-color 0.15s ease, 0.15s;
+          margin-right: 5px;
         }
 
         .li_buttom:hover,
