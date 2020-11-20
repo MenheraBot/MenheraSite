@@ -1,7 +1,8 @@
 import Layout from '../components/default_layout'
+import Card from '../components/Card'
 
 export default function Home() {
-  
+
   return (
     <Layout>
       <div className="container">
@@ -12,7 +13,7 @@ export default function Home() {
             <a href="/classes"><li>Classes</li></a>
             </ul>
           </div>
-        </header> 
+        </header>
         <main>
           <h1 className="title">
             <img src="/icons/logo.png" alt="Logo" />
@@ -20,26 +21,35 @@ export default function Home() {
             </h1>
           <p className="description">Um bot brasileiro com foco em Diversão e RPG</p>
 
-          <div className="grid">
-            <a href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot" className="card">
-              <h3><center><img src="/icons/please.gif" className="icon" width="64" /></center>Adicionar</h3>
-              <p>Clique aqui para adicionar a Menhera em um servidor.</p>
-            </a>
-
-            <a href="https://discord.gg/fZMdQbA" className="card">
-              <h3><center><img src="/icons/discord.png" className="icon" width="64" /></center>Servidor de Suporte</h3>
-              <p>Clique aqui para entrar no servidor de suporte da Menhera.</p>
-            </a>
-
-            <a href="https://top.gg/bot/708014856711962654/vote" className="card">
-              <h3><center><img src="/icons/topgg.png" className="icon" width="48" /></center>Vote em Mim</h3>
-              <p>Clique aqui para votar em mim. Votos ajudam na divulgação.</p>
-            </a>
-
-            <a href="https://github.com/ySnoopyDogy/MenheraBot" className="card">
-              <h3><center><img src="/icons/github.svg" className="icon" width="64" /></center>Código Fonte</h3>
-              <p>Clique aqui para ir diretamente para meu respositório no GitHub.</p>
-            </a>
+          <div className="cards">
+            <Card
+              redirect="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot"
+              iconPath="/icons/please.gif"
+              iconWidth="64"
+              title="Adicionar"
+              description="Clique aqui para adicionar a Menhera em um servidor."
+              />
+            <Card
+              redirect="https://discord.gg/fZMdQbA"
+              iconPath="/icons/discord.png"
+              iconWidth="64"
+              title="Servidor de Suporte"
+              description="Clique aqui para entrar no servidor de suporte da Menhera."
+              />
+            <Card
+              redirect="https://top.gg/bot/708014856711962654/vote"
+              iconPath="/icons/topgg.png"
+              iconWidth="48"
+              title="Vote em Mim"
+              description="Clique aqui para votar em mim. Votos ajudam na divulgação."
+              />
+            <Card
+              redirect="https://github.com/ySnoopyDogy/MenheraBot"
+              iconPath="/icons/github.svg"
+              iconWidth="64"
+              title="Código Fonte"
+              description="Clique aqui para ir diretamente para meu respositório no GitHub"
+              />
           </div>
         </main>
       </div>
@@ -51,17 +61,17 @@ export default function Home() {
           </div>
           <ul className="donation">
             <div className="li_buttom"><a href="https://picpay.me/ySnoopyDogy"><li>Link para doar</li></a></div>
-            <li><img src="./icons/QRCode.jpeg" /></li> 
-            <div className="li_buttom"><a href='https://ko-fi.com/ysnoopydogy'><li>Compre-me um café</li></a></div>           
+            <li><img src="./icons/QRCode.jpeg" /></li>
+            <div className="li_buttom"><a href='https://ko-fi.com/ysnoopydogy'><li>Compre-me um café</li></a></div>
             <div className="li_buttom"><li>Meu usuário do PicPay: <span className="user">@ySnoopyDogy</span></li></div>
           </ul>
         </div>
       </section>
-     
+
 
 
       <style jsx>{`
- 
+
         .contribute {
           justify-content: center;
           min-height: 100vh;
@@ -140,7 +150,7 @@ export default function Home() {
           align-items: center;
         }
 
-        header { 
+        header {
           background-color: #222620;
           border-bottom: 1px solid #eaeaea;
           font-decoration: none;
@@ -180,7 +190,7 @@ export default function Home() {
           justify-content: center;
           align-items: center;
         }
-      
+
         .title {
           margin: 0;
           line-height: 1.15;
@@ -205,61 +215,19 @@ export default function Home() {
           font-size: 1.5rem;
         }
 
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .cards {
+          display: grid;
+          margin-top: 48px;
+          grid-template-columns: 2fr 2fr;
+          align-items: space-between;
           flex-wrap: wrap;
-          max-width: 1000px;
-          margin-top: 3rem;
-        }
-
-        .icon {
-          position: flex;
-          justify-content: left;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          background-size: cover;
-          width: 100%;
-          height: 100%;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease, 0.15s;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #9c5ddb;
-          border-color: #9c5ddb;
-          transition: 0.15s;
-          border-radius: 25px;
-          border: 3px solid;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-          text-align: center;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
+          max-width: 10kuem;
         }
 
         @media (max-width: 600px) {
-          .grid {
+          .cards {
             width: 100%;
-            flex-direction: column;
+            grid-template-columns: 1fr;
           }
           .title {
             font-size: 3rem;
