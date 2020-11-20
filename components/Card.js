@@ -46,12 +46,6 @@ function Card({ redirect, iconPath, iconWidth, title, description }) {
         font-size: 1.25rem;
         line-height: 1.5;
       }
-
-      @media (max-width: 600px) {
-        .card {
-          width: 380px;
-        }
-      }
 `}</style>
     </a>
   )

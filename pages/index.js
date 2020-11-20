@@ -224,11 +224,14 @@ export default function Home() {
           max-width: 10kuem;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 1000px) {
           .cards {
             width: 100%;
             grid-template-columns: 1fr;
           }
+        }
+
+        @media (max-width: 600px) {
           .title {
             font-size: 3rem;
           }
