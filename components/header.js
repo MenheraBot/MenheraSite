@@ -1,8 +1,7 @@
-import style from '../styles/header.module.css';
+import style from '../styles/components/header.module.css';
 
 export default function Header() {
   return (
-    <div>
       <header className={style.header}>
         <a href="/" id={style.home}><img src="assets/logo.png" /></a>
         <nav>
@@ -14,6 +13,5 @@ export default function Header() {
         </nav>
         <a href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot"><button>Adicionar</button></a>
       </header>
-    </div>
   )
 }

@@ -1,4 +1,4 @@
-import style from "../styles/error.module.css";
+import style from "../styles/pages/error.module.css";
 import Head from '../components/head'
 
 export default function Custom404() {
