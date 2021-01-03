@@ -1,5 +1,5 @@
 import style from "../styles/error.module.css";
-import Head from '../components/default_layout'
+import Head from '../components/head'
 
 export default function Custom404() {
   return (
