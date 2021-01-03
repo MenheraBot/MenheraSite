@@ -23,7 +23,7 @@
 
 .header button {
   padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
+  background-color: #9c5ddb;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -31,7 +31,7 @@
 }
 
 .header button:hover {
-  background-color: rgba(0, 136, 169, 0.8);
+  background-color: #7642ad;
 }
 
 .links {
@@ -48,7 +48,7 @@
 }
 
 .links li a:hover {
-  color: #0088a9;
+  color: #9c5ddb;
 }
 
 @media (max-width: 600px) {
