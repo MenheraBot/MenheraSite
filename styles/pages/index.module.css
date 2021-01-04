@@ -88,6 +88,7 @@
   .menhera_text button {
     font-size: 15px;
     margin-left: 30%;
+    width: max-content;
   }
   .menhera_text h1 {
     width: 520px;
