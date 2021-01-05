@@ -11,9 +11,6 @@ export default function Layout(props) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://menhera-site.vercel.app/" />
         <meta property="og:image" content="https://menhera-site.vercel.app/assets/favicon.png" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="800" />
-        <meta property="og:image:height" content="600" />
         <meta property="og:description" content="O site oficial da Menhera Bot!" />
         <meta name="theme-color" content="#7835e6" />
         <meta charSet="utf-8" />
