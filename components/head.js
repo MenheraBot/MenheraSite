@@ -7,6 +7,7 @@ export default function Layout(props) {
         <title>{props.title}</title>
         <link rel="icon" href={props.favicon} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta property="og:title" content="Menhera's Site" key="title" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://menhera-site.vercel.app/" />
