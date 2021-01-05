@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/ySnoopyDogy/MenheraSite#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "next": "^10.0.4",
     "react": "^17.0.1",

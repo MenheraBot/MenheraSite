@@ -1,9 +1,4 @@
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: `http://${process.env.API_IP}/api/site`,
-})
-
+import commands from '../database/commands.json'
 export async function getCommands() {
-  return api.get('/commands').then(res => res.data);
+  return commands;
 }
