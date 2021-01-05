@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  padding-left: 8%;
+}
+
+.boxActive {
+  background-color: rgb(63, 63, 63);
+  background-color: #9c5ddb;
+  flex-direction: row;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  list-style: none;
+  margin: 20px;
+  cursor: pointer;
+  border: 1px solid #9c5ddb;
+  border-radius: 10px;
+}
+
+.box {
+  background-color: rgb(63, 63, 63);
+  flex-direction: row;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  list-style: none;
+  margin: 20px;
+  cursor: pointer;
+  border: 1px solid #9c5ddb;
+  border-radius: 10px;
+}
+
+.top button {
+  width: 120px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.top button:focus {
+  outline: 0;
+}
+
+.box:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom table {
+  border-collapse: collapse;
+  width: 800px;
+  box-shadow: 3px 3px 5px 2px #333;
+}
+
+.bottom tbody {
+  background-color: #333;
+}
+
+.bottom thead {
+  background-color: #9c5ddb56;
+  color: #dee7e7;
+}
+
+.bottom tr:nth-of-type(even) {
+  background-color: rgb(82, 82, 82);
+}
+
+.bottom tr:last-of-type {
+  border-bottom: 2px solid #212529;
+}
+
+.bottom tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.bottom td,
+.bottom th {
+  padding: 12px 15px;
+}
+
+@media (max-width: 800px) {
+  .bottom table {
+    width: 100%;
+  }
+}

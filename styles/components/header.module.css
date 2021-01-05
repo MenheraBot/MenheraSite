@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #9c5ddb
+  border-bottom: 1px solid #9c5ddb;
 }
 
 .header li,
@@ -14,7 +14,6 @@
 .header button {
   font-weight: 500;
   font-size: 16px;
-  color: #edf0f1;
   text-decoration: none;
 }
 
@@ -50,6 +49,12 @@
 
 .links li a:hover {
   color: #9c5ddb;
+  text-decoration: underline;
+}
+
+.currentPageTitle a {
+  color: #9c5ddb;
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
