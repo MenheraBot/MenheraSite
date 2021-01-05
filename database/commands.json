@@ -61,7 +61,7 @@
   },
   {
     "name": "resurrect",
-    "description": "resurrect.description",
+    "description": "Ressuscita alguém do mundo dos mortos",
     "category": "ações"
   },
   {
