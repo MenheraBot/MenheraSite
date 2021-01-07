@@ -7,8 +7,8 @@ export default function Header({ currentPage }) {
       <nav>
         <ul className={style.links}>
           <li className={currentPage === 'commands' ? style.currentPageTitle : ''}><a href="/comandos">Comandos</a></li>
-          <li className={currentPage === 'boleham' ? style.currentPageTitle : ''}><a href="/boleham">Roleplay</a></li>
-          <li className={currentPage === 'status' ? style.currentPageTitle : ''}><a href="/status">Status</a></li>
+          {/*  <li className={currentPage === 'boleham' ? style.currentPageTitle : ''}><a href="/boleham">Roleplay</a></li>
+          <li className={currentPage === 'status' ? style.currentPageTitle : ''}><a href="/status">Status</a></li> */}
         </ul>
       </nav>
       <a href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot"><button>Adicionar</button></a>
