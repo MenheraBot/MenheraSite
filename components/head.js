@@ -15,18 +15,6 @@ export default function Layout(props) {
         <meta name="theme-color" content="#7835e6" />
         <meta charSet="utf-8" />
         <script data-ad-client="ca-pub-5336943098419409" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" ></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKJ8H7FR52"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HKJ8H7FR52');
-          `,
-          }}
-        />
       </Head>
     </div>
   )
