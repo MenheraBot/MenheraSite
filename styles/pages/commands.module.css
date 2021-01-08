@@ -65,6 +65,7 @@
   border-collapse: collapse;
   width: 800px;
   box-shadow: 3px 3px 5px 2px #333;
+  margin-bottom: 100px;
 }
 
 .bottom tbody {

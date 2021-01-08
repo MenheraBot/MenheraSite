@@ -57,12 +57,42 @@
   text-decoration: underline;
 }
 
+.emoji {
+  width: 50px;
+}
+
+#lbtn {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+}
+
 @media (max-width: 600px) {
-  .header img,
   #home {
     display: none;
   }
   .links li a {
     text-decoration: underline;
+  }
+  .emoji {
+    width: 50px;
+    display: flex;
+  }
+}
+
+@media (max-width: 300px) {
+  #home {
+    display: none;
+  }
+  .links li a {
+    text-decoration: underline;
+  }
+  .emoji {
+    width: 50px;
+    display: flex;
+  }
+  #add {
+    display: none;
   }
 }

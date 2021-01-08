@@ -1,402 +1,736 @@
-[
-  {
-    "name": "bicuda",
-    "description": "Da uma bicuda em alguem",
-    "category": "ações"
-  },
-  {
-    "name": "cry",
-    "description": "Mostre a todos que você está chorando, vai que assim tu ganha atenção",
-    "category": "ações"
-  },
-  {
-    "name": "bite",
-    "description": "Morde alguem X3 Moidi :3",
-    "category": "ações"
-  },
-  {
-    "name": "disgusted",
-    "description": "Eca que nojo",
-    "category": "ações"
-  },
-  {
-    "name": "fear",
-    "description": "ESTÁS COM MEDO?????",
-    "category": "ações"
-  },
-  {
-    "name": "hug",
-    "description": "Abraça alguém",
-    "category": "ações"
-  },
-  {
-    "name": "grumble",
-    "description": "Resmungue humpf",
-    "category": "ações"
-  },
-  {
-    "name": "kill",
-    "description": "Mate aquele que você não suporta mais",
-    "category": "ações"
-  },
-  {
-    "name": "laugh",
-    "description": "Mostre a todos que estás rindo",
-    "category": "ações"
-  },
-  {
-    "name": "mamar",
-    "description": "Da aquela mamada de qualidade monstra",
-    "category": "ações"
-  },
-  {
-    "name": "kiss",
-    "description": "Beija aquela pessoa amada",
-    "category": "ações"
-  },
-  {
-    "name": "pat",
-    "description": "Faça carinho em alguem",
-    "category": "ações"
-  },
-  {
-    "name": "resurrect",
-    "description": "Ressuscita alguém do mundo dos mortos",
-    "category": "ações"
-  },
-  {
-    "name": "poke",
-    "description": "Cutuque alguem",
-    "category": "ações"
-  },
-  {
-    "name": "shot",
-    "description": "Atire em alguém",
-    "category": "ações"
-  },
-  {
-    "name": "shy",
-    "description": "oto com vergonha",
-    "category": "ações"
-  },
-  {
-    "name": "punch",
-    "description": "Soca alguem na porrada",
-    "category": "ações"
-  },
-  {
-    "name": "sarrar",
-    "description": "Sarra comigo?",
-    "category": "ações"
-  },
-  {
-    "name": "think",
-    "description": "Gabriel o pensador apenas",
-    "category": "ações"
-  },
-  {
-    "name": "slap",
-    "description": "Tapeia alguem",
-    "category": "ações"
-  },
-  {
-    "name": "blacklist",
-    "description": "blacklist.description",
-    "category": "Dev"
-  },
-  {
-    "name": "eval",
-    "description": "eval.description",
-    "category": "Dev"
-  },
-  {
-    "name": "gb",
-    "description": "gb.description",
-    "category": "Dev"
-  },
-  {
-    "name": "reload",
-    "description": "reload.description",
-    "category": "Dev"
-  },
-  {
-    "name": "maintenance",
-    "description": "maintenance.description",
-    "category": "Dev"
-  },
-  {
-    "name": "test",
-    "description": "test.description",
-    "category": "Dev"
-  },
-  {
-    "name": "managestar",
-    "description": "managestar.description",
-    "category": "Dev"
-  },
-  {
-    "name": "coinflip",
-    "description": "Aposte estrelinhas num cara ou coroa com alguem",
-    "category": "economia"
-  },
-  {
-    "name": "shop",
-    "description": "Acesse o brechó da Menhera",
-    "category": "economia"
-  },
-  {
-    "name": "give",
-    "description": "Transfira algo de seu inventário para alguém",
-    "category": "economia"
-  },
-  {
-    "name": "slotmachine",
-    "description": "Aposte no Caça-Níquel da Menhera",
-    "category": "economia"
-  },
-  {
-    "name": "wallet",
-    "description": "Veja a carteira de alguém",
-    "category": "economia"
-  },
-  {
-    "name": "8ball",
-    "description": "Pergunte algo para mim",
-    "category": "diversão"
-  },
-  {
-    "name": "divorce",
-    "description": "Não quer mais ficar casado com aquele corno? Divorcie com este comando",
-    "category": "diversão"
-  },
-  {
-    "name": "humor",
-    "description": "Mande quando alguem fizer aquela piadoca do joca",
-    "category": "diversão"
-  },
-  {
-    "name": "fodase",
-    "description": "Alguem mandou algo que ninguem perguntou? Taque o fodase",
-    "category": "diversão"
-  },
-  {
-    "name": "marry",
-    "description": "Casa com o amor de sua vida",
-    "category": "diversão"
-  },
-  {
-    "name": "hunt",
-    "description": "Caçe demônios como XANDÃO",
-    "category": "diversão"
-  },
-  {
-    "name": "ship",
-    "description": "Será que vocês dariam um bom casal?",
-    "category": "diversão"
-  },
-  {
-    "name": "sucumba",
-    "description": "SUCUMBA MUCALOL",
-    "category": "diversão"
-  },
-  {
-    "name": "tilt",
-    "description": "Alguém ta tiltado? Manda isso pra ela",
-    "category": "diversão"
-  },
-  {
-    "name": "xandão",
-    "description": "SEM PRESSÃO",
-    "category": "diversão"
-  },
-  {
-    "name": "avatar",
-    "description": "Mostra o avatar de alguem",
-    "category": "info"
-  },
-  {
-    "name": "color",
-    "description": "Mude a cor de seu perfil",
-    "category": "info"
-  },
-  {
-    "name": "coinflipstats",
-    "description": "Mostre seus dados de jogos de coinflip",
-    "category": "info"
-  },
-  {
-    "name": "profile",
-    "description": "Veja o seu perfil, ou o de alguem",
-    "category": "info"
-  },
-  {
-    "name": "top",
-    "description": "Veja o top de meus usuários",
-    "category": "info"
-  },
-  {
-    "name": "updates",
-    "description": "Veja as minhas últimas atualzações",
-    "category": "info"
-  },
-  {
-    "name": "blockchannel",
-    "description": "Bloqueie ou Desbloqueie o canal atual de usar meus comandos",
-    "category": "moderação"
-  },
-  {
-    "name": "prefix",
-    "description": "Troque meu prefixo neste servidor",
-    "category": "moderação"
-  },
-  {
-    "name": "unwarn",
-    "description": "Retire um aviso de um usuário",
-    "category": "moderação"
-  },
-  {
-    "name": "language",
-    "description": "Troque a língua com que eu falo neste servidor",
-    "category": "moderação"
-  },
-  {
-    "name": "warn",
-    "description": "Avise um usuário",
-    "category": "moderação"
-  },
-  {
-    "name": "warnlist",
-    "description": "Veja quantos warns uma pessoa tem",
-    "category": "moderação"
-  },
-  {
-    "name": "boss",
-    "description": "Luta contra um BOSS",
-    "category": "rpg"
-  },
-  {
-    "name": "deposite",
-    "description": "Deposita uma certa quantia no banco da Família",
-    "category": "rpg"
-  },
-  {
-    "name": "infohabilidade",
-    "description": "Mostra as habilidades de uma determinada classe",
-    "category": "rpg"
-  },
-  {
-    "name": "dungeon",
-    "description": "Vá para uma aventura na dungeon",
-    "category": "rpg"
-  },
-  {
-    "name": "infofamilia",
-    "description": "Veja as informações de uma família",
-    "category": "rpg"
-  },
-  {
-    "name": "família",
-    "description": "Registra-se em uma família",
-    "category": "rpg"
-  },
-  {
-    "name": "inventory",
-    "description": "Veja seu inventário",
-    "category": "rpg"
-  },
-  {
-    "name": "reset",
-    "description": "Reseta seu perfil do RPG",
-    "category": "rpg"
-  },
-  {
-    "name": "register",
-    "description": "Registre-se um aventureiro",
-    "category": "rpg"
-  },
-  {
-    "name": "status",
-    "description": "Veja os status de alguém",
-    "category": "rpg"
-  },
-  {
-    "name": "use",
-    "description": "Use um item de seu inventário",
-    "category": "rpg"
-  },
-  {
-    "name": "village",
-    "description": "Vá para a vila de Boleham",
-    "category": "rpg"
-  },
-  {
-    "name": "aboutme",
-    "description": "Mude seu Sobre Mim",
-    "category": "util"
-  },
-  {
-    "name": "afk",
-    "description": "Se coloque em AFK",
-    "category": "util"
-  },
-  {
-    "name": "botinfo",
-    "description": "Mostra as informações atuais do bot",
-    "category": "util"
-  },
-  {
-    "name": "delete",
-    "description": "Exclua seu perfil do banco de dados",
-    "category": "util"
-  },
-  {
-    "name": "invite",
-    "description": "Adicione o bot em algum servidor",
-    "category": "util"
-  },
-  {
-    "name": "ping",
-    "description": "Mostra o ping do bot e de sua API",
-    "category": "util"
-  },
-  {
-    "name": "help",
-    "description": "Mostra a pagina de ajuda do bot",
-    "category": "util"
-  },
-  {
-    "name": "remember",
-    "description": "Cria um lembrete que avisará no momento dado",
-    "category": "util"
-  },
-  {
-    "name": "report",
-    "description": "Reporta um bug para minha dona",
-    "category": "util"
-  },
-  {
-    "name": "say",
-    "description": "Faça-me dizer algo",
-    "category": "util"
-  },
-  {
-    "name": "vote",
-    "description": "Vote no bot (pfv vote, isso ajuda muito X3 >.<)",
-    "category": "util"
-  },
-  {
-    "name": "support",
-    "description": "Link de convite para o servidor de suporte do Bot",
-    "category": "util"
-  },
-  {
-    "name": "roll",
-    "description": "Use um DR para resetar seu tempo de caçadas",
-    "category": "util"
-  },
-  {
-    "name": "suggest",
-    "description": "Sugira algo para a dona do bot",
-    "category": "util"
-  }
-]
+{
+  "pt": [
+    {
+      "name": "bicuda",
+      "description": "Da uma bicuda em alguem",
+      "category": "ações"
+    },
+    {
+      "name": "chorar",
+      "description": "Mostre a todos que você está chorando, vai que assim tu ganha atenção",
+      "category": "ações"
+    },
+    {
+      "name": "morder",
+      "description": "Morde alguem X3 Moidi :3",
+      "category": "ações"
+    },
+    {
+      "name": "nojo",
+      "description": "Eca que nojo",
+      "category": "ações"
+    },
+    {
+      "name": "medo",
+      "description": "ESTÁS COM MEDO?????",
+      "category": "ações"
+    },
+    {
+      "name": "abraçar",
+      "description": "Abraça alguém",
+      "category": "ações"
+    },
+    {
+      "name": "humpf",
+      "description": "Resmungue humpf",
+      "category": "ações"
+    },
+    {
+      "name": "matar",
+      "description": "Mate aquele que você não suporta mais",
+      "category": "ações"
+    },
+    {
+      "name": "rir",
+      "description": "Mostre a todos que estás rindo",
+      "category": "ações"
+    },
+    {
+      "name": "mamar",
+      "description": "Da aquela mamada de qualidade monstra",
+      "category": "ações"
+    },
+    {
+      "name": "beijar",
+      "description": "Beija aquela pessoa amada",
+      "category": "ações"
+    },
+    {
+      "name": "carinho",
+      "description": "Faça carinho em alguem",
+      "category": "ações"
+    },
+    {
+      "name": "ressuscitar",
+      "description": "Ressuscita alguém do mundo dos mortos",
+      "category": "ações"
+    },
+    {
+      "name": "cutucar",
+      "description": "Cutuque alguem",
+      "category": "ações"
+    },
+    {
+      "name": "atirar",
+      "description": "Atire em alguém",
+      "category": "ações"
+    },
+    {
+      "name": "vergonha",
+      "description": "oto com vergonha",
+      "category": "ações"
+    },
+    {
+      "name": "socar",
+      "description": "Soca alguem na porrada",
+      "category": "ações"
+    },
+    {
+      "name": "sarrar",
+      "description": "Sarra comigo?",
+      "category": "ações"
+    },
+    {
+      "name": "pensar",
+      "description": "Gabriel o pensador apenas",
+      "category": "ações"
+    },
+    {
+      "name": "tapa",
+      "description": "Tapeia alguem",
+      "category": "ações"
+    },
+    {
+      "name": "coinflip",
+      "description": "Aposte estrelinhas num cara ou coroa com alguem",
+      "category": "economia"
+    },
+    {
+      "name": "loja",
+      "description": "Acesse o brechó da Menhera",
+      "category": "economia"
+    },
+    {
+      "name": "pagar",
+      "description": "Transfira algo de seu inventário para alguém",
+      "category": "economia"
+    },
+    {
+      "name": "caçaniquel",
+      "description": "Aposte no Caça-Níquel da Menhera",
+      "category": "economia"
+    },
+    {
+      "name": "carteira",
+      "description": "Veja a carteira de alguém",
+      "category": "economia"
+    },
+    {
+      "name": "8ball",
+      "description": "Pergunte algo para mim",
+      "category": "diversão"
+    },
+    {
+      "name": "divorciar",
+      "description": "Não quer mais ficar casado com aquele corno? Divorcie com este comando",
+      "category": "diversão"
+    },
+    {
+      "name": "humor",
+      "description": "Mande quando alguem fizer aquela piadoca do joca",
+      "category": "diversão"
+    },
+    {
+      "name": "fodase",
+      "description": "Alguem mandou algo que ninguem perguntou? Taque o fodase",
+      "category": "diversão"
+    },
+    {
+      "name": "casar",
+      "description": "Casa com o amor de sua vida",
+      "category": "diversão"
+    },
+    {
+      "name": "caçar",
+      "description": "Caçe demônios como XANDÃO",
+      "category": "diversão"
+    },
+    {
+      "name": "ship",
+      "description": "Será que vocês dariam um bom casal?",
+      "category": "diversão"
+    },
+    {
+      "name": "sucumba",
+      "description": "SUCUMBA MUCALOL",
+      "category": "diversão"
+    },
+    {
+      "name": "tiltas",
+      "description": "Alguém ta tiltado? Manda isso pra ela",
+      "category": "diversão"
+    },
+    {
+      "name": "xandão",
+      "description": "SEM PRESSÃO",
+      "category": "diversão"
+    },
+    {
+      "name": "avatar",
+      "description": "Mostra o avatar de alguem",
+      "category": "info"
+    },
+    {
+      "name": "cor",
+      "description": "Mude a cor de seu perfil",
+      "category": "info"
+    },
+    {
+      "name": "coinflipstats",
+      "description": "Mostre seus dados de jogos de coinflip",
+      "category": "info"
+    },
+    {
+      "name": "perfil",
+      "description": "Veja o seu perfil, ou o de alguem",
+      "category": "info"
+    },
+    {
+      "name": "top",
+      "description": "Veja o top de meus usuários",
+      "category": "info"
+    },
+    {
+      "name": "updates",
+      "description": "Veja as minhas últimas atualzações",
+      "category": "info"
+    },
+    {
+      "name": "bloquear",
+      "description": "Bloqueie ou Desbloqueie o canal atual de usar meus comandos",
+      "category": "moderação"
+    },
+    {
+      "name": "prefxo",
+      "description": "Troque meu prefixo neste servidor",
+      "category": "moderação"
+    },
+    {
+      "name": "desavisar",
+      "description": "Retire um aviso de um usuário",
+      "category": "moderação"
+    },
+    {
+      "name": "linguagem",
+      "description": "Troque a língua com que eu falo neste servidor",
+      "category": "moderação"
+    },
+    {
+      "name": "avise",
+      "description": "Avise um usuário",
+      "category": "moderação"
+    },
+    {
+      "name": "avisos",
+      "description": "Veja quantos warns uma pessoa tem",
+      "category": "moderação"
+    },
+    {
+      "name": "boss",
+      "description": "Luta contra um BOSS",
+      "category": "rpg"
+    },
+    {
+      "name": "depositar",
+      "description": "Deposita uma certa quantia no banco da Família",
+      "category": "rpg"
+    },
+    {
+      "name": "infohabilidade",
+      "description": "Mostra as habilidades de uma determinada classe",
+      "category": "rpg"
+    },
+    {
+      "name": "dungeon",
+      "description": "Vá para uma aventura na dungeon",
+      "category": "rpg"
+    },
+    {
+      "name": "infofamilia",
+      "description": "Veja as informações de uma família",
+      "category": "rpg"
+    },
+    {
+      "name": "família",
+      "description": "Registra-se em uma família",
+      "category": "rpg"
+    },
+    {
+      "name": "inventário",
+      "description": "Veja seu inventário",
+      "category": "rpg"
+    },
+    {
+      "name": "resetar",
+      "description": "Reseta seu perfil do RPG",
+      "category": "rpg"
+    },
+    {
+      "name": "registrar",
+      "description": "Registre-se um aventureiro",
+      "category": "rpg"
+    },
+    {
+      "name": "status",
+      "description": "Veja os status de alguém",
+      "category": "rpg"
+    },
+    {
+      "name": "usar",
+      "description": "Use um item de seu inventário",
+      "category": "rpg"
+    },
+    {
+      "name": "vila",
+      "description": "Vá para a vila de Boleham",
+      "category": "rpg"
+    },
+    {
+      "name": "sobremim",
+      "description": "Mude seu Sobre Mim",
+      "category": "util"
+    },
+    {
+      "name": "afk",
+      "description": "Se coloque em AFK",
+      "category": "util"
+    },
+    {
+      "name": "menhera",
+      "description": "Mostra as informações atuais do bot",
+      "category": "util"
+    },
+    {
+      "name": "deletar",
+      "description": "Exclua seu perfil do banco de dados",
+      "category": "util"
+    },
+    {
+      "name": "adicionar",
+      "description": "Adicione o bot em algum servidor",
+      "category": "util"
+    },
+    {
+      "name": "ping",
+      "description": "Mostra o ping do bot e de sua API",
+      "category": "util"
+    },
+    {
+      "name": "ajuda",
+      "description": "Mostra a pagina de ajuda do bot",
+      "category": "util"
+    },
+    {
+      "name": "lembrete",
+      "description": "Cria um lembrete que avisará no momento dado",
+      "category": "util"
+    },
+    {
+      "name": "bug",
+      "description": "Reporta um bug para minha dona",
+      "category": "util"
+    },
+    {
+      "name": "say",
+      "description": "Faça-me dizer algo",
+      "category": "util"
+    },
+    {
+      "name": "votar",
+      "description": "Vote no bot (pfv vote, isso ajuda muito X3 >.<)",
+      "category": "util"
+    },
+    {
+      "name": "suporte",
+      "description": "Link de convite para o servidor de suporte do Bot",
+      "category": "util"
+    },
+    {
+      "name": "roll",
+      "description": "Use um DR para resetar seu tempo de caçadas",
+      "category": "util"
+    },
+    {
+      "name": "sugerir",
+      "description": "Sugira algo para a dona do bot",
+      "category": "util"
+    }
+  ],
+  "en": [
+    {
+      "name": "bicuda",
+      "description": "Kick someones butt",
+      "category": "ações"
+    },
+    {
+      "name": "cry",
+      "description": "Show everyone that you're crying, so that you get attention",
+      "category": "ações"
+    },
+    {
+      "name": "bite",
+      "description": "Bite someone :3",
+      "category": "ações"
+    },
+    {
+      "name": "disgusted",
+      "description": "Eeeeewwww disgusting",
+      "category": "ações"
+    },
+    {
+      "name": "fear",
+      "description": "ARE YOU AFRAID?",
+      "category": "ações"
+    },
+    {
+      "name": "hug",
+      "description": "Hug someone",
+      "category": "ações"
+    },
+    {
+      "name": "grumble",
+      "description": "Grumble humpf",
+      "category": "ações"
+    },
+    {
+      "name": "kill",
+      "description": "Kill the one you can't stand anymore",
+      "category": "ações"
+    },
+    {
+      "name": "laugh",
+      "description": "Show everyone that you're laughing",
+      "category": "ações"
+    },
+    {
+      "name": "suck",
+      "description": "Give that monster quality suck",
+      "category": "ações"
+    },
+    {
+      "name": "kiss",
+      "description": "Kiss that loved one",
+      "category": "ações"
+    },
+    {
+      "name": "pat",
+      "description": "Pat someone's head",
+      "category": "ações"
+    },
+    {
+      "name": "resurrect",
+      "description": "Resurrect someone from the kingdom of the dead",
+      "category": "ações"
+    },
+    {
+      "name": "poke",
+      "description": "Poke someone",
+      "category": "ações"
+    },
+    {
+      "name": "shot",
+      "description": "Shot someone",
+      "category": "ações"
+    },
+    {
+      "name": "shy",
+      "description": "imin shame",
+      "category": "ações"
+    },
+    {
+      "name": "punch",
+      "description": "Punch someone in the ass",
+      "category": "ações"
+    },
+    {
+      "name": "dance",
+      "description": "Dance with me?",
+      "category": "ações"
+    },
+    {
+      "name": "think",
+      "description": "Thinking",
+      "category": "ações"
+    },
+    {
+      "name": "slap",
+      "description": "Slap someone",
+      "category": "ações"
+    },
+    {
+      "name": "coinflip",
+      "description": "Bet stars on a coin toss with someone",
+      "category": "economia"
+    },
+    {
+      "name": "shop",
+      "description": "Access the Menhera's thrift store",
+      "category": "economia"
+    },
+    {
+      "name": "give",
+      "description": "Transfer something from your inventory to someone",
+      "category": "economia"
+    },
+    {
+      "name": "slotmachine",
+      "description": "Bet on Menhera's Slot Machine",
+      "category": "economia"
+    },
+    {
+      "name": "wallet",
+      "description": "See someone's wallet",
+      "category": "economia"
+    },
+    {
+      "name": "8ball",
+      "description": "Ask me something",
+      "category": "diversão"
+    },
+    {
+      "name": "divorce",
+      "description": "Don't you want to be married to that horn anymore? Divorce with this command",
+      "category": "diversão"
+    },
+    {
+      "name": "humor",
+      "description": "Send it when someone makes that joke joke",
+      "category": "diversão"
+    },
+    {
+      "name": "fuck",
+      "description": "Did someone send something that nobody asked? Send the fuck",
+      "category": "diversão"
+    },
+    {
+      "name": "marry",
+      "description": "Marry with the love of your life",
+      "category": "diversão"
+    },
+    {
+      "name": "hunt",
+      "description": "Hunt demons like XANDÃO (A brazilian meme)",
+      "category": "diversão"
+    },
+    {
+      "name": "ship",
+      "description": "Would you make a good couple?",
+      "category": "diversão"
+    },
+    {
+      "name": "succumb",
+      "description": "SUCCUMB MUCALOL (A brazilian meme)",
+      "category": "diversão"
+    },
+    {
+      "name": "tilt",
+      "description": "Is someone tilted? Send this to them (A brazilian meme)",
+      "category": "diversão"
+    },
+    {
+      "name": "xandão",
+      "description": "NO PRESSURE (A brazilian meme)",
+      "category": "diversão"
+    },
+    {
+      "name": "avatar",
+      "description": "Shows someone's avatar",
+      "category": "info"
+    },
+    {
+      "name": "color",
+      "description": "Change your profile color",
+      "category": "info"
+    },
+    {
+      "name": "coinflipstats",
+      "description": "Show your coinflip game data",
+      "category": "info"
+    },
+    {
+      "name": "profile",
+      "description": "Show someone's profile",
+      "category": "info"
+    },
+    {
+      "name": "top",
+      "description": "See the top of my users",
+      "category": "info"
+    },
+    {
+      "name": "updates",
+      "description": "See my latest updates",
+      "category": "info"
+    },
+    {
+      "name": "blockchannel",
+      "description": "Lock or Unlock the current channel from using my commands",
+      "category": "moderação"
+    },
+    {
+      "name": "prefix",
+      "description": "Change my prefix on this server",
+      "category": "moderação"
+    },
+    {
+      "name": "unwarn",
+      "description": "Remove a warning from a user",
+      "category": "moderação"
+    },
+    {
+      "name": "language",
+      "description": "Change the language I speak on this server",
+      "category": "moderação"
+    },
+    {
+      "name": "warn",
+      "description": "Warn a user",
+      "category": "moderação"
+    },
+    {
+      "name": "warnlist",
+      "description": "See how many warns a person has",
+      "category": "moderação"
+    },
+    {
+      "name": "boss",
+      "description": "Figth against a BOSS",
+      "category": "rpg"
+    },
+    {
+      "name": "deposite",
+      "description": "Deposits a certain amount in the Family bank",
+      "category": "rpg"
+    },
+    {
+      "name": "abilityinfo",
+      "description": "Shows the skills of a particular class",
+      "category": "rpg"
+    },
+    {
+      "name": "dungeon",
+      "description": "Vá para uma aventura na dungeon",
+      "category": "rpg"
+    },
+    {
+      "name": "familyinfo",
+      "description": "View family information",
+      "category": "rpg"
+    },
+    {
+      "name": "family",
+      "description": "Register in a family",
+      "category": "rpg"
+    },
+    {
+      "name": "inventory",
+      "description": "View your inventory",
+      "category": "rpg"
+    },
+    {
+      "name": "reset",
+      "description": "Reset your RPG profile",
+      "category": "rpg"
+    },
+    {
+      "name": "register",
+      "description": "Register an adventurer",
+      "category": "rpg"
+    },
+    {
+      "name": "stats",
+      "description": "See someone's stats",
+      "category": "rpg"
+    },
+    {
+      "name": "use",
+      "description": "Use an item from your inventory",
+      "category": "rpg"
+    },
+    {
+      "name": "village",
+      "description": "Go to the village of Boleham",
+      "category": "rpg"
+    },
+    {
+      "name": "aboutme",
+      "description": "Change your About Me",
+      "category": "util"
+    },
+    {
+      "name": "afk",
+      "description": "Stays AFK",
+      "category": "util"
+    },
+    {
+      "name": "botinfo",
+      "description": "Shows current bot information",
+      "category": "util"
+    },
+    {
+      "name": "delete",
+      "description": "Delete your profile from the database",
+      "category": "util"
+    },
+    {
+      "name": "invite",
+      "description": "Add the bot on some server",
+      "category": "util"
+    },
+    {
+      "name": "ping",
+      "description": "Shows the ping of the bot and its API",
+      "category": "util"
+    },
+    {
+      "name": "help",
+      "description": "Displays the bot's help page",
+      "category": "util"
+    },
+    {
+      "name": "remember",
+      "description": "Create a remember that will trigger in the give time",
+      "category": "util"
+    },
+    {
+      "name": "report",
+      "description": "Report a bug to my owner",
+      "category": "util"
+    },
+    {
+      "name": "say",
+      "description": "Make me say something",
+      "category": "util"
+    },
+    {
+      "name": "vote",
+      "description": "Vote for the bot (pelase vote, it helps a lot X3 >.<)",
+      "category": "util"
+    },
+    {
+      "name": "support",
+      "description": "Invitation link to Bot support server",
+      "category": "util"
+    },
+    {
+      "name": "roll",
+      "description": "Use a DR/RD to reset your hunting/dungeon time",
+      "category": "util"
+    },
+    {
+      "name": "suggest",
+      "description": "Suggest something to the bot owner",
+      "category": "util"
+    }
+  ]
+}
