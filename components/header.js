@@ -1,6 +1,7 @@
 import style from '../styles/components/header.module.css';
 import { withTranslation } from '../services/i18n'
 import { useState } from 'react';
+import { add_bot_url } from '../database/constants.json'
 
 const Header = ({ currentPage, t, i18n }) => {
 
@@ -22,7 +23,7 @@ const Header = ({ currentPage, t, i18n }) => {
         </ul>
       </nav>
       <button id={style.lbtn} onClick={changeLang}>{lang == 'en' ? <img className={style.emoji} src="assets/eua.png" /> : <img className={style.emoji} src="assets/br.png" />}</button>
-      <a id={style.add} href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot"><button>{t('add')}</button></a>
+      <a id={style.add} href={add_bot_url}><button>{t('add')}</button></a>
     </header>
   )
 }

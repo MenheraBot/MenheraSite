@@ -4,6 +4,7 @@ import Footer from '../components/footer';
 import style from '../styles/pages/index.module.css';
 import CookieConsent from "react-cookie-consent";
 import { withTranslation } from '../services/i18n';
+import { add_bot_url } from '../database/constants.json'
 
 const Home = ({ t }) => {
   return (
@@ -26,7 +27,7 @@ const Home = ({ t }) => {
             <h1>{t('h1')}</h1>
             <p>{t('p')}</p>
             <br />
-            <a href="https://discord.com/api/oauth2/authorize?client_id=708014856711962654&permissions=1007025271&scope=bot"><button><b>{t('b')}</b></button></a>
+            <a href={add_bot_url}><button><b>{t('b')}</b></button></a>
           </div>
         </div>
       </div>
