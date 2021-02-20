@@ -8,7 +8,7 @@ const localeSubpaths = {
 
 module.exports = {
   env: {
-    API_IP: process.env.API_IP
+    API_URL: process.env.API_URL
   },
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {

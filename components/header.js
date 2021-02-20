@@ -18,8 +18,8 @@ const Header = ({ currentPage, t, i18n }) => {
       <nav>
         <ul className={style.links}>
           <li className={currentPage === 'commands' ? style.currentPageTitle : ''}><a href="/comandos">{t('commands')}</a></li>
-          {/*  <li className={currentPage === 'boleham' ? style.currentPageTitle : ''}><a href="/boleham">Roleplay</a></li>
-          <li className={currentPage === 'status' ? style.currentPageTitle : ''}><a href="/status">Status</a></li> */}
+          {/*  <li className={currentPage === 'boleham' ? style.currentPageTitle : ''}><a href="/boleham">Roleplay</a></li> */}
+          <li className={currentPage === 'status' ? style.currentPageTitle : ''}><a href="/status">Status</a></li>
         </ul>
       </nav>
       <button id={style.lbtn} onClick={changeLang}>{lang == 'en' ? <img className={style.emoji} src="assets/eua.png" /> : <img className={style.emoji} src="assets/br.png" />}</button>

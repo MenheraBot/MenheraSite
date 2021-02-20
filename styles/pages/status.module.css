@@ -1,0 +1,67 @@
+.container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 60px;
+  text-align: center;
+  padding-bottom: 60px;
+  padding-top: 20px;
+  color: #9c5ddb;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.center {
+  text-align: center;
+}
+
+.off {
+  color: red;
+}
+
+.container table {
+  border-collapse: collapse;
+  width: 800px;
+  box-shadow: 3px 3px 5px 2px #333;
+  margin-bottom: 100px;
+}
+
+.container tbody {
+  background-color: #333;
+}
+
+.container thead {
+  background-color: #9c5ddb56;
+  color: #dee7e7;
+}
+
+.container tr:nth-of-type(even) {
+  background-color: rgb(82, 82, 82);
+}
+
+.container tr:last-of-type {
+  border-bottom: 2px solid #212529;
+}
+
+.container tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.container td,
+.container th {
+  padding: 12px 15px;
+}
+
+.nodis {
+  text-align: center;
+  color: greenyellow;
+}
+
+@media (max-width: 800px) {
+  .container table {
+    width: 100%;
+  }
+}
