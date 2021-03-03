@@ -6,7 +6,6 @@ const Custom404 = ({ t }) => (
   <div className={style.box}>
     <Head title={t('title')} favicon="/assets/icon404.png" />
     <img src="/assets/404.png" />
-
     <h1><span>404</span><div id={style.responsive}> - {t('pnf')}<br /></div>
       <h3><center><p>{t('text.start')}<br />{t('text.end')}</p></center>
         <p><br />
