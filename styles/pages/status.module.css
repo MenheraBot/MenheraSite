@@ -60,6 +60,17 @@
   color: greenyellow;
 }
 
+.wait {
+  padding-bottom: 50px;
+  color: #9c5ddb;
+  text-align: center;
+}
+
+.none {
+  display: none;
+  padding-bottom: 0;
+}
+
 @media (max-width: 800px) {
   .container table {
     width: 100%;

@@ -14,8 +14,14 @@ const Status = ({ t }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getStatus()
-      setPing(data)
+      const statusData = await getStatus();
+
+      const apiPing = statusData.filter(a => a._id.length >= 3)
+      const shardsPing = statusData.filter(a => a._id.length < 3)
+
+      const totalArray = [...apiPing, ...shardsPing]
+
+      setPing(totalArray);
     }
 
     fetchData();
@@ -27,7 +33,10 @@ const Status = ({ t }) => {
       <Header currentPage="status" />
 
       <section className={style.container}>
-      <h1 className={style.title}>Status</h1>
+
+        <h1 className={style.title}>Status</h1>
+
+        <h1 className={(ping.length > 0) ? style.none : style.wait}>{t('wait')}</h1>
         <Table pings={ping} />
         {ping.map(a => {
           if (a._id === 'main') return (<Cmds cmds={a.disabledCommands} />)
