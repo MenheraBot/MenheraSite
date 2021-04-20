@@ -5,5 +5,10 @@
     "start": "I don't know what you're looking for,",
     "end": "but it's certainly not here..."
   },
-  "back": "Back to home"
+  "back": "Back to home",
+  "error500": "There is an error on the server side!",
+  "500": {
+    "start": "We apologize for what happened,",
+    "end": "try again later"
+  }
 }

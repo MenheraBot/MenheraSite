@@ -9,20 +9,21 @@ const disabledCommandsTable = ({ cmds, t }) => {
   const hasDisabled = cmds.length > 0;
 
   return (
-    <table>
-      <thead>
-        <tr><th key='disabled'>{t('disabled-commands')}</th></tr>
-      </thead>
-      <tbody>
-        {hasDisabled ? cmds.map(c => (
-          <tr key={c.name}>
-            <td className={style.center}>{`${captalize(c.name)} | ${c.reason}`}</td>
-          </tr>
-        )) : <tr key='none'>
-          <td className={style.nodis} key='irapaiz'>{t('working')}</td>
-        </tr>}
-      </tbody>
-    </table>
+    <>
+    {hasDisabled ? <table>
+        <thead>
+          <tr><th key='disabled'>{t('disabled-commands')}</th></tr>
+        </thead>
+        <tbody>
+         {cmds.map(c => (
+            <tr key={c.name}>
+              <td className={style.center}>{`${captalize(c.name)} | ${c.reason}`}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table> : <></>
+    }
+    </>
   )
 }
 

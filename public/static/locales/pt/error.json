@@ -5,5 +5,10 @@
     "start": "Eu não sei o que procuras,",
     "end": "mas certamente não está aqui..."
   },
-  "back": "Voltar para o início"
+  "back": "Voltar para o início",
+  "error505": "Ocorreum um erro no lado servidor!",
+  "505": {
+    "start": "Pedimos desculpa pelo ocorrido,",
+    "end": "tente novamente mais tarde"
+  }
 }

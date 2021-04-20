@@ -8,9 +8,9 @@ const pingTable = ({ pings, t }) => {
   return (
     <table className={style.table}>
       <thead>
-        <tr key='sla'>
-          <th key='services'>{t('service')}</th>
-          <th key='pings'>{t('ping')}</th>
+        <tr>
+          <td key='services'>{t('service')}</td>
+          <td key='pings'>{t('ping')}</td>
         </tr>
       </thead>
       <tbody>
