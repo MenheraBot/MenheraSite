@@ -1,9 +1,7 @@
 import { getCommands } from '../services/api';
 import { useState, useEffect } from 'react';
 import { withTranslation } from '../services/i18n';
-import Header from '../components/header';
 import Head from '../components/head';
-import Footer from '../components/footer';
 import style from '../styles/pages/commands.module.css';
 
 const CommandPage = ({ t, i18n }) => {
@@ -44,7 +42,6 @@ const CommandPage = ({ t, i18n }) => {
   return (
     <div>
       <Head title={t('title')} favicon="assets/favicon.png" />
-      <Header currentPage="commands" />
       <div className={style.container}>
         <div className={style.top}>
           <ul>
@@ -76,7 +73,6 @@ const CommandPage = ({ t, i18n }) => {
           </table>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
