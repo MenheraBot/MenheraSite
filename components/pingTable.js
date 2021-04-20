@@ -8,7 +8,7 @@ const pingTable = ({ pings, t }) => {
   return (
     <table className={style.table}>
       <thead>
-        <tr>
+        <tr key='sla'>
           <th key='services'>{t('service')}</th>
           <th key='pings'>{t('ping')}</th>
         </tr>
@@ -18,7 +18,7 @@ const pingTable = ({ pings, t }) => {
           if (a._id !== 'main') return (
             <tr key={a._id}>
               <td>{a._id.length < 3 ? `${t('shard')} ${a._id}` : captalize(a._id)}</td>
-              <td>{a.lastPingAt > (Date.now() - 70000) ? <span style={{ color: a.ping > 70 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span> : <span className={style.off}>OFF</span>}</td>
+              <td>{a.lastPingAt > (Date.now() - 70000) ? <span style={{ color: a.ping > 40 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span> : <span className={style.off}>OFF</span>}</td>
             </tr>
           )
         })}

@@ -11,7 +11,7 @@ const disabledCommandsTable = ({ cmds, t }) => {
   return (
     <table>
       <thead>
-        <th key='disabled'>{t('disabled-commands')}</th>
+        <tr><th key='disabled'>{t('disabled-commands')}</th></tr>
       </thead>
       <tbody>
         {hasDisabled ? cmds.map(c => (
@@ -19,8 +19,8 @@ const disabledCommandsTable = ({ cmds, t }) => {
             <td className={style.center}>{`${captalize(c.name)} | ${c.reason}`}</td>
           </tr>
         )) : <tr key='none'>
-            <td className={style.nodis}>{t('working')}</td>
-          </tr>}
+          <td className={style.nodis} key='irapaiz'>{t('working')}</td>
+        </tr>}
       </tbody>
     </table>
   )
