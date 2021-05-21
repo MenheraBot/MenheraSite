@@ -21,7 +21,7 @@ class CacheManager {
     return this.commands.pt
   }
 
-  fetchDataFromAPI() {
+  async fetchDataFromAPI() {
     const res = await axios.get(process.env.API_URL)
 
     const ptCommands = []
