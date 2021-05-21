@@ -13,6 +13,10 @@ const CommandPage = ({ t, i18n }) => {
 
   const lang = i18n.language;
 
+  useEffect(() => {
+    changeCategory(category)
+  }, [lang]);
+
   const changeCategory = async (category) => {
     setCategory(category);
 
