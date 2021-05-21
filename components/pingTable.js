@@ -18,7 +18,7 @@ const pingTable = ({ pings, t }) => {
           if (a._id !== 'main') return (
             <tr key={a._id}>
               <td>{a._id.length < 3 ? `${t('shard')} ${a._id}` : captalize(a._id)}</td>
-              <td>{a.lastPingAt > (Date.now() - 70000) ? <span style={{ color: a.ping > 40 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span> : <span className={style.off}>OFF</span>}</td>
+              <td>{a.lastPingAt > (Date.now() - 70000) ? <span style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span> : <span className={style.off}>OFF</span>}</td>
             </tr>
           )
         })}

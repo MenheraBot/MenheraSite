@@ -1,4 +1,4 @@
-import { getCommands } from '../services/api';
+import CacheManager from '../database/cacheManager';
 import { useState, useEffect } from 'react';
 import { withTranslation } from '../services/i18n';
 import Head from '../components/head';
@@ -15,7 +15,7 @@ const CommandPage = ({ t, i18n }) => {
 
   const changeCategory = (category) => {
     setCategory(category);
-    getCommands(lang)
+    CacheManager.getCommands(lang)
       .then(res => {
         const reduced = res.reduce((p, c) => {
           if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
@@ -27,7 +27,7 @@ const CommandPage = ({ t, i18n }) => {
 
   useEffect(() => {
     const fetchData = () =>
-      getCommands(lang)
+      CacheManager.getCommands(lang)
         .then(res => {
           const reduced = res.reduce((p, c) => {
             if (c.category === 'ações') p.push({ name: captalize(c.name), description: c.description });

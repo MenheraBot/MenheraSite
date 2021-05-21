@@ -1,6 +1,6 @@
 import { withTranslation } from '../services/i18n'
 import { useEffect, useState } from 'react'
-import { getStatus } from '../services/api'
+import CacheManager from '../database/cacheManager'
 import Head from '../components/head'
 import Table from '../components/pingTable'
 import Cmds from '../components/disabledCommands'
@@ -12,7 +12,7 @@ const Status = ({ t }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const statusData = await getStatus();
+      const statusData = await CacheManager.getStatus();
 
       const apiPing = statusData.filter(a => a._id.length >= 3)
       const shardsPing = statusData.filter(a => a._id.length < 3)
