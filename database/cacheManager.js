@@ -12,11 +12,11 @@ class CacheManager {
     }, 1000 * 60 * 60)
   }
 
-  getStatus() {
+  async getStatus() {
     return this.status
   }
 
-  getCommands(language) {
+  async getCommands(language) {
     if (language === 'en') return this.commands.en
     return this.commands.pt
   }
