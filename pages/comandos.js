@@ -15,8 +15,10 @@ const CommandPage = ({ t, i18n }) => {
 
   const changeCategory = async (category) => {
     setCategory(category);
-    CacheManager.getCommands(lang).then(a => {
-      const reduced = a.reduce((p, c) => {
+
+    CacheManager.getCommands(lang).then(res => {
+
+      const reduced = res.reduce((p, c) => {
         if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
         return p;
       }, [])
@@ -25,7 +27,15 @@ const CommandPage = ({ t, i18n }) => {
   }
 
   useEffect(() => {
-    const fetchData = () => changeCategory('ações')
+    const fetchData = () => {
+      CacheManager.getCommands(lang).then(res => {
+        const reduced = res.reduce((p, c) => {
+          if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
+          return p;
+        }, [])
+        setCommands(reduced)
+      })
+    }
     fetchData();
   }, []);
 
