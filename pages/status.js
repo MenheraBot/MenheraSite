@@ -13,6 +13,7 @@ const Status = ({ t }) => {
   useEffect(() => {
     const fetchData = async () => {
       const statusData = await CacheManager.getStatus();
+      console.log(statusData)
 
       const apiPing = statusData.filter(a => a._id.length >= 3)
       const shardsPing = statusData.filter(a => a._id.length < 3)

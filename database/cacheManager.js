@@ -2,18 +2,17 @@ import axios from 'axios'
 
 class CacheManager {
   constructor() {
-    this.status = []
     this.commands = {}
-    this.lastFetch = 0;
+    this.lastCommandFetch = 0;
 
-    this.fetchDataFromAPI()
     setInterval(() => {
       this.fetchDataFromAPI()
-    }, 1000 * 60 * 60)
+    }, 1000 * 60 * 10)
   }
 
   async getStatus() {
-    return this.status
+    const status = await this.fetchDataFromAPI(true);
+    return status
   }
 
   async getCommands(language) {
@@ -21,19 +20,20 @@ class CacheManager {
     return this.commands.pt
   }
 
-  async fetchDataFromAPI() {
+  async fetchDataFromAPI(wannaStatus = false) {
     const res = await axios.get(process.env.API_URL)
+
+    if (wannaStatus) return res.data.status
 
     const ptCommands = []
     const enCommands = []
     res.data.commands.forEach(a => {
       ptCommands.push({ name: a.name, description: a.pt_description, category: a.category })
-      enCommands.push({ name: a.name, description: a.en_description, category: a.category })
+      enCommands.push({ name: a.name, description: a.us_description, category: a.category })
     })
 
-    this.status = res.data.status
     this.commands = { pt: ptCommands, en: enCommands }
-    this.lastFetch = Date.now()
+    this.lastCommandFetch = Date.now()
   }
 }
 

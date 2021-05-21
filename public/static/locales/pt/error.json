@@ -6,8 +6,8 @@
     "end": "mas certamente não está aqui..."
   },
   "back": "Voltar para o início",
-  "error505": "Ocorreum um erro no lado servidor!",
-  "505": {
+  "error500": "Ocorreum um erro no lado servidor!",
+  "500": {
     "start": "Pedimos desculpa pelo ocorrido,",
     "end": "tente novamente mais tarde"
   }

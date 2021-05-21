@@ -13,29 +13,19 @@ const CommandPage = ({ t, i18n }) => {
 
   const lang = i18n.language;
 
-  const changeCategory = (category) => {
+  const changeCategory = async (category) => {
     setCategory(category);
-    CacheManager.getCommands(lang)
-      .then(res => {
-        const reduced = res.reduce((p, c) => {
-          if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
-          return p;
-        }, [])
-        setCommands(reduced)
-      })
+    CacheManager.getCommands(lang).then(a => {
+      const reduced = a.reduce((p, c) => {
+        if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
+        return p;
+      }, [])
+      setCommands(reduced)
+    })
   }
 
   useEffect(() => {
-    const fetchData = () =>
-      CacheManager.getCommands(lang)
-        .then(res => {
-          const reduced = res.reduce((p, c) => {
-            if (c.category === 'ações') p.push({ name: captalize(c.name), description: c.description });
-            return p;
-          }, [])
-          setCommands(reduced)
-        });
-
+    const fetchData = () => changeCategory('ações')
     fetchData();
   }, []);
 
