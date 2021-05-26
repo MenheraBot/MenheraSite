@@ -29,5 +29,10 @@
     "react-cookie-consent": "^6.2.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.2"
   }
 }
