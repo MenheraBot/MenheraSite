@@ -17,22 +17,24 @@ const Header = ({ t, i18n }) => {
   return (
     <header className="w-full h-20 flex items-center justify-center">
       <div className="py-2 w-11/12 flex flex-row justify-between">
-        <Link href="/">
-          <Image src="/assets/logo.png" width={190} height={35} />
-        </Link>
-        <ul className="flex flex-row gap-4">
-          <Link href="/comandos">
-            <li className="cursor-pointer hover:text-purple-500 capitalize">{t('commands')}</li>
+        <div className="relative w-44 h-8">
+          <Link href="/">
+            <Image src="/assets/logo.png" layout="fill" />
           </Link>
-          <Link href="/status">
-            <li className="cursor-pointer hover:text-purple-500 capitalize">Status</li>
-          </Link>
-          <Link href={constants.github_url}>
-            <li className="cursor-pointer hover:text-purple-500 capitalize">Github</li>
-          </Link>
-          <Link href={constants.add_bot_url}>
-            <li className="cursor-pointer hover:text-purple-500 capitalize">{t('add')}</li>
-          </Link>
+        </div>
+        <ul className="flex flex-row gap-4 sm:hidden">
+          <li className="cursor-pointer hover:text-purple-500 capitalize">
+            <Link href="/comandos">{t("commands")}</Link>
+          </li>
+          <li className="cursor-pointer hover:text-purple-500 capitalize">
+            <Link href="/status">Status</Link>
+          </li>
+          <li className="cursor-pointer hover:text-purple-500 capitalize">
+            <Link href={constants.github_url}>Github</Link>
+          </li>
+          <li className="cursor-pointer hover:text-purple-500 capitalize">
+            <Link href={constants.add_bot_url}>{t("add")}</Link>
+          </li>
           <div
             className="relative cursor-pointer"
             onClick={() => setShowLanguages(!showLanguages)}
