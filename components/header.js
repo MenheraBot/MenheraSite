@@ -17,7 +17,7 @@ const Header = ({ t, i18n }) => {
   return (
     <header className="w-full h-20 flex items-center justify-center">
       <div className="py-2 w-11/12 flex flex-row justify-between sm:items-center sm:w-auto">
-        <div className="sm:hidden relative w-44 h-8">
+        <div className="sm:hidden cursor-pointer relative w-44 h-8">
           <Link href="/">
             <Image src="/assets/logo.png" layout="fill" />
           </Link>
