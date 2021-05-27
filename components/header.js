@@ -7,7 +7,7 @@ import Link from "next/link";
 import { HiTranslate } from "react-icons/hi";
 import { RiArrowDownSLine } from "react-icons/ri";
 
-const Header = ({ i18n }) => {
+const Header = ({ t, i18n }) => {
   const [showLanguages, setShowLanguages] = useState(false);
 
   const setLang = (lang) => {
@@ -22,16 +22,16 @@ const Header = ({ i18n }) => {
         </Link>
         <ul className="flex flex-row gap-4">
           <Link href="/comandos">
-            <li className="cursor-pointer hover:text-purple-500">Comandos</li>
+            <li className="cursor-pointer hover:text-purple-500 capitalize">{t('commands')}</li>
           </Link>
           <Link href="/status">
-            <li className="cursor-pointer hover:text-purple-500">Status</li>
+            <li className="cursor-pointer hover:text-purple-500 capitalize">Status</li>
           </Link>
           <Link href={constants.github_url}>
-            <li className="cursor-pointer hover:text-purple-500">Github</li>
+            <li className="cursor-pointer hover:text-purple-500 capitalize">Github</li>
           </Link>
           <Link href={constants.add_bot_url}>
-            <li className="cursor-pointer hover:text-purple-500">Adicionar</li>
+            <li className="cursor-pointer hover:text-purple-500 capitalize">{t('add')}</li>
           </Link>
           <div
             className="relative cursor-pointer"
