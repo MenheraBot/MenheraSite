@@ -16,30 +16,30 @@ const Header = ({ t, i18n }) => {
 
   return (
     <header className="w-full h-20 flex items-center justify-center">
-      <div className="py-2 w-11/12 flex flex-row justify-between">
-        <div className="relative w-44 h-8">
+      <div className="py-2 w-11/12 flex flex-row justify-between sm:items-center sm:w-auto">
+        <div className="sm:hidden relative w-44 h-8">
           <Link href="/">
             <Image src="/assets/logo.png" layout="fill" />
           </Link>
         </div>
-        <ul className="flex flex-row gap-4 sm:hidden">
-          <li className="cursor-pointer hover:text-purple-500 capitalize">
+        <ul className="flex flex-row gap-4">
+          <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
             <Link href="/comandos">{t("commands")}</Link>
           </li>
-          <li className="cursor-pointer hover:text-purple-500 capitalize">
+          <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
             <Link href="/status">Status</Link>
           </li>
-          <li className="cursor-pointer hover:text-purple-500 capitalize">
+          <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
             <Link href={constants.github_url}>Github</Link>
           </li>
-          <li className="cursor-pointer hover:text-purple-500 capitalize">
+          <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
             <Link href={constants.add_bot_url}>{t("add")}</Link>
           </li>
           <div
             className="relative cursor-pointer"
             onClick={() => setShowLanguages(!showLanguages)}
           >
-            <div className="ml-2 flex flex-row gap-1 justify-center items-center">
+            <div className="ml-2 flex flex-row gap-1 justify-center items-center sm:ml-0">
               <HiTranslate size={25} />
               <RiArrowDownSLine size={15} />
             </div>
