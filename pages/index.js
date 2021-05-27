@@ -1,4 +1,4 @@
-import Main from '../components/head';
+import Head from '../components/head';
 import style from '../styles/pages/index.module.css';
 import CookieConsent from "react-cookie-consent";
 import { withTranslation } from '../services/i18n';
@@ -7,7 +7,7 @@ import constants from '../database/constants.json'
 const Home = ({ t }) => {
   return (
     <div>
-      <Main title="Menhera's Site" favicon="assets/favicon.png" />
+      <Head title="Menhera's Site" favicon="assets/favicon.png" />
       <CookieConsent
         location="bottom"
         buttonText="Okay"
