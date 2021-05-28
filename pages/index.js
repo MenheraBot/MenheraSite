@@ -25,14 +25,14 @@ const Home = ({ t }) => {
       >
         {t("cookie")}
       </CookieConsent>
-      <div className="w-full h-screen flex justify-center">
-        <section className="px-30 w-11/12 h-full flex flex-row mt-44 justify-around">
-          <div className="relative w-52	h-96">
+      <div className="w-full h-screen sm:h-auto flex justify-center">
+        <section className="px-30 sm:px-2 w-11/12 h-full flex flex-row mt-44 sm:my-10 justify-around">
+          <div className="relative w-52	h-96 sm:hidden">
             <Image src="/assets/men.png" layout="fill" />
           </div>
-          <div className="w-3/5	">
+          <div className="w-3/5	sm:w-full">
             <h1 className="text-4xl font-extrabold text-white">{t("h1")}</h1>
-            <p className="text-xl text-gray-500 mt-10">{t("p")}</p>
+            <p className="text-xl text-gray-500 mt-10 sm:text-lg">{t("p")}</p>
           </div>
         </section>
       </div>
