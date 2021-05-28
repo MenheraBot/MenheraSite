@@ -36,7 +36,7 @@ const Home = ({ t }) => {
               {t("p")}
             </p>
             <a href={constants.add_bot_url}>
-              <button className="animate-pulse bg-purple-500 p-4 rounded-2xl " type="submit">
+              <button className="animate-wiggle p-4 rounded-2xl " type="submit">
                 {t("b")}
               </button>
             </a>
