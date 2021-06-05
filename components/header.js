@@ -30,6 +30,9 @@ const Header = ({ t, i18n }) => {
             <Link href="/status">Status</Link>
           </li>
           <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
+            <Link href="/donate">{t('donate')}</Link>
+          </li>
+          <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
             <Link href={constants.github_url}>Github</Link>
           </li>
           <li className="cursor-pointer hover:text-purple-500 capitalize sm:text-sm">
@@ -47,18 +50,18 @@ const Header = ({ t, i18n }) => {
               <div class="absolute bg-white shadow w-28 h-20 mt-2 right-0 rounded-lg">
                 <ul className="flex flex-col gap-2 justify-center p-2">
                   <li
-                    className="text-gray-600 font-semibold hover:text-purple-500 flex flex-row items-center gap-2"
+                    className="text-gray-600 font-semibold hover:bg-gray-300 hover:text-purple-500 flex flex-row items-center gap-2"
                     onClick={() => setLang("pt")}
                   >
                     <Image
                       src="/assets/brazil-flag.svg"
                       height={20}
                       width={30}
-                    />{" "}
+                    />
                     PT-BR
                   </li>
                   <li
-                    className="text-gray-600 font-semibold hover:text-purple-500 flex flex-row items-center gap-2"
+                    className="text-gray-600 font-semibold hover:bg-gray-300 hover:text-purple-500 flex flex-row items-center gap-2"
                     onClick={() => setLang("en")}
                   >
                     <Image
