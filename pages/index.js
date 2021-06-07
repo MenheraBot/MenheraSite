@@ -8,7 +8,6 @@ import Image from "next/image";
 const Home = ({ t }) => {
   return (
     <div>
-      <script src="https://04txk5rpnr03.statuspage.io/embed/script.js"></script>
       <Head title="Menhera's Site" favicon="assets/favicon.png" />
       <CookieConsent
         location="bottom"
