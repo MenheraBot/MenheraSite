@@ -28,6 +28,8 @@ const Status = ({ t }) => {
 
   return (
     <div>
+      <iframe src="https://menherabot.instatus.com/embed-status/dark-lg" width="245" height="61"
+        frameBorder="0" scrolling="no" style="border: none;" ></iframe>
       <Head title={t('title')} favicon="assets/favicon.png" />
       <section className={style.container}>
 
@@ -38,8 +40,7 @@ const Status = ({ t }) => {
         {ping.map(a => {
           if (a._id === 'main') return (<Cmds cmds={a.disabledCommands} />)
         })}
-        <iframe src="https://menherabot.instatus.com/embed-status/dark-lg" width="245" height="61"
-          frameBorder="0" scrolling="no" style="border: none;" ></iframe>
+
       </section>
     </div>
   )
