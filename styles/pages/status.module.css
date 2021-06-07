@@ -4,6 +4,28 @@
   justify-content: center;
 }
 
+.links {
+  background-color: rgb(63, 63, 63);
+  cursor: pointer;
+  height: 60px;
+  border: 1px solid #9c5ddb;
+  border-radius: 10px;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+.links p {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  padding-left: 220px;
+  color: #9c5ddb;
+}
+
 .title {
   font-size: 60px;
   text-align: center;
@@ -23,6 +45,7 @@
 }
 
 .container table {
+  margin-top: 50px;
   border-collapse: collapse;
   width: 800px;
   box-shadow: 3px 3px 5px 2px #333;
