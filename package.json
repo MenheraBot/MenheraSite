@@ -23,6 +23,8 @@
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "memory-cache": "^0.2.0",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "next": "^10.2.2",
     "next-i18next": "^7.0.1",
     "react": "^17.0.1",

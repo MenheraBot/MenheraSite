@@ -13,7 +13,6 @@ const Status = ({ t }) => {
   useEffect(() => {
     const fetchData = async () => {
       const statusData = await CacheManager.getStatus();
-      console.log(statusData)
 
       const apiPing = statusData.filter(a => a._id.length >= 3)
       const shardsPing = statusData.filter(a => a._id.length < 3)
@@ -24,6 +23,7 @@ const Status = ({ t }) => {
     }
 
     fetchData();
+    setInterval(fetchData, 30000)
   }, []);
 
   return (
@@ -33,7 +33,7 @@ const Status = ({ t }) => {
 
         <h1 className={style.title}>Status</h1>
 
-        <center><iframe src="https://menherabot.instatus.com/embed-status/dark-sm" width="250" height="60" /></center>
+        <center><iframe src="https://menherabot.instatus.com/embed-status/dark-sm" width="290" height="60" /></center>
 
         <h1 className={(ping.length > 0) ? style.none : style.wait}>{t('wait')}</h1>
         <Table pings={ping} />
