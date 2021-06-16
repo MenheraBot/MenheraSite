@@ -7,5 +7,7 @@
   "ping": "Ping",
   "shard": "Shard",
   "disabled-commands": "Disabled Commands",
-  "working": "ALL COMMANDS ARE WORKING PROPERLY"
+  "working": "ALL COMMANDS ARE WORKING PROPERLY",
+  "guilds": "Servers",
+  "uptime": "Uptime"
 }
