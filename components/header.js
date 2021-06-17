@@ -5,7 +5,7 @@ import { withTranslation } from "../services/i18n";
 import constants from "../database/constants.json";
 
 import { HiTranslate } from "react-icons/hi";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiArrowRightSLine } from "react-icons/ri";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -49,7 +49,7 @@ const newHeader = ({ t, i18n }) => {
                   className="relative cursor-pointer"
                   onClick={() => setShowLanguages(!showLanguages)}
                 >
-                  <div className="ml-2 flex flex-row gap-1 justify-center items-center sm:ml-0">
+                  <div className="ml-2 flex flex-row gap-1 sm:ml-0">
                     <HiTranslate size={25} />
                     <RiArrowDownSLine size={15} />
                   </div>
@@ -135,29 +135,39 @@ const newHeader = ({ t, i18n }) => {
       <Transition show={isOpen} enter="transition ease-out duration-100 transform" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="transition ease-in duration-75 transform" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
         {(ref) => (
           <div className="md:hidden" id="mobile-menu">
-            <div ref={ref} className="px-2 pt-2 pb-3 flex flex-col space-y-1 sm:px-3">
-              <a className="bg-gray-700 justify-center cursor-pointer block px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
-                <Link href="/comandos">{t("commands")}</Link>
-              </a>
-              <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
-                <Link href="/status">Status</Link>
-              </a>
-              <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
-                <Link href="/donate">{t('donate')}</Link>
-              </a>
-              <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
-                <Link href={constants.github_url}>Github</Link>
-              </a>
-              <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
-                <Link href={constants.add_bot_url}>{t("add")}</Link>
-              </a>
-              <div className="bg-gray-700 relative px-3 py-2 rounded-md cursor-pointer" onClick={() => setShowLanguages(!showLanguages)}>
+            <div ref={ref} className="px-2 pt-2 pb-3 flex flex-col space-y-1 sm:px-3 text-center">
+              <Link href="/comandos">
+                <a className="bg-gray-700 justify-center cursor-pointer block px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  {t("commands")}
+                </a>
+              </Link>
+              <Link href="/status">
+                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  Status
+                </a>
+              </Link>
+              <Link href="/donate">
+                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  {t('donate')}
+                </a>
+              </Link>
+              <Link href={constants.github_url}>
+                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  Github
+                </a>
+              </Link>
+              <Link href={constants.add_bot_url}>
+                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  {t("add")}
+                </a>
+              </Link>
+              <div className="bg-gray-700 flex py-2 rounded-md cursor-pointer" onClick={() => setShowLanguages(!showLanguages)}>
                 <div className="ml-2 flex flex-row gap-1 sm:ml-0">
                   <HiTranslate size={25} />
-                  <RiArrowDownSLine size={15} />
+                  <RiArrowRightSLine size={15} />
                 </div>
                 {showLanguages && (
-                  <div class="relative bg-gray-600 shadow w-28 h-20 mt-2 right-0 rounded-lg">
+                  <div class="flex bg-gray-600 shadow w-28 h-20 mt-2 right-0 rounded-lg">
                     <ul className="flex flex-col gap-2 justify-center p-2">
                       <li
                         className="text-white font-semibold flex flex-row items-center gap-2"
@@ -189,7 +199,7 @@ const newHeader = ({ t, i18n }) => {
           </div>
         )}
       </Transition>
-    </nav>
+    </nav >
   );
 }
 
