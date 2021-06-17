@@ -5,9 +5,7 @@ import styles from '../styles/pages/boleham.module.css'
 const Donate = ({ t }) => {
   return (
     <div>
-      <div className={styles.container}>
-        <Maintenance />
-      </div>
+      <h1></h1>
     </div>
   );
 };
