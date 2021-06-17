@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { add_bot_url } = require('./database/constants.json')
 const { nextI18NextRewrites } = require('next-i18next/rewrites')
 
 const localeSubpaths = {
@@ -14,4 +15,16 @@ module.exports = {
   publicRuntimeConfig: {
     localeSubpaths,
   },
+  redirects: async () => [
+    {
+      source: '/add',
+      destination: add_bot_url,
+      permanent: true
+    },
+    {
+      source: '/:lang/add',
+      destination: add_bot_url,
+      permanent: true
+    }
+  ]
 }
