@@ -1,14 +1,16 @@
 import Head from "../components/head";
-// import style from '../styles/pages/index.module.css';
 import CookieConsent from "react-cookie-consent";
 import { withTranslation } from "../services/i18n";
 import constants from "../database/constants.json";
 import Image from "next/image";
+import Footer from '../components/footer'
+import Header from '../components/header'
 
 const Home = ({ t }) => {
   return (
     <div>
       <Head title="Menhera's Site" favicon="assets/favicon.png" />
+      <Header />
       <CookieConsent
         location="bottom"
         buttonText="Okay"
@@ -43,6 +45,7 @@ const Home = ({ t }) => {
           </div>
         </section>
       </div>
+      <Footer />
     </div>
   );
 };

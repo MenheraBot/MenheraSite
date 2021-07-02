@@ -1,9 +1,10 @@
-const colors = require("tailwindcss/colors");
-
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    textShadow: { // defaults to {}
+      'default': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
+    },
     extend: {
       screens: {
         xl: { max: "1279px" },
@@ -28,6 +29,15 @@ module.exports = {
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
       },
+      colors: {
+        gray: {
+          'medio': '#34373C',
+          'forte': '#2F3136',
+          'fraco': '#40444B',
+          'usr': '#292B2F',
+          'xforte': "#202225"
+        }
+      }
     },
   },
   plugins: [],

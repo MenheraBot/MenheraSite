@@ -5,6 +5,8 @@ import Head from '../components/head'
 import Table from '../components/pingTable'
 import Cmds from '../components/disabledCommands'
 import style from '../styles/pages/status.module.css'
+import Footer from '../components/footer'
+import Header from '../components/header'
 
 const Status = ({ t }) => {
 
@@ -29,6 +31,7 @@ const Status = ({ t }) => {
   return (
     <div>
       <Head title={t('title')} favicon="assets/favicon.png" />
+      <Header />
       <section className={style.container}>
 
         <h1 className={style.title}>Status</h1>
@@ -41,6 +44,7 @@ const Status = ({ t }) => {
           if (a._id === 'main') return (<Cmds cmds={a.disabledCommands} />)
         })}
       </section>
+      <Footer />
     </div>
   )
 }

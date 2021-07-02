@@ -37,6 +37,9 @@ const newHeader = ({ t, i18n }) => {
                   <Link href="/status">Status</Link>
                 </a>
                 <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
+                  <Link href="/boleham">Boleham</Link>
+                </a>
+                <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
                   <Link href="/donate">{t('donate')}</Link>
                 </a>
                 <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
