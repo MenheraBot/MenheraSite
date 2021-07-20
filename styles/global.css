@@ -21,6 +21,14 @@
   background-color: #3f495a;
 }
 
+.hover-trigger .hover-target {
+  display: none;
+}
+
+.hover-trigger:hover .hover-target {
+  display: inline-flex;
+}
+
 .chat::-webkit-scrollbar {
   width: 10px;
   background-color: #3f495a;

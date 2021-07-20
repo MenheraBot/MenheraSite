@@ -1,17 +1,31 @@
 import Link from 'next/link'
 import Image from 'next/image';
+import Head from '../components/head'
 import { withTranslation } from '../services/i18n'
 
-const Boleham = () => {
+const Boleham = ({ t }) => {
+
+  const searchInput = async event => {
+    event.preventDefault();
+  }
+
   return (
     <div>
+      <Head title={t('title')} favicon="assets/favicon.png" />
       <div className="flex">
         <div className="bg-gray-xforte px-2 py-2 w-15 flex-none flex flex-col min-h-screen h-screen">
           <div className="overflow-y-hidden">
             <ul className="text-center">
-              <li className="border-b border-gray-medio"><Link href="/"><img src="assets/favicon.png" alt="sv" className="w-12 h-12 rounded-full mx-auto cursor-pointer" /></Link></li>
-              <li className="mt-3"><a href=""><img src="assets/favicon.ico" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a></li>
-              <li className="mt-3"><a href=""><img src="assets/MOON.png" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a></li>
+              <li className="border-b border-gray-medio">
+                <Link href="/"><Image src="/assets/favicon.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto cursor-pointer" /></Link>
+              </li>
+              <li className="mt-3 hover-trigger">
+                <a href=""><Image src="/assets/favicon.ico" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a>
+                <div className="bg-black rounded-md font-bold px-4 py-2 hover-target">Ir para os status</div>
+              </li>
+              <li className="mt-3">
+                <a href=""><Image src="/assets/MOON.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a>
+              </li>
             </ul>
           </div>
         </div>
@@ -30,14 +44,12 @@ const Boleham = () => {
                 <div className="border-l pl-3 ml-3 border-gray-600 text-sm text-gray-400">Como configurar um servidor SSL com Bash e Wsl</div>
               </div>
               <div className="flex items-center">
-                <a href="#" className="ml-4">Contato</a>
-                <form action="#" className="relative ml-4">
-                  <input type="text" placeholder="Pesquisar" className="rounded bg-gray-900 text-gray-200 text-sm px-2 py-1" />
-                  <span className="absolute right-0 top-0 mr-1" style={{ top: '6px' }}>
+                <form onSubmit={searchInput} className="relative ml-4 focus:w-5">
+                  <input type="text" placeholder="Pesquisar" className="flex focus:w-64 rounded focus:outline-none bg-gray-900 text-gray-200 text-sm px-2 py-1" />
+                  <span className="absolute right-0 top-1.5 mr-1">
                     <svg className="w-4 h-4 text-gray-500 hover:text-gray-200" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path className="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path></svg>
                   </span>
                 </form>
-                <a href="#" className="ml-4">GitHub</a>
               </div>
             </div>
           </div>
@@ -75,36 +87,17 @@ const Boleham = () => {
               <div className="bg-gray-medio flex-1 flex flex-col justify-between">
                 <div className="text-sm overflow-y-auto chat">
 
-                  <div className="flex py-1 mb-3 hover:bg-gray-usr">
-                    <div className="flex-none">
-                      <img className="ml-3 rounded-full w-10 h-10" src="/assets/favicon.png" alt="user" />
-                    </div>
-                    <div className="ml-2">
-                      <p className="text-red-600 hover:underline">Luxanna</p>
-                      {/*TEXT GO HERE */ } OWO
-                    </div>
-                  </div>
 
                   <div className="flex py-1 mb-3 hover:bg-gray-usr">
-                    <div className="flex-none">
-                      <img className="ml-3 rounded-full w-10 h-10" src="/assets/eua.png" alt="user" />
-                    </div>
-                    <div className="ml-2">
-                      <p className="text-blue-600 hover:underline">Tsugami</p>
-                      {/*TEXT GO HERE */ } Sim
-                    </div>
-                  </div>
-
-                  <div className="flex py-1 mb-3 hover:bg-gray-usr ">
-                    <div className="flex-none">
-                      <img className="ml-3 rounded-full w-10 h-10" src="/assets/MOON.png" alt="user" />
+                    <div className="flex-none ml-3">
+                      <Image className="rounded-full" src="https://cdn.discordapp.com/avatars/435228312214962204/bc51361ec416d598650066fe5c41c78d.webp?width=400&height=400" width="40" height="40" alt="user" />
                     </div>
                     <div className="ml-2">
                       <p className="text-yellow-600 hover:underline">Sou puta</p>
-                      {/*TEXT GO HERE */ } Quems ao voces
+                      {/*TEXT GO HERE */} Quems ao voces
                       caralo
                       gaksd
-                      kasddask kasdk sakdsasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasasa
+                      kasddask kasdk sakdsasas asasasasasasasasasasasasasa sasasasasasasasasasasasasasasas asas asasa sasasasas asasasasas asasasasasasasasasasasasa sasasa
                     </div>
                   </div>
 
@@ -115,9 +108,13 @@ const Boleham = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 
-export default withTranslation('common')(Boleham)
+Boleham.getInitialProps = async () => ({
+  namespacesRequired: ['boleham', 'header', 'footer'],
+})
+
+export default withTranslation('boleham')(Boleham);
 

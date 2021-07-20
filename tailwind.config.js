@@ -1,6 +1,11 @@
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
+  variants: {
+    extend: {
+      width: ['focus']
+    }
+  },
   theme: {
     textShadow: { // defaults to {}
       'default': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',

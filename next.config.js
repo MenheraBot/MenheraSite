@@ -11,6 +11,9 @@ module.exports = {
   env: {
     API_URL: process.env.API_URL
   },
+  images: {
+    domains: ['cdn.discordapp.com']
+  },
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
     localeSubpaths,
