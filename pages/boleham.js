@@ -21,7 +21,6 @@ const Boleham = ({ t }) => {
               </li>
               <li className="mt-3 hover-trigger">
                 <a href=""><Image src="/assets/favicon.ico" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a>
-                <div className="bg-black rounded-md font-bold px-4 py-2 hover-target">Ir para os status</div>
               </li>
               <li className="mt-3">
                 <a href=""><Image src="/assets/MOON.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a>

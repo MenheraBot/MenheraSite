@@ -149,6 +149,11 @@ const newHeader = ({ t, i18n }) => {
                   Status
                 </a>
               </Link>
+              <Link href="/boleham">
+                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  Boleham
+                </a>
+              </Link>
               <Link href="/donate">
                 <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
                   {t('donate')}
