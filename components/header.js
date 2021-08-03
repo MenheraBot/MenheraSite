@@ -36,9 +36,9 @@ const newHeader = ({ t, i18n }) => {
                 <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
                   <Link href="/status">Status</Link>
                 </a>
-                <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
+               {/*  <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
                   <Link href="/boleham">Boleham</Link>
-                </a>
+                </a> */}
                 <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
                   <Link href="/donate">{t('donate')}</Link>
                 </a>
@@ -147,11 +147,6 @@ const newHeader = ({ t, i18n }) => {
               <Link href="/status">
                 <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
                   Status
-                </a>
-              </Link>
-              <Link href="/boleham">
-                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
-                  Boleham
                 </a>
               </Link>
               <Link href="/donate">

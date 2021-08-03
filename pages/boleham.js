@@ -17,13 +17,13 @@ const Boleham = ({ t }) => {
           <div className="overflow-y-hidden">
             <ul className="text-center">
               <li className="border-b border-gray-medio">
-                <Link href="/"><Image src="/assets/favicon.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto cursor-pointer" /></Link>
+                <Link href="/"><Image title={t('home')} src="/assets/favicon.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto cursor-pointer" /></Link>
               </li>
               <li className="mt-3 hover-trigger">
-                <a href=""><Image src="/assets/favicon.ico" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a>
+                <Link href="/status"><Image title={t('status')} src="/assets/favicon.ico" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto cursor-pointer" /></Link>
               </li>
               <li className="mt-3">
-                <a href=""><Image src="/assets/MOON.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto" /></a>
+                <Link href="/comandos"><Image title={t('commands')} src="/assets/MOON.png" width="48" height="48" alt="sv" className="w-12 h-12 rounded-full mx-auto cursor-pointer" /></Link>
               </li>
             </ul>
           </div>
@@ -89,17 +89,26 @@ const Boleham = ({ t }) => {
 
                   <div className="flex py-1 mb-3 hover:bg-gray-usr">
                     <div className="flex-none ml-3">
-                      <Image className="rounded-full" src="https://cdn.discordapp.com/avatars/435228312214962204/bc51361ec416d598650066fe5c41c78d.webp?width=400&height=400" width="40" height="40" alt="user" />
+                      <Image className="rounded-full" src="/assets/favicon.png" width="40" height="40" alt="user" />
                     </div>
                     <div className="ml-2">
-                      <p className="text-yellow-600 hover:underline">Sou puta</p>
-                      {/*TEXT GO HERE */} Quems ao voces
-                      caralo
-                      gaksd
-                      kasddask kasdk sakdsasas asasasasasasasasasasasasasa sasasasasasasasasasasasasasasas asas asasa sasasasas asasasasas asasasasasasasasasasasasa sasasa
+                      <p className="text-yellow-600 hover:underline">Luxanna</p>
+                      {/*TEXT GO HERE */} Oiii, bem vinda ao mundo de Boleham.
+                      Se tu chegou até aqui tu é foda, já que essa página ta em desenvolvimento
+                      Aqui não tem nada de interessante (por enquanto), então clique na Menhera (canto superior esquerdo)
+                      para voltar à tela inicial
                     </div>
                   </div>
 
+                  <div className="flex py-1 mb-3 hover:bg-gray-usr">
+                    <div className="flex-none ml-3">
+                      <Image className="rounded-full" src="https://cdn.discordapp.com/avatars/708014856711962654/33d7e40a952b7fe9b8d633d7521e5229.png" width="40" height="40" alt="user" />
+                    </div>
+                    <div className="ml-2">
+                      <p className="text-blue-200 hover:underline">Menhera Bot</p>
+                      Passando pra dar oi uwu
+                    </div>
+                  </div>
 
                 </div>
               </div>

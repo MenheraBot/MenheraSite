@@ -18,7 +18,7 @@ const pingTable = ({ pings, t }) => {
         </tr>
       </thead>
       <tbody>
-        {pings?.map(a => {
+        {pings?.sort((a, b) => a._id - b._id)?.map(a => {
           if (a._id !== 'main') return (
             <tr key={a._id}>
               <td>{a._id.length < 3 ? `${t('shard')} ${a._id}` : captalize(a._id)}</td>
