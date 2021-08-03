@@ -14,7 +14,7 @@ const Donate = ({ t }) => {
         <div className="flex flex-col w-3/4">
           <h1 className="text-8xl text-purple-800 sm:text-7xl font-bold -mt-52 text-shadow">{t('h1')}</h1>
           <p className="text-purple-700 text-2xl">{t('p')}</p>
-          <div className="mt-11 text-5xl text-black"><span className="font-semibold text-green-400">Pix:</span> donate@menherabot.xyz</div>
+          <div className="mt-11 text-5xl text-white"><span className="font-semibold text-green-400">Pix:</span> donate@menherabot.xyz</div>
         </div>
       </section>
       <Footer />
