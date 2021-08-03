@@ -2,6 +2,8 @@ import CacheManager from '../database/cacheManager';
 import { useState, useEffect } from 'react';
 import { withTranslation } from '../services/i18n';
 import Head from '../components/head';
+import Footer from '../components/footer'
+import Header from '../components/header'
 import style from '../styles/pages/commands.module.css';
 
 const CommandPage = ({ t, i18n }) => {
@@ -46,6 +48,7 @@ const CommandPage = ({ t, i18n }) => {
   return (
     <div>
       <Head title={t('title')} favicon="assets/favicon.png" />
+      <Header />
       <div className={style.container}>
         <div className={style.top}>
           <ul>
@@ -77,6 +80,7 @@ const CommandPage = ({ t, i18n }) => {
           </table>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

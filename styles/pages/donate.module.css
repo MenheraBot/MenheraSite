@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+}
+
+.image {
+  display: flex;
+  padding-left: 3rem;
+}
+
+.title {
+  font-size: 90px;
+  color: #9c5ddb;
+  font-weight: bolder;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+@media (max-width: 800px) {
+  .title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 328px) {
+  .title {
+    font-size: 50px;
+  }
+  .image {
+    display: hidden;
+  }
+}
