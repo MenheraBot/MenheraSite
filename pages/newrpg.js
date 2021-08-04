@@ -22,7 +22,7 @@ const NewRpg = ({ t }) => {
 
   return (
     <div>
-      <Head title={t('title')} favicon="assets/favicon.png" />
+      <Head title="Menhera's Site" favicon="assets/favicon.png" />
       <Header />
       <h1 className={style.title}>Ideias do Novo RPG</h1>
 
