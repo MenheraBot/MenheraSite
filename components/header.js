@@ -43,6 +43,9 @@ const newHeader = ({ t, i18n }) => {
                   <Link href="/donate">{t('donate')}</Link>
                 </a>
                 <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
+                  <Link href="/privacy">{t('privacy')}</Link>
+                </a>
+                <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
                   <Link href={constants.github_url}>Github</Link>
                 </a>
                 <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
@@ -152,6 +155,11 @@ const newHeader = ({ t, i18n }) => {
               <Link href="/donate">
                 <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
                   {t('donate')}
+                </a>
+              </Link>
+              <Link href="/privacy">
+                <a className="bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium">
+                  {t("privacy")}
                 </a>
               </Link>
               <Link href={constants.github_url}>
