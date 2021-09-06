@@ -11,7 +11,7 @@ const CommandPage = ({ t, i18n }) => {
   const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const [commands, setCommands] = useState([]);
-  const [category, setCategory] = useState('ações');
+  const [category, setCategory] = useState('actions');
 
   const lang = i18n.language;
 
@@ -22,10 +22,9 @@ const CommandPage = ({ t, i18n }) => {
   const changeCategory = async (category) => {
     setCategory(category);
 
-    CacheManager.getCommands(lang).then(res => {
-
+    CacheManager.getCommands().then(res => {
       const reduced = res.reduce((p, c) => {
-        if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
+        if (c.category === category) p.push({ name: captalize(c._id), description: c.description, cooldown: c.cooldown, options: c.options });
         return p;
       }, [])
       setCommands(reduced)
@@ -34,9 +33,9 @@ const CommandPage = ({ t, i18n }) => {
 
   useEffect(() => {
     const fetchData = () => {
-      CacheManager.getCommands(lang).then(res => {
+      CacheManager.getCommands().then(res => {
         const reduced = res.reduce((p, c) => {
-          if (c.category === category) p.push({ name: captalize(c.name), description: c.description });
+          if (c.category === category) p.push({ name: captalize(c._id), description: c.description, cooldown: c.cooldown, options: c.options });
           return p;
         }, [])
         setCommands(reduced)
@@ -51,33 +50,34 @@ const CommandPage = ({ t, i18n }) => {
       <Header />
       <div className={style.container}>
         <div className={style.top}>
-          <ul>
-            <button onClick={() => changeCategory('ações')} className={category === 'ações' ? style.boxActive : style.box}><li>{t('actions')}</li></button>
-            <button onClick={() => changeCategory('diversão')} className={category === 'diversão' ? style.boxActive : style.box}><li>{t('fun')}</li></button>
-            <button onClick={() => changeCategory('economia')} className={category === 'economia' ? style.boxActive : style.box}><li>{t('eco')}</li></button>
+          <center><ul>
+            <button onClick={() => changeCategory('actions')} className={category === 'actions' ? style.boxActive : style.box}><li>{t('actions')}</li></button>
+            <button onClick={() => changeCategory('fun')} className={category === 'fun' ? style.boxActive : style.box}><li>{t('fun')}</li></button>
+            <button onClick={() => changeCategory('economy')} className={category === 'economy' ? style.boxActive : style.box}><li>{t('eco')}</li></button>
             <button onClick={() => changeCategory('info')} className={category === 'info' ? style.boxActive : style.box}><li>{t('info')}</li></button>
-            <button onClick={() => changeCategory('moderação')} className={category === 'moderação' ? style.boxActive : style.box}><li>{t('mod')}</li></button>
-            <button onClick={() => changeCategory('rpg')} className={category === 'rpg' ? style.boxActive : style.box}><li>{t('rpg')}</li></button>
+            {/*<button onClick={() => changeCategory('rpg')} className={category === 'rpg' ? style.boxActive : style.box}><li>{t('rpg')}</li></button>*/}
             <button onClick={() => changeCategory('util')} className={category === 'util' ? style.boxActive : style.box}><li>{t('util')}</li></button>
-          </ul>
+          </ul></center>
         </div>
         <div className={style.bottom}>
-          <table>
-            <thead>
-              <tr>
-                <th>{t('name')}</th>
-                <th>{t('desc')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {commands?.map(cmd => (
-                <tr key={cmd.name}>
-                  <td>{cmd.name}</td>
-                  <td>{cmd.description}</td>
+          <center>
+            <table>
+              <thead>
+                <tr>
+                  <th>{t('name')}</th>
+                  <th>{t('desc')}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {commands?.map(cmd => (
+                  <tr key={cmd.name}>
+                    <td>{cmd.name}</td>
+                    <td>{cmd.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </center>
         </div>
       </div>
       <Footer />

@@ -7,13 +7,13 @@ class CacheManager {
     return status
   }
 
-  async getCommands(langague) {
+  async getCommands() {
     const cmds = await cacheData.get('cmds')
-    if (cmds) return cmds[langague];
+    if (cmds) return cmds;
 
     const fetchedCommands = await this.fetchDataFromAPI()
     cacheData.put('cmds', fetchedCommands, 1000 * 60 * 60)
-    return fetchedCommands[langague]
+    return fetchedCommands
   }
 
   async fetchDataFromAPI(wannaStatus = false) {
@@ -21,15 +21,7 @@ class CacheManager {
 
     if (wannaStatus) return res.data.status
 
-    const ptCommands = []
-    const enCommands = []
-
-    res.data.commands.forEach(a => {
-      ptCommands.push({ name: a.name, description: a.pt_description, category: a.category })
-      enCommands.push({ name: a.name, description: a.us_description, category: a.category })
-    })
-
-    return { pt: ptCommands, en: enCommands }
+    return res.data.commands
   }
 }
 
