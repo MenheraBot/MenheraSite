@@ -20,8 +20,6 @@ const newHeader = ({ t, i18n }) => {
 
   return (
     <nav>
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBBBHC6"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div className="mx-7 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
