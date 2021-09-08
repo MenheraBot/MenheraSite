@@ -5,6 +5,7 @@ import Head from '../components/head';
 import Footer from '../components/footer'
 import Header from '../components/header'
 import style from '../styles/pages/commands.module.css';
+import CommandTableRow from '../components/commandTableRow'
 
 const CommandPage = ({ t, i18n }) => {
 
@@ -69,19 +70,18 @@ const CommandPage = ({ t, i18n }) => {
                 </tr>
               </thead>
               <tbody>
-                {commands?.map(cmd => (
-                  <tr key={cmd.name}>
-                    <td>{cmd.name}</td>
-                    <td>{cmd.description}</td>
-                  </tr>
-                ))}
+                {commands.length === 0
+                  ? <tr><td colSpan={2} className="text-center"><em className="text-gray-500">Loading...</em></td></tr>
+                  : commands?.map((cmd) =>
+                    <CommandTableRow key={cmd.name} cmd={cmd} t={t} />
+                  )}
               </tbody>
             </table>
           </center>
         </div>
       </div>
       <Footer />
-    </div>
+    </div >
   )
 }
 

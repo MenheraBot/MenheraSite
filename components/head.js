@@ -21,7 +21,6 @@ export default function Layout(props) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Menhera's Site" />
         <meta name="twitter:description" content="This is the oficial website for MenheraBot, a Brazilian Discord Bot focused in Fun and RPG. Add it, see her commands and more!" />
-
         <meta name="theme-color" content="#7835e6" />
         <meta charSet="utf-8" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKJ8H7FR52"> </script>
