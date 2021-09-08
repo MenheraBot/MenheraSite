@@ -55,7 +55,7 @@ const CommandTableRow = ({ cmd, key, t }) => {
 const resolveOptions = (options, t) => (
   <>
     <table className="mb-0 !important">
-      <caption className="text-2xl text-purple-500">{options[0].options ? t('subcommands') : t('arguments')}</caption>
+      <caption className="text-2xl mb-2 text-purple-500">{options[0].options ? t('subcommands') : t('arguments')}</caption>
       <thead>
         {options.every(a => a.options) ?
           <tr>
@@ -73,16 +73,16 @@ const resolveOptions = (options, t) => (
         }
       </thead>
       <tbody>
-        {options.map(opt => (
+        {options.map((opt, i) => (
           opt.options ?
             <ResolveSubCommand key={opt.name} cmd={opt} t={t} />
             : (
               <tr>
                 <td>{opt.name}</td>
                 <td>{opt.description}</td>
-                <td data-tip data-for={opt.name} className={opt.choices && "text-yellow-300 cursor-help"}>{opt.choices ? t('choices') : t(opt.type)}{opt.choices &&
+                <td data-tip data-for={opt.name + i} className={opt.choices && "text-yellow-300 cursor-help"}>{opt.choices ? t('choices') : t(opt.type)}{opt.choices &&
                   <>
-                    <ReactTooltip id={opt.name} effect='solid'>
+                    <ReactTooltip id={opt.name + i} effect='solid'>
                       <span>{opt.choices.map(a => a.name).join(", ")}</span>
                     </ReactTooltip>
                     <svg className="inline ml-1" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Capa_1" x="0px" y="0px" width="12px" height="12px" viewBox="0 0 93.936 93.936">
