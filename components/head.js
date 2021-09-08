@@ -24,7 +24,7 @@ export default function Layout(props) {
         <meta name="theme-color" content="#7835e6" />
         <meta charSet="utf-8" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKJ8H7FR52"> </script>
-         <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
@@ -33,6 +33,13 @@ export default function Layout(props) {
             gtag('config', 'G-HKJ8H7FR52');
           `,
           }} />
+
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l] = w[l] || [];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NBBBHC6');`}} />
       </Head>
     </div>
   )
