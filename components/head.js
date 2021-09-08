@@ -24,8 +24,7 @@ export default function Layout(props) {
         <meta name="theme-color" content="#7835e6" />
         <meta charSet="utf-8" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKJ8H7FR52"> </script>
-        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4001696d28dd45869c7a550991575582"}' />
-        <script
+         <script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
