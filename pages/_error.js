@@ -5,6 +5,7 @@ import Header from '../components/header';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const Custom500 = () => {
   const { t } = useTranslation('common');

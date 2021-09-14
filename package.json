@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix .",
-    "test": "tests?"
+    "test": "echo \"tests?\""
   },
   "repository": {
     "type": "git",
@@ -49,7 +49,7 @@
     "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.2",
+    "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
     "postcss": "^8.3.0",
     "prettier": "^2.4.0",
@@ -59,12 +59,10 @@
   "lint-staged": {
     "*{.jsx,.js,.ts,tsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.yml": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "engines": {
