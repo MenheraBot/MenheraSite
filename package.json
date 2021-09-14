@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "test": "tests?"
   },
   "repository": {
     "type": "git",
