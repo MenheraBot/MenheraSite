@@ -1,11 +1,13 @@
-import { withTranslation } from '../services/i18n';
 import style from '../styles/pages/status.module.css';
 import moment from 'moment';
 import 'moment-duration-format';
+import { useTranslation } from 'next-i18next';
 
 const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-const pingTable = ({ pings, t }) => {
+const PingTable = ({ pings }) => {
+  const { t } = useTranslation('common');
+
   return (
     <table className={style.table}>
       <thead>
@@ -60,4 +62,4 @@ const pingTable = ({ pings, t }) => {
   );
 };
 
-export default withTranslation('common')(pingTable);
+export default PingTable;

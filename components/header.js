@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Transition } from '@headlessui/react';
-import { withTranslation } from '../services/i18n';
+import { useTranslation } from 'next-i18next';
 
 import constants from '../database/constants.json';
 
@@ -9,13 +9,16 @@ import { RiArrowDownSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-const NewHeader = ({ t, i18n }) => {
+const NewHeader = () => {
+  const { t } = useTranslation('header');
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
 
   const setLang = (lang) => {
-    i18n.changeLanguage(lang);
+    router.push(router.asPath, undefined, { locale: lang });
   };
 
   return (
@@ -219,4 +222,4 @@ const NewHeader = ({ t, i18n }) => {
   );
 };
 
-export default withTranslation('header')(NewHeader);
+export default NewHeader;

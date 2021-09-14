@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from '../components/head';
-import { withTranslation } from '../services/i18n';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
 
-const Boleham = ({ t }) => {
+const Boleham = () => {
+  const { t } = useTranslation('boleham');
+
   const searchInput = async (event) => {
     event.preventDefault();
   };
@@ -184,8 +187,13 @@ const Boleham = ({ t }) => {
   );
 };
 
-Boleham.getInitialProps = async () => ({
-  namespacesRequired: ['boleham', 'header', 'footer'],
-});
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['boleham', 'header', 'footer'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
-export default withTranslation('boleham')(Boleham);
+export default Boleham;

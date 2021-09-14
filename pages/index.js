@@ -1,12 +1,15 @@
 import Head from '../components/head';
 import CookieConsent from 'react-cookie-consent';
-import { withTranslation } from '../services/i18n';
 import constants from '../database/constants.json';
 import Image from 'next/image';
 import Footer from '../components/footer';
 import Header from '../components/header';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
 
-const Home = ({ t }) => {
+const Home = () => {
+  const { t } = useTranslation('common');
+
   return (
     <div>
       <Head title="Menhera's Site" favicon='assets/favicon.png' />
@@ -47,8 +50,13 @@ const Home = ({ t }) => {
   );
 };
 
-Home.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'header', 'footer'],
-});
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'header', 'footer'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
-export default withTranslation('common')(Home);
+export default Home;

@@ -30,7 +30,7 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "next": "^10.2.2",
-    "next-i18next": "^7.0.1",
+    "next-i18next": "^8.8.0",
     "react": "^17.0.1",
     "react-accessible-accordion": "^3.3.5",
     "react-cookie-consent": "^6.2.1",

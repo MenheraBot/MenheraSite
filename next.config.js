@@ -1,11 +1,6 @@
 require('dotenv').config();
 const { add_bot_url } = require('./database/constants.json');
-const { nextI18NextRewrites } = require('next-i18next/rewrites');
-
-const localeSubpaths = {
-  pt: 'pt',
-  en: 'en',
-};
+const { i18n } = require('./next-i18next.config');
 
 module.exports = {
   env: {
@@ -14,10 +9,7 @@ module.exports = {
   images: {
     domains: ['cdn.discordapp.com'],
   },
-  rewrites: async () => nextI18NextRewrites(localeSubpaths),
-  publicRuntimeConfig: {
-    localeSubpaths,
-  },
+  i18n,
   redirects: async () => [
     {
       source: '/add',

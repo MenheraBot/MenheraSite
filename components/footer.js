@@ -1,7 +1,9 @@
 import style from '../styles/components/footer.module.css';
-import { withTranslation } from '../services/i18n';
+import { useTranslation } from 'next-i18next';
 
-const Footer = ({ t }) => {
+const Footer = () => {
+  const { t } = useTranslation('footer');
+
   return (
     <footer className={style.footer}>
       <a href='https://github.com/ySnoopyDogy/MenheraBot' target='_blank' rel='noopener noreferrer'>
@@ -11,4 +13,4 @@ const Footer = ({ t }) => {
   );
 };
 
-export default withTranslation('footer')(Footer);
+export default Footer;

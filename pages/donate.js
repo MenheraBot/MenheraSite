@@ -1,10 +1,13 @@
-import { withTranslation } from '../services/i18n';
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Image from 'next/image';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
 
-const Donate = ({ t }) => {
+const Donate = () => {
+  const { t } = useTranslation('donate');
+
   return (
     <div>
       <Head title={t('title')} favicon='assets/favicon.png' />
@@ -32,8 +35,12 @@ const Donate = ({ t }) => {
   );
 };
 
-Donate.getInitialProps = async () => ({
-  namespacesRequired: ['donate', 'header', 'footer'],
-});
-
-export default withTranslation('donate')(Donate);
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['donate', 'header', 'footer'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
+export default Donate;

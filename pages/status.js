@@ -1,4 +1,3 @@
-import { withTranslation } from '../services/i18n';
 import { useEffect, useState } from 'react';
 import CacheManager from '../database/cacheManager';
 import Head from '../components/head';
@@ -7,8 +6,11 @@ import Cmds from '../components/disabledCommands';
 import style from '../styles/pages/status.module.css';
 import Footer from '../components/footer';
 import Header from '../components/header';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
 
-const Status = ({ t }) => {
+const Status = () => {
+  const { t } = useTranslation('status');
   const [ping, setPing] = useState([]);
 
   useEffect(() => {
@@ -45,8 +47,13 @@ const Status = ({ t }) => {
   );
 };
 
-Status.getInitialProps = async () => ({
-  namespacesRequired: ['status', 'header', 'footer'],
-});
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['status', 'header', 'footer'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
-export default withTranslation('status')(Status);
+export default Status;
