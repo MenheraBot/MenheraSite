@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css'
+import 'tailwindcss/tailwind.css';
 import '../styles/global.css';
 import ReactGA from 'react-ga';
 import App from 'next/app';
@@ -10,10 +10,11 @@ const Application = ({ Component, pageProps }) => {
     <>
       <Component {...pageProps} />
     </>
-  )
-}
+  );
+};
 
-Application.getInitialProps = async (appContext) => ({ ...await App.getInitialProps(appContext) })
+Application.getInitialProps = async (appContext) => ({
+  ...(await App.getInitialProps(appContext)),
+});
 
-export default appWithTranslation(Application)
-
+export default appWithTranslation(Application);

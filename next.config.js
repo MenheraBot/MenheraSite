@@ -1,18 +1,18 @@
-require('dotenv').config()
-const { add_bot_url } = require('./database/constants.json')
-const { nextI18NextRewrites } = require('next-i18next/rewrites')
+require('dotenv').config();
+const { add_bot_url } = require('./database/constants.json');
+const { nextI18NextRewrites } = require('next-i18next/rewrites');
 
 const localeSubpaths = {
   pt: 'pt',
-  en: 'en'
-}
+  en: 'en',
+};
 
 module.exports = {
   env: {
-    API_URL: process.env.API_URL
+    API_URL: process.env.API_URL,
   },
   images: {
-    domains: ['cdn.discordapp.com']
+    domains: ['cdn.discordapp.com'],
   },
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
@@ -22,12 +22,15 @@ module.exports = {
     {
       source: '/add',
       destination: add_bot_url,
-      permanent: true
+      permanent: true,
     },
     {
       source: '/:lang/add',
       destination: add_bot_url,
-      permanent: true
-    }
-  ]
-}
+      permanent: true,
+    },
+  ],
+  eslint: {
+    dirs: ['pages', 'utils', 'services', 'componentes', 'database'],
+  },
+};
