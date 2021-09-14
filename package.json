@@ -4,6 +4,8 @@
   "description": "Only just somente apenas o repositório do site da Menhera uwu",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
+    "postinstall": "husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -39,14 +41,32 @@
     "react-tooltip": "^4.2.21"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "postcss": "^8.3.0",
     "prettier": "^2.4.0",
     "tailwindcss": "^2.2.7",
     "tailwindcss-typography": "^3.1.0"
+  },
+  "lint-staged": {
+    "*{.jsx,.js,.ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.yml": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "engines": {
+    "npm": "please-use-yarn"
   }
 }
