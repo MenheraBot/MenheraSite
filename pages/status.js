@@ -14,18 +14,13 @@ const Status = ({ t }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const statusData = await CacheManager.getStatus();
+      const statusData = await CacheManager.getStatus()
 
-      const apiPing = statusData.filter(a => a._id.length >= 3)
-      const shardsPing = statusData.filter(a => a._id.length < 3)
-
-      const totalArray = [...apiPing, ...shardsPing]
-
-      setPing(totalArray);
+      setPing(statusData);
     }
 
     fetchData();
-    setInterval(fetchData, 30000)
+    setInterval(fetchData, 15000)
   }, []);
 
   return (
@@ -38,9 +33,9 @@ const Status = ({ t }) => {
 
         <h1 className={(ping.length > 0) ? style.none : style.wait}>{t('wait')}</h1>
         <Table pings={ping} />
-        {ping.map(a => {
+        {/*   {ping.map(a => {
           if (a._id === 'main') return (<Cmds cmds={a.disabledCommands} />)
-        })}
+        })} */}
       </section>
       <Footer />
     </div>
