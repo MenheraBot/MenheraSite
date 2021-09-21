@@ -41,6 +41,8 @@ const Privacy = ({ t }) => (
         </li>
         <li>Tentar burlar restições impostas pela Menhera, como algo que desvia de um tempo de recarga, ou utilizar outras contas para melhorar uma conta principal é proibído.</li>
       </ol>
+      <h2>Apelo de Banimento</h2>
+      Caso queira rever o seu banimento, você pode fazê-lo seguindo os modelos <a href="https://github.com/MenheraBot/MenheraBot/discussions/132">desta discução no GitHub</a>
     </div>
     <Footer />
   </>
