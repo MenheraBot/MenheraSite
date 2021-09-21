@@ -7,12 +7,23 @@ import Cmds from '../components/disabledCommands'
 import style from '../styles/pages/status.module.css'
 import Footer from '../components/footer'
 import Header from '../components/header'
+import cacheManagerInstance from '../database/cacheManager'
 
 const Status = ({ t }) => {
+  const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const [ping, setPing] = useState([])
+  const [disabled, setDisabled] = useState([])
+  let interval;
 
   useEffect(() => {
+    cacheManagerInstance.getCommands().then(res => {
+      const reduced = res.reduce((p, c) => {
+        if (c.disabled?.isDisabled) p.push({ name: captalize(c.name), reason: c.disabled.reason });
+        return p;
+      }, [])
+      setDisabled(reduced)
+    })
     const fetchData = async () => {
       const statusData = await CacheManager.getStatus()
 
@@ -20,7 +31,8 @@ const Status = ({ t }) => {
     }
 
     fetchData();
-    setInterval(fetchData, 15000)
+    interval = setInterval(fetchData, 15000)
+    return () => clearInterval(interval)
   }, []);
 
   return (
@@ -32,10 +44,8 @@ const Status = ({ t }) => {
         <h1 className={style.title}>Status</h1>
 
         <h1 className={(ping.length > 0) ? style.none : style.wait}>{t('wait')}</h1>
-        <Table pings={ping} />
-        {/*   {ping.map(a => {
-          if (a._id === 'main') return (<Cmds cmds={a.disabledCommands} />)
-        })} */}
+        {ping.length > 0 && <Table pings={ping} />}
+        {disabled.length > 0 && <Cmds cmds={disabled} />}
       </section>
       <Footer />
     </div>

@@ -25,9 +25,11 @@ const CommandPage = ({ t, i18n }) => {
 
     CacheManager.getCommands().then(res => {
       const reduced = res.reduce((p, c) => {
-        if (c.category === category) p.push({ name: captalize(c.name), description: c.description, cooldown: c.cooldown, options: c.options });
+        if (c.category === category) p.push({ name: captalize(c.name), description: c.description, cooldown: c.cooldown, options: c.options, disabled: c.disabled });
         return p;
       }, [])
+
+      reduced.sort((a, b) => a.name.localeCompare(b.name))
       setCommands(reduced)
     })
   }
@@ -36,9 +38,10 @@ const CommandPage = ({ t, i18n }) => {
     const fetchData = () => {
       CacheManager.getCommands().then(res => {
         const reduced = res.reduce((p, c) => {
-          if (c.category === category) p.push({ name: captalize(name), description: c.description, cooldown: c.cooldown, options: c.options });
+          if (c.category === category) p.push({ name: captalize(c.name), description: c.description, cooldown: c.cooldown, options: c.options, disabled: c.disabled  });
           return p;
         }, [])
+        reduced.sort((a, b) => a.name.localeCompare(b.name))
         setCommands(reduced)
       })
     }

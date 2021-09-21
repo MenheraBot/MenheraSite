@@ -34,14 +34,15 @@ const CommandTableRow = ({ cmd, key, t }) => {
 
   return [
     <tr key={key} className='hover:border-purple-700 cursor-pointer' onClick={() => setExpanded(!expanded)}>
-      <td className='text-current'>{capitalize(cmd.name)}</td>
-      <td className='text-current'>{cmd.description}</td>
+      <td className={cmd.disabled.isDisabled === true ? `text-red-600 cursor-help` : 'text-current'}>{capitalize(cmd.name)}</td>
+      <td className={cmd.disabled.isDisabled === true ? `text-red-600 cursor-help` : 'text-current'}>{cmd.description}</td>
     </tr>,
     expanded && (
-      <tr className="overflow-hidden" key="tr-expander">
+      <tr key={key + Date.now()} className="overflow-hidden" key="tr-expander">
         <td style={{ backgroundColor: "inherit" }} colSpan={2}>
           <div className="overflow-hidden m-4">
             <div>
+              {cmd.disabled.isDisabled && <center><p className='text-2xl'><span className='text-3xl font-bold text-yellow-600'>{t('disabled')}</span><br />{t('reason')} {cmd.disabled.reason}</p></center>}
               <p>{t('cooldown', { seconds: cmd.cooldown })}</p>
               {cmd.options.length > 0 && resolveOptions(cmd.options, t)}
             </div>
@@ -77,7 +78,7 @@ const resolveOptions = (options, t) => (
           opt.options ?
             <ResolveSubCommand key={opt.name} cmd={opt} t={t} />
             : (
-              <tr>
+              <tr key={opt.name + Date.now()}>
                 <td>{opt.name}</td>
                 <td>{opt.description}</td>
                 <td data-tip data-for={opt.name + i} className={opt.choices && "text-yellow-300 cursor-help"}>{opt.choices ? t('choices') : t(opt.type)}{opt.choices &&
