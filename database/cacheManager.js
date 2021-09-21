@@ -18,6 +18,8 @@ class CacheManager {
 
   async fetchDataFromAPI(wannaStatus = false) {
     const res = await axios.get(process.env.API_URL, {
+      withCredentials: false,
+        
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Access-Control-Allow-Origin": "*",
