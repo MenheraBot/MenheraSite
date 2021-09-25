@@ -17,7 +17,7 @@ class CacheManager {
   }
 
   async fetchDataFromAPI(fetchShards = false) {
-    const res = await axios.get(`${process.env.API_URL}/${fetchShards ? 'shard' : 'commands'}`, {
+    const res = await axios.get(`${process.env.API_URL}/${fetchShards ? 'shards' : 'commands'}`, {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Access-Control-Allow-Origin": process.env.API_URL,
