@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { add_bot_url } = require('./database/constants.json')
+const { add_bot_url } = require('./src/database/constants.json')
 const { nextI18NextRewrites } = require('next-i18next/rewrites')
 
 const localeSubpaths = {

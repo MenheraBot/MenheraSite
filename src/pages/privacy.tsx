@@ -1,7 +1,7 @@
 import Head from '../components/head'
 import Footer from '../components/footer'
 import Header from '../components/header'
-import { withTranslation } from '../services/i18n';
+import i18n from '../services/i18n';
 
 const Privacy = ({ t }) => (
   <>
@@ -53,4 +53,4 @@ Privacy.getInitialProps = async () => ({
   namespacesRequired: ['privacy', 'header', 'footer'],
 })
 
-export default withTranslation('privacy')(Privacy)
+export default i18n.withTranslation('privacy')(Privacy)

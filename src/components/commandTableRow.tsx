@@ -6,14 +6,14 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
 
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  return [
+  return <div>
     <tr key={key} className='hover:border-purple-700 cursor-pointer' onClick={() => setExpanded(!expanded)}>
       <td className='text-current'>{capitalize(cmd.name)}</td>
       <td className='text-current'>{cmd.description}</td>
       <td colSpan={2} className='text-current'>{t(cmd.type)}</td>
-    </tr>,
-    expanded && (
-      <tr className="overflow-hidden" key="tr-expander" colSpan={4}>
+    </tr>
+    {expanded && (
+      <tr className="overflow-hidden" key="tr-expander"  aria-colSpan={4}>
         <td style={{ backgroundColor: "inherit" }} colSpan={4}>
           <div className="overflow-hidden m-4">
             <div>
@@ -22,8 +22,8 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
           </div>
         </td>
       </tr>
-    )
-  ];
+    )}
+    </div>
 }
 
 const CommandTableRow = ({ cmd, key, t }) => {
@@ -32,25 +32,25 @@ const CommandTableRow = ({ cmd, key, t }) => {
 
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  return [
+  return <div>
     <tr key={key} className='hover:border-purple-700 cursor-pointer' onClick={() => setExpanded(!expanded)}>
       <td className={cmd.disabled.isDisabled === true ? `text-red-600 cursor-help` : 'text-current'}>{capitalize(cmd.name)}</td>
       <td className={cmd.disabled.isDisabled === true ? `text-red-600 cursor-help` : 'text-current'}>{cmd.description}</td>
-    </tr>,
-    expanded && (
-      <tr key={key + Date.now()} className="overflow-hidden" key="tr-expander">
+    </tr>
+    {expanded && (
+      <tr key={key + Date.now()} className="overflow-hidden">
         <td style={{ backgroundColor: "inherit" }} colSpan={2}>
           <div className="overflow-hidden m-4">
             <div>
-              {cmd.disabled.isDisabled && <center><p className='text-2xl'><span className='text-3xl font-bold text-yellow-600'>{t('disabled')}</span><br />{t('reason')} {cmd.disabled.reason}</p></center>}
+              {cmd.disabled.isDisabled && <div><p className='text-2xl'><span className='text-3xl font-bold text-yellow-600'>{t('disabled')}</span><br />{t('reason')} {cmd.disabled.reason}</p></div>}
               <p>{t('cooldown', { seconds: cmd.cooldown })}</p>
               {cmd.options.length > 0 && resolveOptions(cmd.options, t)}
             </div>
           </div>
         </td>
       </tr>
-    )
-  ];
+    )}
+  </div>
 }
 
 const resolveOptions = (options, t) => (

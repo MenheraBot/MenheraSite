@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { withTranslation } from "../services/i18n";
+import i18n from "../services/i18n";
 
 import constants from "../database/constants.json";
 
@@ -60,7 +60,7 @@ const newHeader = ({ t, i18n }) => {
                     <RiArrowDownSLine size={15} />
                   </div>
                   {showLanguages && (
-                    <div class="absolute bg-white shadow w-28 h-20 mt-2 right-0 rounded-lg">
+                    <div className="absolute bg-white shadow w-28 h-20 mt-2 right-0 rounded-lg">
                       <ul className="flex flex-col gap-2 justify-center p-2">
                         <li
                           className="text-gray-600 font-semibold hover:bg-gray-300 hover:text-purple-500 flex flex-row items-center gap-2"
@@ -178,7 +178,7 @@ const newHeader = ({ t, i18n }) => {
                   <RiArrowRightSLine size={15} />
                 </div>
                 {showLanguages && (
-                  <div class="flex bg-gray-600 shadow w-28 h-20 mt-2 right-0 rounded-lg">
+                  <div className="flex bg-gray-600 shadow w-28 h-20 mt-2 right-0 rounded-lg">
                     <ul className="flex flex-col gap-2 justify-center p-2">
                       <li
                         className="text-white font-semibold flex flex-row items-center gap-2"
@@ -214,4 +214,4 @@ const newHeader = ({ t, i18n }) => {
   );
 }
 
-export default withTranslation("header")(newHeader);
+export default i18n.withTranslation("header")(newHeader);

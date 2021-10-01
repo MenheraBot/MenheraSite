@@ -1,6 +1,6 @@
 import CacheManager from '../database/cacheManager';
 import { useState, useEffect } from 'react';
-import { withTranslation } from '../services/i18n';
+import i18n from '../services/i18n';
 import Head from '../components/head';
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -54,17 +54,17 @@ const CommandPage = ({ t, i18n }) => {
       <Header />
       <div className={style.container}>
         <div className={style.top}>
-          <center><ul>
+          <div className="text-center"><ul>
             <button onClick={() => changeCategory('actions')} className={category === 'actions' ? style.boxActive : style.box}><li>{t('actions')}</li></button>
             <button onClick={() => changeCategory('fun')} className={category === 'fun' ? style.boxActive : style.box}><li>{t('fun')}</li></button>
             <button onClick={() => changeCategory('economy')} className={category === 'economy' ? style.boxActive : style.box}><li>{t('eco')}</li></button>
             <button onClick={() => changeCategory('info')} className={category === 'info' ? style.boxActive : style.box}><li>{t('info')}</li></button>
             {/*<button onClick={() => changeCategory('rpg')} className={category === 'rpg' ? style.boxActive : style.box}><li>{t('rpg')}</li></button>*/}
             <button onClick={() => changeCategory('util')} className={category === 'util' ? style.boxActive : style.box}><li>{t('util')}</li></button>
-          </ul></center>
+          </ul></div>
         </div>
         <div className={style.bottom}>
-          <center>
+          <div className="text-center">
             <table>
               <thead>
                 <tr>
@@ -80,7 +80,7 @@ const CommandPage = ({ t, i18n }) => {
                   )}
               </tbody>
             </table>
-          </center>
+          </div>
         </div>
       </div>
       <Footer />
@@ -92,4 +92,4 @@ CommandPage.getInitialProps = async () => ({
   namespacesRequired: ['commands', 'header', 'footer'],
 })
 
-export default withTranslation('commands')(CommandPage);
+export default i18n.withTranslation('commands')(CommandPage);

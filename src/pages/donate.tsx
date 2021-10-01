@@ -1,4 +1,4 @@
-import { withTranslation } from "../services/i18n";
+import i18n from "../services/i18n";
 import Head from '../components/head';
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -26,4 +26,4 @@ Donate.getInitialProps = async () => ({
   namespacesRequired: ["donate", "header", "footer"],
 });
 
-export default withTranslation("donate")(Donate);
+export default i18n.withTranslation("donate")(Donate);
