@@ -13,7 +13,7 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
       <td colSpan={2} className='text-current'>{t(cmd.type)}</td>
     </tr>
     {expanded && (
-      <tr className="overflow-hidden" key="tr-expander"  aria-colSpan={4}>
+      <tr className="overflow-hidden" key="tr-expander" colSpan={4}>
         <td style={{ backgroundColor: "inherit" }} colSpan={4}>
           <div className="overflow-hidden m-4">
             <div>
