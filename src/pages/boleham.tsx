@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image';
 import Head from '../components/head'
-import { withTranslation } from '../services/i18n'
+import i18n from '../services/i18n'
 
 const Boleham = ({ t }) => {
 
@@ -124,5 +124,5 @@ Boleham.getInitialProps = async () => ({
   namespacesRequired: ['boleham', 'header', 'footer'],
 })
 
-export default withTranslation('boleham')(Boleham);
+export default i18n.withTranslation('boleham')(Boleham);
 

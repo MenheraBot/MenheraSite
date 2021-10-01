@@ -1,5 +1,5 @@
 
-import { withTranslation } from '../services/i18n'
+import i18n from '../services/i18n'
 import style from '../styles/pages/status.module.css'
 
 const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
@@ -22,4 +22,4 @@ const disabledCommandsTable = ({ cmds, t }) => {
   )
 }
 
-export default withTranslation('common')(disabledCommandsTable)
+export default i18n.withTranslation('common')(disabledCommandsTable)

@@ -1,6 +1,6 @@
 import Head from "../components/head";
 import CookieConsent from "react-cookie-consent";
-import { withTranslation } from "../services/i18n";
+import i18n from "../services/i18n";
 import constants from "../database/constants.json";
 import Image from "next/image";
 import Footer from '../components/footer'
@@ -54,4 +54,4 @@ Home.getInitialProps = async () => ({
   namespacesRequired: ["common", "header", "footer"],
 });
 
-export default withTranslation("common")(Home);
+export default i18n.withTranslation("common")(Home);

@@ -1,4 +1,4 @@
-import { withTranslation } from '../services/i18n'
+import i18n from '../services/i18n'
 import { useEffect, useState } from 'react'
 import CacheManager from '../database/cacheManager'
 import Head from '../components/head'
@@ -56,5 +56,5 @@ Status.getInitialProps = async () => ({
   namespacesRequired: ['status', 'header', 'footer'],
 })
 
-export default withTranslation('status')(Status)
+export default i18n.withTranslation('status')(Status)
 

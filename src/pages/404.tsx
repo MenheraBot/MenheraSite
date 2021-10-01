@@ -3,7 +3,7 @@ import Head from '../components/head'
 import Header from '../components/header'
 import Link from 'next/link'
 import Footer from '../components/footer'
-import { withTranslation } from '../services/i18n';
+import i18n from '../services/i18n';
 
 const Custom404 = ({ t }) => (
   <>
@@ -12,7 +12,7 @@ const Custom404 = ({ t }) => (
     <div className={style.box}>
       <img src="/assets/404.png"/>
       <h1><span>404</span><div id={style.responsive}> - {t('pnf')}<br /></div>
-        <h3><center><p>{t('text.start')}<br />{t('text.end')}</p></center>
+        <h3><div className="text-center"><p>{t('text.start')}<br />{t('text.end')}</p></div>
           <p><br />
             <Link href="/"><b><a className="cursor-pointer">{t('back')}</a></b></Link>
           </p>
@@ -23,4 +23,4 @@ const Custom404 = ({ t }) => (
   </>
 )
 
-export default withTranslation('error')(Custom404)
+export default i18n.withTranslation('error')(Custom404)

@@ -1,5 +1,5 @@
 import style from '../styles/components/footer.module.css'
-import { withTranslation } from '../services/i18n';
+import i18n from '../services/i18n';
 
 const Footer = ({t}) => {
   return (
@@ -11,4 +11,4 @@ const Footer = ({t}) => {
   )
 }
 
-export default withTranslation('footer')(Footer)
+export default i18n.withTranslation('footer')(Footer)
