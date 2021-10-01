@@ -7,7 +7,7 @@ export default function Layout(props) {
         <title>{props.title}</title>
         <link rel="icon" href={props.favicon} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="Menhera'Site" />
+        <meta property="og:title" content="Menhera's Site" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://menherabot.xyz/" />
         <meta property="og:image" content="https://menherabot.xyz/assets/men.png" />
