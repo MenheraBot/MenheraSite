@@ -1,5 +1,5 @@
 import CacheManager from '../database/cacheManager';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { withTranslation } from '../services/i18n';
 import Head from '../components/head';
 import Footer from '../components/footer';
@@ -7,39 +7,58 @@ import Header from '../components/header';
 import style from '../styles/pages/commands.module.css';
 import CommandTableRow from '../components/commandTableRow';
 
-const CommandPage = ({ t }) => {
+const CommandPage = ({ t, i18n }) => {
   const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  const [allCommands, setAllCommands] = useState([]);
-
+  const [commands, setCommands] = useState([]);
   const [category, setCategory] = useState('actions');
 
-  const commands = useMemo(() => {
-    return allCommands.reduce((p, c) => {
-      if (c.category === category)
-        p.push({
-          name: captalize(c._id),
-          description: c.description,
-          cooldown: c.cooldown,
-          options: c.options,
-        });
-      return p;
-    }, []);
-  }, [allCommands, category]);
+  const lang = i18n.language;
 
-  // const lang = i18n.language;
-
-  // useEffect(() => {
-  //   changeCategory(category)
-  // }, [lang]);
+  useEffect(() => {
+    changeCategory(category);
+  }, [lang]);
 
   const changeCategory = async (category) => {
     setCategory(category);
+
+    CacheManager.getCommands().then((res) => {
+      const reduced = res.reduce((p, c) => {
+        if (c.category === category)
+          p.push({
+            name: captalize(c.name),
+            description: c.description,
+            cooldown: c.cooldown,
+            options: c.options,
+            disabled: c.disabled,
+          });
+        return p;
+      }, []);
+
+      reduced.sort((a, b) => a.name.localeCompare(b.name));
+      setCommands(reduced);
+    });
   };
 
   useEffect(() => {
-    // TODO switch to revalidate
-    CacheManager.getCommands().then(setAllCommands);
+    const fetchData = () => {
+      CacheManager.getCommands().then((res) => {
+        const reduced = res.reduce((p, c) => {
+          if (c.category === category)
+            p.push({
+              name: captalize(c.name),
+              description: c.description,
+              cooldown: c.cooldown,
+              options: c.options,
+              disabled: c.disabled,
+            });
+          return p;
+        }, []);
+        reduced.sort((a, b) => a.name.localeCompare(b.name));
+        setCommands(reduced);
+      });
+    };
+    fetchData();
   }, []);
 
   return (

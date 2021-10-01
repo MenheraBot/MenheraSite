@@ -12,16 +12,19 @@ class CacheManager {
     if (cmds) return cmds;
 
     const fetchedCommands = await this.fetchDataFromAPI();
-    cacheData.put('cmds', fetchedCommands, 1000 * 60 * 60);
+    cacheData.put('cmds', fetchedCommands, 1000 * 60 * 15);
     return fetchedCommands;
   }
 
-  async fetchDataFromAPI(wannaStatus = false) {
-    const res = await axios.get(process.env.API_URL);
+  async fetchDataFromAPI(fetchShards = false) {
+    const res = await axios.get(`${process.env.API_URL}/${fetchShards ? 'shards' : 'commands'}`, {
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': process.env.API_URL,
+      },
+    });
 
-    if (wannaStatus) return res.data.status;
-
-    return res.data.commands;
+    return res.data;
   }
 }
 

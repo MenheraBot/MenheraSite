@@ -27,5 +27,7 @@
   "yes": "Yes",
   "no": "No",
   "choices": "Choice",
-  "subcommands": "Subcommands"
+  "subcommands": "Subcommands",
+  "disabled": "Command in Maintenance!",
+  "reason": "Reason:"
 }

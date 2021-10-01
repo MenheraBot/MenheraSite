@@ -81,6 +81,8 @@ const Privacy = ({ t }) => (
           recarga, ou utilizar outras contas para melhorar uma conta principal é proibído.
         </li>
       </ol>
+      <h2>Apelo de Banimento</h2>
+      Caso queira rever o seu banimento, você pode fazê-lo seguindo os modelos <a href="https://github.com/MenheraBot/MenheraBot/discussions/132" className="underline">desta discussão no GitHub</a>
     </div>
     <Footer />
   </>

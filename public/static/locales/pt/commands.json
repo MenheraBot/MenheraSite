@@ -26,5 +26,7 @@
   "yes": "Sim",
   "no": "Não",
   "choices": "Escolha",
-  "subcommands": "Subcomandos"
+  "subcommands": "Subcomandos",
+  "disabled": "Comando Desativado!",
+  "reason": "Motivo:"
 }
