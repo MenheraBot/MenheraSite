@@ -1,69 +1,52 @@
-import CacheManager from '../database/cacheManager';
 import { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
+
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+import CacheManager from '../database/cacheManager';
+import { capitalize } from '../utils/capitalize';
+import { Command } from '../../typings/Command';
+
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
-import style from '../styles/pages/commands.module.css';
 import CommandTableRow from '../components/commandTableRow';
-import { GetStaticProps } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'react-i18next';
+
+import style from '../styles/pages/commands.module.css';
 
 const CommandPage = (): JSX.Element => {
-  const { t, i18n } = useTranslation('commands');
+  const { t } = useTranslation('commands');
 
-  const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
-  const [commands, setCommands] = useState([]);
+  const [commands, setCommands] = useState<Command[]>([]);
   const [category, setCategory] = useState('actions');
-
-  const lang = i18n.language;
 
   useEffect(() => {
     changeCategory(category);
-  }, [lang]);
+  }, [category]);
 
-  const changeCategory = async (category) => {
+  const changeCategory = async (category: string) => {
     setCategory(category);
-
-    CacheManager.getCommands().then((res) => {
-      const reduced = res.reduce((p, c) => {
-        if (c.category === category)
-          p.push({
-            name: captalize(c.name),
-            description: c.description,
-            cooldown: c.cooldown,
-            options: c.options,
-            disabled: c.disabled,
-          });
-        return p;
-      }, []);
-
-      reduced.sort((a, b) => a.name.localeCompare(b.name));
-      setCommands(reduced);
-    });
   };
 
   useEffect(() => {
     const fetchData = () => {
-      CacheManager.getCommands().then((res) => {
-        const reduced = res.reduce((p, c) => {
-          if (c.category === category)
-            p.push({
-              name: captalize(c.name),
-              description: c.description,
-              cooldown: c.cooldown,
-              options: c.options,
-              disabled: c.disabled,
-            });
-          return p;
+      CacheManager.getCommands().then((response) => {
+        const reduced = response.reduce((acc: Command[], command) => {
+          if (command.category === category) {
+            acc.push({ ...command, name: capitalize(command.name) });
+          }
+
+          return acc;
         }, []);
+
         reduced.sort((a, b) => a.name.localeCompare(b.name));
         setCommands(reduced);
       });
     };
+
     fetchData();
-  }, []);
+  }, [category]);
 
   return (
     <div>
@@ -97,7 +80,7 @@ const CommandPage = (): JSX.Element => {
               >
                 <li>{t('info')}</li>
               </button>
-              {/* <button onClick={() => changeCategory('rpg')} className={category === 'rpg' ? style.boxActive : style.box}><li>{t('rpg')}</li></button> */}
+
               <button
                 onClick={() => changeCategory('util')}
                 className={category === 'util' ? style.boxActive : style.box}
@@ -136,7 +119,7 @@ const CommandPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['commands', 'header', 'footer'])),

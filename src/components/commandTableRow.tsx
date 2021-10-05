@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
+import { capitalize } from '../utils/capitalize';
+
 const ResolveSubCommand = ({ cmd, key, t }) => {
   const [expanded, setExpanded] = useState(false);
-
-  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
   return (
     <div>
       <tr
@@ -32,10 +31,8 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
   );
 };
 
-const CommandTableRow = ({ cmd, key, t }) => {
+const CommandTableRow = ({ cmd, key, t }): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
-
-  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
     <div>
@@ -84,7 +81,7 @@ const resolveOptions = (options, t) => (
   <>
     <table className='mb-0 !important'>
       <caption className='text-2xl mb-2 text-purple-500'>
-        {options[0].options ? t('subcommands') : t('arguments')}
+        {options[0] ? t('subcommands') : t('arguments')}
       </caption>
       <thead>
         {options.every((a) => a.options) ? (

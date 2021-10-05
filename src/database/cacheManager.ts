@@ -1,18 +1,22 @@
 import axios from 'axios';
 import cacheData from 'memory-cache';
 
+import { Command } from '../../typings/Command';
+import { Shard } from '../../typings/Shard';
+
 class CacheManager {
-  async getStatus() {
+  async getStatus(): Promise<Shard[]> {
     const status = await this.fetchDataFromAPI(true);
     return status;
   }
 
-  async getCommands() {
+  async getCommands(): Promise<Command[]> {
     const cmds = await cacheData.get('cmds');
     if (cmds) return cmds;
 
     const fetchedCommands = await this.fetchDataFromAPI();
     cacheData.put('cmds', fetchedCommands, 1000 * 60 * 15);
+
     return fetchedCommands;
   }
 

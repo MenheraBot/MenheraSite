@@ -1,10 +1,10 @@
+import App, { AppContext, AppProps } from 'next/app';
 import 'tailwindcss/tailwind.css';
 import '../styles/global.css';
 import ReactGA from 'react-ga';
-import App from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 
-const Application = ({ Component, pageProps }) => {
+const Application = ({ Component, pageProps }: AppProps) => {
   ReactGA.initialize('G-HKJ8H7FR52');
   return (
     <>
@@ -13,7 +13,7 @@ const Application = ({ Component, pageProps }) => {
   );
 };
 
-Application.getInitialProps = async (appContext) => ({
+Application.getInitialProps = async (appContext: AppContext) => ({
   ...(await App.getInitialProps(appContext)),
 });
 

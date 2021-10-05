@@ -1,31 +1,45 @@
 import { useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
+
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import CacheManager from '../database/cacheManager';
+import { capitalize } from '../utils/capitalize';
+
+import { Shard } from '../../typings/Shard';
+import { CommandDisabled } from '../../typings/Command';
+
 import Head from '../components/head';
 import Table from '../components/pingTable';
 import Cmds from '../components/disabledCommands';
-import style from '../styles/pages/status.module.css';
 import Footer from '../components/footer';
 import Header from '../components/header';
-import { useTranslation } from 'react-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { GetStaticProps } from 'next';
+
+import style from '../styles/pages/status.module.css';
 
 const StatusPage = (): JSX.Element => {
   const { t } = useTranslation('status');
-  const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  const [ping, setPing] = useState([]);
-  const [disabled, setDisabled] = useState([]);
-  let interval;
+  const [ping, setPing] = useState<Shard[]>([]);
+  const [disabled, setDisabled] = useState<CommandDisabled[]>([]);
 
   useEffect(() => {
     CacheManager.getCommands().then((res) => {
-      const reduced = res.reduce((p, c) => {
-        if (c.disabled?.isDisabled) p.push({ name: captalize(c.name), reason: c.disabled.reason });
+      const reduced = res.reduce((p: CommandDisabled[], c) => {
+        if (c.disabled?.isDisabled) {
+          p.push({
+            name: capitalize(c.name),
+            reason: c.disabled.reason,
+          });
+        }
+
         return p;
       }, []);
+
       setDisabled(reduced);
     });
+
     const fetchData = async () => {
       const statusData = await CacheManager.getStatus();
 
@@ -33,7 +47,8 @@ const StatusPage = (): JSX.Element => {
     };
 
     fetchData();
-    interval = setInterval(fetchData, 15000);
+
+    const interval = setInterval(fetchData, 15000);
     return () => clearInterval(interval);
   }, []);
 
@@ -53,7 +68,7 @@ const StatusPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['status', 'header', 'footer'])),

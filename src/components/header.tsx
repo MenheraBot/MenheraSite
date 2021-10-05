@@ -18,7 +18,7 @@ const NewHeader = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
 
-  const setLang = (lang) => {
+  const setLang = (lang: string) => {
     router.push(router.asPath, undefined, { locale: lang });
   };
 
@@ -35,7 +35,7 @@ const NewHeader = (): JSX.Element => {
             <div className='hidden md:block w-full max-w-max justify-items-end'>
               <div className='ml-10 flex items-baseline space-x-4'>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
-                  <Link href='/comandos'>{t('commands')}</Link>
+                  <Link href='/commands'>{t('commands')}</Link>
                 </a>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
                   <Link href='/status'>Status</Link>

@@ -28,7 +28,7 @@ const DonatePage = (): JSX.Element => {
           </div>
 
           <div className={style.imageContainer}>
-            <Image src='/assets/cry.png' width='300' height='400' />
+            <Image alt='Menhera picture' src='/assets/cry.png' width='300' height='400' />
           </div>
         </div>
       </section>
@@ -37,7 +37,7 @@ const DonatePage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['donate', 'header', 'footer'])),

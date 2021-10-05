@@ -53,7 +53,7 @@ const HomePage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common', 'header', 'footer'])),
