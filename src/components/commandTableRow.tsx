@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
-import { capitalize } from '../utils/capitalize';
-
 const ResolveSubCommand = ({ cmd, key, t }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -86,7 +84,7 @@ const resolveOptions = (options, t) => (
   <>
     <table className='mb-0 !important'>
       <caption className='text-2xl mb-2 text-purple-500'>
-{'options' in options[0] ? t('subcommands') : t('arguments')}
+        {'options' in options[0] ? t('subcommands') : t('arguments')}
       </caption>
       <thead>
         {options.every((a) => a.options) ? (
