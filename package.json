@@ -10,8 +10,8 @@
     "test": "jest",
     "prepare": "husky install",
     "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
-    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "lint --fix"
   },
   "repository": {
     "type": "git",
