@@ -1,7 +1,9 @@
 import style from '../styles/components/footer.module.css';
-import i18n from '../services/i18n';
+import { useTranslation } from 'react-i18next';
 
-const Footer = ({ t }) => {
+const Footer = (): JSX.Element => {
+  const { t } = useTranslation('footer');
+
   return (
     <footer className={style.footer}>
       <a href='https://github.com/ySnoopyDogy/MenheraBot' target='_blank' rel='noopener noreferrer'>
@@ -15,4 +17,4 @@ const Footer = ({ t }) => {
   );
 };
 
-export default i18n.withTranslation('footer')(Footer);
+export default Footer;

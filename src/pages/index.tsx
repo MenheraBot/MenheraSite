@@ -1,12 +1,17 @@
 import Head from '../components/head';
 import CookieConsent from 'react-cookie-consent';
-import i18n from '../services/i18n';
+
 import constants from '../database/constants.json';
 import Image from 'next/image';
 import Footer from '../components/footer';
 import Header from '../components/header';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
+import { useTranslation } from 'react-i18next';
 
-const Home = ({ t }) => {
+const HomePage = (): JSX.Element => {
+  const { t } = useTranslation('common');
+
   return (
     <div>
       <Head title='Menhera Bot' favicon='assets/favicon.png' />
@@ -23,7 +28,8 @@ const Home = ({ t }) => {
           borderRadius: '50px',
           width: '300px',
           heigh: '30px',
-        }}>
+        }}
+      >
         {t('cookie')}
       </CookieConsent>
       <div className='w-full h-screen sm:h-auto flex justify-center'>
@@ -47,8 +53,12 @@ const Home = ({ t }) => {
   );
 };
 
-Home.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'header', 'footer'],
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'header', 'footer'])),
+    },
+  };
+};
 
-export default i18n.withTranslation('common')(Home);
+export default HomePage;

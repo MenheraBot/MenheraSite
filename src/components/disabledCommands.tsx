@@ -1,9 +1,19 @@
-import i18n from '../services/i18n';
+import { useTranslation } from 'react-i18next';
+
 import style from '../styles/pages/status.module.css';
 
 const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-const disabledCommandsTable = ({ cmds, t }) => {
+type Props = {
+  cmds: Array<{
+    name: string;
+    reason: string;
+  }>;
+};
+
+const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
+  const { t } = useTranslation('common');
+
   return (
     <table>
       <thead>
@@ -22,4 +32,4 @@ const disabledCommandsTable = ({ cmds, t }) => {
   );
 };
 
-export default i18n.withTranslation('common')(disabledCommandsTable);
+export default DisabledCommandsTable;

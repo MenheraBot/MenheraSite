@@ -1,4 +1,3 @@
-import i18n from '../services/i18n';
 import { useEffect, useState } from 'react';
 import CacheManager from '../database/cacheManager';
 import Head from '../components/head';
@@ -7,8 +6,12 @@ import Cmds from '../components/disabledCommands';
 import style from '../styles/pages/status.module.css';
 import Footer from '../components/footer';
 import Header from '../components/header';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
 
-const Status = ({ t }) => {
+const StatusPage = (): JSX.Element => {
+  const { t } = useTranslation('status');
   const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const [ping, setPing] = useState([]);
@@ -50,8 +53,11 @@ const Status = ({ t }) => {
   );
 };
 
-Status.getInitialProps = async () => ({
-  namespacesRequired: ['status', 'header', 'footer'],
-});
-
-export default i18n.withTranslation('status')(Status);
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['status', 'header', 'footer'])),
+    },
+  };
+};
+export default StatusPage;

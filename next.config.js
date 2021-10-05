@@ -1,13 +1,9 @@
 /* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
-const { add_bot_url } = require('./src/database/constants.json');
-const { nextI18NextRewrites } = require('next-i18next/rewrites');
+const { i18n } = require('./next-i18next.config');
 
-const localeSubpaths = {
-  pt: 'pt',
-  en: 'en',
-};
+const { add_bot_url } = require('./src/database/constants.json');
 
 module.exports = {
   env: {
@@ -16,10 +12,7 @@ module.exports = {
   images: {
     domains: ['cdn.discordapp.com'],
   },
-  rewrites: async () => nextI18NextRewrites(localeSubpaths),
-  publicRuntimeConfig: {
-    localeSubpaths,
-  },
+  i18n,
   redirects: async () => [
     {
       source: '/add',

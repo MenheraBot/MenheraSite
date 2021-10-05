@@ -1,13 +1,17 @@
 import CacheManager from '../database/cacheManager';
 import { useState, useEffect } from 'react';
-import i18n from '../services/i18n';
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import style from '../styles/pages/commands.module.css';
 import CommandTableRow from '../components/commandTableRow';
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
 
-const CommandPage = ({ t, i18n }) => {
+const CommandPage = (): JSX.Element => {
+  const { t, i18n } = useTranslation('commands');
+
   const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const [commands, setCommands] = useState([]);
@@ -132,8 +136,12 @@ const CommandPage = ({ t, i18n }) => {
   );
 };
 
-CommandPage.getInitialProps = async () => ({
-  namespacesRequired: ['commands', 'header', 'footer'],
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['commands', 'header', 'footer'])),
+    },
+  };
+};
 
-export default i18n.withTranslation('commands')(CommandPage);
+export default CommandPage;

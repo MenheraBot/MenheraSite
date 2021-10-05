@@ -1,11 +1,16 @@
 import Head from 'next/head';
 
-export default function Layout(props) {
+type Props = {
+  title: string;
+  favicon: string;
+};
+
+export default function Layout({ title, favicon }: Props): JSX.Element {
   return (
     <div>
       <Head>
-        <title>{props.title}</title>
-        <link rel='icon' href={props.favicon} />
+        <title>{title}</title>
+        <link rel='icon' href={favicon} />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta property='og:title' content="Menhera's Site" />
         <meta property='og:type' content='website' />

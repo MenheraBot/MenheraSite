@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Transition } from '@headlessui/react';
-import i18n from '../services/i18n';
 
 import constants from '../database/constants.json';
 
@@ -9,13 +8,18 @@ import { RiArrowDownSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 
-const NewHeader = ({ t, i18n }) => {
+const NewHeader = (): JSX.Element => {
+  const { t } = useTranslation('header');
+  const router = useRouter();
+
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
 
   const setLang = (lang) => {
-    i18n.changeLanguage(lang);
+    router.push(router.asPath, undefined, { locale: lang });
   };
 
   return (
@@ -24,8 +28,8 @@ const NewHeader = ({ t, i18n }) => {
         <div className='flex items-center justify-between h-16'>
           <div className='flex items-center'>
             <div className='cursor-pointer relative w-44 h-8'>
-              <Link href='/'>
-                <Image src='/assets/logo.png' layout='fill' />
+              <Link href='/' passHref>
+                <Image src='/assets/logo.png' layout='fill' alt='Logo' />
               </Link>
             </div>
             <div className='hidden md:block w-full max-w-max justify-items-end'>
@@ -66,14 +70,24 @@ const NewHeader = ({ t, i18n }) => {
                           className='text-gray-600 font-semibold hover:bg-gray-300 hover:text-purple-500 flex flex-row items-center gap-2'
                           onClick={() => setLang('pt')}
                         >
-                          <Image src='/assets/brazil-flag.svg' height={20} width={30} />
+                          <Image
+                            src='/assets/brazil-flag.svg'
+                            height={20}
+                            width={30}
+                            alt='Brazil'
+                          />
                           PT-BR
                         </li>
                         <li
                           className='text-gray-600 font-semibold hover:bg-gray-300 hover:text-purple-500 flex flex-row items-center gap-2'
                           onClick={() => setLang('en')}
                         >
-                          <Image src='/assets/united-states-flag.svg' height={20} width={30} />
+                          <Image
+                            src='/assets/united-states-flag.svg'
+                            height={20}
+                            width={30}
+                            alt='United Sttes'
+                          />
                           EN
                         </li>
                       </ul>
@@ -187,14 +201,24 @@ const NewHeader = ({ t, i18n }) => {
                         className='text-white font-semibold flex flex-row items-center gap-2'
                         onClick={() => setLang('pt')}
                       >
-                        <Image src='/assets/brazil-flag.svg' height={20} width={30} />
+                        <Image
+                          src='/assets/brazil-flag.svg'
+                          height={20}
+                          width={30}
+                          alt='Brazil Flag'
+                        />
                         PT-BR
                       </li>
                       <li
                         className='text-white font-semibold flex flex-row items-center gap-2'
                         onClick={() => setLang('en')}
                       >
-                        <Image src='/assets/united-states-flag.svg' height={20} width={30} />
+                        <Image
+                          src='/assets/united-states-flag.svg'
+                          height={20}
+                          width={30}
+                          alt='United States Flag'
+                        />
                         EN
                       </li>
                     </ul>
@@ -209,4 +233,4 @@ const NewHeader = ({ t, i18n }) => {
   );
 };
 
-export default i18n.withTranslation('header')(NewHeader);
+export default NewHeader;
