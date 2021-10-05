@@ -3,42 +3,56 @@ import Head from '../components/head';
 import Header from '../components/header';
 import Link from 'next/link';
 import Footer from '../components/footer';
-import i18n from '../services/i18n';
+import { useTranslation } from 'react-i18next';
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const Custom404 = ({ t }) => (
-  <>
-    <Head title={t('title')} favicon='/assets/icon404.png' />
-    <Header />
-    <div className={style.box}>
-      <img src='/assets/404.png' />
-      <h1>
-        <span>404</span>
-        <div id={style.responsive}>
-          {' '}
-          - {t('pnf')}
-          <br />
-        </div>
-        <h3>
-          <div className='text-center'>
-            <p>
-              {t('text.start')}
-              <br />
-              {t('text.end')}
-            </p>
-          </div>
-          <p>
+const NotFoundPage = (): JSX.Element => {
+  const { t } = useTranslation('error');
+
+  return (
+    <>
+      <Head title={t('title')} favicon='/assets/icon404.png' />
+      <Header />
+      <div className={style.box}>
+        <img src='/assets/404.png' />
+        <h1>
+          <span>404</span>
+          <div id={style.responsive}>
+            {' '}
+            - {t('pnf')}
             <br />
-            <Link href='/' passHref>
-              <b>
-                <a className='cursor-pointer'>{t('back')}</a>
-              </b>
-            </Link>
-          </p>
-        </h3>
-      </h1>
-    </div>
-    <Footer />
-  </>
-);
+          </div>
+          <h3>
+            <div className='text-center'>
+              <p>
+                {t('text.start')}
+                <br />
+                {t('text.end')}
+              </p>
+            </div>
+            <p>
+              <br />
+              <Link href='/' passHref>
+                <b>
+                  <a className='cursor-pointer'>{t('back')}</a>
+                </b>
+              </Link>
+            </p>
+          </h3>
+        </h1>
+      </div>
+      <Footer />
+    </>
+  );
+};
 
-export default i18n.withTranslation('error')(Custom404);
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['error', 'header', 'footer'])),
+    },
+  };
+};
+
+export default NotFoundPage;

@@ -2,7 +2,7 @@ import style from '../styles/components/maintenance.module.css';
 import Head from './head';
 import Link from 'next/link';
 
-export default function Header() {
+export default function Maintenance(): JSX.Element {
   return (
     <div className={style.container}>
       <Head title="Manutenção | Menhera's Site" favicon='assets/icon404.png' />

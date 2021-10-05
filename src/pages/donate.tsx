@@ -1,12 +1,16 @@
-import i18n from '../services/i18n';
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Image from 'next/image';
 
 import style from '../styles/pages/donate.module.css';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
 
-const Donate = ({ t }) => {
+const DonatePage = (): JSX.Element => {
+  const { t } = useTranslation('donate');
+
   return (
     <div className={style.container}>
       <Head title={t('title')} favicon='assets/favicon.png' />
@@ -33,8 +37,12 @@ const Donate = ({ t }) => {
   );
 };
 
-Donate.getInitialProps = async () => ({
-  namespacesRequired: ['donate', 'header', 'footer'],
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['donate', 'header', 'footer'])),
+    },
+  };
+};
 
-export default i18n.withTranslation('donate')(Donate);
+export default DonatePage;

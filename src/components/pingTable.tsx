@@ -1,10 +1,22 @@
-import i18n from '../services/i18n';
 import style from '../styles/pages/status.module.css';
 import moment from 'moment';
 import 'moment-duration-format';
+import { useTranslation } from 'react-i18next';
 
-const pingTable = ({ pings, t }) => {
-  console.log(pings);
+type Props = {
+  pings: Array<{
+    id: number;
+    ping: number;
+    lastPingAt: number;
+    guilds: number;
+    members: number;
+    uptime: number;
+  }>;
+};
+
+const PingTable = ({ pings }: Props): JSX.Element => {
+  const { t } = useTranslation('common');
+
   return (
     <table className={style.table}>
       <thead>
@@ -59,4 +71,4 @@ const pingTable = ({ pings, t }) => {
   );
 };
 
-export default i18n.withTranslation('common')(pingTable);
+export default PingTable;
