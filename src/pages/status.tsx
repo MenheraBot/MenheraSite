@@ -1,7 +1,7 @@
 import { fetchCommands, fetchStatus } from '../api';
 import Head from '../components/head';
-import Table from '../components/pingTable';
-import Cmds from '../components/disabledCommands';
+import Table from '../components/ping-table';
+import Cmds from '../components/disabled-commands';
 import style from '../styles/pages/status.module.css';
 import Footer from '../components/footer';
 import Header from '../components/header';

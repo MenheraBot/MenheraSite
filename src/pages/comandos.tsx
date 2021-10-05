@@ -4,7 +4,7 @@ import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import style from '../styles/pages/commands.module.css';
-import CommandTableRow from '../components/commandTableRow';
+import CommandTableRow from '../components/command-table-row';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
