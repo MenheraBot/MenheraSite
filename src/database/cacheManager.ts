@@ -1,32 +1,12 @@
 import axios from 'axios';
-import cacheData from 'memory-cache';
+import { Command, Shard } from './api.types';
 
-class CacheManager {
-  async getStatus() {
-    const status = await this.fetchDataFromAPI(true);
-    return status;
-  }
-
-  async getCommands() {
-    const cmds = await cacheData.get('cmds');
-    if (cmds) return cmds;
-
-    const fetchedCommands = await this.fetchDataFromAPI();
-    cacheData.put('cmds', fetchedCommands, 1000 * 60 * 15);
-    return fetchedCommands;
-  }
-
-  async fetchDataFromAPI(fetchShards = false) {
-    const res = await axios.get(`${process.env.API_URL}/${fetchShards ? 'shards' : 'commands'}`, {
-      headers: {
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': process.env.API_URL,
-      },
-    });
-
+const fetch = <R>(route: string): (() => Promise<R>) => {
+  return async () => {
+    const res = await axios.get<R>(process.env.API_URL + route);
     return res.data;
-  }
-}
+  };
+};
 
-const cacheManagerInstance = new CacheManager();
-export default cacheManagerInstance;
+export const fetchCommands = fetch<Command[]>('/commands');
+export const fetchStatus = fetch<Shard[]>('/shards');

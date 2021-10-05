@@ -2,16 +2,10 @@ import style from '../styles/pages/status.module.css';
 import moment from 'moment';
 import 'moment-duration-format';
 import { useTranslation } from 'react-i18next';
+import { Shard } from '../database/api.types';
 
 type Props = {
-  pings: Array<{
-    id: number;
-    ping: number;
-    lastPingAt: number;
-    guilds: number;
-    members: number;
-    uptime: number;
-  }>;
+  pings: Shard[];
 };
 
 const PingTable = ({ pings }: Props): JSX.Element => {
