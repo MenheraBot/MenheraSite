@@ -1,25 +1,25 @@
-
-import i18n from '../services/i18n'
-import style from '../styles/pages/status.module.css'
+import i18n from '../services/i18n';
+import style from '../styles/pages/status.module.css';
 
 const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const disabledCommandsTable = ({ cmds, t }) => {
-
   return (
     <table>
       <thead>
-        <tr><th key='disabled'>{t('disabled-commands')}</th></tr>
+        <tr>
+          <th key='disabled'>{t('disabled-commands')}</th>
+        </tr>
       </thead>
       <tbody>
-        {cmds.map(c => (
+        {cmds.map((c) => (
           <tr key={c.name}>
             <td className={style.center}>{`${captalize(c.name)} | ${c.reason}`}</td>
           </tr>
         ))}
       </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default i18n.withTranslation('common')(disabledCommandsTable)
+export default i18n.withTranslation('common')(disabledCommandsTable);

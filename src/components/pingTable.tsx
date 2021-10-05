@@ -1,11 +1,10 @@
-
-import i18n from '../services/i18n'
-import style from '../styles/pages/status.module.css'
-import moment from 'moment'
-import 'moment-duration-format'
+import i18n from '../services/i18n';
+import style from '../styles/pages/status.module.css';
+import moment from 'moment';
+import 'moment-duration-format';
 
 const pingTable = ({ pings, t }) => {
-  console.log(pings)
+  console.log(pings);
   return (
     <table className={style.table}>
       <thead>
@@ -18,18 +17,46 @@ const pingTable = ({ pings, t }) => {
         </tr>
       </thead>
       <tbody>
-        {pings.sort((a, b) => a.id - b.id).map(a => (
-          <tr key={a.id}>
-            <td>{t('shard')} {a.id}</td>
-            <td>{a.lastPingAt > (Date.now() - 70000) ? <span style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span> : <span className={style.off}>OFF</span>}</td>
-            <td><b>{(a.lastPingAt > (Date.now() - 70000) ? (a.guilds || 'Available') : <span className={style.off}>OFF</span>)}</b></td>
-            <td><b>{a.members}</b></td>
-            <td className="text-green-500">{a.lastPingAt > (Date.now() - 70000) ? moment.utc(moment.duration(a.uptime).asMilliseconds()).format('D[d], H[h], m[m], s[s]') : <span className={style.off}>OFF</span>}</td>
-          </tr>
-        ))}
+        {pings
+          .sort((a, b) => a.id - b.id)
+          .map((a) => (
+            <tr key={a.id}>
+              <td>
+                {t('shard')} {a.id}
+              </td>
+              <td>
+                {a.lastPingAt > Date.now() - 70000 ? (
+                  <span style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span>
+                ) : (
+                  <span className={style.off}>OFF</span>
+                )}
+              </td>
+              <td>
+                <b>
+                  {a.lastPingAt > Date.now() - 70000 ? (
+                    a.guilds || 'Available'
+                  ) : (
+                    <span className={style.off}>OFF</span>
+                  )}
+                </b>
+              </td>
+              <td>
+                <b>{a.members}</b>
+              </td>
+              <td className='text-green-500'>
+                {a.lastPingAt > Date.now() - 70000 ? (
+                  moment
+                    .utc(moment.duration(a.uptime).asMilliseconds())
+                    .format('D[d], H[h], m[m], s[s]')
+                ) : (
+                  <span className={style.off}>OFF</span>
+                )}
+              </td>
+            </tr>
+          ))}
       </tbody>
-    </table >
-  )
-}
+    </table>
+  );
+};
 
-export default i18n.withTranslation('common')(pingTable)
+export default i18n.withTranslation('common')(pingTable);
