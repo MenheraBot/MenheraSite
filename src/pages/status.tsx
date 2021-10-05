@@ -12,6 +12,7 @@ import { GetStaticProps } from 'next';
 
 const StatusPage = (): JSX.Element => {
   const { t } = useTranslation('status');
+
   const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const [ping, setPing] = useState([]);
@@ -56,8 +57,9 @@ const StatusPage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['status', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale, ['status', 'common', 'header', 'footer'])),
     },
   };
 };
+
 export default StatusPage;
