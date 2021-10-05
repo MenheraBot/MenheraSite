@@ -1,4 +1,5 @@
-import { setConfig } from 'next/config';
-import { publicRuntimeConfig } from './next.config';
+import '@testing-library/jest-dom';
 
-setConfig({ publicRuntimeConfig });
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: (key) => key }),
+}));
