@@ -1,14 +1,4 @@
-import '@testing-library/jest-dom';
+import { setConfig } from 'next/config';
+import { publicRuntimeConfig } from './next.config';
 
-// Mock the i18n service with version ^7.0.1 if the version changes this mock must change too
-jest.mock('next/config', () => {
-  return {
-    default: () => {
-      return {
-        publicRuntimeConfig: {
-          localeSubpaths: ['']
-        }
-      }
-    }
-  }
-});
+setConfig({ publicRuntimeConfig });
