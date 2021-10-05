@@ -4,8 +4,6 @@ import ReactTooltip from 'react-tooltip';
 const ResolveSubCommand = ({ cmd, key, t }) => {
   const [expanded, setExpanded] = useState(false);
 
-  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
   return (
     <div>
       <tr
@@ -13,7 +11,7 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
         className='hover:border-purple-700 cursor-pointer'
         onClick={() => setExpanded(!expanded)}
       >
-        <td className='text-current'>{capitalize(cmd.name)}</td>
+        <td className='text-current capitalize'>{cmd.name}</td>
         <td className='text-current'>{cmd.description}</td>
         <td colSpan={2} className='text-current'>
           {t(cmd.type)}
@@ -32,10 +30,8 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
   );
 };
 
-const CommandTableRow = ({ cmd, key, t }) => {
+const CommandTableRow = ({ cmd, key, t }): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
-
-  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
     <div>
@@ -45,12 +41,16 @@ const CommandTableRow = ({ cmd, key, t }) => {
         onClick={() => setExpanded(!expanded)}
       >
         <td
-          className={cmd.disabled.isDisabled === true ? `text-red-600 cursor-help` : 'text-current'}
+          className={`capitalize ${
+            cmd.disabled.isDisabled ? `text-red-600 cursor-help` : 'text-current'
+          }`}
         >
-          {capitalize(cmd.name)}
+          {cmd.name}
         </td>
         <td
-          className={cmd.disabled.isDisabled === true ? `text-red-600 cursor-help` : 'text-current'}
+          className={`capitalize ${
+            cmd.disabled.isDisabled ? `text-red-600 cursor-help` : 'text-current'
+          }`}
         >
           {cmd.description}
         </td>
