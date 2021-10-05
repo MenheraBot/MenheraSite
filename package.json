@@ -9,7 +9,7 @@
     "start": "next start",
     "test": "jest",
     "prepare": "husky install",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
