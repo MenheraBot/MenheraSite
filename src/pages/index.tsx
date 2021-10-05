@@ -9,7 +9,7 @@ import Header from '../components/header';
 const Home = ({ t }) => {
   return (
     <div>
-      <Head title="Menhera's Site" favicon='assets/favicon.png' />
+      <Head title='Menhera Bot' favicon='assets/favicon.png' />
       <Header />
       <CookieConsent
         location='bottom'
@@ -23,8 +23,7 @@ const Home = ({ t }) => {
           borderRadius: '50px',
           width: '300px',
           heigh: '30px',
-        }}
-      >
+        }}>
         {t('cookie')}
       </CookieConsent>
       <div className='w-full h-screen sm:h-auto flex justify-center'>
