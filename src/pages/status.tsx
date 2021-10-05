@@ -71,8 +71,9 @@ const StatusPage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['status', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale, ['status', 'common', 'header', 'footer'])),
     },
   };
 };
+
 export default StatusPage;
