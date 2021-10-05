@@ -2,7 +2,7 @@ import style from '../styles/pages/status.module.css';
 import moment from 'moment';
 import 'moment-duration-format';
 import { useTranslation } from 'react-i18next';
-import { Shard } from '../database/api.types';
+import type { Shard } from '../api.types';
 
 type Props = {
   pings: Shard[];

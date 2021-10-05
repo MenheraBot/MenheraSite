@@ -1,4 +1,4 @@
-import { fetchCommands, fetchStatus } from '../cacheManager';
+import { fetchCommands, fetchStatus } from '../api';
 import Head from '../components/head';
 import Table from '../components/pingTable';
 import Cmds from '../components/disabledCommands';

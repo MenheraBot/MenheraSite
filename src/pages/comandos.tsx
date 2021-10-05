@@ -1,4 +1,4 @@
-import { fetchCommands } from '../cacheManager';
+import { fetchCommands } from '../api';
 import { useState, useMemo } from 'react';
 import Head from '../components/head';
 import Footer from '../components/footer';
