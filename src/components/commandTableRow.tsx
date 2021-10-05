@@ -81,7 +81,7 @@ const resolveOptions = (options, t) => (
   <>
     <table className='mb-0 !important'>
       <caption className='text-2xl mb-2 text-purple-500'>
-        {options[0] ? t('subcommands') : t('arguments')}
+{'options' in options[0] ? t('subcommands') : t('arguments')}
       </caption>
       <thead>
         {options.every((a) => a.options) ? (
