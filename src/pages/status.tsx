@@ -40,11 +40,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['status', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale, ['status', 'common', 'header', 'footer'])),
       shards,
       disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
     },
     revalidate: 15,
   };
 };
+
 export default StatusPage;
