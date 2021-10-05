@@ -1,4 +1,4 @@
-import { fetchCommands } from '../database/cacheManager';
+import { fetchCommands } from '../cacheManager';
 import { useState, useMemo } from 'react';
 import Head from '../components/head';
 import Footer from '../components/footer';
@@ -8,7 +8,7 @@ import CommandTableRow from '../components/commandTableRow';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
-import { Command } from '../database/api.types';
+import { Command } from '../api.types';
 
 type Props = {
   commands: Command[];

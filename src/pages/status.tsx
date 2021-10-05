@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { fetchCommands, fetchStatus } from '../database/cacheManager';
+import { fetchCommands, fetchStatus } from '../cacheManager';
 import Head from '../components/head';
 import Table from '../components/pingTable';
 import Cmds from '../components/disabledCommands';
@@ -9,7 +8,7 @@ import Header from '../components/header';
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Command, Shard } from '../database/api.types';
+import { Command, Shard } from '../api.types';
 
 type Props = {
   shards: Shard[];
