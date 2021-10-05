@@ -8,18 +8,18 @@ const config: Config.InitialOptions = {
 
   // For handle with css files in tests
   moduleNameMapper: {
-    "\\.(scss|css|sass)$": "identity-obj-proxy"
+    '\\.(scss|css|sass)$': 'identity-obj-proxy',
   },
 
   // For collect coverage
   collectCoverage: true,
-  "collectCoverageFrom": [
-    "src/**/*.tsx",
-    "!src/**/*.spec.tsx",
-    "!src/**/*_app.tsx",
-    "!src/**/*_document.tsx"
+  collectCoverageFrom: [
+    'src/**/*.tsx',
+    '!src/**/*.spec.tsx',
+    '!src/**/*_app.tsx',
+    '!src/**/*_document.tsx',
   ],
-  coverageReporters: ["lcov"],
+  coverageReporters: ['lcov'],
 };
 
 export default config;
