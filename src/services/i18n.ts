@@ -5,6 +5,6 @@ import path from 'path';
 export default new NextI18Next({
   defaultLanguage: 'pt',
   otherLanguages: ['en'],
-  localeSubpaths: Next.default().localeSubpaths,
+  localeSubpaths: Next.default().publicRuntimeConfig.localeSubpaths,
   localePath: path.resolve('./public/static/locales'),
 });
