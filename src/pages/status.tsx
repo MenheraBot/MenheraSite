@@ -14,28 +14,6 @@ export async function getStaticPaths() {
   return { paths: [], fallback: true };
 }
 
-const StatusPage = (): JSX.Element => {
-  const { t } = useTranslation('status');
-
-  const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
-  const [ping, setPing] = useState([]);
-  const [disabled, setDisabled] = useState([]);
-  let interval;
-
-  useEffect(() => {
-    CacheManager.getCommands().then((res) => {
-      const reduced = res.reduce((p, c) => {
-        if (c.disabled?.isDisabled) p.push({ name: captalize(c.name), reason: c.disabled.reason });
-        return p;
-      }, []);
-      setDisabled(reduced);
-    });
-    const fetchData = async () => {
-      const statusData = await CacheManager.getStatus();
-
-      setPing(statusData);
-    };
 type Props = {
   shards: Shard[];
   disabledCommands: Command[];
