@@ -13,9 +13,6 @@ import { Command } from '../api.types';
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
 }
-
-const CommandPage = (): JSX.Element => {
-  const { t, i18n } = useTranslation('commands');
 type Props = {
   commands: Command[];
 };
