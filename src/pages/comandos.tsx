@@ -10,9 +10,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
 import { Command } from '../api.types';
 
-export async function getStaticPaths() {
-  return { paths: [], fallback: true };
-}
 type Props = {
   commands: Command[];
 };
