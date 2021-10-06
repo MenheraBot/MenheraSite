@@ -1,52 +1,28 @@
-import { useState, useEffect } from 'react';
-import { GetStaticProps } from 'next';
-
-import { useTranslation } from 'react-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
-import CacheManager from '../database/cacheManager';
-import { capitalize } from '../utils/capitalize';
-import { Command } from '../../typings/Command';
-
+import { fetchCommands } from '../api';
+import { useState, useMemo } from 'react';
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
-import CommandTableRow from '../components/commandTableRow';
-
 import style from '../styles/pages/commands.module.css';
+import CommandTableRow from '../components/command-table-row';
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
+import { Command } from '../api.types';
 
-const CommandPage = (): JSX.Element => {
+type Props = {
+  commands: Command[];
+};
+
+const CommandPage = ({ commands }: Props): JSX.Element => {
   const { t } = useTranslation('commands');
 
-  const [commands, setCommands] = useState<Command[]>([]);
   const [category, setCategory] = useState('actions');
 
-  useEffect(() => {
-    changeCategory(category);
-  }, [category]);
-
-  const changeCategory = async (category: string) => {
-    setCategory(category);
-  };
-
-  useEffect(() => {
-    const fetchData = () => {
-      CacheManager.getCommands().then((response) => {
-        const reduced = response.reduce((acc: Command[], command) => {
-          if (command.category === category) {
-            acc.push({ ...command, name: capitalize(command.name) });
-          }
-
-          return acc;
-        }, []);
-
-        reduced.sort((a, b) => a.name.localeCompare(b.name));
-        setCommands(reduced);
-      });
-    };
-
-    fetchData();
-  }, [category]);
+  const filteredCommands = useMemo(() => {
+    const categoryCmds = commands.filter((cmd) => cmd.category === category);
+    return [...categoryCmds].sort((a, b) => a.name.localeCompare(b.name));
+  }, [category, commands]);
 
   return (
     <div>
@@ -57,32 +33,31 @@ const CommandPage = (): JSX.Element => {
           <div className='text-center'>
             <ul>
               <button
-                onClick={() => changeCategory('actions')}
+                onClick={() => setCategory('actions')}
                 className={category === 'actions' ? style.boxActive : style.box}
               >
                 <li>{t('actions')}</li>
               </button>
               <button
-                onClick={() => changeCategory('fun')}
+                onClick={() => setCategory('fun')}
                 className={category === 'fun' ? style.boxActive : style.box}
               >
                 <li>{t('fun')}</li>
               </button>
               <button
-                onClick={() => changeCategory('economy')}
+                onClick={() => setCategory('economy')}
                 className={category === 'economy' ? style.boxActive : style.box}
               >
                 <li>{t('eco')}</li>
               </button>
               <button
-                onClick={() => changeCategory('info')}
+                onClick={() => setCategory('info')}
                 className={category === 'info' ? style.boxActive : style.box}
               >
                 <li>{t('info')}</li>
               </button>
-
               <button
-                onClick={() => changeCategory('util')}
+                onClick={() => setCategory('util')}
                 className={category === 'util' ? style.boxActive : style.box}
               >
                 <li>{t('util')}</li>
@@ -107,7 +82,7 @@ const CommandPage = (): JSX.Element => {
                     </td>
                   </tr>
                 ) : (
-                  commands?.map((cmd) => <CommandTableRow key={cmd.name} cmd={cmd} t={t} />)
+                  filteredCommands?.map((cmd) => <CommandTableRow key={cmd.name} cmd={cmd} t={t} />)
                 )}
               </tbody>
             </table>
@@ -119,11 +94,15 @@ const CommandPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
+  const commands = await fetchCommands();
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['commands', 'header', 'footer'])),
+      commands,
+      ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
     },
+    revalidate: 60,
   };
 };
 
