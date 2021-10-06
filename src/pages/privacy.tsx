@@ -5,10 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export async function getStaticPaths() {
-  return { paths: [], fallback: true };
-}
-
 const PrivacyPage = (): JSX.Element => {
   const { t } = useTranslation('privacy');
 

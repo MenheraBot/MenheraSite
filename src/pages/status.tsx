@@ -10,10 +10,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Command, Shard } from '../api.types';
 
-export async function getStaticPaths() {
-  return { paths: [], fallback: true };
-}
-
 type Props = {
   shards: Shard[];
   disabledCommands: Command[];
