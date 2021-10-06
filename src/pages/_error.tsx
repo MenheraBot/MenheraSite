@@ -7,6 +7,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 
+export async function getStaticPaths() {
+  return { paths: [], fallback: true };
+}
+
 const CustomErrorPage = (): JSX.Element => {
   const { t } = useTranslation('error');
 

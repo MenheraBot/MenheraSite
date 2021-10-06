@@ -10,6 +10,10 @@ import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 
+export async function getStaticPaths() {
+  return { paths: [], fallback: true };
+}
+
 const StatusPage = (): JSX.Element => {
   const { t } = useTranslation('status');
 
