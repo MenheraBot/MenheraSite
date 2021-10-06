@@ -1,7 +1,7 @@
 import { TFunction } from 'next-i18next';
 import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
-import { Command } from '../api.types';
+import { Command } from '../services/api/api.types';
 
 const ResolveSubCommand = ({ cmd, key, t }) => {
   const [expanded, setExpanded] = useState(false);
