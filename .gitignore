@@ -4,3 +4,5 @@ package-lock.json
 .env
 yarn.lock
 coverage
+.env.*.local
+.env.local

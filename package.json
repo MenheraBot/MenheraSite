@@ -37,11 +37,6 @@
   "dependencies": {
     "@headlessui/react": "^1.2.0",
     "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "next": "^10.2.2",
@@ -56,6 +51,10 @@
     "react-tooltip": "^4.2.21"
   },
   "devDependencies": {
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@next/eslint-plugin-next": "^11.1.2",

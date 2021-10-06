@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Transition } from '@headlessui/react';
 
-import constants from '../database/constants.json';
-
 import { HiTranslate } from 'react-icons/hi';
 import { RiArrowDownSLine, RiArrowRightSLine } from 'react-icons/ri';
 
@@ -18,7 +16,7 @@ const NewHeader = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
 
-  const setLang = (lang) => {
+  const setLang = (lang: string) => {
     router.push(router.asPath, undefined, { locale: lang });
   };
 
@@ -50,10 +48,14 @@ const NewHeader = (): JSX.Element => {
                   <Link href='/privacy'>{t('privacy')}</Link>
                 </a>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
-                  <Link href={constants.github_url}>Github</Link>
+                  <Link href={process.env.NEXT_PUBLIC_GITHUB_URL} passHref>
+                    Github
+                  </Link>
                 </a>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
-                  <Link href={constants.add_bot_url}>{t('add')}</Link>
+                  <Link href={process.env.NEXT_PUBLIC_BOT_INVITE_URL} passHref>
+                    {t('add')}
+                  </Link>
                 </a>
                 <div
                   className='relative cursor-pointer'
@@ -176,12 +178,12 @@ const NewHeader = (): JSX.Element => {
                   {t('privacy')}
                 </a>
               </Link>
-              <Link href={constants.github_url}>
+              <Link href={process.env.NEXT_PUBLIC_GITHUB_URL}>
                 <a className='bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium'>
                   Github
                 </a>
               </Link>
-              <Link href={constants.add_bot_url}>
+              <Link href={process.env.NEXT_PUBLIC_BOT_INVITE_URL}>
                 <a className='bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium'>
                   {t('add')}
                 </a>
