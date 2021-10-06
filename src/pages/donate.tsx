@@ -28,7 +28,7 @@ const DonatePage = (): JSX.Element => {
           </div>
 
           <div className={style.imageContainer}>
-            <Image src='/assets/cry.png' width='300' height='400' />
+            <Image alt='Menhera Crying' src='/assets/cry.png' width='300' height='400' />
           </div>
         </div>
       </section>
