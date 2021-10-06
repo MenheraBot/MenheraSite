@@ -16,7 +16,7 @@ const NotFoundPage = (): JSX.Element => {
       <Head title={t('title')} favicon='/assets/icon404.png' />
       <Header />
       <div className={style.box}>
-        <Image src='/assets/404.png' alt='Menhera not found' />
+        <Image src='/assets/404.png' alt='Menhera not found' width={512} />
         <h1>
           <span>404</span>
           <div id={style.responsive}>
