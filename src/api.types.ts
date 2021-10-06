@@ -56,6 +56,7 @@ export interface Shard {
   unavailable: number;
   ping: number;
   lastPingAt?: number;
+  isOff: boolean;
   members: number;
   executedCommands: number;
   top: Top[];

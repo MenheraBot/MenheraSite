@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['status', 'common', 'header', 'footer'])),
-      shards,
+      shards: shards.map((a) => ({ ...a, isOff: a.lastPingAt > Date.now() - 70000 })),
       disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
     },
     revalidate: 15,

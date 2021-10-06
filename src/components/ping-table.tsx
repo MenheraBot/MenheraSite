@@ -31,31 +31,25 @@ const PingTable = ({ pings }: Props): JSX.Element => {
                 {t('shard')} {a.id}
               </td>
               <td>
-                {a.lastPingAt > Date.now() - 70000 ? (
-                  <span style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span>
-                ) : (
+                {a.isOff ? (
                   <span className={style.off}>OFF</span>
+                ) : (
+                  <span style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span>
                 )}
               </td>
               <td>
-                <b>
-                  {a.lastPingAt > Date.now() - 70000 ? (
-                    a.guilds || 'Available'
-                  ) : (
-                    <span className={style.off}>OFF</span>
-                  )}
-                </b>
+                <b>{a.isOff ? <span className={style.off}>OFF</span> : a.guilds || 'Available'}</b>
               </td>
               <td>
                 <b>{a.members}</b>
               </td>
               <td className='text-green-500'>
-                {a.lastPingAt > Date.now() - 70000 ? (
+                {a.isOff ? (
+                  <span className={style.off}>OFF</span>
+                ) : (
                   moment
                     .utc(moment.duration(a.uptime).asMilliseconds())
                     .format('D[d], H[h], m[m], s[s]')
-                ) : (
-                  <span className={style.off}>OFF</span>
                 )}
               </td>
             </tr>
