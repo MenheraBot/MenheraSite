@@ -8,6 +8,7 @@ const fetch = async <R>(route: string): Promise<R> => {
       'Access-Control-Allow-Origin': process.env.API_URL,
     },
   });
+  console.log(res.status, res.data);
   return res.data;
 };
 

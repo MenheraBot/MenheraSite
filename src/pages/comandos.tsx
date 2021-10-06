@@ -96,7 +96,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const commands = await fetchCommands();
-
+  console.log('comandos', commands);
   return {
     props: {
       commands,
