@@ -1,14 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import type { Command } from '../api.types';
 
 import style from '../styles/pages/status.module.css';
 
-const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
 type Props = {
-  cmds: Array<{
-    name: string;
-    reason: string;
-  }>;
+  cmds: Command[];
 };
 
 const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
@@ -24,7 +20,9 @@ const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
       <tbody>
         {cmds.map((c) => (
           <tr key={c.name}>
-            <td className={style.center}>{`${captalize(c.name)} | ${c.reason}`}</td>
+            <td className={style.center}>
+              <span className='capitalize'>{c.name}</span> | {c.disabled.reason}
+            </td>
           </tr>
         ))}
       </tbody>

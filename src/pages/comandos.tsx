@@ -1,13 +1,14 @@
-import CacheManager from '../database/cacheManager';
-import { useState, useEffect } from 'react';
+import { fetchCommands } from '../api';
+import { useState, useMemo } from 'react';
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import style from '../styles/pages/commands.module.css';
-import CommandTableRow from '../components/commandTableRow';
+import CommandTableRow from '../components/command-table-row';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
+import { Command } from '../api.types';
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -15,59 +16,19 @@ export async function getStaticPaths() {
 
 const CommandPage = (): JSX.Element => {
   const { t, i18n } = useTranslation('commands');
+type Props = {
+  commands: Command[];
+};
 
-  const captalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+const CommandPage = ({ commands }: Props): JSX.Element => {
+  const { t } = useTranslation('commands');
 
-  const [commands, setCommands] = useState([]);
   const [category, setCategory] = useState('actions');
 
-  const lang = i18n.language;
-
-  useEffect(() => {
-    changeCategory(category);
-  }, [lang]);
-
-  const changeCategory = async (category) => {
-    setCategory(category);
-
-    CacheManager.getCommands().then((res) => {
-      const reduced = res.reduce((p, c) => {
-        if (c.category === category)
-          p.push({
-            name: captalize(c.name),
-            description: c.description,
-            cooldown: c.cooldown,
-            options: c.options,
-            disabled: c.disabled,
-          });
-        return p;
-      }, []);
-
-      reduced.sort((a, b) => a.name.localeCompare(b.name));
-      setCommands(reduced);
-    });
-  };
-
-  useEffect(() => {
-    const fetchData = () => {
-      CacheManager.getCommands().then((res) => {
-        const reduced = res.reduce((p, c) => {
-          if (c.category === category)
-            p.push({
-              name: captalize(c.name),
-              description: c.description,
-              cooldown: c.cooldown,
-              options: c.options,
-              disabled: c.disabled,
-            });
-          return p;
-        }, []);
-        reduced.sort((a, b) => a.name.localeCompare(b.name));
-        setCommands(reduced);
-      });
-    };
-    fetchData();
-  }, []);
+  const filteredCommands = useMemo(() => {
+    const categoryCmds = commands.filter((cmd) => cmd.category === category);
+    return [...categoryCmds].sort((a, b) => a.name.localeCompare(b.name));
+  }, [category, commands]);
 
   return (
     <div>
@@ -78,32 +39,31 @@ const CommandPage = (): JSX.Element => {
           <div className='text-center'>
             <ul>
               <button
-                onClick={() => changeCategory('actions')}
+                onClick={() => setCategory('actions')}
                 className={category === 'actions' ? style.boxActive : style.box}
               >
                 <li>{t('actions')}</li>
               </button>
               <button
-                onClick={() => changeCategory('fun')}
+                onClick={() => setCategory('fun')}
                 className={category === 'fun' ? style.boxActive : style.box}
               >
                 <li>{t('fun')}</li>
               </button>
               <button
-                onClick={() => changeCategory('economy')}
+                onClick={() => setCategory('economy')}
                 className={category === 'economy' ? style.boxActive : style.box}
               >
                 <li>{t('eco')}</li>
               </button>
               <button
-                onClick={() => changeCategory('info')}
+                onClick={() => setCategory('info')}
                 className={category === 'info' ? style.boxActive : style.box}
               >
                 <li>{t('info')}</li>
               </button>
-              {/* <button onClick={() => changeCategory('rpg')} className={category === 'rpg' ? style.boxActive : style.box}><li>{t('rpg')}</li></button> */}
               <button
-                onClick={() => changeCategory('util')}
+                onClick={() => setCategory('util')}
                 className={category === 'util' ? style.boxActive : style.box}
               >
                 <li>{t('util')}</li>
@@ -128,7 +88,7 @@ const CommandPage = (): JSX.Element => {
                     </td>
                   </tr>
                 ) : (
-                  commands?.map((cmd) => <CommandTableRow key={cmd.name} cmd={cmd} t={t} />)
+                  filteredCommands?.map((cmd) => <CommandTableRow key={cmd.name} cmd={cmd} t={t} />)
                 )}
               </tbody>
             </table>
@@ -140,11 +100,15 @@ const CommandPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
+  const commands = await fetchCommands();
+
   return {
     props: {
+      commands,
       ...(await serverSideTranslations(locale, ['commands', 'header', 'footer'])),
     },
+    revalidate: 60,
   };
 };
 
