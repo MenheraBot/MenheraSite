@@ -1,16 +1,9 @@
-import { useState } from 'react';
 import { TFunction } from 'next-i18next';
+import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
+import { Command } from '../services/api/api.types';
 
-import { Command, Option } from '../services/api/api.types';
-
-interface ResolveSubCommandProps {
-  cmd: Option;
-  key: string;
-  t: TFunction;
-}
-
-const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
+const ResolveSubCommand = ({ cmd, key, t }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -39,13 +32,15 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
   );
 };
 
-interface CommandTableRowProps {
+const CommandTableRow = ({
+  cmd,
+  key,
+  t,
+}: {
   cmd: Command;
   key: string;
   t: TFunction;
-}
-
-const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => {
+}): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -95,11 +90,11 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
   );
 };
 
-const resolveOptions = (options: Option[], t: TFunction) => (
+const resolveOptions = (options, t) => (
   <>
     <table className='mb-0 !important'>
       <caption className='text-2xl mb-2 text-purple-500'>
-        {'options' in options[0] ? t('subcommands') : t('arguments')}
+        {options[0].options ? t('subcommands') : t('arguments')}
       </caption>
       <thead>
         {options.every((a) => a.options) ? (

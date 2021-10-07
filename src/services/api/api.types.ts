@@ -3,13 +3,30 @@ export interface Choice {
   value: string;
 }
 
+export interface Option3 {
+  name: string;
+  description: string;
+  type: string;
+  required: boolean;
+  choices: Choice[];
+}
+
+export interface Option2 {
+  name: string;
+  description: string;
+  type: string;
+  options: Option3[];
+  required?: boolean;
+  choices: Choice[];
+}
+
 export interface Option {
   name: string;
   type: string;
   description: string;
   required: boolean;
   choices: Choice[];
-  options: Option[];
+  options: Option2[];
 }
 
 export interface Disabled {
@@ -38,7 +55,7 @@ export interface Shard {
   guilds: number;
   unavailable: number;
   ping: number;
-  lastPingAt: number;
+  lastPingAt?: number;
   isOff: boolean;
   members: number;
   executedCommands: number;
