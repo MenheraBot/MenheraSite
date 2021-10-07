@@ -64,7 +64,7 @@ describe('PingTable component', () => {
 
   it('Render Available if there are no guilds or guilds is equal to 0', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
-    const thirdShardPing = getByTestId('shard-servers-3');
+    const fourthShardPing = getByTestId('shard-servers-3');
 
     expect(thirdShardPing).toBeTruthy();
     expect(thirdShardPing).toHaveTextContent('Available');
