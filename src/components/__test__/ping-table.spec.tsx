@@ -66,7 +66,7 @@ describe('PingTable component', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
     const fourthShardPing = getByTestId('shard-servers-3');
 
-    expect(thirdShardPing).toBeTruthy();
+    expect(fourthShardPing).toBeTruthy();
     expect(thirdShardPing).toHaveTextContent('Available');
   });
 });
