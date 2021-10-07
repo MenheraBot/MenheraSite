@@ -34,19 +34,6 @@ export default function Layout({ title, favicon }: Props): JSX.Element {
         />
         <meta name='theme-color' content='#7835e6' />
         <meta charSet='utf-8' />
-        <script async src='https://www.googletagmanager.com/gtag/js?id=G-HKJ8H7FR52'>
-          {' '}
-        </script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-HKJ8H7FR52');
-          `,
-          }}
-        />
       </Head>
     </div>
   );

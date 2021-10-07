@@ -1,7 +1,6 @@
 import Head from '../components/head';
 import CookieConsent from 'react-cookie-consent';
 
-import constants from '../database/constants.json';
 import Image from 'next/image';
 import Footer from '../components/footer';
 import Header from '../components/header';
@@ -40,7 +39,7 @@ const HomePage = (): JSX.Element => {
           <div className='w-3/5	sm:w-full'>
             <h1 className='text-4xl font-extrabold text-white'>{t('h1')}</h1>
             <p className='text-xl text-gray-500 mt-10 mb-5 sm:text-lg'>{t('p')}</p>
-            <a href={constants.add_bot_url}>
+            <a href={process.env.NEXT_PUBLIC_BOT_INVITE_URL}>
               <button className='animate-wiggle p-4 rounded-2xl ' type='submit'>
                 {t('b')}
               </button>
@@ -56,7 +55,7 @@ const HomePage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['common', 'header', 'footer'])),
     },
   };
 };

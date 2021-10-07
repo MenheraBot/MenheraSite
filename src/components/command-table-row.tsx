@@ -1,5 +1,7 @@
+import { TFunction } from 'next-i18next';
 import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
+import { Command } from '../services/api/api.types';
 
 const ResolveSubCommand = ({ cmd, key, t }) => {
   const [expanded, setExpanded] = useState(false);
@@ -30,7 +32,15 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
   );
 };
 
-const CommandTableRow = ({ cmd, key, t }): JSX.Element => {
+const CommandTableRow = ({
+  cmd,
+  key,
+  t,
+}: {
+  cmd: Command;
+  key: string;
+  t: TFunction;
+}): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
 
   return (

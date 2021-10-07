@@ -2,7 +2,7 @@ import style from '../styles/pages/status.module.css';
 import moment from 'moment';
 import 'moment-duration-format';
 import { useTranslation } from 'react-i18next';
-import type { Shard } from '../api.types';
+import type { Shard } from '../services/api/api.types';
 
 type Props = {
   pings: Shard[];
@@ -47,9 +47,7 @@ const PingTable = ({ pings }: Props): JSX.Element => {
                 {a.isOff ? (
                   <span className={style.off}>OFF</span>
                 ) : (
-                  moment
-                    .utc(moment.duration(a.uptime).asMilliseconds())
-                    .format('D[d], H[h], m[m], s[s]')
+                  moment.duration(a.uptime).format('D[d], H[h], m[m], s[s]')
                 )}
               </td>
             </tr>

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import type { Command } from '../api.types';
+import type { Command } from '../services/api/api.types';
 
 import style from '../styles/pages/status.module.css';
 
