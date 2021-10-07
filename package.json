@@ -7,11 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "test": "jest",
-    "prepare": "husky install",
-    "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",

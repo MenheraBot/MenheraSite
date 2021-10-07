@@ -94,13 +94,13 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale = 'en' }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const commands = await fetchCommands();
 
   return {
     props: {
       commands,
-      ...(await serverSideTranslations(locale, ['commands', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
     },
     revalidate: 60,
   };
