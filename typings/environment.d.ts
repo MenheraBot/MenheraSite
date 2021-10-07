@@ -4,6 +4,7 @@ declare global {
       API_URL: string;
       NEXT_PUBLIC_GITHUB_URL: string;
       NEXT_PUBLIC_BOT_INVITE_URL: string;
+      NEXT_PUBLIC_GA_ID: string;
     }
   }
 }

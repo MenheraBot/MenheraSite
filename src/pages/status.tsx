@@ -34,7 +34,7 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale = 'en' }) => {
   const shards = await fetchStatus();
   const commands = await fetchCommands();
 
