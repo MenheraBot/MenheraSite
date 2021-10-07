@@ -1,9 +1,16 @@
-import { TFunction } from 'next-i18next';
 import { useState } from 'react';
+import { TFunction } from 'next-i18next';
 import ReactTooltip from 'react-tooltip';
-import { Command } from '../services/api/api.types';
 
-const ResolveSubCommand = ({ cmd, key, t }) => {
+import { Command, Option } from '../services/api/api.types';
+
+interface ResolveSubCommandProps {
+  cmd: Option;
+  key: string;
+  t: TFunction;
+}
+
+const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -32,15 +39,13 @@ const ResolveSubCommand = ({ cmd, key, t }) => {
   );
 };
 
-const CommandTableRow = ({
-  cmd,
-  key,
-  t,
-}: {
+interface CommandTableRowProps {
   cmd: Command;
   key: string;
   t: TFunction;
-}): JSX.Element => {
+}
+
+const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -90,7 +95,7 @@ const CommandTableRow = ({
   );
 };
 
-const resolveOptions = (options, t) => (
+const resolveOptions = (options: Option[], t: TFunction) => (
   <>
     <table className='mb-0 !important'>
       <caption className='text-2xl mb-2 text-purple-500'>

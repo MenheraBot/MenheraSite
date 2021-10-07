@@ -3,30 +3,13 @@ export interface Choice {
   value: string;
 }
 
-export interface Option3 {
-  name: string;
-  description: string;
-  type: string;
-  required: boolean;
-  choices: Choice[];
-}
-
-export interface Option2 {
-  name: string;
-  description: string;
-  type: string;
-  options: Option3[];
-  required?: boolean;
-  choices: Choice[];
-}
-
 export interface Option {
   name: string;
   type: string;
   description: string;
   required: boolean;
   choices: Choice[];
-  options: Option2[];
+  options: Option[];
 }
 
 export interface Disabled {
