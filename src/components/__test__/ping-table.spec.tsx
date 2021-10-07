@@ -67,6 +67,6 @@ describe('PingTable component', () => {
     const fourthShardPing = getByTestId('shard-servers-3');
 
     expect(fourthShardPing).toBeTruthy();
-    expect(thirdShardPing).toHaveTextContent('Available');
+    expect(fourthShardPing).toHaveTextContent('Available');
   });
 });
