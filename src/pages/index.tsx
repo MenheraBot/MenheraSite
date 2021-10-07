@@ -55,7 +55,7 @@ const HomePage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['common', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale, ['common', 'header', 'footer'])),
     },
   };
 };

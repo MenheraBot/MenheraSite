@@ -55,7 +55,7 @@ export interface Shard {
   guilds: number;
   unavailable: number;
   ping: number;
-  lastPingAt?: number;
+  lastPingAt: number;
   isOff: boolean;
   members: number;
   executedCommands: number;
