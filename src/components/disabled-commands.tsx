@@ -1,12 +1,10 @@
 import { useTranslation } from 'react-i18next';
-
-import { capitalize } from '../utils/capitalize';
-import { CommandDisabled } from '../../typings/Command';
+import type { Command } from '../api.types';
 
 import style from '../styles/pages/status.module.css';
 
 type Props = {
-  cmds: CommandDisabled[];
+  cmds: Command[];
 };
 
 const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
@@ -22,7 +20,9 @@ const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
       <tbody>
         {cmds.map((c) => (
           <tr key={c.name}>
-            <td className={style.center}>{`${capitalize(c.name)} | ${c.reason}`}</td>
+            <td className={style.center}>
+              <span className='capitalize'>{c.name}</span> | {c.disabled.reason}
+            </td>
           </tr>
         ))}
       </tbody>
