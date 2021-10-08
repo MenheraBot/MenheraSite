@@ -26,24 +26,33 @@ const PingTable = ({ pings }: Props): JSX.Element => {
         {pings
           .sort((a, b) => a.id - b.id)
           .map((a) => (
-            <tr key={a.id}>
+            <tr key={a.id} data-testid={`shard-${a.id}`}>
               <td>
                 {t('shard')} {a.id}
               </td>
               <td>
                 {a.isOff ? (
-                  <span className={style.off}>OFF</span>
+                  <span data-testid={`shard-ping-${a.id}`} className={style.off}>
+                    OFF
+                  </span>
                 ) : (
-                  <span style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}>{a.ping}ms</span>
+                  <span
+                    data-testid={`shard-ping-${a.id}`}
+                    style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}
+                  >
+                    {a.ping}ms
+                  </span>
                 )}
               </td>
               <td>
-                <b>{a.isOff ? <span className={style.off}>OFF</span> : a.guilds || 'Available'}</b>
+                <b data-testid={`shard-servers-${a.id}`}>
+                  {a.isOff ? <span className={style.off}>OFF</span> : a.guilds || 'Available'}
+                </b>
               </td>
               <td>
                 <b>{a.members}</b>
               </td>
-              <td className='text-green-500'>
+              <td data-testid={`shard-uptime-${a.id}`} className='text-green-500'>
                 {a.isOff ? (
                   <span className={style.off}>OFF</span>
                 ) : (
