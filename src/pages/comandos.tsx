@@ -100,7 +100,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale = 'en' }) =
   return {
     props: {
       commands,
-      ...(await serverSideTranslations(locale, ['commands', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
     },
     revalidate: 60,
   };
