@@ -1,3 +1,5 @@
+import { FormEvent } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from '../components/head';
@@ -7,7 +9,7 @@ import { GetStaticProps } from 'next';
 
 const BolehamPage = (): JSX.Element => {
   const { t } = useTranslation('boleham');
-  const searchInput = async (event) => {
+  const searchInput = async (event: FormEvent) => {
     event.preventDefault();
   };
 
@@ -191,7 +193,7 @@ const BolehamPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['boleham', 'header', 'footer'])),

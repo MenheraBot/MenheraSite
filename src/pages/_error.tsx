@@ -2,6 +2,7 @@ import style from '../styles/pages/error.module.css';
 import Head from '../components/head';
 import Footer from '../components/footer';
 import Header from '../components/header';
+import Image from 'next/image';
 import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +15,7 @@ const CustomErrorPage = (): JSX.Element => {
     <div className={style.box}>
       <Head title={t('title')} favicon='/assets/icon404.png' />
       <Header />
-      <img src='/assets/404.png' />
+      <Image src='/assets/404.png' alt='Menhera not found' />
       <h1>
         <span>500</span>
         <div id={style.responsive}>
@@ -43,7 +44,7 @@ const CustomErrorPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['error', 'header', 'footer'])),

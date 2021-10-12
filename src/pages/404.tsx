@@ -2,6 +2,7 @@ import style from '../styles/pages/error.module.css';
 import Head from '../components/head';
 import Header from '../components/header';
 import Link from 'next/link';
+import Image from 'next/image';
 import Footer from '../components/footer';
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
@@ -15,7 +16,7 @@ const NotFoundPage = (): JSX.Element => {
       <Head title={t('title')} favicon='/assets/icon404.png' />
       <Header />
       <div className={style.box}>
-        <img src='/assets/404.png' />
+        <Image src='/assets/404.png' alt='Menhera not found' width={512} />
         <h1>
           <span>404</span>
           <div id={style.responsive}>
@@ -47,7 +48,7 @@ const NotFoundPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['error', 'header', 'footer'])),

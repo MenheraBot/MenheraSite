@@ -1,4 +1,4 @@
-import { fetchCommands } from '../api';
+import { fetchCommands } from '../services/api/api';
 import { useState, useMemo } from 'react';
 import Head from '../components/head';
 import Footer from '../components/footer';
@@ -8,7 +8,7 @@ import CommandTableRow from '../components/command-table-row';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
-import { Command } from '../api.types';
+import { Command } from '../services/api/api.types';
 
 type Props = {
   commands: Command[];
@@ -94,7 +94,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale = 'en' }) => {
   const commands = await fetchCommands();
 
   return {
