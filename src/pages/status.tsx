@@ -34,13 +34,13 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale = 'en' }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const shards = await fetchStatus();
   const commands = await fetchCommands();
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['status', 'common', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['status', 'common', 'header', 'footer'])),
       shards: shards.map((a) => ({ ...a, isOff: a.lastPingAt < Date.now() - 70000 })),
       disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
     },

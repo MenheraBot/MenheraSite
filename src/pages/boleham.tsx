@@ -193,10 +193,10 @@ const BolehamPage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['boleham', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['boleham', 'header', 'footer'])),
     },
   };
 };
