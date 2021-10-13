@@ -5,8 +5,8 @@ import App, { AppContext, AppProps } from 'next/app';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import * as gtag from '../services/analytics/gtag';
-import Analytics from '../components/Analytics';
+import * as gtag from '../analytics/gtag';
+import Analytics from '../analytics/Analytics';
 import { appWithTranslation } from 'next-i18next';
 
 const Application = ({ Component, pageProps }: AppProps) => {

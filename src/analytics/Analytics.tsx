@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { GA_TRACKING_ID } from '../services/analytics/gtag';
+import { GA_TRACKING_ID } from './gtag';
 
 const Analytics = (): JSX.Element => (
   <>
