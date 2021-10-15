@@ -33,7 +33,7 @@ const NewHeader = (): JSX.Element => {
             <div className='hidden md:block w-full max-w-max justify-items-end'>
               <div className='ml-10 flex items-baseline space-x-4'>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
-                  <Link href='/comandos'>{t('commands')}</Link>
+                  <Link href='/commands'>{t('commands')}</Link>
                 </a>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
                   <Link href='/status'>Status</Link>
@@ -158,7 +158,7 @@ const NewHeader = (): JSX.Element => {
         {(ref) => (
           <div className='md:hidden' id='mobile-menu'>
             <div ref={ref} className='px-2 pt-2 pb-3 flex flex-col space-y-1 sm:px-3 text-center'>
-              <Link href='/comandos'>
+              <Link href='/commands'>
                 <a className='bg-gray-700 justify-center cursor-pointer block px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium'>
                   {t('commands')}
                 </a>
