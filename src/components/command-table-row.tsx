@@ -28,7 +28,7 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
       </tr>
       {expanded && (
         <tr className='overflow-hidden' key='tr-expander' aria-colspan={4}>
-          <td style={{ backgroundColor: 'inherit' }} colSpan={4}>
+          <td style={{ backgroundColor: 'inherit' }} aria-colspan={4}>
             <div className='overflow-hidden m-4'>
               <div>{cmd.options.length > 0 && resolveOptions(cmd.options, t)}</div>
             </div>
@@ -57,14 +57,14 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
       >
         <td
           className={`capitalize ${
-            cmd.disabled.isDisabled ? `text-red-600 cursor-help` : 'text-current'
+            cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
           {cmd.name}
         </td>
         <td
           className={`capitalize ${
-            cmd.disabled.isDisabled ? `text-red-600 cursor-help` : 'text-current'
+            cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
           {cmd.description}
@@ -72,15 +72,15 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
       </tr>
       {expanded && (
         <tr key={key + Date.now()} className='overflow-hidden'>
-          <td style={{ backgroundColor: 'inherit' }} colSpan={2}>
+          <td style={{ backgroundColor: 'inherit' }} aria-colspan={2}>
             <div className='overflow-hidden m-4'>
               <div>
-                {cmd.disabled.isDisabled && (
+                {cmd?.disabled?.isDisabled && (
                   <div>
                     <p className='text-2xl'>
                       <span className='text-3xl font-bold text-yellow-600'>{t('disabled')}</span>
                       <br />
-                      {t('reason')} {cmd.disabled.reason}
+                      {t('reason')} {cmd?.disabled?.reason}
                     </p>
                   </div>
                 )}

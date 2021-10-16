@@ -77,7 +77,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
               <tbody>
                 {commands.length === 0 ? (
                   <tr>
-                    <td colSpan={2} className='text-center'>
+                    <td aria-colspan={2} className='text-center'>
                       <em className='text-gray-500'>Loading...</em>
                     </td>
                   </tr>
