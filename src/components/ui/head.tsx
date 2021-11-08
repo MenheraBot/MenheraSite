@@ -1,14 +1,14 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 
 type Props = {
   title: string;
   favicon: string;
 };
 
-export default function Layout({ title, favicon }: Props): JSX.Element {
+export default function Head({ title, favicon }: Props): JSX.Element {
   return (
     <div>
-      <Head>
+      <NextHead>
         <title>{title}</title>
         <link rel='icon' href={favicon} />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -34,7 +34,7 @@ export default function Layout({ title, favicon }: Props): JSX.Element {
         />
         <meta name='theme-color' content='#7835e6' />
         <meta charSet='utf-8' />
-      </Head>
+      </NextHead>
     </div>
   );
 }
