@@ -4,12 +4,12 @@ import { useRouter } from 'next/router';
 const isErrorRouter = (pathname: string) =>
   pathname.includes('/error') || pathname.includes('/404');
 
-type Props = { title?: string };
-export default function Head({ title }: Props): JSX.Element {
+type Props = { title?: string; favicon?: string };
+export default function Head({ title, favicon }: Props): JSX.Element {
   const router = useRouter();
 
   const isErrorRoute = isErrorRouter(router.pathname);
-  const favicon = isErrorRoute ? '/assets/icon404.png' : 'assets/favicon.png';
+  favicon = favicon ?? isErrorRoute ? '/assets/icon404.png' : 'assets/favicon.png';
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import style from '../styles/components/maintenance.module.css';
-import Head from './head';
+import Head from './ui/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
