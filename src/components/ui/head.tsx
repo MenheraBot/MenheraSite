@@ -1,15 +1,20 @@
 import NextHead from 'next/head';
+import { useRouter } from 'next/router';
 
-type Props = {
-  title: string;
-  favicon: string;
-};
+const isErrorRouter = (pathname: string) =>
+  pathname.includes('/error') || pathname.includes('/404');
 
-export default function Head({ title, favicon }: Props): JSX.Element {
+type Props = { title?: string };
+export default function Head({ title }: Props): JSX.Element {
+  const router = useRouter();
+
+  const isErrorRoute = isErrorRouter(router.pathname);
+  const favicon = isErrorRoute ? '/assets/icon404.png' : 'assets/favicon.png';
+
   return (
     <div>
       <NextHead>
-        <title>{title}</title>
+        <title>{(title ? title + ' | ' : '') + 'Menhera Bot'}</title>
         <link rel='icon' href={favicon} />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta property='og:title' content="Menhera's Site" />

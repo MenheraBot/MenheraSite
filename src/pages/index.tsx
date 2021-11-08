@@ -1,36 +1,15 @@
-import Head from '../components/head';
-import CookieConsent from 'react-cookie-consent';
-
 import Image from 'next/image';
-import Footer from '../components/footer';
-import Header from '../components/header';
+import Footer from '../components/ui/footer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { useTranslation } from 'react-i18next';
+import Layout from '../components/ui/layout';
 
 const HomePage = (): JSX.Element => {
   const { t } = useTranslation('common');
 
   return (
-    <div>
-      <Head title='Menhera Bot' favicon='assets/favicon.png' />
-      <Header />
-      <CookieConsent
-        location='bottom'
-        buttonText='Okay'
-        style={{ background: '#000' }}
-        buttonStyle={{
-          color: '#fff',
-          fontWeight: 'bold',
-          fontSize: '15px',
-          background: '#9c5ddb',
-          borderRadius: '50px',
-          width: '300px',
-          heigh: '30px',
-        }}
-      >
-        {t('cookie')}
-      </CookieConsent>
+    <Layout>
       <div className='w-full h-screen sm:h-auto flex justify-center'>
         <section className='px-24 sm:px-2 w-11/12 h-full flex flex-row mt-28 sm:my-10 justify-around'>
           <div className='relative w-52	h-96 sm:hidden'>
@@ -48,7 +27,7 @@ const HomePage = (): JSX.Element => {
         </section>
       </div>
       <Footer />
-    </div>
+    </Layout>
   );
 };
 

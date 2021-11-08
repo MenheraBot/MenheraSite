@@ -1,14 +1,13 @@
 import { fetchCommands } from '../services/api/api';
 import { useState, useMemo } from 'react';
-import Head from '../components/head';
-import Footer from '../components/footer';
-import Header from '../components/header';
+
 import style from '../styles/pages/commands.module.css';
 import CommandTableRow from '../components/command-table-row';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
 import { Command } from '../services/api/api.types';
+import Layout from '../components/ui/layout';
 
 type Props = {
   commands: Command[];
@@ -25,9 +24,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
   }, [category, commands]);
 
   return (
-    <div>
-      <Head title={t('title')} favicon='assets/favicon.png' />
-      <Header />
+    <Layout title={t('title')}>
       <div className={style.container}>
         <div className={style.top}>
           <div className='text-center'>
@@ -89,8 +86,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
@@ -100,7 +96,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   return {
     props: {
       commands,
-      ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, [
+        'common',
+        'commands',
+        'header',
+        'footer',
+      ])),
     },
     revalidate: 60,
   };
