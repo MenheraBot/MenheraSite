@@ -1,19 +1,15 @@
 import style from '../styles/pages/error.module.css';
-import Head from '../components/head';
-import Header from '../components/header';
 import Link from 'next/link';
-import Footer from '../components/footer';
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Layout from '../components/ui/layout';
 
 const NotFoundPage = (): JSX.Element => {
   const { t } = useTranslation('error');
 
   return (
-    <>
-      <Head title={t('title')} favicon='/assets/icon404.png' />
-      <Header />
+    <Layout title={t('title')}>
       <div className={style.box}>
         <img src='/assets/404.png' alt='Menhera not found' />
         <h1>
@@ -42,8 +38,7 @@ const NotFoundPage = (): JSX.Element => {
           </h3>
         </h1>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

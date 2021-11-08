@@ -1,16 +1,14 @@
-import Head from '../components/head';
-import Footer from '../components/footer';
-import Header from '../components/header';
+import Header from '../components/ui/header';
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Layout from '../components/ui/layout';
 
 const PrivacyPage = (): JSX.Element => {
   const { t } = useTranslation('privacy');
 
   return (
-    <>
-      <Head title={t('title')} favicon='/assets/privacy.png' />
+    <Layout>
       <Header />
       <h1 id='privacy' className='text-center text-purple-700 pt-12 text-5xl font-bold text-shadow'>
         {t('h1')}{' '}
@@ -93,8 +91,7 @@ const PrivacyPage = (): JSX.Element => {
           desta discussão no GitHub
         </a>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

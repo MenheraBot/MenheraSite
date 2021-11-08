@@ -1,4 +1,4 @@
-import style from '../styles/components/footer.module.css';
+import style from '../../styles/components/footer.module.css';
 import { useTranslation } from 'react-i18next';
 
 const Footer = (): JSX.Element => {

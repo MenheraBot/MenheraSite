@@ -1,14 +1,14 @@
 import { fetchCommands, fetchStatus } from '../services/api/api';
-import Head from '../components/head';
+
 import Table from '../components/ping-table';
 import Cmds from '../components/disabled-commands';
 import style from '../styles/pages/status.module.css';
-import Footer from '../components/footer';
-import Header from '../components/header';
+
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Command, Shard } from '../services/api/api.types';
+import Layout from '../components/ui/layout';
 
 type Props = {
   shards: Shard[];
@@ -19,9 +19,7 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
   const { t } = useTranslation('status');
 
   return (
-    <div>
-      <Head title={t('title')} favicon='assets/favicon.png' />
-      <Header />
+    <Layout title={t('title')}>
       <section className={style.container}>
         <h1 className={style.title}>Status</h1>
 
@@ -29,8 +27,7 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
         {shards.length > 0 && <Table pings={shards} />}
         {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} />}
       </section>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

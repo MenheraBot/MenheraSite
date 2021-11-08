@@ -2,7 +2,7 @@ import { FormEvent } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import Head from '../components/head';
+import Head from '../components/ui/head';
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
@@ -15,7 +15,7 @@ const BolehamPage = (): JSX.Element => {
 
   return (
     <div>
-      <Head title={t('title')} favicon='assets/favicon.png' />
+      <Head title={t('title')} />
       <div className='flex'>
         <div className='bg-gray-xforte px-2 py-2 w-15 flex-none flex flex-col min-h-screen h-screen'>
           <div className='overflow-y-hidden'>
