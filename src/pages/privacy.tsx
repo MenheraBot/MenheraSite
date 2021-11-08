@@ -1,4 +1,3 @@
-import Header from '../components/ui/header';
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -9,7 +8,6 @@ const PrivacyPage = (): JSX.Element => {
 
   return (
     <Layout>
-      <Header />
       <h1 id='privacy' className='text-center text-purple-700 pt-12 text-5xl font-bold text-shadow'>
         {t('h1')}{' '}
         <span className='text-base'>
