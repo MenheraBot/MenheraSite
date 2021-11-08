@@ -45,4 +45,4 @@ jobs:
           yarn test
       - name: Build
         run: |
-          yarn build
+          cp .env.example .env && yarn build
