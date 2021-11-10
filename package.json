@@ -37,8 +37,12 @@
   },
   "homepage": "https://github.com/ySnoopyDogy/MenheraSite#readme",
   "dependencies": {
+    "@chakra-ui/react": "^1.6.12",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@headlessui/react": "^1.2.0",
     "axios": "^0.21.1",
+    "framer-motion": "^4",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "next": "^11.1.2",
