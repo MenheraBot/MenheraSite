@@ -96,7 +96,12 @@ const PrivacyPage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['privacy', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, [
+        'common',
+        'privacy',
+        'header',
+        'footer',
+      ])),
     },
   };
 };
