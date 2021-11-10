@@ -1,6 +1,8 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/global.css';
 
+import { ChakraProvider } from '@chakra-ui/react';
+
 import App, { AppContext, AppProps } from 'next/app';
 
 import { useEffect } from 'react';
@@ -8,6 +10,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '../analytics/gtag';
 import Analytics from '../analytics/Analytics';
 import { appWithTranslation } from 'next-i18next';
+import theme from '../theme';
 
 const Application = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -24,7 +27,9 @@ const Application = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <Component {...pageProps} />
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
       <Analytics />
     </>
   );

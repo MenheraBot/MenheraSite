@@ -1,32 +1,34 @@
 import Image from 'next/image';
-import Footer from '../components/ui/footer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { useTranslation } from 'react-i18next';
 import Layout from '../components/ui/layout';
+
+import { Heading, Text, Flex, Container, Box } from '@chakra-ui/react';
 
 const HomePage = (): JSX.Element => {
   const { t } = useTranslation('common');
 
   return (
     <Layout>
-      <div className='w-full h-screen sm:h-auto flex justify-center'>
-        <section className='px-24 sm:px-2 w-11/12 h-full flex flex-row mt-28 sm:my-10 justify-around'>
-          <div className='relative w-52	h-96 sm:hidden'>
+      <Container maxW='container.lg' py={14} minH='container.sm'>
+        <Flex justifyContent='space-around' mt={14}>
+          <Box pos='relative' w='52' h='96' display={{ base: 'none', sm: 'flex' }}>
             <Image src='/assets/men.png' layout='fill' alt='Menhera' />
-          </div>
-          <div className='w-3/5	sm:w-full'>
-            <h1 className='text-4xl font-extrabold text-white'>{t('h1')}</h1>
-            <p className='text-xl text-gray-500 mt-10 mb-5 sm:text-lg'>{t('p')}</p>
+          </Box>
+          <Container maxW='container.sm'>
+            <Heading fontWeight='extrabold'>{t('h1')}</Heading>
+            <Text fontSize={{ base: 'lg', sm: 'xl' }} color='text' my='10'>
+              {t('p')}
+            </Text>
             <a href={process.env.NEXT_PUBLIC_BOT_INVITE_URL}>
               <button className='animate-wiggle p-4 rounded-2xl ' type='submit'>
                 {t('b')}
               </button>
             </a>
-          </div>
-        </section>
-      </div>
-      <Footer />
+          </Container>
+        </Flex>
+      </Container>
     </Layout>
   );
 };
