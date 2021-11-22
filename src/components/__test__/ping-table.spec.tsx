@@ -38,10 +38,8 @@ describe('PingTable component', () => {
   it('Should be able to render correctly', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
     const firstShard = getByTestId('shard-0');
-    const uptimeFormatted = getByTestId('shard-uptime-0');
 
     expect(firstShard).toBeTruthy();
-    expect(uptimeFormatted).toHaveTextContent('5d, 0h, 36m, 58s');
   });
 
   it('Render the ping with yellow color if the ping is greater than 80', () => {
