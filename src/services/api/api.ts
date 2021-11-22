@@ -13,4 +13,13 @@ const fetch = async <R>(route: string): Promise<R> => {
 };
 
 export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
-export const fetchStatus = (): Promise<Shard[]> => fetch('/shards');
+export const fetchStatus = async (): Promise<Shard[]> => {
+  const shards = await fetch<Shard[]>('/shards');
+
+  return shards
+    .sort((a, b) => a.id - b.id)
+    .map((a) => ({
+      ...a,
+      isOff: a.lastPingAt < Date.now() - 70000,
+    }));
+};

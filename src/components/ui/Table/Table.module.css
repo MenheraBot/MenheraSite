@@ -1,0 +1,41 @@
+ /* table {
+  margin-top: 50px;
+  border-collapse: collapse;
+  width: 800px;
+  box-shadow: 3px 3px 5px 2px #333;
+  margin-bottom: 100px;
+}
+
+tbody {
+  background-color: #333;
+}
+
+thead {
+  background-color: #9c5ddb56;
+  color: #dee7e7;
+}
+
+tr:nth-of-type(even) {
+  background-color: rgb(82, 82, 82);
+}
+
+tr:last-of-type {
+  border-bottom: 2px solid #212529;
+}
+
+tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+td,
+th {
+  padding: 12px 15px;
+}
+
+
+
+@media (max-width: 800px) {
+   table {
+    width: 100%;
+  }
+} */
