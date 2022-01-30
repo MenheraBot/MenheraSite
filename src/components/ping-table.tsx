@@ -56,7 +56,7 @@ const PingTable = ({ pings }: Props): JSX.Element => {
                 {a.isOff ? (
                   <span className={style.off}>OFF</span>
                 ) : (
-                  moment.utc(Date.now() + a.uptime).format('D[d], H[h], m[m], s[s]')
+                  moment.utc(a.uptime).format('D[d], H[h], m[m], s[s]')
                 )}
               </td>
             </tr>
