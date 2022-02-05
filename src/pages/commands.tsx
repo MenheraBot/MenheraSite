@@ -48,6 +48,12 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
                 <li>{t('eco')}</li>
               </button>
               <button
+                onClick={() => setCategory('roleplay')}
+                className={category === 'roleplay' ? style.boxActive : style.box}
+              >
+                <li>RPG</li>
+              </button>
+              <button
                 onClick={() => setCategory('info')}
                 className={category === 'info' ? style.boxActive : style.box}
               >
