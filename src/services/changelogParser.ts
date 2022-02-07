@@ -15,12 +15,12 @@ export interface ChangelogVersion {
 
 export const parseChangelog = (changelog: string): ChangelogVersion[] => {
   const removeDescription = changelog.slice(267);
-  const words = removeDescription.replace(/## \[/i, 'ä ## [').split('ä '); // 267 is the size of first text in CHANGELOG
+  const words = removeDescription.replace(/## \[/g, 'ä ## [').split('ä '); // 267 is the size of first text in CHANGELOG
   words.shift(); // Remove the empty String
 
   return words.map<ChangelogVersion>((v) => {
     const startingData = v.split('\n')[0].split(' ');
-    const name = startingData[1].replace(/\[/i, '').replace(/\]/i, '');
+    const name = startingData[1].replace(/\[/g, '').replace(/\]/g, '');
     const date = startingData[3];
     const info: { [name: string]: string | null } = {
       added: null,
@@ -36,7 +36,7 @@ export const parseChangelog = (changelog: string): ChangelogVersion[] => {
 
     restData.forEach((a) => {
       const text = a.split(' ');
-      const infoName = text[0].replace(/\n\n-/i, '').toLowerCase();
+      const infoName = text[0].replace(/\n\n-/g, '').toLowerCase();
       if (!infoName) return;
 
       info[infoName] = text.join(' ').replace(`${capitalize(infoName)}\n\n`, '');
