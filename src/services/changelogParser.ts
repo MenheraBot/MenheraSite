@@ -1,5 +1,9 @@
 import { capitalize } from 'lodash';
 
+import replaceAllInserter from 'string.prototype.replaceall';
+
+replaceAllInserter.shim();
+
 export interface ChangelogVersion {
   versionName: string;
   date: string;
