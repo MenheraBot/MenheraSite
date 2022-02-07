@@ -1,6 +1,7 @@
 import 'react-i18next';
 
 import boleham from '../public/static/locales/en/boleham.json';
+import changelog from '../public/static/locales/en/changelog.json';
 import commands from '../public/static/locales/en/commands.json';
 import common from '../public/static/locales/en/common.json';
 import donate from '../public/static/locales/en/donate.json';
@@ -26,6 +27,7 @@ declare module 'react-i18next' {
       header: typeof header;
       privacy: typeof privacy;
       status: typeof status;
+      changelog: typeof changelog;
     };
   }
 }
