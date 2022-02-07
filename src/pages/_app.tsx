@@ -4,6 +4,7 @@ import '../styles/global.css';
 import { ChakraProvider } from '@chakra-ui/react';
 
 import App, { AppContext, AppProps } from 'next/app';
+import replaceAllInserter from 'string.prototype.replaceall';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -13,6 +14,7 @@ import { appWithTranslation } from 'next-i18next';
 import theme from '../theme';
 
 const Application = ({ Component, pageProps }: AppProps) => {
+  replaceAllInserter.shim();
   const router = useRouter();
 
   useEffect(() => {
