@@ -111,7 +111,7 @@ const ChangelogPage = ({ versions }: Props): JSX.Element => {
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const log = await fetchGithub();
 
-  const versions = parseChangelog(log);
+  const versions = parseChangelog(log, locale ?? 'pt-BR');
 
   return {
     props: {

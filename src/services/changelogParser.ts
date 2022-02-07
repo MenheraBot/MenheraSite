@@ -13,7 +13,7 @@ export interface ChangelogVersion {
   };
 }
 
-export const parseChangelog = (changelog: string): ChangelogVersion[] => {
+export const parseChangelog = (changelog: string, dateLocale: string): ChangelogVersion[] => {
   const removeDescription = changelog.slice(267);
   const words = removeDescription.replace(/## \[/g, 'ä ## [').split('ä '); // 267 is the size of first text in CHANGELOG
   words.shift(); // Remove the empty String
@@ -42,6 +42,6 @@ export const parseChangelog = (changelog: string): ChangelogVersion[] => {
       info[infoName] = text.join(' ').replace(`${capitalize(infoName)}\n\n`, '');
     });
 
-    return { date: new Date(date).toLocaleDateString(), versionName: name, info };
+    return { date: new Date(date).toLocaleDateString(dateLocale), versionName: name, info };
   });
 };
