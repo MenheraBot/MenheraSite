@@ -38,9 +38,10 @@ const NewHeader = (): JSX.Element => {
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
                   <Link href='/status'>Status</Link>
                 </a>
-                {/*  <a className="cursor-pointer hover:text-purple-500 capitalize font-medium">
-                  <Link href="/boleham">Boleham</Link>
-                </a> */}
+                <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
+                  <Link href='/changelog'>{t('changelog')}</Link>
+                </a>{' '}
+                *
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
                   <Link href='/donate'>{t('donate')}</Link>
                 </a>
@@ -171,6 +172,11 @@ const NewHeader = (): JSX.Element => {
               <Link href='/donate'>
                 <a className='bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium'>
                   {t('donate')}
+                </a>
+              </Link>
+              <Link href='/changelog'>
+                <a className='bg-gray-700 cursor-pointer px-3 py-2 rounded-md hover:text-purple-500 capitalize font-medium'>
+                  {t('changelog')}
                 </a>
               </Link>
               <Link href='/privacy'>

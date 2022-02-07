@@ -12,5 +12,13 @@ const fetch = async <R>(route: string): Promise<R> => {
   return res.data;
 };
 
+export const fetchGithub = async (): Promise<string> => {
+  const res = await axios.get(
+    'https://raw.githubusercontent.com/MenheraBot/MenheraBot/master/CHANGELOG',
+  );
+
+  return res.data;
+};
+
 export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
 export const fetchStatus = (): Promise<Shard[]> => fetch('/shards');
