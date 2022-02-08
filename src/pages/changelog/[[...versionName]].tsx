@@ -1,7 +1,13 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
+
+import { Flex } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { ChangelogPage } from '../../components/changelog/changelog-page';
+import { ChangelogMarkdown } from '../../components/changelog/changelog-markdown';
+import { ChangelogSidebar } from '../../components/changelog/changelog-sidebar';
+
+import Layout from '../../components/ui/layout';
 import { fetchGithub } from '../../services/api/api';
 import { ChangelogVersion, parseChangelog } from '../../services/changelogParser';
 
@@ -11,24 +17,21 @@ type Props = {
 };
 
 const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element => {
-  // return <p>{currentVersion?.versionName}</p>;
-  return <ChangelogPage currentVersion={currentVersion} versions={versions} />;
+  const { t } = useTranslation('changelog');
+
+  return (
+    <Layout title={t('title', { version: currentVersion.versionName })}>
+      <Flex marginX='5' flexDir='row' overflow='hidden' maxW='2000px'>
+        <ChangelogSidebar versions={versions} currentVersion={currentVersion.versionName} />
+        <ChangelogMarkdown version={currentVersion} />
+      </Flex>
+    </Layout>
+  );
 };
 
-// export const getStaticProps: GetStaticPaths = async () => {
-
-//   const log = await fetchGithub();
-//   const versions = parseChangelog(log, 'pt-BR');
-
-//   return {
-//     paths: []
-//   }
-// }
-
-export async function getStaticPaths() {
-  console.log('atas');
+export const getStaticPaths: GetStaticPaths = () => {
   return { paths: [], fallback: true };
-}
+};
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale, params = {} }) => {
   const log = await fetchGithub();
