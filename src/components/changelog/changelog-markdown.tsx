@@ -12,6 +12,9 @@ type Props = {
 export const ChangelogMarkdown = ({ version }: Props): JSX.Element => {
   const { t } = useTranslation('changelog');
 
+  // no render when is building app
+  if (!version) return <></>;
+
   return (
     <Flex w='75%' marginX='auto' overflowY='scroll' borderRadius='10px'>
       <Flex flexDir='column'>

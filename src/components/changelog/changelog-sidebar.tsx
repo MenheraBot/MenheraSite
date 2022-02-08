@@ -7,7 +7,7 @@ type Prop = {
   currentVersion: string;
 };
 
-export const ChangelogSidebar = ({ versions, currentVersion }: Prop): JSX.Element => {
+export const ChangelogSidebar = ({ versions = [], currentVersion }: Prop): JSX.Element => {
   return (
     <>
       {/* SIDEBAR */}
@@ -24,15 +24,16 @@ export const ChangelogSidebar = ({ versions, currentVersion }: Prop): JSX.Elemen
         <Flex flexDir='column' justifyContent='space-between' minH='100vh'>
           <Flex flexDir='column' as='nav'>
             <Flex flexDir='column' align='center' justifyContent='center'>
-              {versions.map((a) => (
-                <Flex key={a.versionName} paddingY='.75em' textAlign='center'>
-                  <NextLink href={`/changelog/${a.versionName}`}>
-                    <Button as='a'>
+              {versions.map((version) => (
+                <Flex key={version.versionName} paddingY='.75em' textAlign='center'>
+                  <NextLink href={`/changelog/${version.versionName}`}>
+                    <Button as='a' _hover={{ cursor: 'pointer', opacity: 0.7 }}>
                       <Text
-                        textColor={a.versionName === currentVersion ? '#9c5ddb' : 'white'}
+                        as='span'
+                        textColor={version.versionName === currentVersion ? '#9c5ddb' : 'white'}
                         fontSize='large'
                       >
-                        {a.versionName}
+                        {version.versionName}
                       </Text>
                     </Button>
                   </NextLink>

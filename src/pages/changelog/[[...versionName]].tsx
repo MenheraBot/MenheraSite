@@ -20,9 +20,9 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
   const { t } = useTranslation('changelog');
 
   return (
-    <Layout title={t('title', { version: currentVersion.versionName })}>
+    <Layout title={t('title', { version: currentVersion?.versionName })}>
       <Flex marginX='5' flexDir='row' overflow='hidden' maxW='2000px'>
-        <ChangelogSidebar versions={versions} currentVersion={currentVersion.versionName} />
+        <ChangelogSidebar versions={versions} currentVersion={currentVersion?.versionName} />
         <ChangelogMarkdown version={currentVersion} />
       </Flex>
     </Layout>
