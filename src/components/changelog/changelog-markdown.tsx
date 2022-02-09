@@ -18,7 +18,7 @@ export const ChangelogMarkdown = ({ version }: Props): JSX.Element => {
   return (
     <Flex w='75%' marginX='auto' overflowY='scroll' borderRadius='10px'>
       <Flex flexDir='column'>
-        <Heading textColor='#9c5ddb'>{`${version.versionName}`}</Heading>
+        <Heading textColor='#9c5ddb'>{version.versionName}</Heading>
         <Heading size='md'>{`${t('date')} ${version.date}`}</Heading>
         {version.info.added && <Markdown header={t('added')} markdown={version.info.added} />}
         {version.info.changed && <Markdown header={t('changed')} markdown={version.info.changed} />}
@@ -58,6 +58,7 @@ const Markdown = ({ markdown, header }: MarkdownProps): JSX.Element => {
         <Box
           marginLeft='1'
           as='a'
+          id={header}
           href={'#' + header}
           aria-label='anchor'
           opacity='0'
