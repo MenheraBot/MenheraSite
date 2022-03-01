@@ -40,8 +40,7 @@ const NewHeader = (): JSX.Element => {
                 </a>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
                   <Link href='/changelog'>{t('changelog')}</Link>
-                </a>{' '}
-                *
+                </a>
                 <a className='cursor-pointer hover:text-purple-500 capitalize font-medium'>
                   <Link href='/donate'>{t('donate')}</Link>
                 </a>
