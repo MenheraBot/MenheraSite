@@ -29,11 +29,6 @@ export default function Head({ title, favicon: faviconCustom }: Props): JSX.Elem
           property='og:description'
           content='This is the oficial website for MenheraBot, a Brazilian Discord Bot focused in Fun and RPG. Add it, see her commands and more!'
         />
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_AD_ID}`}
-          crossOrigin='anonymous'
-        ></script>
         <meta name='twitter:image:src' content='https://menherabot.xyz/assets/baner.png' />
         <meta name='twitter:site' content='@__MenheraBot' />
         <meta name='twitter:card' content='summary_large_image' />
