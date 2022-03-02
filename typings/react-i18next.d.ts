@@ -9,6 +9,7 @@ import error from '../public/static/locales/en/error.json';
 import footer from '../public/static/locales/en/footer.json';
 import header from '../public/static/locales/en/header.json';
 import privacy from '../public/static/locales/en/privacy.json';
+import blog from '../public/static/locales/en/blog.json';
 import status from '../public/static/locales/en/status.json';
 
 declare module 'react-i18next' {
@@ -28,6 +29,7 @@ declare module 'react-i18next' {
       privacy: typeof privacy;
       status: typeof status;
       changelog: typeof changelog;
+      blog: typeof blog;
     };
   }
 }
