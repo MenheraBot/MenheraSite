@@ -28,5 +28,6 @@
   "choices": "Escolha",
   "subcommands": "Subcomandos",
   "disabled": "Comando Desativado!",
-  "reason": "Motivo:"
+  "reason": "Motivo:",
+  "click": "Clique!"
 }

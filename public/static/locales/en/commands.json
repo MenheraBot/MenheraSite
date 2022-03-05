@@ -29,5 +29,6 @@
   "choices": "Choice",
   "subcommands": "Subcommands",
   "disabled": "Command in Maintenance!",
-  "reason": "Reason:"
+  "reason": "Reason:",
+  "click": "Click!"
 }

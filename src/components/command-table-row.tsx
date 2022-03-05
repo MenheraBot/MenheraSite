@@ -14,7 +14,7 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div>
+    <>
       <tr
         key={key}
         className='hover:border-purple-700 cursor-pointer'
@@ -22,20 +22,19 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
       >
         <td className='text-current capitalize'>{cmd.name}</td>
         <td className='text-current'>{cmd.description}</td>
-        <td colSpan={2} className='text-current'>
-          {t(cmd.type)}
-        </td>
+        <td className='text-current'>{t(cmd.type)}</td>
+        <td className='text-current text-purple-400'>{t('click')}</td>
       </tr>
       {expanded && (
-        <tr className='overflow-hidden' key='tr-expander' aria-colspan={4}>
-          <td style={{ backgroundColor: 'inherit' }} aria-colspan={4}>
+        <tr className='overflow-hidden' key='tr-expander'>
+          <td style={{ backgroundColor: 'inherit' }} colSpan={4}>
             <div className='overflow-hidden m-4'>
               <div>{cmd.options.length > 0 && resolveOptions(cmd.options, t)}</div>
             </div>
           </td>
         </tr>
       )}
-    </div>
+    </>
   );
 };
 
@@ -49,7 +48,7 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div>
+    <>
       <tr
         key={key}
         className='hover:border-purple-700 cursor-pointer'
@@ -72,7 +71,7 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
       </tr>
       {expanded && (
         <tr key={key + Date.now()} className='overflow-hidden'>
-          <td style={{ backgroundColor: 'inherit' }} aria-colspan={2}>
+          <td style={{ backgroundColor: 'inherit' }} colSpan={2}>
             <div className='overflow-hidden m-4'>
               <div>
                 {cmd?.disabled?.isDisabled && (
@@ -91,7 +90,7 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
           </td>
         </tr>
       )}
-    </div>
+    </>
   );
 };
 
@@ -123,7 +122,7 @@ const resolveOptions = (options: Option[], t: TFunction) => (
             <ResolveSubCommand key={opt.name} cmd={opt} t={t} />
           ) : (
             <tr key={opt.name + Date.now()}>
-              <td>{opt.name}</td>
+              <td className='capitalize'>{opt.name}</td>
               <td>{opt.description}</td>
               <td
                 data-tip
