@@ -50,7 +50,7 @@ const PingTable = ({ pings }: Props): JSX.Element => {
                 </b>
               </td>
               <td>
-                <b>{a.members}</b>
+                <b>{a.isOff ? <span className={style.off}>OFF</span> : a.members}</b>
               </td>
               <td data-testid={`shard-uptime-${a.id}`} className='text-green-500'>
                 {a.isOff ? (
