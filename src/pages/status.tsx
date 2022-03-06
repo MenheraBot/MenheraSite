@@ -9,6 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Command, Shard } from '../services/api/api.types';
 import Layout from '../components/ui/layout';
+import Monetizer from '../analytics/Monetizer';
 
 type Props = {
   shards: Shard[];
@@ -27,7 +28,7 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
         {shards.length > 0 && <Table pings={shards} />}
         {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} />}
       </section>
-      <></>
+      <Monetizer type='4x1' />
     </Layout>
   );
 };

@@ -91,6 +91,7 @@ const PrivacyPage = (): JSX.Element => {
         </a>
       </div>
       <Monetizer type='Vertical' />
+      <Monetizer type='4x1' />
     </Layout>
   );
 };

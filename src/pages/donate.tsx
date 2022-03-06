@@ -30,8 +30,8 @@ const DonatePage = (): JSX.Element => {
             </div>
           </div>
         </section>
+        <Monetizer type='4x1' />
       </div>
-      <Monetizer type='4x1' />
     </Layout>
   );
 };
