@@ -11,6 +11,7 @@ const DonatePage = (): JSX.Element => {
 
   return (
     <Layout title={t('title')}>
+      <div id='container-bba487e27eac27e2777e36e737c5148e' />
       <div className={style.container}>
         <section className='container mx-auto flex self-center items-center place-self-center justify-center text-center h-screen sm:mt-24'>
           <div className='flex flex-col w-3/4 mt-32'>
