@@ -8,8 +8,8 @@ const Analytics = (): JSX.Element => (
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
     />
     <Script
-      strategy='beforeInteractive'
-      id='TaldoAD'
+      strategy='afterInteractive'
+      id='adsense'
       dangerouslySetInnerHTML={{
         __html: `
         (function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://iclickcdn.com/tag.min.js',4916025,document.body||document.documentElement)
