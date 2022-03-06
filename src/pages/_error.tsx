@@ -5,6 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import Layout from '../components/ui/layout';
+import Monetizer from '../analytics/Monetizer';
 
 const CustomErrorPage = (): JSX.Element => {
   const { t } = useTranslation('error');
@@ -37,7 +38,7 @@ const CustomErrorPage = (): JSX.Element => {
           </h3>
         </h1>
       </div>
-      <div id='container-bba487e27eac27e2777e36e737c5148e' />
+      <Monetizer type='4x1' />
     </Layout>
   );
 };

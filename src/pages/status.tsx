@@ -27,7 +27,7 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
         {shards.length > 0 && <Table pings={shards} />}
         {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} />}
       </section>
-      <div id='container-bba487e27eac27e2777e36e737c5148e' />
+      <></>
     </Layout>
   );
 };
