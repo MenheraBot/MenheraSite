@@ -37,6 +37,7 @@ const CustomErrorPage = (): JSX.Element => {
           </h3>
         </h1>
       </div>
+      <div id='container-bba487e27eac27e2777e36e737c5148e' />
     </Layout>
   );
 };
