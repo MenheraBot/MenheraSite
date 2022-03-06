@@ -38,7 +38,6 @@ export default function Head({ title, favicon: faviconCustom }: Props): JSX.Elem
           content='This is the oficial website for MenheraBot, a Brazilian Discord Bot focused in Fun and RPG. Add it, see her commands and more!'
         />
         <meta name='theme-color' content='#7835e6' />
-        <meta name='propeller' content={process.env.NEXT_PUBLIC_PROPELLER} />
         <meta charSet='utf-8' />
       </NextHead>
     </div>
