@@ -90,7 +90,6 @@ const PrivacyPage = (): JSX.Element => {
           desta discussão no GitHub
         </a>
       </div>
-      <Monetizer type='Vertical' />
       <Monetizer type='4x1' />
     </Layout>
   );
