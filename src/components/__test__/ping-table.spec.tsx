@@ -37,14 +37,14 @@ const pings: Shard[] = [
 describe('PingTable component', () => {
   it('Should be able to render correctly', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
-    const firstShard = getByTestId('shard-0');
+    const firstShard = getByTestId('cluster-0');
 
     expect(firstShard).toBeTruthy();
   });
 
   it('Render the ping with yellow color if the ping is greater than 80', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
-    const secondShardPing = getByTestId('shard-ping-1');
+    const secondShardPing = getByTestId('cluster-ping-1');
 
     expect(secondShardPing).toBeTruthy();
     expect(secondShardPing).toHaveStyle({
@@ -54,7 +54,7 @@ describe('PingTable component', () => {
 
   it('Render text off if isOff is true', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
-    const thirdShardPing = getByTestId('shard-ping-2');
+    const thirdShardPing = getByTestId('cluster-ping-2');
 
     expect(thirdShardPing).toBeTruthy();
     expect(thirdShardPing).toHaveTextContent('OFF');
@@ -62,7 +62,7 @@ describe('PingTable component', () => {
 
   it('Render Available if there are no guilds or guilds is equal to 0', () => {
     const { getByTestId } = render(<PingTable pings={pings} />);
-    const fourthShardPing = getByTestId('shard-servers-3');
+    const fourthShardPing = getByTestId('cluster-servers-3');
 
     expect(fourthShardPing).toBeTruthy();
     expect(fourthShardPing).toHaveTextContent('Available');
