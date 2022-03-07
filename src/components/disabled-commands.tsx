@@ -8,7 +8,7 @@ type Props = {
 };
 
 const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('status');
 
   return (
     <table>
