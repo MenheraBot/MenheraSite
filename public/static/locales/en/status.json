@@ -1,5 +1,12 @@
 {
   "title": "Status",
   "wait": "Wait while i take the data",
-  "link": "Click here to go to Menhera's Status Page"
+  "link": "Click here to go to Menhera's Status Page",
+  "service": "Service",
+  "ping": "Ping",
+  "cluster": "Cluster",
+  "disabled-commands": "Disabled Commands",
+  "working": "ALL COMMANDS ARE WORKING PROPERLY",
+  "guilds": "Servers",
+  "uptime": "Uptime"
 }

@@ -9,7 +9,7 @@ type Props = {
 };
 
 const PingTable = ({ pings }: Props): JSX.Element => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('status');
 
   return (
     <table className={style.table}>
@@ -26,33 +26,33 @@ const PingTable = ({ pings }: Props): JSX.Element => {
         {pings
           .sort((a, b) => a.id - b.id)
           .map((a) => (
-            <tr key={a.id} data-testid={`shard-${a.id}`}>
+            <tr key={a.id} data-testid={`cluster-${a.id}`}>
               <td>
-                {t('shard')} {a.id}
+                {t('cluster')} {a.id}
               </td>
               <td>
                 {a.isOff ? (
-                  <span data-testid={`shard-ping-${a.id}`} className={style.off}>
+                  <span data-testid={`cluster-ping-${a.id}`} className={style.off}>
                     OFF
                   </span>
                 ) : (
                   <span
-                    data-testid={`shard-ping-${a.id}`}
+                    data-testid={`cluster-ping-${a.id}`}
                     style={{ color: a.ping > 80 ? 'yellow' : 'yellowgreen' }}
                   >
-                    {a.ping}ms
+                    {Math.floor(a.ping)}ms
                   </span>
                 )}
               </td>
               <td>
-                <b data-testid={`shard-servers-${a.id}`}>
+                <b data-testid={`cluster-servers-${a.id}`}>
                   {a.isOff ? <span className={style.off}>OFF</span> : a.guilds || 'Available'}
                 </b>
               </td>
               <td>
                 <b>{a.isOff ? <span className={style.off}>OFF</span> : a.members}</b>
               </td>
-              <td data-testid={`shard-uptime-${a.id}`} className='text-green-500'>
+              <td data-testid={`cluster-uptime-${a.id}`} className='text-green-500'>
                 {a.isOff ? (
                   <span className={style.off}>OFF</span>
                 ) : (
