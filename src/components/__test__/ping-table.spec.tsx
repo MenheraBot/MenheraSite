@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import { Shard } from '../../services/api/api.types';
 
-import PingTable from '../ping-table';
+import PingTable from '../shard-info';
 
 const ping: Shard = {
   id: 0,

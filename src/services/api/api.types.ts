@@ -31,16 +31,16 @@ export interface Top {
   uses: number;
 }
 
-export interface Shard {
+export interface ShardData {
   id: number;
   memoryUsed: number;
   uptime: number;
+  connected: number;
   guilds: number;
   unavailable: number;
   ping: number;
   lastPingAt: number;
   isOff: boolean;
   members: number;
-  executedCommands: number;
-  top: Top[];
+  clusterId: number;
 }

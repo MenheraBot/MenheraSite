@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Command, Shard } from './api.types';
+import { Command, ShardData } from './api.types';
 
 const fetch = async <R>(route: string): Promise<R> => {
   const res = await axios.get<R>(process.env.API_URL + route, {
@@ -21,4 +21,4 @@ export const fetchGithub = async (): Promise<string> => {
 };
 
 export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
-export const fetchStatus = (): Promise<Shard[]> => fetch('/shards');
+export const fetchStatus = (): Promise<ShardData[]> => fetch('/shards');
