@@ -51,31 +51,35 @@ const ShardInfo = ({ shard, t }: Props): JSX.Element => {
   const tipId = shard.id * 100;
   return (
     <>
-      <ReactTooltip
-        id={`${tipId}`}
-        effect='solid'
-        place='top'
-        backgroundColor='#343536'
-        textColor='white'
-      >
-        <Text fontWeight={'semibold'}>Cluster: {shard.clusterId}</Text>
-        <Text>Uptime: {moment.duration(shard.uptime).format('D[d], H[h], m[m], s[s]')}</Text>
-        <Text>
-          {t('connected')}: {moment.duration(shard.connected).format('D[d], H[h], m[m], s[s]')}
-        </Text>
-        <Text>
-          {t('guilds')}: {shard.guilds}
-        </Text>
-        <Text fontWeight={'bold'}>
-          {shard.unavailable > 0 ? t('unavailable', { guilds: shard.unavailable }) : t('no-issues')}
-        </Text>
-        <Text>
-          {t('members')}: {shard.members}
-        </Text>
-        <Text>
-          {t('ping')}: {`${shard.ping}ms`}
-        </Text>
-      </ReactTooltip>
+      {!shard.isOff && (
+        <ReactTooltip
+          id={`${tipId}`}
+          effect='solid'
+          place='top'
+          backgroundColor='#343536'
+          textColor='white'
+        >
+          <Text fontWeight={'semibold'}>Cluster: {shard.clusterId}</Text>
+          <Text>Uptime: {moment.duration(shard.uptime).format('D[d], H[h], m[m], s[s]')}</Text>
+          <Text>
+            {t('connected')}: {moment.duration(shard.connected).format('D[d], H[h], m[m], s[s]')}
+          </Text>
+          <Text>
+            {t('guilds')}: {shard.guilds}
+          </Text>
+          <Text fontWeight={'bold'}>
+            {shard.unavailable > 0
+              ? t('unavailable', { guilds: shard.unavailable })
+              : t('no-issues')}
+          </Text>
+          <Text>
+            {t('members')}: {shard.members}
+          </Text>
+          <Text>
+            {t('ping')}: {`${shard.ping}ms`}
+          </Text>
+        </ReactTooltip>
+      )}
       <Box
         data-tip
         data-for={tipId}
@@ -87,12 +91,17 @@ const ShardInfo = ({ shard, t }: Props): JSX.Element => {
         textAlign={'center'}
         border={'1px solid'}
         borderColor={'#9c5ddb'}
-        color={'white'}
       >
         <Center
           width={'60px'}
           height={'60px'}
-          color={shard.ping < 100 && shard.unavailable === 0 ? 'green.400' : 'yellow.300'}
+          color={
+            shard.isOff
+              ? 'red.600'
+              : shard.ping < 100 && shard.unavailable === 0
+              ? 'green.400'
+              : 'yellow.300'
+          }
         >
           {shard.id}
         </Center>
