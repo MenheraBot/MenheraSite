@@ -56,9 +56,9 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
         <Box maxW='7xl' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
           <SimpleGrid
             columns={{
-              base: 1,
+              base: 4,
               md: 8,
-              lg: Math.floor(shards.length / (shards[shards.length - 1].clusterId + 1)),
+              lg: 10,
             }}
             spacing={{ base: 5, lg: 8 }}
             my={'50px'}
