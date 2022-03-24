@@ -18,7 +18,6 @@ export const ChangelogSidebar = ({ versions = [], currentVersion }: Prop): JSX.E
         borderRadius='20px'
         borderRightColor={'gray'}
         borderRightWidth='1px'
-        color='#fff'
         overflowY='scroll'
       >
         <Flex flexDir='column' justifyContent='space-between' minH='100vh'>
