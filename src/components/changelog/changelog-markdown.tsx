@@ -4,7 +4,6 @@ import { ImAttachment } from 'react-icons/im';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 import ReactMarkdown from 'react-markdown';
-import Monetizer from '../../analytics/Monetizer';
 
 type Props = {
   version: ChangelogVersion;
@@ -31,7 +30,6 @@ export const ChangelogMarkdown = ({ version }: Props): JSX.Element => {
         {version.info.security && (
           <Markdown header={t('security')} markdown={version.info.security} />
         )}
-        <Monetizer type='4x1' />
       </Flex>
     </Flex>
   );

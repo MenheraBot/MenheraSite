@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import Layout from '../components/ui/layout';
-import Monetizer from '../analytics/Monetizer';
 
 const DonatePage = (): JSX.Element => {
   const { t } = useTranslation('donate');
@@ -30,7 +29,6 @@ const DonatePage = (): JSX.Element => {
             </div>
           </div>
         </section>
-        <Monetizer type='4x1' />
       </div>
     </Layout>
   );

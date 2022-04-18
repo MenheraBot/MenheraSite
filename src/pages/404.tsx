@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../components/ui/layout';
-import Monetizer from '../analytics/Monetizer';
 
 const NotFoundPage = (): JSX.Element => {
   const { t } = useTranslation('error');
@@ -39,7 +38,6 @@ const NotFoundPage = (): JSX.Element => {
           </h3>
         </h1>
       </div>
-      <Monetizer type='4x1' />
     </Layout>
   );
 };

@@ -8,7 +8,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
 import { Command } from '../services/api/api.types';
 import Layout from '../components/ui/layout';
-import Monetizer from '../analytics/Monetizer';
 
 type Props = {
   commands: Command[];
@@ -93,7 +92,6 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
           </div>
         </div>
       </div>
-      <Monetizer type='4x1' />
     </Layout>
   );
 };

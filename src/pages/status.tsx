@@ -12,7 +12,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Command, ShardData } from '../services/api/api.types';
 import Layout from '../components/ui/layout';
-import Monetizer from '../analytics/Monetizer';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { StatisticCard, ShardInfo } from '../components/shard-info';
 
@@ -68,7 +67,6 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
         </Box>
         {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} />}
       </section>
-      <Monetizer type='4x1' />
     </Layout>
   );
 };

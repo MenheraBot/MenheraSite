@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../components/ui/layout';
-import Monetizer from '../analytics/Monetizer';
 
 const PrivacyPage = (): JSX.Element => {
   const { t } = useTranslation('privacy');
@@ -90,7 +89,6 @@ const PrivacyPage = (): JSX.Element => {
           desta discussão no GitHub
         </a>
       </div>
-      <Monetizer type='4x1' />
     </Layout>
   );
 };
