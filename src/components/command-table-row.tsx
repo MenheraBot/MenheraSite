@@ -21,7 +21,7 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
         onClick={() => setExpanded(!expanded)}
       >
         <td className='text-current capitalize'>{cmd.name}</td>
-        <td className='text-current'>{cmd.description}</td>
+        <td className='text-current'>{cmd.description.replace('【ＲＰＧ】', '')}</td>
         <td className='text-current'>{t(cmd.type)}</td>
         <td className='text-current text-purple-400'>{t('click')}</td>
       </tr>
@@ -66,7 +66,7 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {cmd.description}
+          {cmd.description.replace('【ＲＰＧ】', '')}
         </td>
       </tr>
       {expanded && (
@@ -123,7 +123,7 @@ const resolveOptions = (options: Option[], t: TFunction) => (
           ) : (
             <tr key={opt.name + Date.now()}>
               <td className='capitalize'>{opt.name}</td>
-              <td>{opt.description}</td>
+              <td>{opt.description.replace('【ＲＰＧ】', '')}</td>
               <td
                 data-tip
                 data-for={opt.name + i}
