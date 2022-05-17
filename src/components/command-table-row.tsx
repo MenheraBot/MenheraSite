@@ -61,14 +61,14 @@ const CommandTableRow = ({ cmd, key, t, lang }: CommandTableRowProps): JSX.Eleme
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {lang === 'pt' && cmd.nameLocalizations ? cmd.nameLocalizations['pt-BR'] : cmd.name}
+          {lang === 'pt' && cmd?.nameLocalizations ? cmd.nameLocalizations['pt-BR'] : cmd.name}
         </td>
         <td
           className={`capitalize ${
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {lang === 'pt' && cmd.descriptionLocalizations
+          {lang === 'pt' && cmd?.descriptionLocalizations
             ? cmd.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
             : cmd.description.replace('【ＲＰＧ】', '')}
         </td>
@@ -127,10 +127,12 @@ const resolveOptions = (options: Option[], t: TFunction, lang: string) => (
           ) : (
             <tr key={opt.name + Date.now()}>
               <td className='capitalize'>
-                {lang === 'pt' && opt.nameLocalizations ? opt.nameLocalizations['pt-BR'] : opt.name}
+                {lang === 'pt' && opt?.nameLocalizations
+                  ? opt.nameLocalizations['pt-BR']
+                  : opt.name}
               </td>
               <td>
-                {lang === 'pt' && opt.descriptionLocalizations
+                {lang === 'pt' && opt?.descriptionLocalizations
                   ? opt.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
                   : opt.description.replace('【ＲＰＧ】', '')}
               </td>
@@ -146,7 +148,7 @@ const resolveOptions = (options: Option[], t: TFunction, lang: string) => (
                       <span>
                         {opt.choices
                           .map((a) =>
-                            lang === 'pt' && a.nameLocalizations
+                            lang === 'pt' && a?.nameLocalizations
                               ? a.nameLocalizations['pt-BR']
                               : a.name,
                           )
