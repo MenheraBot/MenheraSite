@@ -8,9 +8,10 @@ interface ResolveSubCommandProps {
   cmd: Option;
   key: string;
   t: TFunction;
+  lang: string;
 }
 
-const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
+const ResolveSubCommand = ({ cmd, key, t, lang }: ResolveSubCommandProps) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -29,7 +30,7 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
         <tr className='overflow-hidden' key='tr-expander'>
           <td style={{ backgroundColor: 'inherit' }} colSpan={4}>
             <div className='overflow-hidden m-4'>
-              <div>{cmd.options.length > 0 && resolveOptions(cmd.options, t)}</div>
+              <div>{cmd.options.length > 0 && resolveOptions(cmd.options, t, lang)}</div>
             </div>
           </td>
         </tr>
@@ -41,10 +42,11 @@ const ResolveSubCommand = ({ cmd, key, t }: ResolveSubCommandProps) => {
 interface CommandTableRowProps {
   cmd: Command;
   key: string;
+  lang: string;
   t: TFunction;
 }
 
-const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => {
+const CommandTableRow = ({ cmd, key, t, lang }: CommandTableRowProps): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -59,14 +61,16 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {cmd.name}
+          {lang === 'pt' && cmd.nameLocalizations ? cmd.nameLocalizations['pt-BR'] : cmd.name}
         </td>
         <td
           className={`capitalize ${
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {cmd.description.replace('【ＲＰＧ】', '')}
+          {lang === 'pt' && cmd.descriptionLocalizations
+            ? cmd.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
+            : cmd.description.replace('【ＲＰＧ】', '')}
         </td>
       </tr>
       {expanded && (
@@ -84,7 +88,7 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
                   </div>
                 )}
                 <p>{t('cooldown', { seconds: cmd.cooldown })}</p>
-                {cmd.options.length > 0 && resolveOptions(cmd.options, t)}
+                {cmd.options.length > 0 && resolveOptions(cmd.options, t, lang)}
               </div>
             </div>
           </td>
@@ -94,7 +98,7 @@ const CommandTableRow = ({ cmd, key, t }: CommandTableRowProps): JSX.Element => 
   );
 };
 
-const resolveOptions = (options: Option[], t: TFunction) => (
+const resolveOptions = (options: Option[], t: TFunction, lang: string) => (
   <>
     <table className='mb-0 !important'>
       <caption className='text-2xl mb-2 text-purple-500'>
@@ -119,11 +123,17 @@ const resolveOptions = (options: Option[], t: TFunction) => (
       <tbody>
         {options.map((opt, i) =>
           opt.options ? (
-            <ResolveSubCommand key={opt.name} cmd={opt} t={t} />
+            <ResolveSubCommand key={opt.name} cmd={opt} t={t} lang={lang} />
           ) : (
             <tr key={opt.name + Date.now()}>
-              <td className='capitalize'>{opt.name}</td>
-              <td>{opt.description.replace('【ＲＰＧ】', '')}</td>
+              <td className='capitalize'>
+                {lang === 'pt' && opt.nameLocalizations ? opt.nameLocalizations['pt-BR'] : opt.name}
+              </td>
+              <td>
+                {lang === 'pt' && opt.descriptionLocalizations
+                  ? opt.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
+                  : opt.description.replace('【ＲＰＧ】', '')}
+              </td>
               <td
                 data-tip
                 data-for={opt.name + i}
@@ -133,7 +143,15 @@ const resolveOptions = (options: Option[], t: TFunction) => (
                 {opt.choices && (
                   <>
                     <ReactTooltip id={opt.name + i} effect='solid'>
-                      <span>{opt.choices.map((a) => a.name).join(', ')}</span>
+                      <span>
+                        {opt.choices
+                          .map((a) =>
+                            lang === 'pt' && a.nameLocalizations
+                              ? a.nameLocalizations['pt-BR']
+                              : a.name,
+                          )
+                          .join(', ')}
+                      </span>
                     </ReactTooltip>
                     <svg
                       className='inline ml-1'

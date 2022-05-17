@@ -5,9 +5,10 @@ import style from '../styles/pages/status.module.css';
 
 type Props = {
   cmds: Command[];
+  lang: string;
 };
 
-const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
+const DisabledCommandsTable = ({ cmds, lang }: Props): JSX.Element => {
   const { t } = useTranslation('status');
 
   return (
@@ -21,7 +22,10 @@ const DisabledCommandsTable = ({ cmds }: Props): JSX.Element => {
         {cmds.map((c) => (
           <tr key={c.name}>
             <td className={style.center}>
-              <span className='capitalize'>{c.name}</span> | {c.disabled.reason}
+              <span className='capitalize'>
+                {lang === 'pt' && c.nameLocalizations ? c.nameLocalizations['pt-BR'] : c.name}
+              </span>{' '}
+              | {c.disabled.reason}
             </td>
           </tr>
         ))}

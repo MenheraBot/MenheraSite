@@ -1,12 +1,15 @@
 export interface Choice {
   name: string;
+  nameLocalizations?: { 'pt-BR': string };
   value: string;
 }
 
 export interface Option {
   name: string;
+  nameLocalizations?: { 'pt-BR': string };
   type: string;
   description: string;
+  descriptionLocalizations?: { 'pt-BR': string };
   required: boolean;
   choices: Choice[];
   options: Option[];
@@ -23,6 +26,8 @@ export interface Command {
   cooldown: number;
   description: string;
   options: Option[];
+  nameLocalizations?: { 'pt-BR': string };
+  descriptionLocalizations?: { 'pt-BR': string };
   disabled: Disabled;
 }
 

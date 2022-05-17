@@ -11,9 +11,10 @@ import Layout from '../components/ui/layout';
 
 type Props = {
   commands: Command[];
+  locale: string;
 };
 
-const CommandPage = ({ commands }: Props): JSX.Element => {
+const CommandPage = ({ commands, locale }: Props): JSX.Element => {
   const { t } = useTranslation('commands');
 
   const [category, setCategory] = useState('actions');
@@ -85,7 +86,9 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
                     </td>
                   </tr>
                 ) : (
-                  filteredCommands?.map((cmd) => <CommandTableRow key={cmd.name} cmd={cmd} t={t} />)
+                  filteredCommands?.map((cmd) => (
+                    <CommandTableRow key={cmd.name} cmd={cmd} t={t} lang={locale} />
+                  ))
                 )}
               </tbody>
             </table>
@@ -101,6 +104,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
 
   return {
     props: {
+      locale: locale ?? 'en',
       commands,
       ...(await serverSideTranslations(locale as string, [
         'common',

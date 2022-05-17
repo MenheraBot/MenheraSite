@@ -18,9 +18,10 @@ import { StatisticCard, ShardInfo } from '../components/shard-info';
 type Props = {
   shards: ShardData[];
   disabledCommands: Command[];
+  lang: string;
 };
 
-const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
+const StatusPage = ({ disabledCommands, shards, lang }: Props): JSX.Element => {
   const { t } = useTranslation('status');
 
   return (
@@ -65,7 +66,7 @@ const StatusPage = ({ disabledCommands, shards }: Props): JSX.Element => {
             {shards.length > 0 && shards.map((a) => <ShardInfo key={a.id} shard={a} t={t} />)}
           </SimpleGrid>
         </Box>
-        {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} />}
+        {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} lang={lang} />}
       </section>
     </Layout>
   );
@@ -82,6 +83,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
         ...a,
         isOff: a.lastPingAt < Date.now() - 25000,
       })),
+      lang: locale ?? 'en',
       disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
     },
     revalidate: 15,
