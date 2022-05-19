@@ -21,8 +21,14 @@ const ResolveSubCommand = ({ cmd, key, t, lang }: ResolveSubCommandProps) => {
         className='hover:border-purple-700 cursor-pointer'
         onClick={() => setExpanded(!expanded)}
       >
-        <td className='text-current capitalize'>{cmd.name}</td>
-        <td className='text-current'>{cmd.description.replace('【ＲＰＧ】', '')}</td>
+        <td className='text-current capitalize'>
+          {lang === 'pt' && cmd?.nameLocalizations ? cmd.nameLocalizations['pt-BR'] : cmd.name}
+        </td>
+        <td className='text-current'>
+          {lang === 'pt' && cmd?.descriptionLocalizations
+            ? cmd.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
+            : cmd.description.replace('【ＲＰＧ】', '')}
+        </td>
         <td className='text-current'>{t(cmd.type)}</td>
         <td className='text-current text-purple-400'>{t('click')}</td>
       </tr>
