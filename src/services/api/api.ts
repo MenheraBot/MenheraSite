@@ -2,10 +2,10 @@ import axios from 'axios';
 import { Command, ShardData } from './api.types';
 
 const fetch = async <R>(route: string): Promise<R> => {
-  const res = await axios.get<R>(process.env.API_URL + route, {
+  const res = await axios.get<R>(process.env.NEXT_PUBLIC_API_URL + route, {
     headers: {
       'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Origin': process.env.API_URL,
+      'Access-Control-Allow-Origin': process.env.NEXT_PUBLIC_API_URL,
     },
   });
 

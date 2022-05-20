@@ -47,18 +47,18 @@ const ResolveSubCommand = ({ cmd, key, t, lang }: ResolveSubCommandProps) => {
 
 interface CommandTableRowProps {
   cmd: Command;
-  key: string;
+  id: string;
   lang: string;
   t: TFunction;
 }
 
-const CommandTableRow = ({ cmd, key, t, lang }: CommandTableRowProps): JSX.Element => {
+const CommandTableRow = ({ cmd, id, t, lang }: CommandTableRowProps): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <>
       <tr
-        key={key}
+        key={id}
         className='hover:border-purple-700 cursor-pointer'
         onClick={() => setExpanded(!expanded)}
       >
@@ -80,7 +80,7 @@ const CommandTableRow = ({ cmd, key, t, lang }: CommandTableRowProps): JSX.Eleme
         </td>
       </tr>
       {expanded && (
-        <tr key={key + Date.now()} className='overflow-hidden'>
+        <tr key={id + Date.now()} className='overflow-hidden'>
           <td style={{ backgroundColor: 'inherit' }} colSpan={2}>
             <div className='overflow-hidden m-4'>
               <div>

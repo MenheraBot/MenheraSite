@@ -86,9 +86,12 @@ const CommandPage = ({ commands, locale }: Props): JSX.Element => {
                     </td>
                   </tr>
                 ) : (
-                  filteredCommands?.map((cmd) => (
-                    <CommandTableRow key={cmd.name} cmd={cmd} t={t} lang={locale} />
-                  ))
+                  filteredCommands?.map((cmd, i) => {
+                    const base = Math.random();
+                    return (
+                      <CommandTableRow key={base + i} id={cmd.name} cmd={cmd} t={t} lang={locale} />
+                    );
+                  })
                 )}
               </tbody>
             </table>

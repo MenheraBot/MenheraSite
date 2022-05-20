@@ -6,7 +6,6 @@ import { BsPerson } from 'react-icons/bs';
 import { FiServer } from 'react-icons/fi';
 import { MdMemory } from 'react-icons/md';
 import { AiOutlineCluster } from 'react-icons/ai';
-
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
@@ -14,14 +13,37 @@ import { Command, ShardData } from '../services/api/api.types';
 import Layout from '../components/ui/layout';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { StatisticCard, ShardInfo } from '../components/shard-info';
+import { useEffect, useState } from 'react';
 
 type Props = {
-  shards: ShardData[];
-  disabledCommands: Command[];
   lang: string;
+  disabledCommands: Command[];
 };
 
-const StatusPage = ({ disabledCommands, shards, lang }: Props): JSX.Element => {
+const StatusPage = ({ lang, disabledCommands }: Props): JSX.Element => {
+  const [shards, setShards] = useState<ShardData[]>([]);
+
+  const updateShardData = () => {
+    fetchStatus().then((shards) =>
+      setShards(
+        shards.map((a) => ({
+          ...a,
+          isOff: a.lastPingAt < Date.now() - 25_000,
+        })),
+      ),
+    );
+  };
+
+  useEffect(() => {
+    updateShardData();
+
+    const interval = setInterval(() => {
+      updateShardData();
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const { t } = useTranslation('status');
 
   return (
@@ -43,12 +65,12 @@ const StatusPage = ({ disabledCommands, shards, lang }: Props): JSX.Element => {
             />
             <StatisticCard
               title={t('total-clusters')}
-              stat={shards[shards.length - 1].clusterId + 1}
+              stat={shards.length > 0 ? shards[shards.length - 1].clusterId + 1 : 0}
               icon={<AiOutlineCluster size={'3em'} />}
             />
             <StatisticCard
               title={t('total-memory')}
-              stat={`${(shards[0].memoryUsed / 1024 / 1024).toFixed(2)}`}
+              stat={`${shards.length > 0 ? (shards[0].memoryUsed / 1024 / 1024).toFixed(2) : 0}`}
               icon={<MdMemory size={'3em'} />}
             />
           </SimpleGrid>
@@ -73,20 +95,15 @@ const StatusPage = ({ disabledCommands, shards, lang }: Props): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const shards = await fetchStatus();
   const commands = await fetchCommands();
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['status', 'common', 'header', 'footer'])),
-      shards: shards.map((a) => ({
-        ...a,
-        isOff: a.lastPingAt < Date.now() - 25000,
-      })),
       lang: locale ?? 'en',
       disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
     },
-    revalidate: 15,
+    revalidate: 60,
   };
 };
 
