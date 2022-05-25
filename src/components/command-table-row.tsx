@@ -22,11 +22,11 @@ const ResolveSubCommand = ({ cmd, key, t, lang }: ResolveSubCommandProps) => {
         onClick={() => setExpanded(!expanded)}
       >
         <td className='text-current capitalize'>
-          {lang === 'pt' && cmd?.nameLocalizations ? cmd.nameLocalizations['pt-BR'] : cmd.name}
+          {lang === 'en' && cmd?.nameLocalizations ? cmd.nameLocalizations['en-US'] : cmd.name}
         </td>
         <td className='text-current'>
-          {lang === 'pt' && cmd?.descriptionLocalizations
-            ? cmd.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
+          {lang === 'en' && cmd?.descriptionLocalizations
+            ? cmd.descriptionLocalizations['en-US'].replace('【ＲＰＧ】', '')
             : cmd.description.replace('【ＲＰＧ】', '')}
         </td>
         <td className='text-current'>{t(cmd.type)}</td>
@@ -67,15 +67,15 @@ const CommandTableRow = ({ cmd, id, t, lang }: CommandTableRowProps): JSX.Elemen
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {lang === 'pt' && cmd?.nameLocalizations ? cmd.nameLocalizations['pt-BR'] : cmd.name}
+          {lang === 'en' && cmd?.nameLocalizations ? cmd.nameLocalizations['en-US'] : cmd.name}
         </td>
         <td
           className={`capitalize ${
             cmd?.disabled?.isDisabled ? `text-red-600 cursor-help` : 'text-current'
           }`}
         >
-          {lang === 'pt' && cmd?.descriptionLocalizations
-            ? cmd.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
+          {lang === 'en' && cmd?.descriptionLocalizations
+            ? cmd.descriptionLocalizations['en-US'].replace('【ＲＰＧ】', '')
             : cmd.description.replace('【ＲＰＧ】', '')}
         </td>
       </tr>
@@ -133,13 +133,13 @@ const resolveOptions = (options: Option[], t: TFunction, lang: string) => (
           ) : (
             <tr key={opt.name + Date.now()}>
               <td className='capitalize'>
-                {lang === 'pt' && opt?.nameLocalizations
-                  ? opt.nameLocalizations['pt-BR']
+                {lang === 'en' && opt?.nameLocalizations
+                  ? opt.nameLocalizations['en-US']
                   : opt.name}
               </td>
               <td>
-                {lang === 'pt' && opt?.descriptionLocalizations
-                  ? opt.descriptionLocalizations['pt-BR'].replace('【ＲＰＧ】', '')
+                {lang === 'en' && opt?.descriptionLocalizations
+                  ? opt.descriptionLocalizations['en-US'].replace('【ＲＰＧ】', '')
                   : opt.description.replace('【ＲＰＧ】', '')}
               </td>
               <td
@@ -154,8 +154,8 @@ const resolveOptions = (options: Option[], t: TFunction, lang: string) => (
                       <span>
                         {opt.choices
                           .map((a) =>
-                            lang === 'pt' && a?.nameLocalizations
-                              ? a.nameLocalizations['pt-BR']
+                            lang === 'en' && a?.nameLocalizations
+                              ? a.nameLocalizations['en-US']
                               : a.name,
                           )
                           .join(', ')}
