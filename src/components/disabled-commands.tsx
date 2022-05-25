@@ -23,7 +23,7 @@ const DisabledCommandsTable = ({ cmds, lang }: Props): JSX.Element => {
           <tr key={c.name}>
             <td className={style.center}>
               <span className='capitalize'>
-                {lang === 'pt' && c?.nameLocalizations ? c.nameLocalizations['pt-BR'] : c.name}
+                {lang === 'en' && c?.nameLocalizations ? c.nameLocalizations['en-US'] : c.name}
               </span>{' '}
               | {c.disabled.reason}
             </td>
