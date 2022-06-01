@@ -20,6 +20,7 @@ export const ChangelogMarkdown = ({ version }: Props): JSX.Element => {
       <Flex flexDir='column'>
         <Heading textColor='#9c5ddb'>{version.versionName}</Heading>
         <Heading size='md'>{`${t('date')} ${version.date}`}</Heading>
+        {version.info.hotfix && <Markdown header='Hotfix'} markdown={version.info.hotfix} />}
         {version.info.added && <Markdown header={t('added')} markdown={version.info.added} />}
         {version.info.changed && <Markdown header={t('changed')} markdown={version.info.changed} />}
         {version.info.deprecated && (
