@@ -4,6 +4,7 @@ export interface ChangelogVersion {
   versionName: string;
   date: string;
   info: {
+    hotfix?: string;
     added?: string;
     changed?: string;
     deprecated?: string;
@@ -23,6 +24,7 @@ export const parseChangelog = (changelog: string, dateLocale: string): Changelog
     const name = startingData[1].replace(/\[/g, '').replace(/\]/g, '');
     const date = startingData[3];
     const info: { [name: string]: string | null } = {
+      hotfix: null,
       added: null,
       changed: null,
       deprecated: null,
