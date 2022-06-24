@@ -43,17 +43,20 @@ export function Header(): JSX.Element {
 
   return (
     <header className='flex p-6 justify-between md:justify-center items-center md:mx-6'>
-      <h1 className='font-bold text-md'>MenheraBot</h1>
+      <h1 className='font-bold text-md text-white'>MenheraBot</h1>
       <nav className='flex-1 mr-14 hidden md:flex flex-row-reverse'>
         <ul className='flex gap-3'>
           {navbarItems.map((item) => (
-            <li key={item.name} className='font-bold text-md hover:text-primary'>
+            <li
+              key={item.name}
+              className='font-bold text-md hover:text-primary hover:cursor-pointer text-white'
+            >
               <Link href={item.href}>{item.name}</Link>
             </li>
           ))}
         </ul>
       </nav>
-      <button className='bg-primary w-24 h-12 text-white rounded-full font-bold hidden md:block'>
+      <button className='bg-primary hover:cursor-pointer w-24 h-12 text-white rounded-full font-bold hidden md:block'>
         Login
       </button>
       <HiMenu color='white' size={25} className='md:hidden' onClick={() => setIsOpen(true)} />
@@ -63,13 +66,13 @@ export function Header(): JSX.Element {
             <div className='mt-6 flex-1 flex flex-row-reverse w-full'>
               <HiX color='#975AFF' size={25} onClick={() => setIsOpen(false)} />
             </div>
-            <h1 className='font-bold text-xl mt-3'>Navegação</h1>
+            <h1 className='font-bold text-xl mt-3 text-white'>Navegação</h1>
             <nav className='mt-6'>
               <ul className='flex flex-col font-medium'>
                 {navbarItems.map((item) => (
                   <li
                     key={item.name}
-                    className='border-b last:border-none border-border-color py-3'
+                    className='border-b last:border-none border-border-color py-3 text-white'
                   >
                     <Link href={item.href}>
                       <a className='flex'>
