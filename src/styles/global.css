@@ -84,7 +84,10 @@
 
 body {
   background-color: #24252a;
+  background-image:url('/background.svg');
+  background-repeat: no-repeat;
 }
+
 
 ::-webkit-scrollbar {
   width: 12px;
