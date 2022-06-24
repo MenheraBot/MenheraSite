@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { HiMenu, HiX, HiHome, HiStar } from 'react-icons/hi';
 import { useTranslation } from 'next-i18next';
+import { Button } from './Button';
 
 export function Header(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ export function Header(): JSX.Element {
   ];
 
   return (
-    <header className='flex p-6 justify-between md:justify-center items-center md:mx-6'>
+    <header className='flex justify-between md:justify-center items-center p-5 container mx-auto max-w-7xl'>
       <h1 className='font-bold text-md text-white'>MenheraBot</h1>
       <nav className='flex-1 mr-14 hidden md:flex flex-row-reverse'>
         <ul className='flex gap-3'>
@@ -56,9 +57,7 @@ export function Header(): JSX.Element {
           ))}
         </ul>
       </nav>
-      <button className='bg-primary hover:cursor-pointer w-24 h-12 text-white rounded-full font-bold hidden md:block'>
-        Login
-      </button>
+      <Button className='hidden md:block'>Login</Button>
       <HiMenu color='white' size={25} className='md:hidden' onClick={() => setIsOpen(true)} />
       {isOpen && (
         <div className='bg-primary-bg absolute w-full h-screen md:hidden top-0 bottom-0 left-0'>

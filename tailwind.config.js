@@ -8,6 +8,9 @@ module.exports = {
     },
   },
   theme: {
+    fontFamily: {
+      describe: ['Montserrat', 'Hind', 'Roboto', 'sans-serif'],
+    },
     textShadow: {
       // defaults to {}
       default: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
@@ -40,6 +43,7 @@ module.exports = {
         primary: '#975AFF',
         'primary-bg': '#24252a',
         'border-color': '#191919',
+        describe: '#CDCDCD',
         gray: {
           medio: '#34373C',
           forte: '#2F3136',
