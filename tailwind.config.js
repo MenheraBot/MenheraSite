@@ -37,6 +37,9 @@ module.exports = {
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
       colors: {
+        primary: '#975AFF',
+        'primary-bg': '#24252a',
+        'border-color': '#191919',
         gray: {
           medio: '#34373C',
           forte: '#2F3136',
