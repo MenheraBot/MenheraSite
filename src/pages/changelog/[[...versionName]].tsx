@@ -37,7 +37,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
             </a>
           </Link>
         </div>
-        <ReactMarkdown children={text} />
+        <ReactMarkdown>{text}</ReactMarkdown>
       </div>
     );
   }

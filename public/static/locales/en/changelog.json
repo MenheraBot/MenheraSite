@@ -6,5 +6,6 @@
   "deprecated": "Deprecated",
   "removed": "Removed",
   "fixed": "Fixed",
-  "security": "Security"
+  "security": "Security",
+  "hotfix": "Hotfix"
 }
