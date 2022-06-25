@@ -54,14 +54,20 @@ const commandsCategories = [
 interface SectionDividerProps {
   title?: string;
   className?: string;
+  withoutSpace?: boolean;
 }
 
-const SectionDivider = ({ className = '', title }: SectionDividerProps): JSX.Element => {
+const SectionDivider = ({
+  className = '',
+  withoutSpace = false,
+  title,
+}: SectionDividerProps): JSX.Element => {
   return (
     <div
       className={classnames(
-        'flex items-center gap-2 p-6 container min-h-fit md:p-0 md:my-28 mx-auto max-w-7xl',
+        'flex items-center gap-2  container min-h-fit mx-auto max-w-7xl',
         className,
+        { 'p-6 md:p-0 md:my-28': !withoutSpace },
       )}
     >
       {title && <span className='text-primary font-bold'>{title}</span>}
@@ -205,7 +211,22 @@ const HomePage = (): JSX.Element => {
             />
           </div>
         </section>
-        <SectionDivider title='Comandos' />
+        <SectionDivider title='Sobre mim' className='md:hidden' />
+        <section className='container min-h-fit p-6 mx-auto max-w-7xl flex items-center justify-between'>
+          <div className='hidden md:block'>
+            <Image src='/menhera-piscando.png' width='374' height='394' alt='Menhera piscando!' />
+          </div>
+          <div>
+            <SectionDivider title='Sobre mim' withoutSpace className='mb-6' />
+            <h1 className='text-white font-bold text-4xl md:text-6xl'>Sobre mim</h1>
+            <p className='text-describe font-describe mt-4 mb-6 md:text-xl max-w-3xl'>
+              Sou uma guria de 16 anos que AMA usar emojis de rostinhos kawaii como esse &gt;...
+              {'<'}. Fui criada pela Lux, outra guria maravilhosa que eu só tenho a agradecer
+              (claro, sem ela eu não existiria). Minha missão aqui é trazer diversão para todos no
+              teu servidor do Discord.
+            </p>
+          </div>
+        </section>
       </main>
     </>
   );
