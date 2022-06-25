@@ -1,13 +1,10 @@
 import { fetchCommands } from '../services/api/api';
 import { useState, useMemo } from 'react';
 
-import style from '../styles/pages/commands.module.css';
-import CommandTableRow from '../components/command-table-row';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
 import { Command } from '../services/api/api.types';
-import Layout from '../components/ui/layout';
 import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
@@ -20,8 +17,6 @@ type Props = {
 };
 
 const CommandPage = ({ commands }: Props): JSX.Element => {
-  const { t } = useTranslation('commands');
-
   const categories = useMemo(() => {
     const categories = new Set<string>();
     commands.forEach((cmd) => categories.add(cmd.category));
