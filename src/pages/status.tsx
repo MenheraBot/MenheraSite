@@ -1,96 +1,135 @@
-import { fetchCommands, fetchStatus } from '../services/api/api';
+import { fetchCommands } from '../services/api/api';
 
-import Cmds from '../components/disabled-commands';
-import style from '../styles/pages/status.module.css';
-import { BsPerson } from 'react-icons/bs';
-import { FiServer } from 'react-icons/fi';
-import { MdMemory } from 'react-icons/md';
-import { AiOutlineCluster } from 'react-icons/ai';
-import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Command, ShardData } from '../services/api/api.types';
-import Layout from '../components/ui/layout';
-import { Box, SimpleGrid } from '@chakra-ui/react';
-import { StatisticCard, ShardInfo } from '../components/shard-info';
-import { useEffect, useState } from 'react';
+import { Command } from '../services/api/api.types';
 
+import { Header } from '../components/common/Header';
+import { Footer } from '../components/common/Footer';
+import { SectionDivider } from '../components/common/SectionDivider';
+import classnames from 'classnames';
+import { SearchInput } from '../components/common/SearchInput';
 type Props = {
   lang: string;
   disabledCommands: Command[];
 };
 
-const StatusPage = ({ lang, disabledCommands }: Props): JSX.Element => {
-  const [shards, setShards] = useState<ShardData[]>([]);
+type Status = 'success' | 'error' | 'warning';
 
-  const updateShardData = () => {
-    fetchStatus().then((shards) =>
-      setShards(
-        shards.map((a) => ({
-          ...a,
-          isOff: a.lastPingAt < Date.now() - 25_000,
-        })),
-      ),
-    );
-  };
+interface StatusTextProps {
+  children: React.ReactNode;
+  status: Status;
+}
 
-  useEffect(() => {
-    updateShardData();
+const bgColor = (status: Status) =>
+  status === 'success'
+    ? 'bg-status-success'
+    : status === 'error'
+    ? 'bg-status-error'
+    : 'bg-status-warning';
 
-    const interval = setInterval(() => {
-      updateShardData();
-    }, 15000);
+const textColor = (status: Status) =>
+  status === 'success'
+    ? 'text-status-success'
+    : status === 'error'
+    ? 'text-status-error'
+    : 'text-status-warning';
 
-    return () => clearInterval(interval);
-  }, []);
+const borderColor = (status: Status) =>
+  status === 'success'
+    ? 'border-status-success'
+    : status === 'error'
+    ? 'border-status-error'
+    : 'border-status-warning';
 
-  const { t } = useTranslation('status');
-
+const StatusText = ({ children, status }: StatusTextProps) => {
   return (
-    <Layout title={t('title')}>
-      <section className={style.container}>
-        <h1 className={style.title}>Status</h1>
-        <h1 className={shards.length > 0 ? style.none : style.wait}>{t('wait')}</h1>
-        <Box maxW='7xl' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
-          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }}>
-            <StatisticCard
-              title={t('total-members')}
-              stat={shards.reduce((p, c) => p + c.members, 0)}
-              icon={<BsPerson size={'3em'} />}
-            />
-            <StatisticCard
-              title={t('guilds')}
-              stat={shards.reduce((p, c) => p + c.guilds, 0)}
-              icon={<FiServer size={'3em'} />}
-            />
-            <StatisticCard
-              title={t('total-clusters')}
-              stat={shards.length > 0 ? shards[shards.length - 1].clusterId + 1 : 0}
-              icon={<AiOutlineCluster size={'3em'} />}
-            />
-            <StatisticCard
-              title={t('total-memory')}
-              stat={`${shards.length > 0 ? (shards[0].memoryUsed / 1024 / 1024).toFixed(2) : 0}`}
-              icon={<MdMemory size={'3em'} />}
-            />
-          </SimpleGrid>
-        </Box>
-        <Box maxW='7xl' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
-          <SimpleGrid
-            columns={{
-              base: 4,
-              md: 8,
-              lg: 10,
-            }}
-            spacing={{ base: 5, lg: 8 }}
-            my={'50px'}
-          >
-            {shards.length > 0 && shards.map((a) => <ShardInfo key={a.id} shard={a} t={t} />)}
-          </SimpleGrid>
-        </Box>
-        {disabledCommands.length > 0 && <Cmds cmds={disabledCommands} lang={lang} />}
-      </section>
-    </Layout>
+    <div className='flex items-center'>
+      <div className={classnames('h-4 w-5 rounded-full', bgColor(status))} />
+      <span className={classnames('font-semibold ml-3', textColor(status))}>{children}</span>
+    </div>
+  );
+};
+
+function rand<A>(arr: A[]): A {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+const services = [
+  {
+    name: 'Discord Bot',
+    activeShards: 40,
+    problematicShards: 20,
+    shards: Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      cluster: 1,
+      uptime: '1h',
+      serverCount: 100,
+      status: rand(['success', 'error', 'warning'] as Status[]),
+      offlineServers: 0,
+    })),
+  },
+];
+
+const StatusPage = (): JSX.Element => {
+  return (
+    <>
+      <Header />
+      <SectionDivider title='Status' withoutSpace className='mt-10 mb-6 px-6' />
+      <main className='mx-auto max-w-7xl px-6 pb-6'>
+        <div className='md:flex flex-row'>
+          <div>
+            <small className='hidden md:block text-white text-sm mb-2'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </small>
+            <h1 className='text-white my-4 text-4xl font-bold'>Serviços ativos</h1>
+            <p className='text-describe'>
+              Para que eu seja o que eu sou, eu necessito de diversas aplicações que tem o foco em
+              fazer algo de mim, abaixo estão todas as aplicações que fazem a MenheraBot ser a
+              MenheraBot
+            </p>
+            <ul className='my-6 flex flex-col flex-wrap md:flex-row gap-3'>
+              <li>
+                <StatusText status='success'>Nenhum Problema</StatusText>
+              </li>
+              <li>
+                <StatusText status='warning'>Parcialmente Debilitado</StatusText>
+              </li>
+              <li>
+                <StatusText status='error'>Offine</StatusText>
+              </li>
+            </ul>
+          </div>
+          <SearchInput placeholder='Digite o ID do seu servidor' />
+        </div>
+        <div>
+          {services.map((service, i) => (
+            <div key={i} className='flex flex-col'>
+              <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
+                Serviço: {service.name}
+              </h2>
+              <span className='text-describe'>
+                {service.problematicShards} / {service.shards.length} serviços tem problemas
+              </span>
+              <div className='flex flex-wrap gap-6 my-2'>
+                {service.shards.map((shard) => (
+                  <div
+                    key={shard.id}
+                    className={classnames(
+                      'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
+                      borderColor(shard.status),
+                    )}
+                  >
+                    {shard.id}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 };
 

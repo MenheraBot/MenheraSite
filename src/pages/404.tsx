@@ -1,44 +1,24 @@
-import style from '../styles/pages/error.module.css';
-import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Layout from '../components/ui/layout';
+import { Header } from '../components/common/Header';
+import { Footer } from '../components/common/Footer';
+import { ErrorView } from '../components/ErrorView';
 
 const NotFoundPage = (): JSX.Element => {
-  const { t } = useTranslation('error');
-
   return (
-    <Layout title={t('title')}>
-      <div className={style.box}>
-        <img src='/assets/404.png' alt='Menhera not found' />
-        <h1>
-          <span>404</span>
-          <div id={style.responsive}>
-            {' '}
-            - {t('pnf')}
-            <br />
-          </div>
-          <h3>
-            <div className='text-center'>
-              <p>
-                {t('text.start')}
-                <br />
-                {t('text.end')}
-              </p>
-            </div>
-            <p>
-              <br />
-              <Link href='/' passHref>
-                <b>
-                  <a className='cursor-pointer'>{t('back')}</a>
-                </b>
-              </Link>
-            </p>
-          </h3>
-        </h1>
-      </div>
-    </Layout>
+    <>
+      <Header />
+      <main className='mx-auto max-w-7xl p-6 text-center flex flex-col items-center '>
+        <ErrorView
+          statusCode={404}
+          title='Oops! Esta página não está disponível'
+          text=' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro assumenda delectus placeat
+          animi, eligendi quas nam perspiciatis, facere corporis aliquam magni ullam ad dolor
+          inventore omnis quia maxime distinctio aut!'
+        />
+      </main>
+      <Footer />
+    </>
   );
 };
 

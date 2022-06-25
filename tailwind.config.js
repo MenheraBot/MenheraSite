@@ -8,6 +8,9 @@ module.exports = {
     },
   },
   theme: {
+    fontFamily: {
+      describe: ['Montserrat', 'Hind', 'Roboto', 'sans-serif'],
+    },
     textShadow: {
       // defaults to {}
       default: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
@@ -37,6 +40,16 @@ module.exports = {
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
       colors: {
+        primary: '#975AFF',
+        secondary: '#2F2F2F',
+        'primary-bg': '#24252a',
+        'secondary-bg': '#232324',
+        'border-color': '#191919',
+        'separate-color': '#383838',
+        'status-warning': '#EDE63A',
+        'status-error': '#ED3A3A',
+        'status-success': '#975AFF',
+        describe: '#CDCDCD',
         gray: {
           medio: '#34373C',
           forte: '#2F3136',

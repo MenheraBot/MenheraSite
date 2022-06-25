@@ -1,7 +1,11 @@
 {
-  "commands": "Commands",
   "add": "Add",
-  "donate": "Donate",
   "privacy": "Privacy",
-  "changelog": "Changelog"
+  "changelog": "Changelog",
+  "commands": "Commands",
+  "contribute": "Contribute",
+  "home": "Home",
+  "status": "Status",
+  "about-me": "about me",
+  "ranking": "Ranking"
 }
