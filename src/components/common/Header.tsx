@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { HiMenu, HiX, HiHome, HiStar } from 'react-icons/hi';
+
+import { HiMenu, HiX, HiHome, HiStar, HiHeart, HiOutlineStatusOnline } from 'react-icons/hi';
+import { FaClipboardList } from 'react-icons/fa';
+
 import { useTranslation } from 'next-i18next';
-import { Button } from './Button';
+
 import { IconType } from 'react-icons';
+import { Button } from './Button';
 
 interface NavbarItem {
   name: string;
@@ -21,28 +25,23 @@ export function useNavbarItems(): NavbarItem[] {
       icon: HiHome,
     },
     {
-      name: t('ranking'),
-      href: '/ranking',
-      icon: HiStar,
-    },
-    {
       name: t('commands'),
       href: '/commands',
-      icon: HiStar,
+      icon: FaClipboardList,
     },
     {
-      name: t('contribute'),
-      href: '/contribute',
-      icon: HiStar,
+      name: t('donate'),
+      href: '/donate',
+      icon: HiHeart,
     },
     {
       name: t('status'),
       href: '/status',
-      icon: HiStar,
+      icon: HiOutlineStatusOnline,
     },
     {
-      name: t('about-me'),
-      href: '/about',
+      name: t('privacy'),
+      href: '/privacy',
       icon: HiStar,
     },
   ];
