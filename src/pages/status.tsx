@@ -106,9 +106,6 @@ const StatusPage = (): JSX.Element => {
               <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
                 Serviço: {service.name}
               </h2>
-              <span className='font-bold text-xl text-primary'>
-                {service.activeShards} / {service.shards.length}
-              </span>
               <span className='text-describe'>
                 {service.problematicShards} / {service.shards.length} serviços tem problemas
               </span>
