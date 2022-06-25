@@ -8,7 +8,6 @@ export function SearchInput({ className, ...props }: SearchInputProps): JSX.Elem
   return (
     <div className='relative flex items-center h-10'>
       <input
-        placeholder='Digite o ID do seu servidor'
         className={classnames(
           'bg-transparent text-base flex-1 placeholder:text-separate-color pr-10 text-white border-2 border-separate-color rounded-3xl py-2 px-4 outline-none focus:border-2 focus:border-primary caret-primary',
           className,

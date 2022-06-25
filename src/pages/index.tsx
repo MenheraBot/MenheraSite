@@ -56,7 +56,7 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className=''>
+      <main>
         <section id='descritpion' className='flex-1 flex p-6 container min-h-fit mx-auto max-w-7xl'>
           <div className='md:max-w-xl'>
             <h1 className='text-white mt-6 font-bold text-4xl md:text-5xl'>

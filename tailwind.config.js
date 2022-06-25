@@ -41,6 +41,7 @@ module.exports = {
       },
       colors: {
         primary: '#975AFF',
+        secondary: '#2F2F2F',
         'primary-bg': '#24252a',
         'secondary-bg': '#232324',
         'border-color': '#191919',
