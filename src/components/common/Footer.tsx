@@ -29,7 +29,7 @@ export function Footer(): JSX.Element {
         <div className='flex items-center justify-between'>
           <div className='hidden md:block max-w-xl'>
             <h1 className='font-bold text-white text-4xl'>Menhera BOT</h1>
-            <p className='text-describe text-xl mt-6'>
+            <p className='text-describe text-xl mt-6 md:max-w-sm'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus aliquet pulvinar
               lacinia. Mauris ut elit orci. Integer nec erat maximus, accumsan neque sed, fringilla
               felis.

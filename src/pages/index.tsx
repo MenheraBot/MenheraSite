@@ -107,7 +107,7 @@ const HomePage = (): JSX.Element => {
           <div className='hidden md:block absolute h-3/4 w-56 -z-20'>
             <Image src='/home-section-2-menhera.png' layout='fill' alt='Menhera de olho em você!' />
           </div>
-          <div className='bg-secondary-bg md:ml-20 px-6 py-8 md:flex justify-around items-center flex-1'>
+          <div className='bg-secondary-bg md:ml-20 px-6 py-8 md:flex gap-3 justify-around items-center flex-1'>
             <div className='max-w-lg md:max-w-md'>
               <small className='flex items-center gap-2'>
                 <span className='text-primary font-bold'>#Rank Semanal</span>
@@ -151,10 +151,12 @@ const HomePage = (): JSX.Element => {
             {commandsCategories.map((category) => (
               <div key={category.id} className='max-w-lg'>
                 {<category.Icon color='#975AFF' size={25} />}
-                <h3 className='text-white font-bold text-xl md:text-2xl my-4'>
+                <h3 className='text-white font-bold text-xl lg:text-2xl my-4'>
                   Category: <span className='text-primary'>{category.name}</span>
                 </h3>
-                <p className='text-describe font-describe text-base mb-6'>{category.description}</p>
+                <p className='text-describe font-describe text-base mb-6 md:max-w-sm lg:max-w-md'>
+                  {category.description}
+                </p>
                 <Button>Confira agora</Button>
               </div>
             ))}
@@ -168,7 +170,7 @@ const HomePage = (): JSX.Element => {
             alt='Discord'
             className='-z-10 bg-contain'
           />
-          <div className='p-6 md:p-0 mx-auto max-w-7xl flex justify-between relative'>
+          <div className='p-6 lg:p-0 mx-auto max-w-7xl flex justify-between relative'>
             <div className='md:py-6'>
               <h1 className='text-white font-bold text-4xl md:text-6xl'>
                 Me <span className='text-primary'>adicione</span> no seu servidor.
@@ -183,7 +185,7 @@ const HomePage = (): JSX.Element => {
             <img
               src='/menhera-de-fone.svg'
               alt='Discord'
-              className='hidden md:block absolute h-full right-0'
+              className='hidden lg:block absolute h-full right-0'
             />
           </div>
         </section>
