@@ -42,7 +42,9 @@ module.exports = {
       colors: {
         primary: '#975AFF',
         'primary-bg': '#24252a',
+        'secondary-bg': '#232324',
         'border-color': '#191919',
+        'separate-color': '#383838',
         describe: '#CDCDCD',
         gray: {
           medio: '#34373C',
