@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'react-i18next';
+
 import { Command } from '../services/api/api.types';
 import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';

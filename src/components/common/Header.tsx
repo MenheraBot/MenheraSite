@@ -3,8 +3,15 @@ import Link from 'next/link';
 import { HiMenu, HiX, HiHome, HiStar } from 'react-icons/hi';
 import { useTranslation } from 'next-i18next';
 import { Button } from './Button';
+import { IconType } from 'react-icons';
 
-export function useNavbarItems() {
+interface NavbarItem {
+  name: string;
+  href: string;
+  icon: IconType;
+}
+
+export function useNavbarItems(): NavbarItem[] {
   const { t } = useTranslation('header');
 
   const navbarItems = [

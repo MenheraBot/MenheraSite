@@ -51,7 +51,9 @@ const StatusText = ({ children, status }: StatusTextProps) => {
   );
 };
 
-const rand = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
+function rand<A>(arr: A[]): A {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 const services = [
   {
