@@ -1,44 +1,25 @@
-import style from '../styles/pages/error.module.css';
-import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Layout from '../components/ui/layout';
+import { Header } from '../components/common/Header';
+import { Footer } from '../components/common/Footer';
 
 const NotFoundPage = (): JSX.Element => {
-  const { t } = useTranslation('error');
-
   return (
-    <Layout title={t('title')}>
-      <div className={style.box}>
-        <img src='/assets/404.png' alt='Menhera not found' />
-        <h1>
-          <span>404</span>
-          <div id={style.responsive}>
-            {' '}
-            - {t('pnf')}
-            <br />
-          </div>
-          <h3>
-            <div className='text-center'>
-              <p>
-                {t('text.start')}
-                <br />
-                {t('text.end')}
-              </p>
-            </div>
-            <p>
-              <br />
-              <Link href='/' passHref>
-                <b>
-                  <a className='cursor-pointer'>{t('back')}</a>
-                </b>
-              </Link>
-            </p>
-          </h3>
+    <>
+      <Header />
+      <div className='mx-auto max-w-7xl p-6 my-10 text-center flex flex-col items-center '>
+        <span className='text-primary text-3xl font-bold md:text-7xl'>404</span>
+        <h1 className='text-white text-3xl font-bold mt-4 mb-6'>
+          Oops! Esta página não está disponível <span className='text-primary'>:(</span>
         </h1>
+        <p className='text-describe text-xl max-w-2xl'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro assumenda delectus placeat
+          animi, eligendi quas nam perspiciatis, facere corporis aliquam magni ullam ad dolor
+          inventore omnis quia maxime distinctio aut!
+        </p>
       </div>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 
