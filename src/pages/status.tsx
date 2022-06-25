@@ -1,33 +1,52 @@
-import { fetchCommands, fetchStatus } from '../services/api/api';
+import { fetchCommands } from '../services/api/api';
 
-import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Command, ShardData } from '../services/api/api.types';
-import { useEffect, useState } from 'react';
+import { Command } from '../services/api/api.types';
+
 import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
-import { BsSearch } from 'react-icons/bs';
 import { SearchInput } from '../components/common/SearchInput';
 type Props = {
   lang: string;
   disabledCommands: Command[];
 };
 
+type Status = 'success' | 'error' | 'warning';
+
 interface StatusTextProps {
   children: React.ReactNode;
-  status: 'success' | 'error' | 'warning';
+  status: Status;
 }
-const StatusText = ({ children, status }: StatusTextProps) => {
-  const bgColor = 'bg-status-' + status;
-  const textColor = 'text-status-' + status;
 
+const bgColor = (status: Status) =>
+  status === 'success'
+    ? 'bg-status-success'
+    : status === 'error'
+    ? 'bg-status-error'
+    : 'bg-status-warning';
+
+const textColor = (status: Status) =>
+  status === 'success'
+    ? 'text-status-success'
+    : status === 'error'
+    ? 'text-status-error'
+    : 'text-status-warning';
+
+const borderColor = (status: Status) =>
+  status === 'success'
+    ? 'border-status-success'
+    : status === 'error'
+    ? 'border-status-error'
+    : 'border-status-warning';
+
+const StatusText = ({ children, status }: StatusTextProps) => {
   return (
     <div className='flex items-center'>
-      <div className={classnames('h-4 w-5 rounded-full', bgColor)} />
-      <span className={classnames('font-semibold ml-3', textColor)}>{children}</span>
+      <div className={classnames('h-4 w-5 rounded-full', bgColor(status))} />
+      <span className={classnames('font-semibold ml-3', textColor(status))}>{children}</span>
     </div>
   );
 };
@@ -50,7 +69,7 @@ const services = [
   },
 ];
 
-const StatusPage = ({ lang, disabledCommands }: Props): JSX.Element => {
+const StatusPage = (): JSX.Element => {
   return (
     <>
       <Header />
@@ -97,10 +116,10 @@ const StatusPage = ({ lang, disabledCommands }: Props): JSX.Element => {
                 {service.shards.map((shard) => (
                   <div
                     key={shard.id}
-                    className={
-                      'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white border-status-' +
-                      shard.status
-                    }
+                    className={classnames(
+                      'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
+                      borderColor(shard.status),
+                    )}
                   >
                     {shard.id}
                   </div>
