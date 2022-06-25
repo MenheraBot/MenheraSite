@@ -1,7 +1,7 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Header } from '../components/common/Header';
-import { HiCheck } from 'react-icons/hi';
+import { HiCheck, HiStar } from 'react-icons/hi';
 import { Button } from '../components/common/Button';
 import Image from 'next/image';
 import classnames from 'classnames';
@@ -20,6 +20,37 @@ const ranking = Array.from({ length: 10 }).map((_, i) => ({
   hash: 'Luxanna#5757',
 }));
 
+const commandsCategories = [
+  {
+    name: 'Acões',
+    id: 'actions',
+    description:
+      'Está pensando em alguém? Quer abraçar aquele seu crush? E o principal, quer “MAMAR” alguém? Hehe, aqui tudo isso é possível, com mais de 20 ações diferentes.',
+    Icon: HiStar,
+  },
+  {
+    name: 'Economia',
+    id: 'economy',
+    description:
+      'O mercado que rotaciona o Dinheiro da Menhera, as Estrelinhas. Aqui tu pode apostar no jogo do Bicho, BlackJack e outros para movimentar suas economias.',
+    Icon: HiStar,
+  },
+  {
+    name: 'Diversão',
+    id: 'fun',
+    description:
+      'Com esses comandos tu pode dizer que macetava aquele seu amigo, casar e fazer trisal com aquele pessoal querido. Confira esses e muitos outros.',
+    Icon: HiStar,
+  },
+  {
+    name: 'RPG',
+    id: 'fun',
+    description:
+      'O mundo de Boleham é um lugar misterioso e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar.',
+    Icon: HiStar,
+  },
+];
+
 interface SectionDividerProps {
   title?: string;
   className?: string;
@@ -27,7 +58,12 @@ interface SectionDividerProps {
 
 const SectionDivider = ({ className = '', title }: SectionDividerProps): JSX.Element => {
   return (
-    <div className={classnames('flex items-center gap-2 md:my-28', className)}>
+    <div
+      className={classnames(
+        'flex items-center gap-2 p-6 container mx-auto min-h-fit md:p-0 md:my-28 ',
+        className,
+      )}
+    >
       {title && <span className='text-primary font-bold'>{title}</span>}
       <div className='bg-secondary-bg h-1 flex-1 px-2' />
     </div>
@@ -117,7 +153,29 @@ const HomePage = (): JSX.Element => {
             </ul>
           </div>
         </section>
-        <SectionDivider />
+        <SectionDivider title='Comandos' />
+        <section className='container mx-auto min-h-fit p-6'>
+          <h2 className='text-white font-bold text-4xl md:text-6xl'>
+            Conheça os meus comandos <span className='text-primary'>{'>.<'} </span>
+          </h2>
+          <p className='text-describe font-describe mt-4 md:text-xl'>
+            Eu possuo um sistema de caças, onde jogadores podem caçar demonios, anjos, arcanjos,
+            semideuses e deuses. Aqui estão os melhores caçadores da Semana!
+          </p>
+          <div className='my-6 flex gap-10 flex-wrap justify-between'>
+            {commandsCategories.map((category) => (
+              <div key={category.id} className='max-w-lg'>
+                {<category.Icon color='#975AFF' size={25} />}
+                <h3 className='text-white font-bold text-xl md:text-2xl my-4'>
+                  Category: <span className='text-primary'>{category.name}</span>
+                </h3>
+                <p className='text-describe font-describe text-base mb-6'>{category.description}</p>
+                <Button>Confira agora</Button>
+              </div>
+            ))}
+          </div>
+          <h4 className='text-xl font-bold text-white text-center my-16'>Ver lista completa</h4>
+        </section>
       </main>
     </>
   );
