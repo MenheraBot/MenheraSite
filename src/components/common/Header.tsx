@@ -4,11 +4,9 @@ import { HiMenu, HiX, HiHome, HiStar } from 'react-icons/hi';
 import { useTranslation } from 'next-i18next';
 import { Button } from './Button';
 
-export function Header(): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false);
+export function useNavbarItems() {
   const { t } = useTranslation('header');
 
-  // TODO add emojis
   const navbarItems = [
     {
       name: t('home'),
@@ -41,6 +39,13 @@ export function Header(): JSX.Element {
       icon: HiStar,
     },
   ];
+
+  return navbarItems;
+}
+
+export function Header(): JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+  const navbarItems = useNavbarItems();
 
   return (
     <header className='flex justify-between md:justify-center items-center p-5 container mx-auto max-w-7xl'>

@@ -5,6 +5,7 @@ import { HiCheck, HiStar } from 'react-icons/hi';
 import { Button } from '../components/common/Button';
 import Image from 'next/image';
 import classnames from 'classnames';
+import { Footer } from '../components/common/Footer';
 
 const features = [
   'Diversão garantida',
@@ -211,7 +212,6 @@ const HomePage = (): JSX.Element => {
             />
           </div>
         </section>
-        <SectionDivider title='Sobre mim' className='md:hidden' />
         <section className='container min-h-fit p-6 mx-auto max-w-7xl flex items-center justify-between'>
           <div className='hidden md:block'>
             <Image src='/menhera-piscando.png' width='374' height='394' alt='Menhera piscando!' />
@@ -227,6 +227,7 @@ const HomePage = (): JSX.Element => {
             </p>
           </div>
         </section>
+        <Footer />
       </main>
     </>
   );
