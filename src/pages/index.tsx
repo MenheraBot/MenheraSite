@@ -75,7 +75,7 @@ const HomePage = (): JSX.Element => {
             </ul>
             <Button>Lorem Ipsum</Button>
           </div>
-          <div className='hidden flex-1 md:flex justify-center items-center gap-4'>
+          <div className='hidden flex-1 lg:flex justify-center items-center gap-4'>
             <Image
               src='/home-section-1.png'
               width={150}
