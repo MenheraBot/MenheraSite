@@ -49,7 +49,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
         <nav className='bg-secondary-bg py-11 px-4 mb-6 mt-10 w-full max-w-sm h-min'>
           <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>Lista de Versões</h2>
           <ul className='mt-6 overflow-auto h-full max-h-96 w-full'>
-            {versions.map((version) => (
+            {versions?.map((version) => (
               <li
                 key={version.versionName}
                 className='border-b-2 border-b-separate-color py-6 px-1 last:border-none'
