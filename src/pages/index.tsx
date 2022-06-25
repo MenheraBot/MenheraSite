@@ -60,7 +60,7 @@ const SectionDivider = ({ className = '', title }: SectionDividerProps): JSX.Ele
   return (
     <div
       className={classnames(
-        'flex items-center gap-2 p-6 container mx-auto min-h-fit md:p-0 md:my-28 ',
+        'flex items-center gap-2 p-6 container min-h-fit md:p-0 md:my-28 mx-auto max-w-7xl',
         className,
       )}
     >
@@ -74,8 +74,8 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className='mx-auto max-w-7xl'>
-        <section id='descritpion' className='flex-1 flex p-6 container mx-auto min-h-fit'>
+      <main className=''>
+        <section id='descritpion' className='flex-1 flex p-6 container min-h-fit mx-auto max-w-7xl'>
           <div className='md:max-w-xl'>
             <h1 className='text-white mt-6 font-bold text-4xl md:text-5xl'>
               Yahoy, eu sou a <span className='text-primary'>Menhera BOT</span> {'>.<'}{' '}
@@ -118,7 +118,10 @@ const HomePage = (): JSX.Element => {
           </div>
         </section>
         <SectionDivider className='hidden md:flex' />
-        <section id='ranking-week' className='relative flex flex-row items-center'>
+        <section
+          id='ranking-week'
+          className='relative flex flex-row items-center mx-auto max-w-7xl'
+        >
           <div className='hidden md:block absolute h-3/4 w-56 -z-20'>
             <Image src='/home-section-2-menhera.png' layout='fill' alt='Menhera de olho em você!' />
           </div>
@@ -154,7 +157,7 @@ const HomePage = (): JSX.Element => {
           </div>
         </section>
         <SectionDivider title='Comandos' />
-        <section className='container mx-auto min-h-fit p-6'>
+        <section className='container min-h-fit p-6 mx-auto max-w-7xl'>
           <h2 className='text-white font-bold text-4xl md:text-6xl'>
             Conheça os meus comandos <span className='text-primary'>{'>.<'} </span>
           </h2>
@@ -176,6 +179,33 @@ const HomePage = (): JSX.Element => {
           </div>
           <h4 className='text-xl font-bold text-white text-center my-16'>Ver lista completa</h4>
         </section>
+        <section className='relative h-full w-full'>
+          <Image
+            src='/home-section-4-bg.png'
+            layout='fill'
+            alt='Discord'
+            className='-z-10 bg-contain'
+          />
+          <div className='p-6 md:p-0 mx-auto max-w-7xl flex justify-between relative'>
+            <div className='md:py-6'>
+              <h1 className='text-white font-bold text-4xl md:text-6xl'>
+                Me <span className='text-primary'>adicione</span> no seu servidor.
+              </h1>
+              <p className='text-describe font-describe mt-4 mb-6 md:text-xl max-w-3xl'>
+                O processo para me adicionar é muito simples, não vai demorar nem mais que um minuto
+                e você já vai poder desfrutar de todos os meus comandos. Fácil Fácil, Mole Mole.
+              </p>
+              <Button>Adicionar</Button>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src='/menhera-de-fone.svg'
+              alt='Discord'
+              className='hidden md:block absolute h-full right-0'
+            />
+          </div>
+        </section>
+        <SectionDivider title='Comandos' />
       </main>
     </>
   );
