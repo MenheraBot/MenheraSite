@@ -45,6 +45,9 @@ module.exports = {
         'secondary-bg': '#232324',
         'border-color': '#191919',
         'separate-color': '#383838',
+        'status-warning': '#EDE63A',
+        'status-error': '#ED3A3A',
+        'status-success': '#975AFF',
         describe: '#CDCDCD',
         gray: {
           medio: '#34373C',

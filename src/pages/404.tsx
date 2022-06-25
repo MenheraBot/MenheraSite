@@ -7,7 +7,7 @@ const NotFoundPage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <div className='mx-auto max-w-7xl p-6 my-10 text-center flex flex-col items-center '>
+      <main className='mx-auto max-w-7xl p-6 my-10 text-center flex flex-col items-center '>
         <span className='text-primary text-3xl font-bold md:text-7xl'>404</span>
         <h1 className='text-white text-3xl font-bold mt-4 mb-6'>
           Oops! Esta página não está disponível <span className='text-primary'>:(</span>
@@ -17,7 +17,7 @@ const NotFoundPage = (): JSX.Element => {
           animi, eligendi quas nam perspiciatis, facere corporis aliquam magni ullam ad dolor
           inventore omnis quia maxime distinctio aut!
         </p>
-      </div>
+      </main>
       <Footer />
     </>
   );
