@@ -54,9 +54,9 @@ export function Header(): JSX.Element {
   const navbarItems = useNavbarItems();
 
   return (
-    <header className='flex justify-between md:justify-center items-center p-5 container mx-auto max-w-7xl'>
+    <header className='flex justify-between md:justify-center items-center p-6 container mx-auto max-w-7xl'>
       <h1 className='font-bold text-md text-white'>MenheraBot</h1>
-      <nav className='flex-1 mr-14 hidden md:flex flex-row-reverse'>
+      <nav className='flex-1 hidden md:flex flex-row-reverse'>
         <ul className='flex gap-3'>
           {navbarItems.map((item) => (
             <li
@@ -68,10 +68,10 @@ export function Header(): JSX.Element {
           ))}
         </ul>
       </nav>
-      <Button className='hidden md:block'>Login</Button>
+      <Button className='hidden ml-14 md:block'>Login</Button>
       <HiMenu color='white' size={25} className='md:hidden' onClick={() => setIsOpen(true)} />
       {isOpen && (
-        <div className='bg-primary-bg absolute w-full h-screen md:hidden top-0 bottom-0 left-0'>
+        <div className='bg-primary-bg absolute w-full h-screen md:hidden top-0 bottom-0 left-0 z-40'>
           <div className='mx-2 p-2'>
             <div className='mt-6 flex-1 flex flex-row-reverse w-full'>
               <HiX color='#975AFF' size={25} onClick={() => setIsOpen(false)} />
