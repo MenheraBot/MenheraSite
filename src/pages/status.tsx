@@ -32,6 +32,24 @@ const StatusText = ({ children, status }: StatusTextProps) => {
   );
 };
 
+const rand = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
+
+const services = [
+  {
+    name: 'Discord Bot',
+    activeShards: 40,
+    problematicShards: 20,
+    shards: Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      cluster: 1,
+      uptime: '1h',
+      serverCount: 100,
+      status: rand(['success', 'error', 'warning']),
+      offlineServers: 0,
+    })),
+  },
+];
+
 const StatusPage = ({ lang, disabledCommands }: Props): JSX.Element => {
   return (
     <>
@@ -62,6 +80,34 @@ const StatusPage = ({ lang, disabledCommands }: Props): JSX.Element => {
             </ul>
           </div>
           <SearchInput />
+        </div>
+        <div>
+          {services.map((service, i) => (
+            <div key={i} className='flex flex-col'>
+              <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
+                Serviço: {service.name}
+              </h2>
+              <span className='font-bold text-xl text-primary'>
+                {service.activeShards} / {service.shards.length}
+              </span>
+              <span className='text-describe'>
+                {service.problematicShards} / {service.shards.length} serviços tem problemas
+              </span>
+              <div className='flex flex-wrap gap-6 my-2'>
+                {service.shards.map((shard) => (
+                  <div
+                    key={shard.id}
+                    className={
+                      'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white border-status-' +
+                      shard.status
+                    }
+                  >
+                    {shard.id}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </main>
       <Footer />
