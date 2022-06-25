@@ -65,7 +65,7 @@ const services = [
       cluster: 1,
       uptime: '1h',
       serverCount: 100,
-      status: rand(['success', 'error', 'warning']),
+      status: rand(['success', 'error', 'warning'] as Status[]),
       offlineServers: 0,
     })),
   },
