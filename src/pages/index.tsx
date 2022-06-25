@@ -1,11 +1,14 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Header } from '../components/common/Header';
-import { HiCheck, HiStar } from 'react-icons/hi';
+import { HiCheck, HiStar, HiOutlineEmojiHappy } from 'react-icons/hi';
+import { RiSwordLine } from 'react-icons/ri';
+import { FaRegKissWinkHeart } from 'react-icons/fa';
 import { Button } from '../components/common/Button';
 import Image from 'next/image';
 import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
+import Link from 'next/link';
 
 const features = [
   'Diversão garantida',
@@ -27,7 +30,7 @@ const commandsCategories = [
     id: 'actions',
     description:
       'Está pensando em alguém? Quer abraçar aquele seu crush? E o principal, quer “MAMAR” alguém? Hehe, aqui tudo isso é possível, com mais de 20 ações diferentes.',
-    Icon: HiStar,
+    Icon: FaRegKissWinkHeart,
   },
   {
     name: 'Economia',
@@ -41,14 +44,14 @@ const commandsCategories = [
     id: 'fun',
     description:
       'Com esses comandos tu pode dizer que macetava aquele seu amigo, casar e fazer trisal com aquele pessoal querido. Confira esses e muitos outros.',
-    Icon: HiStar,
+    Icon: HiOutlineEmojiHappy,
   },
   {
     name: 'RPG',
     id: 'fun',
     description:
       'O mundo de Boleham é um lugar misterioso e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar.',
-    Icon: HiStar,
+    Icon: RiSwordLine,
   },
 ];
 
@@ -60,11 +63,14 @@ const HomePage = (): JSX.Element => {
         <section id='descritpion' className='flex-1 flex p-6 container min-h-fit mx-auto max-w-7xl'>
           <div className='md:max-w-xl'>
             <h1 className='text-white mt-6 font-bold text-4xl md:text-5xl'>
-              Yahoy, eu sou a <span className='text-primary'>Menhera BOT</span> {'>.<'}{' '}
+              Yahoy, eu sou a <span className='text-primary'>Menhera BOT</span> {'>.<'}
             </h1>
             <p className='mt-4 font-describe text-describe text-base md:text-xl'>
               Minha missão é divertir o teu servidor com diversas funcionalidades que tu podes ver
-              <a className='text-primary'> aqui</a>.
+              <Link href='/commands' passHref>
+                <span className='text-primary cursor-pointer'> aqui</span>
+              </Link>
+              .
             </p>
             <ul className='grid grid-cols-2 my-6 gap-2'>
               {features.map((feature, index) => (

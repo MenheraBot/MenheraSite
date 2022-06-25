@@ -55,7 +55,9 @@ export function Header(): JSX.Element {
 
   return (
     <header className='flex justify-between md:justify-center items-center p-5 container mx-auto max-w-7xl'>
-      <h1 className='font-bold text-md text-white'>MenheraBot</h1>
+      <Link href='/' passHref>
+        <h1 className='font-bold text-md text-white cursor-pointer'>MenheraBot</h1>
+      </Link>
       <nav className='flex-1 mr-14 hidden md:flex flex-row-reverse'>
         <ul className='flex gap-3'>
           {navbarItems.map((item) => (

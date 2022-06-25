@@ -62,7 +62,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
               <SearchInput />
               <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>Lista de Comandos</h2>
             </div>
-            <h4 className='text-white font-bold text-xl'>Comandos</h4>
+            <h4 className='text-white font-bold text-xl'>Clique para saber mais</h4>
             <ul className='mt-6 overflow-auto h-full max-h-96 w-full'>
               {filteredCommands.map((cmd) => (
                 <li key={cmd.name} className='border-b-2 border-b-separate-color py-6 px-1'>

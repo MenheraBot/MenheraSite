@@ -5,12 +5,12 @@ import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa';
 const socialMedia = [
   {
     alt: 'Discord',
-    href: 'https://discord.gg/jQWQQQ',
+    href: 'https://discord.com/invite/fZMdQbA',
     icon: FaDiscord,
   },
   {
     alt: 'Twitter',
-    href: 'https://twitter.com/MenheraBot',
+    href: 'https://twitter.com/__MenheraBot',
     icon: FaTwitter,
   },
   {
@@ -39,7 +39,10 @@ export function Footer(): JSX.Element {
             <h3 className='text-white text-xl md:text-2xl font-bold mt-6 md:mt-0'>Menu</h3>
             <ul className='grid grid-cols-3 flex-wrap justify-between mt-6'>
               {navbarItems.map((item) => (
-                <li key={item.name} className='text-describe p-3 md:text-lg md:pl-0'>
+                <li
+                  key={item.name}
+                  className='text-describe p-3 md:text-lg md:pl-0 hover:underline'
+                >
                   <Link href={item.href}>{item.name}</Link>
                 </li>
               ))}
@@ -49,15 +52,15 @@ export function Footer(): JSX.Element {
         <div className='md:flex flex-row-reverse justify-between md:border-t border-t-separate-color md:mt-6 md:py-6'>
           <ul className='flex items-center justify-center gap-6 my-6 md:my-0'>
             {socialMedia.map((item) => (
-              <li key={item.alt} className='text-describe'>
-                <Link href={item.href} passHref>
+              <li key={item.alt} className='text-describe cursor-pointer'>
+                <a href={item.href} rel='noopener noreferrer' target='_blank'>
                   {<item.icon size={25} />}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
           <span className='text-describe text-center'>
-            © 2022 Menhera Bot, Inc. All rights reserved.
+            © 2022 Menhera Bot. All rights reserved.
           </span>
         </div>
       </div>
