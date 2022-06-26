@@ -11,24 +11,7 @@ module.exports = {
     fontFamily: {
       describe: ['Montserrat', 'Hind', 'Roboto', 'sans-serif'],
     },
-    textShadow: {
-      // defaults to {}
-      default: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
-    },
     extend: {
-      screens: {
-        xl: { max: '1279px' },
-        // => @media (max-width: 1279px) { ... }
-
-        lg: { min: '1023px' },
-        // => @media (max-width: 1023px) { ... }
-
-        md: { min: '767px' },
-        // => @media (max-width: 767px) { ... }
-
-        sm: { max: '639px' },
-        // => @media (max-width: 639px) { ... }
-      },
       keyframes: {
         wiggle: {
           '0%': { 'background-color': '#9c5ddb', 'margin-top': '5px' },
@@ -50,13 +33,6 @@ module.exports = {
         'status-error': '#ED3A3A',
         'status-success': '#975AFF',
         describe: '#CDCDCD',
-        gray: {
-          medio: '#34373C',
-          forte: '#2F3136',
-          fraco: '#40444B',
-          usr: '#292B2F',
-          xforte: '#202225',
-        },
       },
     },
   },
