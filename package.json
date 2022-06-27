@@ -13,7 +13,6 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "test:e2e:dev": "start-server-and-test dev http://localhost:3000 \"npx cypress open\"",
-    "test:e2e:run": "cross-env PORT=8811 start-server-and-test start:mocks http://localhost:8811 \"npx cypress run\"",
     "validate": "run-p \"test -- --run\" lint typecheck test"
   },
   "repository": {
