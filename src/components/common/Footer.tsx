@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useNavbarItems } from './Header';
 import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa';
 import { useTranslation } from 'next-i18next';
 
@@ -21,9 +20,62 @@ const socialMedia = [
   },
 ];
 
+const useFooter = () => {
+  const footerItems = [
+    {
+      redirect: '/',
+      name: 'home',
+      external: false,
+    },
+    {
+      redirect: '/commands',
+      name: 'commands',
+      external: false,
+    },
+    {
+      redirect: '/donate',
+      name: 'donate',
+      external: false,
+    },
+
+    {
+      redirect: '/ranking',
+      name: 'ranking',
+      external: false,
+    },
+    {
+      redirect: '/status',
+      name: 'status',
+      external: false,
+    },
+    {
+      redirect: '/privacy#terms-of-service',
+      name: 'terms',
+      external: false,
+    },
+    {
+      redirect: '/support',
+      name: 'support',
+      external: true,
+    },
+    {
+      redirect: '/invite',
+      name: 'invite',
+      external: true,
+    },
+    {
+      redirect: '/privacy#privacy',
+      name: 'privacy',
+      external: false,
+    },
+  ];
+
+  return footerItems;
+};
+
 export function Footer(): JSX.Element {
-  const navbarItems = useNavbarItems();
   const { t } = useTranslation('footer');
+  const footerItens = useFooter();
 
   return (
     <footer className='bg-secondary-bg'>
@@ -35,17 +87,21 @@ export function Footer(): JSX.Element {
           </div>
           <div>
             <h3 className='text-white text-xl md:text-2xl font-bold mt-6 md:mt-0'>{t('menu')}</h3>
-            <ul className='grid grid-cols-3 flex-wrap justify-between mt-6'>
-              {navbarItems
-                .filter((i) => i.redirect)
-                .map((item) => (
-                  <li
-                    key={item.name}
-                    className='text-describe p-3 md:text-lg md:pl-0 hover:underline'
-                  >
-                    <Link href={item.href}>{item.name}</Link>
-                  </li>
-                ))}
+            <ul className='grid grid-rows-3 grid-cols-3 gap-x-3 flex-wrap justify-between mt-6'>
+              {footerItens.map((item) => (
+                <li
+                  key={item.name}
+                  className='text-describe px-3 md:text-lg md:pl-0 hover:underline'
+                >
+                  {item.external ? (
+                    <a href={item.redirect} rel='noopener noreferrer' target='_blank'>
+                      {t(item.name as 'donate')}
+                    </a>
+                  ) : (
+                    <Link href={item.redirect}>{t(item.name as 'donate')}</Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
