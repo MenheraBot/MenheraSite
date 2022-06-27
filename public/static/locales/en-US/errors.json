@@ -1,0 +1,10 @@
+{
+  "404": {
+    "title": "Opps, this page doesn't exists",
+    "description": "Or maybe it should exist (?), but it probably doesn't :/\nIf you really think this page exists, check the URL if it's correct, or if you prefer, check the links below if the page desired exists."
+  },
+  "500": {
+    "title": "",
+    "description": "There was an error here at my house. I can't tell you exactly what happened, but it sure wasn't a good thing! Please try again later."
+  }
+}

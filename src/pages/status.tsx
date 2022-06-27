@@ -107,7 +107,7 @@ const StatusPage = (): JSX.Element => {
               </li>
             </ul>
           </div>
-          <SearchInput placeholder='Digite o ID do seu servidor' />
+          <SearchInput placeholder={t('server-id')} />
         </div>
         <div>
           {services.map((service, i) => (

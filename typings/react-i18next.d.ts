@@ -4,6 +4,7 @@ import footer from '../public/static/locales/pt-BR/footer.json';
 import header from '../public/static/locales/pt-BR/header.json';
 import index from '../public/static/locales/pt-BR/index.json';
 import status from '../public/static/locales/pt-BR/status.json';
+import errors from '../public/static/locales/pt-BR/errors.json';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
@@ -12,6 +13,7 @@ declare module 'react-i18next' {
       header: typeof header;
       index: typeof index;
       status: typeof status;
+      errors: typeof errors;
     };
   }
 }
