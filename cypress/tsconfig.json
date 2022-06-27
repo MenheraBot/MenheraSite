@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "target": "es2019",
+    "types": ["cypress"],
+    "skipLibCheck": true,
+    "typeRoots": ["../types", "../node_modules/@types"]
+  },
+  "include": [
+    "e2e/**/*",
+    "support/**/*",
+    "../node_modules/cypress",
+    "../node_modules/@testing-library/cypress"
+  ],
+  "exclude": ["../node_modules/@types/jest", "../node_modules/@testing-library/jest-dom"]
+}

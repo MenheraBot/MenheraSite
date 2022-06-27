@@ -6,3 +6,6 @@ coverage
 .env.*.local
 .env.local
 tsconfig.tsbuildinfo
+
+/cypress/screenshots
+/cypress/videos

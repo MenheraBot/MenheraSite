@@ -85,7 +85,9 @@ export function Header(): JSX.Element {
   return (
     <header className='flex justify-between md:justify-center items-center p-5 container mx-auto max-w-7xl'>
       <Link href='/' passHref>
-        <h1 className='font-bold text-md text-white cursor-pointer'>MenheraBot</h1>
+        <h1 className='font-bold text-md text-white cursor-pointer' data-test='logo'>
+          MenheraBot
+        </h1>
       </Link>
       <nav className='flex-1 hidden md:flex flex-row-reverse'>
         <ul className='flex gap-10'>
@@ -104,12 +106,26 @@ export function Header(): JSX.Element {
         </ul>
       </nav>
       <Button className='hidden ml-14 md:block'>{t('login')}</Button>
-      <HiMenu color='white' size={25} className='md:hidden' onClick={() => setIsOpen(true)} />
+      <HiMenu
+        color='white'
+        size={25}
+        className='md:hidden'
+        onClick={() => setIsOpen(true)}
+        data-test='open-mobile-menu-btn'
+      />
       {isOpen && (
-        <div className='bg-primary-bg absolute w-full h-screen md:hidden top-0 bottom-0 left-0 z-40'>
+        <div
+          className='bg-primary-bg absolute w-full h-screen md:hidden top-0 bottom-0 left-0 z-40'
+          data-test='mobile-opened-menu'
+        >
           <div className='mx-2 p-2'>
             <div className='mt-6 flex-1 flex flex-row-reverse w-full'>
-              <HiX color='#975AFF' size={25} onClick={() => setIsOpen(false)} />
+              <HiX
+                color='#975AFF'
+                size={25}
+                onClick={() => setIsOpen(false)}
+                data-test='close-mobile-menu-btn'
+              />
             </div>
             <h1 className='font-bold text-xl mt-3 text-white'>{t('navigation')}</h1>
             <nav className='mt-6'>
