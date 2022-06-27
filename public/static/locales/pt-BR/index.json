@@ -1,0 +1,32 @@
+{
+  "greetings": "Yahoy! eu sou a",
+  "mission": "Minha missão é divertir o teu servidor com diversas funcionalidades que tu podes ver",
+  "here": " here",
+  "invite": "Me Adicione",
+  "weekly-ranking": "#Rank Semanal",
+  "best-hunters": "Os Melhores da Semana",
+  "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia à meia noite!",
+  "hunted": "Caçou {{amount}} $t('huntTypes.{{type}}')",
+  "commands": "Comandos",
+  "huntTypes": {
+    "demons": "Demônios",
+    "giants": "Gigantes",
+    "angels": "Anjos",
+    "arcanjos": "Arcanjos",
+    "demigods": "Semideuses",
+    "gods": "Deuses"
+  },
+  "findout": "Descubra o que posso fazer",
+  "findout-description": "Atualmente eu possuo mais de 65 comandos com muitos outros subcomandos! Cada um mais divertido e louco que o outro, veja!",
+  "see-commands": "Ver Comandos",
+  "add-me": {
+    "first": "Me",
+    "second": "adicione",
+    "third": "no teu servidor",
+    "description": "Eu to louca pra conhecer como é por lá! O processo para me adicionar é tão simples quando fazer um miojo, só clicar no botão e escolher o servidor. Eu não preciso de nenhuma permissão no servidor, então caso os moderadores do teu servidor serem todos preocupados, pode mandar isso pra eles, que na mão da mãe ta safe 😎",
+    "add": "Adicionar"
+  },
+  "about-me": "Sobre mim",
+  "know-me-better": "Me conheça melhor",
+  "know-me-description": "Sou uma guria de 16 anos que AMA usar emojis de rostinhos kawaii como esse >,.,<. Fui criada pela Lux, outra guria maravilhosa que eu só tenho a agradecer (até porque ela eu não existiria). Minha missão aqui é trazer diversão para todos no teu servidor do Discord. Ah, também curto uns shitpost. E NÃO, EU NÃO SOU MINEIRA! EU SOU GAÚCHA. GA-Ú-CHA."
+}
