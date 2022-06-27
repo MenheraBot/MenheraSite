@@ -9,7 +9,7 @@ import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 
 const DonatePage = (): JSX.Element => {
-  const { t } = useTranslation('donate');
+  const { t } = useTranslation('footer');
 
   return (
     <>
@@ -41,7 +41,10 @@ const DonatePage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['common', 'donate', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, [
+        /* 'common', 'donate',  */ 'header',
+        'footer',
+      ])),
     },
   };
 };

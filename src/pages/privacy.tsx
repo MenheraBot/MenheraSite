@@ -5,7 +5,7 @@ import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
 
 const PrivacyPage = (): JSX.Element => {
-  const { t } = useTranslation('privacy');
+  const { t } = useTranslation('footer');
 
   return (
     <>
@@ -135,8 +135,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [
-        'common',
-        'privacy',
+        /*   'common',
+        'privacy', */
         'header',
         'footer',
       ])),

@@ -9,6 +9,7 @@ import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { SearchInput } from '../components/common/SearchInput';
+
 type Props = {
   lang: string;
   disabledCommands: Command[];
@@ -21,32 +22,20 @@ interface StatusTextProps {
   status: Status;
 }
 
-const bgColor = (status: Status) =>
+const statusColor = (status: Status, className: 'border' | 'bg' | 'text') =>
   status === 'success'
-    ? 'bg-status-success'
+    ? `${className}-status-success`
     : status === 'error'
-    ? 'bg-status-error'
-    : 'bg-status-warning';
-
-const textColor = (status: Status) =>
-  status === 'success'
-    ? 'text-status-success'
-    : status === 'error'
-    ? 'text-status-error'
-    : 'text-status-warning';
-
-const borderColor = (status: Status) =>
-  status === 'success'
-    ? 'border-status-success'
-    : status === 'error'
-    ? 'border-status-error'
-    : 'border-status-warning';
+    ? `${className}-status-error`
+    : `${className}-status-warning`;
 
 const StatusText = ({ children, status }: StatusTextProps) => {
   return (
     <div className='flex items-center'>
-      <div className={classnames('h-4 w-5 rounded-full', bgColor(status))} />
-      <span className={classnames('font-semibold ml-3', textColor(status))}>{children}</span>
+      <div className={classnames('h-4 w-5 rounded-full', statusColor(status, 'bg'))} />
+      <span className={classnames('font-semibold ml-3', statusColor(status, 'text'))}>
+        {children}
+      </span>
     </div>
   );
 };
@@ -58,9 +47,9 @@ function rand<A>(arr: A[]): A {
 const services = [
   {
     name: 'Discord Bot',
-    activeShards: 40,
-    problematicShards: 20,
-    shards: Array.from({ length: 50 }, (_, i) => ({
+    activeShards: 20,
+    problematicShards: 10,
+    shards: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       cluster: 1,
       uptime: '1h',
@@ -117,7 +106,7 @@ const StatusPage = (): JSX.Element => {
                     key={shard.id}
                     className={classnames(
                       'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
-                      borderColor(shard.status),
+                      statusColor(shard.status, 'border'),
                     )}
                   >
                     {shard.id}
@@ -138,8 +127,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['status', 'common', 'header', 'footer'])),
-      lang: locale ?? 'en',
+      ...(await serverSideTranslations(locale as string, ['status', 'header', 'footer'])),
+      lang: locale as string,
       disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
     },
     revalidate: 60,

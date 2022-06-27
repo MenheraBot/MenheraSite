@@ -26,7 +26,7 @@ const CustomErrorPage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['error', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['header', 'footer'])),
     },
   };
 };

@@ -95,8 +95,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       locale: locale ?? 'en',
       commands,
       ...(await serverSideTranslations(locale as string, [
-        'common',
-        'commands',
+        /*    'common',
+        'commands', */
         'header',
         'footer',
       ])),
