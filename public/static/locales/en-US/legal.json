@@ -1,0 +1,34 @@
+{
+  "last-change": "Last Modified: {{date}}",
+  "privacy": {
+    "title": "Privacy Policy",
+    "disclaimer": "To make our services available, we need to collect some data from our users. We do not collect data that are not necessary for the operation of our services. We need to make it clear that this document can be changed at any time, so please We help that whenever you use our services, check this document to understand how we treat what we use.",
+    "collect": "Data We Collect",
+    "collect-description": "We only store your Discord ID, which is public information that everyone has access to. This is the only user data that we collect and store to be able to identify and sort database information for each profile.",
+    "protection": "Data Protection",
+    "protection-description": " All data is accessible by and only Luan Caliel (Luxanna#5757 - Menhera's Owner). He guarantees that no data will be distributed, sold or donated to third parties. He also demonstrate that the data is saved in a in a robust database in terms of security.",
+    "third-party": "Third-Party Services",
+    "third-party-data": "Menhera is an application that runs within Discord, so it follows the rules and regulations there, as its users should.",
+    "deletion": "Data Deletion",
+    "deletion-description": "The user can have their data deleted from Menhera at any time by sending an email to"
+  },
+  "tos": {
+    "title": "Terms of Service",
+    "disclaimer": "When using any Menhera service, you must be aware of everything you can and cannot do. When using it, we take into account that you",
+    "agree": "READ AND AGREE",
+    "end-disclaimer": "with all these terms",
+    "bugs": "Bug Abuse",
+    "bugs-description": "When you find a bug, and instead of reporting it, you abuse it and/or even share it, you are subject to losing access to all Menhera services. See a bug and not report it, you are subject to losing access to all Menhera features.",
+    "age": "Age",
+    "age-description": "To use Menhera, you must be at least 13 years. Persons under legal age must have their legal guardian's consent to these terms before using it.",
+    "guidelines": "Community Guidelines",
+    "guidelines-description": "As Menhera is an application dependent on a main application (Discord), the user must, in addition to following the following rules, also follow its guidelines. See the",
+    "guidelines-link": "Discord guidelines.",
+    "nsfw": "Do not use NSFW content (adult or sensitive content) in Menhera commands. We do not want any kind of link with this type of content.",
+    "discrimination": "We do not tolerate any type of racist, homophobic, xenophobic, prejudiced attitude, among others, with any person. Our mission with Menhera is to entertain servers, if your server promotes or has a link to attitudes that denigrate someone's image, so we don't want ties to you.",
+    "smurf": "Attempting to circumvent restrictions imposed by Menhera, such as bypassing a cooldown, or using other accounts to improve a main account is prohibited.",
+    "apeal": "Ban Appeal",
+    "apeal-description": "If you want to review your ban, you can do so following the template",
+    "apeal-link": "from this GitHub discussion."
+  }
+}

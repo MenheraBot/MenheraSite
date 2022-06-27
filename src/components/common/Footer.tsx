@@ -37,19 +37,18 @@ const useFooter = () => {
       name: 'donate',
       external: false,
     },
-
-    {
-      redirect: '/ranking',
-      name: 'ranking',
-      external: false,
-    },
     {
       redirect: '/status',
       name: 'status',
       external: false,
     },
     {
-      redirect: '/privacy#terms-of-service',
+      redirect: 'https://github.com/MenheraBot/MenheraBot/discussions/132',
+      name: 'apeal',
+      external: true,
+    },
+    {
+      redirect: '/legal#terms-of-service',
       name: 'terms',
       external: false,
     },
@@ -64,7 +63,7 @@ const useFooter = () => {
       external: true,
     },
     {
-      redirect: '/privacy#privacy',
+      redirect: '/legal#privacy',
       name: 'privacy',
       external: false,
     },
@@ -95,10 +94,10 @@ export function Footer(): JSX.Element {
                 >
                   {item.external ? (
                     <a href={item.redirect} rel='noopener noreferrer' target='_blank'>
-                      {t(item.name as 'donate')}
+                      {t(item.name as 'apeal')}
                     </a>
                   ) : (
-                    <Link href={item.redirect}>{t(item.name as 'donate')}</Link>
+                    <Link href={item.redirect}>{t(item.name as 'apeal')}</Link>
                   )}
                 </li>
               ))}

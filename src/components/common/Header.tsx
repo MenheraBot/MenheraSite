@@ -54,8 +54,8 @@ export function useNavbarItems(): NavbarItem[] {
       redirect: true,
     },
     {
-      name: t('privacy'),
-      href: '/privacy',
+      name: t('legal'),
+      href: '/legal',
       icon: HiStar,
       redirect: true,
     },
