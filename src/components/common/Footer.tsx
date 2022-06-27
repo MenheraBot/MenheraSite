@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useNavbarItems } from './Header';
 import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa';
+import { useTranslation } from 'next-i18next';
 
 const socialMedia = [
   {
@@ -22,6 +23,7 @@ const socialMedia = [
 
 export function Footer(): JSX.Element {
   const navbarItems = useNavbarItems();
+  const { t } = useTranslation('footer');
 
   return (
     <footer className='bg-secondary-bg'>
@@ -29,14 +31,10 @@ export function Footer(): JSX.Element {
         <div className='flex items-center justify-between'>
           <div className='hidden md:block max-w-xl'>
             <h1 className='font-bold text-white text-4xl'>Menhera BOT</h1>
-            <p className='text-describe text-xl mt-6 md:max-w-sm'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus aliquet pulvinar
-              lacinia. Mauris ut elit orci. Integer nec erat maximus, accumsan neque sed, fringilla
-              felis.
-            </p>
+            <p className='text-describe text-xl mt-6 md:max-w-sm'>{t('description')}</p>
           </div>
           <div>
-            <h3 className='text-white text-xl md:text-2xl font-bold mt-6 md:mt-0'>Menu</h3>
+            <h3 className='text-white text-xl md:text-2xl font-bold mt-6 md:mt-0'>{t('menu')}</h3>
             <ul className='grid grid-cols-3 flex-wrap justify-between mt-6'>
               {navbarItems
                 .filter((i) => i.redirect)
@@ -61,9 +59,7 @@ export function Footer(): JSX.Element {
               </li>
             ))}
           </ul>
-          <span className='text-describe text-center'>
-            © 2022 Menhera Bot. All rights reserved.
-          </span>
+          <span className='text-describe text-center'>{t('made')}</span>
         </div>
       </div>
     </footer>
