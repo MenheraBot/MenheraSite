@@ -1,16 +1,17 @@
 // load type definitions that come with Cypress module
-
 /// <reference types="cypress" />
 
-declare namespace Cypress {
-  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-  interface Chainable<T> {
-    /**
-     * Custom command to get element by data-cy values
-     * @example cy.getByDataTest('selector')
-     */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getByDataTest(selector: string, ...args: any[]): Chainable<Window>;
+declare global {
+  namespace Cypress {
+    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+    interface Chainable {
+      /**
+       * Custom command to get element by data-cy values
+       * @example cy.getByDataTest('selector')
+       */
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      getByDataTest(selector: string, ...args: any[]): Chainable<Window>;
+    }
   }
 }
 

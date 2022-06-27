@@ -3,13 +3,12 @@
     "baseUrl": ".",
     "noEmit": true,
     "target": "es2019",
-    "types": ["cypress"],
+    "types": ["cypress", "node"],
     "skipLibCheck": true,
     "typeRoots": ["../types", "../node_modules/@types"]
   },
   "include": [
-    "e2e/**/*",
-    "support/**/*",
+    "**/*.ts",
     "../node_modules/cypress",
     "../node_modules/@testing-library/cypress"
   ],
