@@ -5,7 +5,7 @@
   "invite": "Invite me",
   "weekly-ranking": "#Weekly Rank",
   "best-hunters": "The Best of the Week",
-  "ranking-description": "I have a hunting system, where players can hunt demons, angels, archangels, demigods and gods. Here are the best hunters from the last 7 days! The rank is updated every day at midnight!",
+  "ranking-description": "I have a hunting system, where players can hunt demons, angels, archangels, demigods and gods. Here are the best hunters from the last 7 days! The rank is updated every day!",
   "hunted": "Hunted {{amount}} $t(huntTypes.{{type}})",
   "commands": "Commands",
   "huntTypes": {

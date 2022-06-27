@@ -5,7 +5,7 @@
   "invite": "Me Adicione",
   "weekly-ranking": "#Rank Semanal",
   "best-hunters": "Os Melhores da Semana",
-  "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia à meia noite!",
+  "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia!",
   "hunted": "Caçou {{amount}} $t(huntTypes.{{type}})",
   "commands": "Comandos",
   "huntTypes": {
@@ -23,7 +23,7 @@
     "first": "Me",
     "second": "adicione",
     "third": "no teu servidor",
-    "description": "Eu to louca pra conhecer como é por lá! O processo para me adicionar é tão simples quando fazer um miojo, só clicar no botão e escolher o servidor. Eu não preciso de nenhuma permissão, então caso os moderadores do teu servidor serem todos preocupados, pode mandar isso pra eles, que na mão da mãe ta safe 😎",
+    "description": "Eu to louca pra conhecer como é por lá! O processo para me adicionar é tão simples quanto fazer um miojo, só clicar no botão e escolher o servidor. Eu não preciso de nenhuma permissão, então caso os moderadores do teu servidor serem todos preocupados, pode mandar isso pra eles que na mão da mãe ta safe 😎",
     "add": "Adicionar"
   },
   "about-me": "Sobre mim",
