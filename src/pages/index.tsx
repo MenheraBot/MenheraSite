@@ -48,7 +48,7 @@ const commandsCategories = [
   },
   {
     name: 'RPG',
-    id: 'fun',
+    id: 'rpg',
     description:
       'O mundo de Boleham é um lugar misterioso e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar.',
     Icon: RiSwordLine,
