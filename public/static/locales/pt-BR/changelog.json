@@ -1,0 +1,12 @@
+{
+  "title": "Patch Notes {{version}}",
+  "versions": "Lista de Versões",
+  "date": "Lançado Em {{date}}",
+  "added": "Adicionado",
+  "changed": "Atualizado",
+  "deprecated": "Preterido",
+  "removed": "Removido",
+  "fixed": "Resolvido",
+  "security": "Segurança",
+  "hotfix": "Hotfix"
+}

@@ -7,6 +7,7 @@ import legal from '../public/static/locales/pt-BR/legal.json';
 import status from '../public/static/locales/pt-BR/status.json';
 import errors from '../public/static/locales/pt-BR/errors.json';
 import donate from '../public/static/locales/pt-BR/donate.json';
+import changelog from '../public/static/locales/pt-BR/changelog.json';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
@@ -18,6 +19,7 @@ declare module 'react-i18next' {
       legal: typeof legal;
       errors: typeof errors;
       donate: typeof donate;
+      changelog: typeof changelog;
     };
   }
 }
