@@ -74,7 +74,7 @@ export function Header(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const navbarItems = useNavbarItems();
   const router = useRouter();
-  const { i18n } = useTranslation('header');
+  const { i18n, t } = useTranslation('header');
 
   const changeLocale = () => {
     router.push(router.asPath, undefined, {
@@ -103,7 +103,7 @@ export function Header(): JSX.Element {
           ))}
         </ul>
       </nav>
-      <Button className='hidden ml-14 md:block'>Login</Button>
+      <Button className='hidden ml-14 md:block'>{t('login')}</Button>
       <HiMenu color='white' size={25} className='md:hidden' onClick={() => setIsOpen(true)} />
       {isOpen && (
         <div className='bg-primary-bg absolute w-full h-screen md:hidden top-0 bottom-0 left-0 z-40'>
@@ -111,7 +111,7 @@ export function Header(): JSX.Element {
             <div className='mt-6 flex-1 flex flex-row-reverse w-full'>
               <HiX color='#975AFF' size={25} onClick={() => setIsOpen(false)} />
             </div>
-            <h1 className='font-bold text-xl mt-3 text-white'>Navegação</h1>
+            <h1 className='font-bold text-xl mt-3 text-white'>{t('navigation')}</h1>
             <nav className='mt-6'>
               <ul className='flex flex-col font-medium'>
                 {navbarItems.map((item) => (
