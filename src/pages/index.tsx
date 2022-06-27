@@ -195,9 +195,9 @@ const HomePage = (): JSX.Element => {
             />
           </div>
         </section>
-        <section className='container min-h-fit p-6 mx-auto max-w-7xl flex items-center justify-between'>
-          <div className='hidden md:block'>
-            <Image src='/menhera-piscando.png' width='374' height='394' alt='Menhera piscando!' />
+        <section className='container min-h-fit px-6 pt-6 mx-auto max-w-7xl flex items-center justify-between'>
+          <div className='hidden md:block -mb-3'>
+            <Image src='/menhera-piscando.png' width='374' height='390' alt='Menhera piscando!' />
           </div>
           <div>
             <SectionDivider title='Sobre mim' withoutSpace className='mb-6' />
