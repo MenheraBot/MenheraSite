@@ -3,6 +3,7 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
+  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   interface Chainable<T> {
     /**
      * Custom command to get element by data-cy values
