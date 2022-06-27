@@ -21,7 +21,7 @@ const features = [
 const ranking = Array.from({ length: 10 }).map((_, i) => ({
   hunted: Math.floor(Math.random() * 30),
   position: i + 1,
-  huntType: 'anjos',
+  huntType: 'angels' as const,
   tag: 'Luxanna#5757',
 }));
 
@@ -133,7 +133,9 @@ const HomePage = (): JSX.Element => {
                   key={index}
                   className='mt-6 first:mt-0 mr-3 pb-4 border-b-2 border-b-separate-color md:mr-10'
                 >
-                  <span className='text-white capitalize font-bold text-base'>{user.huntType}</span>
+                  <span className='text-white capitalize font-bold text-base'>
+                    {t(`huntTypes.${user.huntType}`)}
+                  </span>
                   <div className='flex justify-between mt-4 text-white'>
                     <span className='font-medium'>{user.tag}</span>
                     <span className='font-bold'>#{user.position}</span>
@@ -194,7 +196,7 @@ const HomePage = (): JSX.Element => {
           </div>
         </section>
         <section className='container min-h-fit px-6 pt-6 mx-auto max-w-7xl flex items-center justify-between'>
-          <div className='hidden md:block -mb-3'>
+          <div className='hidden md:block -mb-3 -z-10'>
             <Image src='/menhera-piscando.png' width='374' height='390' alt='Menhera piscando!' />
           </div>
           <div>

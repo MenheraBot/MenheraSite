@@ -9,6 +9,7 @@ import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { SearchInput } from '../components/common/SearchInput';
+import { useTranslation } from 'next-i18next';
 
 type Props = {
   lang: string;
@@ -22,6 +23,9 @@ interface StatusTextProps {
   status: Status;
 }
 
+/* Why not this?
+Tailwind read the classnames before build, so it dont know what is the real classname
+
 const statusColor = (status: Status, className: 'border' | 'bg' | 'text') =>
   status === 'success'
     ? `${className}-status-success`
@@ -29,13 +33,33 @@ const statusColor = (status: Status, className: 'border' | 'bg' | 'text') =>
     ? `${className}-status-error`
     : `${className}-status-warning`;
 
+*/
+const bgColor = (status: Status) =>
+  status === 'success'
+    ? 'bg-status-success'
+    : status === 'error'
+    ? 'bg-status-error'
+    : 'bg-status-warning';
+
+const textColor = (status: Status) =>
+  status === 'success'
+    ? 'text-status-success'
+    : status === 'error'
+    ? 'text-status-error'
+    : 'text-status-warning';
+
+const borderColor = (status: Status) =>
+  status === 'success'
+    ? 'border-status-success'
+    : status === 'error'
+    ? 'border-status-error'
+    : 'border-status-warning';
+
 const StatusText = ({ children, status }: StatusTextProps) => {
   return (
     <div className='flex items-center'>
-      <div className={classnames('h-4 w-5 rounded-full', statusColor(status, 'bg'))} />
-      <span className={classnames('font-semibold ml-3', statusColor(status, 'text'))}>
-        {children}
-      </span>
+      <div className={classnames('h-4 w-5 rounded-full', bgColor(status))} />
+      <span className={classnames('font-semibold ml-3', textColor(status))}>{children}</span>
     </div>
   );
 };
@@ -61,6 +85,7 @@ const services = [
 ];
 
 const StatusPage = (): JSX.Element => {
+  const { t } = useTranslation('status');
   return (
     <>
       <Header />
@@ -68,24 +93,17 @@ const StatusPage = (): JSX.Element => {
       <main className='mx-auto max-w-7xl px-6 pb-6'>
         <div className='md:flex flex-row'>
           <div>
-            <small className='hidden md:block text-white text-sm mb-2'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </small>
-            <h1 className='text-white my-4 text-4xl font-bold'>Serviços ativos</h1>
-            <p className='text-describe'>
-              Para que eu seja o que eu sou, eu necessito de diversas aplicações que tem o foco em
-              fazer algo de mim, abaixo estão todas as aplicações que fazem a MenheraBot ser a
-              MenheraBot
-            </p>
+            <h1 className='text-white my-4 text-4xl font-bold'>{t('active-services')}</h1>
+            <p className='text-describe'>{t('services-description')}</p>
             <ul className='my-6 flex flex-col flex-wrap md:flex-row gap-3'>
               <li>
-                <StatusText status='success'>Nenhum Problema</StatusText>
+                <StatusText status='success'>{t('working-fine')}</StatusText>
               </li>
               <li>
-                <StatusText status='warning'>Parcialmente Debilitado</StatusText>
+                <StatusText status='warning'>{t('partial-outage')}</StatusText>
               </li>
               <li>
-                <StatusText status='error'>Offine</StatusText>
+                <StatusText status='error'>{t('major-outage')}</StatusText>
               </li>
             </ul>
           </div>
@@ -95,10 +113,14 @@ const StatusPage = (): JSX.Element => {
           {services.map((service, i) => (
             <div key={i} className='flex flex-col'>
               <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
-                Serviço: {service.name}
+                {t('service', { name: service.name })}
               </h2>
               <span className='text-describe'>
-                {service.problematicShards} / {service.shards.length} serviços tem problemas
+                {t('problems', {
+                  problematics: service.problematicShards,
+                  all: service.shards.length,
+                  name: service.name,
+                })}
               </span>
               <div className='flex flex-wrap gap-6 my-2'>
                 {service.shards.map((shard) => (
@@ -106,7 +128,7 @@ const StatusPage = (): JSX.Element => {
                     key={shard.id}
                     className={classnames(
                       'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
-                      statusColor(shard.status, 'border'),
+                      borderColor(shard.status),
                     )}
                   >
                     {shard.id}

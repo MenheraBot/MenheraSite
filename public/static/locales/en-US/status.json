@@ -1,0 +1,11 @@
+{
+  "active-services": "Active Services",
+  "services-description": "In order for me to be who I am, I need several apps to help me create the features we all love. Below are all the applications that make me, MenheraBot who I am",
+  "working-fine": "Working Fine",
+  "partial-outage": "Partial Outage",
+  "major-outage": "Major Outage",
+  "server-id": "Your server ID",
+  "service": "Service: {{name}}",
+  "problems": "{{problematics}} / {{all}} {{name}} have problems",
+  "shards": "shards"
+}

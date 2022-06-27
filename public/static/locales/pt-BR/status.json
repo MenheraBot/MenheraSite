@@ -1,0 +1,11 @@
+{
+  "active-services": "Serviços Ativos",
+  "services-description": "Para que eu seja quem eu sou, eu necessido de diversas aplicações para me ajudarem a criar as funcionalidades que todos amamos. Abaixo estão todas as aplicações que fazem eu, a MenheraBot ser quem sou",
+  "working-fine": "Nenhum Problema",
+  "partial-outage": "Parcialmente Debilitado",
+  "major-outage": "Offline",
+  "server-id": "ID de seu servidor",
+  "service": "Serviço: {{name}}",
+  "problems": "{{problematics}} / {{all}} {{name}} estão com problemas",
+  "shards": "shards"
+}
