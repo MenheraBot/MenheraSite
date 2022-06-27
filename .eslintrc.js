@@ -5,10 +5,10 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'standard',
-    'next/core-web-vitals',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'next/core-web-vitals',
+    'next',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
