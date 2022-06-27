@@ -11,13 +11,6 @@ import { SectionDivider } from '../components/common/SectionDivider';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 
-const features = [
-  'Diversão garantida',
-  'N/A permissão necessária',
-  'Facilidade de uso',
-  'Batalhas em Tempo Real',
-];
-
 const ranking = Array.from({ length: 10 }).map((_, i) => ({
   hunted: Math.floor(Math.random() * 30),
   position: i + 1,
@@ -25,39 +18,56 @@ const ranking = Array.from({ length: 10 }).map((_, i) => ({
   tag: 'Luxanna#5757',
 }));
 
-const commandsCategories = [
-  {
-    name: 'Acões',
-    id: 'actions',
-    description:
-      'Está pensando em alguém? Quer abraçar aquele seu crush? E o principal, quer “MAMAR” alguém? Hehe, aqui tudo isso é possível, com mais de 20 ações diferentes.',
-    Icon: FaRegKissWinkHeart,
-  },
-  {
-    name: 'Economia',
-    id: 'economy',
-    description:
-      'O mercado que rotaciona o Dinheiro da Menhera, as Estrelinhas. Aqui tu pode apostar no jogo do Bicho, BlackJack e outros para movimentar suas economias.',
-    Icon: HiStar,
-  },
-  {
-    name: 'Diversão',
-    id: 'fun',
-    description:
-      'Com esses comandos tu pode dizer que macetava aquele seu amigo, casar e fazer trisal com aquele pessoal querido. Confira esses e muitos outros.',
-    Icon: HiOutlineEmojiHappy,
-  },
-  {
-    name: 'RPG',
-    id: 'rpg',
-    description:
-      'O mundo de Boleham é um lugar misterioso e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar.',
-    Icon: RiSwordLine,
-  },
-];
+const useCategories = () => {
+  const { t } = useTranslation('index');
+
+  const commandsCategories = [
+    {
+      name: t('categories.actions'),
+      id: 'actions',
+      description: t('categories.actions-description'),
+      Icon: FaRegKissWinkHeart,
+    },
+    {
+      name: t('categories.economy'),
+      id: 'economy',
+      description: t('categories.economy-description'),
+      Icon: HiStar,
+    },
+    {
+      name: t('categories.fun'),
+      id: 'fun',
+      description: t('categories.fun-description'),
+      Icon: HiOutlineEmojiHappy,
+    },
+    {
+      name: t('categories.rpg'),
+      id: 'rpg',
+      description: t('categories.rpg-description'),
+      Icon: RiSwordLine,
+    },
+  ];
+
+  return commandsCategories;
+};
+
+const useFeatures = () => {
+  const { t } = useTranslation('index');
+
+  const features = [
+    t('features.facility'),
+    t('features.funny'),
+    t('features.battle'),
+    t('features.permissions'),
+  ];
+
+  return features;
+};
 
 const HomePage = (): JSX.Element => {
   const { t } = useTranslation('index');
+  const features = useFeatures();
+  const categories = useCategories();
 
   return (
     <>
@@ -66,7 +76,7 @@ const HomePage = (): JSX.Element => {
         <section id='descritpion' className='flex-1 flex p-6 container min-h-fit mx-auto max-w-7xl'>
           <div className='md:max-w-xl'>
             <h1 className='text-white mt-6 font-bold text-4xl md:text-5xl'>
-              {t('greetings')} <span className='text-primary'>Menhera BOT</span> {'>.<'}
+              {t('greetings')} <span className='text-primary'>Menhera Bot</span>
             </h1>
             <p className='mt-4 font-describe text-describe text-base md:text-xl'>
               {t('mission')}
@@ -130,7 +140,7 @@ const HomePage = (): JSX.Element => {
             <ul className='mt-6 overflow-auto h-full max-h-72 w-full max-w-lg'>
               {ranking.map((user, index) => (
                 <li
-                  key={index}
+                  key={`${user.tag}-${index}`}
                   className='mt-6 first:mt-0 mr-3 pb-4 border-b-2 border-b-separate-color md:mr-10'
                 >
                   <span className='text-white capitalize font-bold text-base'>
@@ -155,16 +165,18 @@ const HomePage = (): JSX.Element => {
           </h2>
           <p className='text-describe font-describe mt-4 md:text-xl'>{t('findout-description')}</p>
           <div className='my-6 flex gap-10 flex-wrap justify-between'>
-            {commandsCategories.map((category) => (
+            {categories.map((category) => (
               <div key={category.id} className='max-w-lg'>
                 {<category.Icon color='#975AFF' size={25} />}
                 <h3 className='text-white font-bold text-xl lg:text-2xl my-4'>
-                  Category: <span className='text-primary'>{category.name}</span>
+                  {t('category')} <span className='text-primary'>{category.name}</span>
                 </h3>
                 <p className='text-describe font-describe text-base mb-6 md:max-w-sm lg:max-w-md'>
                   {category.description}
                 </p>
-                <Button>{t('see-commands')}</Button>
+                <Link href={{ pathname: '/commands', query: { category: category.id } }} passHref>
+                  <Button>{t('see-commands')}</Button>
+                </Link>
               </div>
             ))}
           </div>

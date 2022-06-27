@@ -1,8 +1,14 @@
 {
-  "greetings": "Yahoy! eu sou a",
+  "greetings": "Oii, eu sou a",
   "mission": "Minha missão é divertir o teu servidor com diversas funcionalidades que tu podes ver",
   "here": " aqui",
   "invite": "Me Adicione",
+  "features": {
+    "facility": "Fácil de Usar",
+    "funny": "Diversão Garantida",
+    "battle": "Batalhas em Tempo Real",
+    "permissions": "Sem Permissões Necessárias"
+  },
   "weekly-ranking": "#Rank Semanal",
   "best-hunters": "Os Melhores da Semana",
   "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia!",
@@ -18,6 +24,17 @@
   },
   "findout": "Descubra o que posso fazer",
   "findout-description": "Atualmente eu possuo mais de 65 comandos com muitos outros subcomandos! Cada um mais divertido e louco que o outro, veja!",
+  "category": "Categoria",
+  "categories": {
+    "actions": "Ações",
+    "actions-description": "Está pensando em alguém? Quer abraçar aquele seu crush? E o principal, quer \"MAMAR\" alguém? Hehe, aqui tudo isso e mais é possível, com mais de 20 ações diferentes.",
+    "economy": "Economia",
+    "economy-description": "O mercado que rotaciona o Dinheiro da Menhera, as Estrelinhas. Aqui tu pode apostar no jogo do Bicho, BlackJack e outros para deixar sua carteira mais Stonks.",
+    "fun": "Diversão",
+    "fun-description": "Diga alguem que a macetava, veja o nível de calvície dos seus amigos, case e crie trisais com aquele pessoal querido. Não da pra explicar tudo, mas é MUITA coisa!",
+    "rpg": "RPG",
+    "rpg-description": "Boleham é um mundo e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar em dungeons perigosas com PvP e batalhas contra monstros em tempo real!"
+  },
   "see-commands": "Ver Comandos",
   "add-me": {
     "first": "Me",

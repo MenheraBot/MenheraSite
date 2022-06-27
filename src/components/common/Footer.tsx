@@ -81,7 +81,7 @@ export function Footer(): JSX.Element {
       <div className='container mx-auto p-6 max-w-7xl md:pt-16'>
         <div className='flex items-center justify-between'>
           <div className='hidden md:block max-w-xl'>
-            <h1 className='font-bold text-white text-4xl'>Menhera BOT</h1>
+            <h1 className='font-bold text-white text-4xl'>Menhera Bot</h1>
             <p className='text-describe text-xl mt-6 md:max-w-sm'>{t('description')}</p>
           </div>
           <div>

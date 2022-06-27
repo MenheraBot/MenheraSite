@@ -3,6 +3,12 @@
   "mission": "My mission is to entertain your server with several features that you can see",
   "here": "here",
   "invite": "Invite me",
+  "features": {
+    "facility": "Easy to Use",
+    "funny": "Guaranteed Fun",
+    "battle": "Real-Time Battles",
+    "permissions": "No Permissions Needed"
+  },
   "weekly-ranking": "#Weekly Rank",
   "best-hunters": "The Best of the Week",
   "ranking-description": "I have a hunting system, where players can hunt demons, angels, archangels, demigods and gods. Here are the best hunters from the last 7 days! The rank is updated every day!",
@@ -15,9 +21,20 @@
     "archangels": "Archangels",
     "demigods": "Demigods",
     "gods": "Gods"
-},
+  },
   "findout": "Find out what I can do",
   "findout-description": "I currently have over 65 commands with many more subcommands! Each one more fun and crazy than the last, see!",
+  "category": "Category",
+  "categories": {
+    "actions": "Actions",
+    "actions-description": "Are you thinking about someone? Want to hug that crush of yours? And the main thing, do you want to \"LICK\" someone? Hehe, all this is possible here, with more than 20 different actions.",
+    "economy": "Economy",
+    "economy-description": "The market that rotates Menhera's Money, the Estrelinhas. Here you can bet on Bicho, BlackJack and others to make your wallet more Stonks.",
+    "fun": "Fun",
+    "fun-description": "See your ship level, the level of baldness of your friends, get married and create polyamories with those dear people. I can't explain everything, but it's a LOT!",
+    "rpg": "RPG",
+    "rpg-description": "Boleham is a world full of magic, here you can be one of 12 classes and 8 different races to venture into dangerous dungeons with PvP and real-time monster battles!"
+  },
   "see-commands": "See commands",
   "add-me": {
     "first": "",
