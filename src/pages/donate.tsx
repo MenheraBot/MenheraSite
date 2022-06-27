@@ -18,7 +18,7 @@ const DonatePage = (): JSX.Element => {
         <SectionDivider title={t('donate')} withoutSpace className='mb-10' />
         <div className='lg:flex justify-around items-center'>
           <div>
-            <Image alt='Menhera Crying' src='/assets/cry.png' width={300} height={300} />
+            <Image alt='Menhera Crying' src='/menhera-crying.png' width={300} height={300} />
           </div>
           <div>
             <h1 className='text-white font-bold text-3xl md:text-4x'>{t('title')}</h1>
