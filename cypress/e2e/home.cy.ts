@@ -48,3 +48,5 @@ describe('Home page specs', () => {
     });
   });
 });
+
+export {};

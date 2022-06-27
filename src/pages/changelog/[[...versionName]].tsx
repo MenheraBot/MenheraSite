@@ -47,23 +47,23 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
       <Header />
       <main className='container p-6 mx-auto max-w-7xl lg:flex flex-row gap-6'>
         <nav className='bg-secondary-bg py-11 px-4 mb-6 mt-10 w-full max-w-sm h-min'>
-          <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>Lista de Versões</h2>
+          <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>{t('versions')}</h2>
           <ul className='mt-6 overflow-auto h-full max-h-96 w-full'>
             {versions?.map((version) => (
-              <li
-                key={version.versionName}
-                className='border-b-2 border-b-separate-color py-6 px-1 last:border-none'
-              >
-                <Link href={`/changelog/${version.versionName}`}>
-                  <a
-                    className={classNames('text-white hover:text-primary', {
-                      'text-primary': version.versionName === currentVersion.versionName,
-                    })}
+              <Link key={version.versionName} passHref href={`/changelog/${version.versionName}`}>
+                <li className='border-b-2 border-b-separate-color py-6 px-1 last:border-none'>
+                  <p
+                    className={classNames(
+                      'text-white cursor-pointer font-bold hover:text-primary',
+                      {
+                        'text-primary': version.versionName === currentVersion.versionName,
+                      },
+                    )}
                   >
                     {version.versionName}
-                  </a>
-                </Link>
-              </li>
+                  </p>
+                </li>
+              </Link>
             ))}
           </ul>
         </nav>
@@ -73,9 +73,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
               {t('title', { version: currentVersion?.versionName })}
             </h1>
 
-            <small className='text-white'>
-              {t('date')} {currentVersion.date}
-            </small>
+            <small className='text-white'>{t('date', { date: currentVersion.date })}</small>
             <ChangeLogSection type='added' />
             <ChangeLogSection type='changed' />
             <ChangeLogSection type='security' />

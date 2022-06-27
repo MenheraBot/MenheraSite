@@ -1,12 +1,10 @@
 {
-  "add": "Add",
-  "privacy": "Privacy",
-  "changelog": "Changelog",
+  "home": "Home",
   "commands": "Commands",
   "donate": "Donate",
-  "home": "Home",
   "status": "Status",
-  "about-me": "about me",
-  "ranking": "Ranking",
-  "language": "Português"
+  "legal": "Legal",
+  "language": "Português",
+  "login": "Login",
+  "navigation": "Navigation"
 }

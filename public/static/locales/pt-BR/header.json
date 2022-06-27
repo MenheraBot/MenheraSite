@@ -1,8 +1,10 @@
 {
+  "home": "Início",
   "commands": "Comandos",
-  "add": "Adicionar",
   "donate": "Contribuir",
-  "privacy": "Privacidade",
-  "changelog": "Atualizações",
-  "language": "English"
+  "status": "Status",
+  "legal": "Legal",
+  "language": "English",
+  "login": "Login",
+  "navigation": "Navegação"
 }

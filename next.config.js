@@ -11,17 +11,22 @@ module.exports = {
     {
       source: '/add',
       destination: process.env.NEXT_PUBLIC_BOT_INVITE_URL,
-      permanent: false,
+      permanent: true,
     },
     {
       source: '/invite',
       destination: process.env.NEXT_PUBLIC_BOT_INVITE_URL,
-      permanent: false,
+      permanent: true,
     },
     {
       source: '/github',
       destination: process.env.NEXT_PUBLIC_GITHUB_URL,
-      permanent: false,
+      permanent: true,
+    },
+    {
+      source: '/support',
+      destination: process.env.NEXT_PUBLIC_SUPPORT_URL,
+      permanent: true,
     },
   ],
 };

@@ -1,0 +1,49 @@
+{
+  "greetings": "Oii, eu sou a",
+  "mission": "Minha missão é divertir o teu servidor com diversas funcionalidades que tu podes ver",
+  "here": " aqui",
+  "invite": "Me Adicione",
+  "features": {
+    "facility": "Fácil de Usar",
+    "funny": "Diversão Garantida",
+    "battle": "Batalhas em Tempo Real",
+    "permissions": "Sem Permissões Necessárias"
+  },
+  "weekly-ranking": "#Rank Semanal",
+  "best-hunters": "Os Melhores da Semana",
+  "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia!",
+  "hunted": "Caçou {{amount}} $t(huntTypes.{{type}})",
+  "commands": "Comandos",
+  "huntTypes": {
+    "demons": "Demônios",
+    "giants": "Gigantes",
+    "angels": "Anjos",
+    "arcanjos": "Arcanjos",
+    "demigods": "Semideuses",
+    "gods": "Deuses"
+  },
+  "findout": "Descubra o que posso fazer",
+  "findout-description": "Atualmente eu possuo mais de 65 comandos com muitos outros subcomandos! Cada um mais divertido e louco que o outro, veja!",
+  "category": "Categoria",
+  "categories": {
+    "actions": "Ações",
+    "actions-description": "Está pensando em alguém? Quer abraçar aquele seu crush? E o principal, quer \"MAMAR\" alguém? Hehe, aqui tudo isso e mais é possível, com mais de 20 ações diferentes.",
+    "economy": "Economia",
+    "economy-description": "O mercado que rotaciona o Dinheiro da Menhera, as Estrelinhas. Aqui tu pode apostar no jogo do Bicho, BlackJack e outros para deixar sua carteira mais Stonks.",
+    "fun": "Diversão",
+    "fun-description": "Diga alguem que a macetava, veja o nível de calvície dos seus amigos, case e crie trisais com aquele pessoal querido. Não da pra explicar tudo, mas é MUITA coisa!",
+    "rpg": "RPG",
+    "rpg-description": "Boleham é um mundo e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar em dungeons perigosas com PvP e batalhas contra monstros em tempo real!"
+  },
+  "see-commands": "Ver Comandos",
+  "add-me": {
+    "first": "Me",
+    "second": "adicione",
+    "third": "no teu servidor",
+    "description": "Eu to louca pra conhecer como é por lá! O processo para me adicionar é tão simples quanto fazer um miojo, só clicar no botão e escolher o servidor. Eu não preciso de nenhuma permissão, então caso os moderadores do teu servidor serem todos preocupados, pode mandar isso pra eles que na mão da mãe ta safe 😎",
+    "add": "Adicionar"
+  },
+  "about-me": "Sobre mim",
+  "know-me-better": "Me conheça melhor",
+  "know-me-description": "Sou uma guria de 16 anos que AMA usar emojis de rostinhos kawaii como esse >,.,<. Fui criada pela Lux, outra guria maravilhosa que eu só tenho a agradecer (até porque ela eu não existiria). Minha missão aqui é trazer diversão para todos no teu servidor do Discord. Ah, também curto uns shitpost. E NÃO, EU NÃO SOU MINEIRA! EU SOU GAÚCHA. GA-Ú-CHA."
+}

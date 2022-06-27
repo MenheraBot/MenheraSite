@@ -1,6 +1,7 @@
 {
   "title": "Patch Notes {{version}}",
-  "date": "Released In",
+  "versions": "Versions List",
+  "date": "Released In {{date}}",
   "added": "Added",
   "changed": "Changed",
   "deprecated": "Deprecated",

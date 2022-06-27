@@ -3,7 +3,7 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
-  interface Chainable {
+  interface Chainable<T> {
     /**
      * Custom command to get element by data-cy values
      * @example cy.getByDataTest('selector')
@@ -18,3 +18,5 @@ declare namespace Cypress {
 Cypress.Commands.add('getByDataTest', (selector: string, ...args) => {
   return cy.get(`[data-test="${selector}"]`, ...args);
 });
+
+export {};

@@ -1,0 +1,10 @@
+{
+  "404": {
+    "title": "Eita boy! Essa página não exsite",
+    "description": "Ou talvez ela deveria existir (?), mas provavelmente ela não existe mesmo :/\nCaso realmente ache que essa página existe, verifique o URL se ela está correta, ou se preferir, verifique nos links abaixo se a página desejada existe."
+  },
+  "500": {
+    "title": "Opsies, I think I kicked some cables",
+    "description": "Ocorreu um erro aqui na minha casa. Não posso te dizer certo o que aconteceu, mas com certeza coisa boa não foi! Tente novamente mais tarde."
+  }
+}

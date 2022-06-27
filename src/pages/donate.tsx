@@ -15,14 +15,16 @@ const DonatePage = (): JSX.Element => {
     <>
       <Header />
       <main className='container p-6 mx-auto max-w-7xl  mb-10'>
-        <SectionDivider title='Donate' withoutSpace className='mb-10' />
+        <SectionDivider title={t('donate')} withoutSpace className='mb-10' />
         <div className='lg:flex justify-around items-center'>
           <div>
-            <Image alt='Menhera Crying' src='/assets/cry.png' width={300} height={300} />
+            <Image alt='Menhera Crying' src='/menhera-crying.png' width={300} height={300} />
           </div>
           <div>
-            <h1 className='text-white font-bold text-3xl md:text-4x'>{t('h1')}</h1>
-            <p className='text-describe font-describe mt-4 md:text-xl max-w-lg'>{t('p')}</p>
+            <h1 className='text-white font-bold text-3xl md:text-4x'>{t('title')}</h1>
+            <p className='text-describe font-describe mt-4 md:text-xl max-w-lg'>
+              {t('description')}
+            </p>
             <div className='text-primary my-6'>
               <span className='font-semibold text-green-400'>Pix: </span>
               donate@menherabot.xyz
@@ -41,7 +43,7 @@ const DonatePage = (): JSX.Element => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['common', 'donate', 'header', 'footer'])),
+      ...(await serverSideTranslations(locale as string, ['donate', 'header', 'footer'])),
     },
   };
 };
