@@ -2,7 +2,6 @@
   "made": "MeheraBot foi feita com ❤️ por Lux.",
   "menu": "Menu",
   "description": "MenheraBot é um projeto Open Source criado no acaso para a diversão de um servidor privado, que acabou expandindo, e hoje é focado na diversão de outros servidores com seus recursos de diversão e RPG",
-  "donate": "Contribuir",
   "status": "Status",
   "privacy": "Termos de Privacidade",
   "terms": "Termos de Uso",
@@ -10,5 +9,6 @@
   "invite": "Adicionar",
   "apeal": "Apelo de Ban",
   "home": "Início",
-  "commands": "Comandos"
+  "commands": "Comandos",
+  "changelog": "Mudanças"
 }

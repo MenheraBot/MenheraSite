@@ -33,8 +33,8 @@ const useFooter = () => {
       external: false,
     },
     {
-      redirect: '/donate',
-      name: 'donate',
+      redirect: '/changelog',
+      name: 'changelog',
       external: false,
     },
     {
