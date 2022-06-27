@@ -110,7 +110,7 @@ const HomePage = (): JSX.Element => {
           id='ranking-week'
           className='relative flex flex-row items-center mx-auto max-w-7xl'
         >
-          <div className='hidden md:block absolute h-3/4 w-56 -z-20'>
+          <div className='hidden md:block absolute h-3/4 w-56'>
             <Image src='/home-section-2-menhera.png' layout='fill' alt='Menhera de olho em você!' />
           </div>
           <div className='bg-secondary-bg md:ml-20 px-6 py-8 md:flex gap-3 justify-around items-center flex-1'>
