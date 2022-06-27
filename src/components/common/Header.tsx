@@ -1,18 +1,28 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-import { HiMenu, HiX, HiHome, HiStar, HiHeart, HiOutlineStatusOnline } from 'react-icons/hi';
+import {
+  HiMenu,
+  HiX,
+  HiHome,
+  HiStar,
+  HiHeart,
+  HiOutlineStatusOnline,
+  HiTranslate,
+} from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
 
 import { useTranslation } from 'next-i18next';
 
 import { IconType } from 'react-icons';
 import { Button } from './Button';
+import { useRouter } from 'next/router';
 
 interface NavbarItem {
   name: string;
   href: string;
   icon: IconType;
+  redirect: boolean;
 }
 
 export function useNavbarItems(): NavbarItem[] {
@@ -23,26 +33,37 @@ export function useNavbarItems(): NavbarItem[] {
       name: t('home'),
       href: '/',
       icon: HiHome,
+      redirect: true,
     },
     {
       name: t('commands'),
       href: '/commands',
       icon: FaClipboardList,
+      redirect: true,
     },
     {
       name: t('donate'),
       href: '/donate',
       icon: HiHeart,
+      redirect: true,
     },
     {
       name: t('status'),
       href: '/status',
       icon: HiOutlineStatusOnline,
+      redirect: true,
     },
     {
       name: t('privacy'),
       href: '/privacy',
       icon: HiStar,
+      redirect: true,
+    },
+    {
+      name: t('language'),
+      href: '/',
+      icon: HiTranslate,
+      redirect: false,
     },
   ];
 
@@ -52,6 +73,14 @@ export function useNavbarItems(): NavbarItem[] {
 export function Header(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const navbarItems = useNavbarItems();
+  const router = useRouter();
+  const { i18n } = useTranslation('header');
+
+  const changeLocale = () => {
+    router.push(router.asPath, undefined, {
+      locale: i18n.language === 'pt-BR' ? 'en-US' : 'pt-BR',
+    });
+  };
 
   return (
     <header className='flex justify-between md:justify-center items-center p-5 container mx-auto max-w-7xl'>
@@ -61,13 +90,17 @@ export function Header(): JSX.Element {
         </h1>
       </Link>
       <nav className='flex-1 hidden md:flex flex-row-reverse'>
-        <ul className='flex gap-3'>
+        <ul className='flex gap-10'>
           {navbarItems.map((item) => (
             <li
               key={item.name}
               className='font-bold text-md hover:text-primary hover:cursor-pointer text-white'
             >
-              <Link href={item.href}>{item.name}</Link>
+              {item.redirect ? (
+                <Link href={item.href}>{item.name}</Link>
+              ) : (
+                <span onClick={changeLocale}>{item.name}</span>
+              )}
             </li>
           ))}
         </ul>
@@ -102,12 +135,19 @@ export function Header(): JSX.Element {
                     key={item.name}
                     className='border-b last:border-none border-border-color py-3 text-white'
                   >
-                    <Link href={item.href}>
-                      <a className='flex'>
+                    {item.redirect ? (
+                      <Link href={item.href}>
+                        <a className='flex'>
+                          {<item.icon color='#975AFF' size={25} className='mr-3' />}
+                          {item.name}
+                        </a>
+                      </Link>
+                    ) : (
+                      <span className='flex cursor-pointer' onClick={changeLocale}>
                         {<item.icon color='#975AFF' size={25} className='mr-3' />}
                         {item.name}
-                      </a>
-                    </Link>
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>

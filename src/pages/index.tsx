@@ -48,7 +48,7 @@ const commandsCategories = [
   },
   {
     name: 'RPG',
-    id: 'fun',
+    id: 'rpg',
     description:
       'O mundo de Boleham é um lugar misterioso e cheio de magia, aqui tu pode ser um entre 12 classes e 8 raças diferentes para se aventurar.',
     Icon: RiSwordLine,
@@ -110,7 +110,7 @@ const HomePage = (): JSX.Element => {
           id='ranking-week'
           className='relative flex flex-row items-center mx-auto max-w-7xl'
         >
-          <div className='hidden md:block absolute h-3/4 w-56 -z-20'>
+          <div className='hidden md:block absolute h-3/4 w-56'>
             <Image src='/home-section-2-menhera.png' layout='fill' alt='Menhera de olho em você!' />
           </div>
           <div className='bg-secondary-bg md:ml-20 px-6 py-8 md:flex gap-3 justify-around items-center flex-1'>
@@ -195,9 +195,9 @@ const HomePage = (): JSX.Element => {
             />
           </div>
         </section>
-        <section className='container min-h-fit p-6 mx-auto max-w-7xl flex items-center justify-between'>
-          <div className='hidden md:block'>
-            <Image src='/menhera-piscando.png' width='374' height='394' alt='Menhera piscando!' />
+        <section className='container min-h-fit px-6 pt-6 mx-auto max-w-7xl flex items-center justify-between'>
+          <div className='hidden md:block -mb-3'>
+            <Image src='/menhera-piscando.png' width='374' height='390' alt='Menhera piscando!' />
           </div>
           <div>
             <SectionDivider title='Sobre mim' withoutSpace className='mb-6' />

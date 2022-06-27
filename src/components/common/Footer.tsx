@@ -38,14 +38,16 @@ export function Footer(): JSX.Element {
           <div>
             <h3 className='text-white text-xl md:text-2xl font-bold mt-6 md:mt-0'>Menu</h3>
             <ul className='grid grid-cols-3 flex-wrap justify-between mt-6'>
-              {navbarItems.map((item) => (
-                <li
-                  key={item.name}
-                  className='text-describe p-3 md:text-lg md:pl-0 hover:underline'
-                >
-                  <Link href={item.href}>{item.name}</Link>
-                </li>
-              ))}
+              {navbarItems
+                .filter((i) => i.redirect)
+                .map((item) => (
+                  <li
+                    key={item.name}
+                    className='text-describe p-3 md:text-lg md:pl-0 hover:underline'
+                  >
+                    <Link href={item.href}>{item.name}</Link>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>

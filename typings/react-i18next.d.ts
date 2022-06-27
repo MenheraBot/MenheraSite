@@ -1,16 +1,16 @@
 import 'react-i18next';
 
-import boleham from '../public/static/locales/en/boleham.json';
-import changelog from '../public/static/locales/en/changelog.json';
-import commands from '../public/static/locales/en/commands.json';
-import common from '../public/static/locales/en/common.json';
-import donate from '../public/static/locales/en/donate.json';
-import error from '../public/static/locales/en/error.json';
-import footer from '../public/static/locales/en/footer.json';
-import header from '../public/static/locales/en/header.json';
-import privacy from '../public/static/locales/en/privacy.json';
-import blog from '../public/static/locales/en/blog.json';
-import status from '../public/static/locales/en/status.json';
+import boleham from '../public/static/locales/en-US/boleham.json';
+import changelog from '../public/static/locales/en-US/changelog.json';
+import commands from '../public/static/locales/en-US/commands.json';
+import common from '../public/static/locales/en-US/common.json';
+import donate from '../public/static/locales/en-US/donate.json';
+import error from '../public/static/locales/en-US/error.json';
+import footer from '../public/static/locales/en-US/footer.json';
+import header from '../public/static/locales/en-US/header.json';
+import privacy from '../public/static/locales/en-US/privacy.json';
+import blog from '../public/static/locales/en-US/blog.json';
+import status from '../public/static/locales/en-US/status.json';
 
 declare module 'react-i18next' {
   // and extend them!
