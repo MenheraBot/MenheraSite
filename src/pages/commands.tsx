@@ -1,5 +1,5 @@
 import { fetchCommands } from '../services/api/api';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -10,6 +10,7 @@ import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import { Button } from '../components/common/Button';
 import { SearchInput } from '../components/common/SearchInput';
+import { useRouter } from 'next/router';
 
 type Props = {
   commands: Command[];
@@ -17,17 +18,27 @@ type Props = {
 };
 
 const CommandPage = ({ commands }: Props): JSX.Element => {
+  const router = useRouter();
+
   const categories = useMemo(() => {
     const categories = new Set<string>();
     commands.forEach((cmd) => categories.add(cmd.category));
     return [...categories].sort();
   }, [commands]);
 
-  const [selectedCategory, setCategory] = useState('actions');
+  const [selectedCategory, setCategory] = useState(categories[0]);
+
+  useEffect(() => {
+    if (router && router.query) {
+      const founded = categories.find((a) => a === router.query?.category);
+
+      if (founded) setCategory(founded);
+    }
+  }, [router, categories]);
 
   const filteredCommands = useMemo(() => {
     const categoryCmds = commands.filter((cmd) => cmd.category === selectedCategory);
-    return [...categoryCmds].sort((a, b) => a.name.localeCompare(b.name));
+    return categoryCmds.sort((a, b) => a.name.localeCompare(b.name));
   }, [selectedCategory, commands]);
 
   return (
