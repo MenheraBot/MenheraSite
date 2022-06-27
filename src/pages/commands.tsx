@@ -86,6 +86,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
                   </span>
                   <p className='text-describe my-4'>{cmd.description}</p>
                   <span className='text-describe space-x-2'>
+                    <span>/{cmd.name}</span>
                     {cmd.options.map((op) => (
                       <span
                         key={`${cmd.name}-${op.name}`}
