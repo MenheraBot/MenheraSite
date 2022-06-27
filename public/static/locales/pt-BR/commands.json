@@ -1,0 +1,16 @@
+{
+  "title": "Conheça meus comandos",
+  "commands": "Comandos",
+  "description": "Eu conto com mais de 70 comandos diferentes para te divertir e para facilitar para vocês, eles são divididos por categorias, que podem ser vistas abaixo",
+  "list": "Lista de comandos",
+  "categories": {
+    "actions": "Ações",
+    "fun": "Diversão",
+    "economy": "Economia",
+    "roleplay": "RPG",
+    "info": "Informativo",
+    "util": "Útil"
+  },
+  "info": "Clique para mais informações",
+  "search": "Pesquisar comando"
+}

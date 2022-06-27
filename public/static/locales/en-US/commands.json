@@ -1,0 +1,16 @@
+{
+  "title": "Know my commands",
+  "commands": "Commands",
+  "description": "I have more than 70 different commands to amuse you and to make it easier for you, they are divided into categories, which can be seen below  ",
+  "list": "Commands List",
+  "categories": {
+    "actions": "Actions",
+    "fun": "Fun",
+    "economy": "Economy",
+    "roleplay": "RPG",
+    "info": "Info",
+    "util": "Util"
+  },
+  "info": "Click for more info",
+  "search": "Search command"
+}

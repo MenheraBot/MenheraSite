@@ -4,12 +4,23 @@ export interface Choice {
   value: string;
 }
 
+type CommandType =
+  | 'STRING'
+  | 'NUMBER'
+  | 'BOOLEAN'
+  | 'CHANNEL'
+  | 'USER'
+  | 'ROLE'
+  | 'integer'
+  | 'SUB_COMMAND'
+  | 'SUB_COMMAND_GROUP';
+
 export interface Option {
+  type: CommandType;
   name: string;
-  nameLocalizations?: { 'en-US': string };
-  type: string;
+  nameLocalizations?: { 'en-US': string } | null;
   description: string;
-  descriptionLocalizations?: { 'en-US': string };
+  descriptionLocalizations?: { 'en-US': string } | null;
   required: boolean;
   choices: Choice[];
   options: Option[];
@@ -22,13 +33,13 @@ export interface Disabled {
 
 export interface Command {
   name: string;
+  nameLocalizations?: { 'en-US': string } | null;
+  description: string;
+  descriptionLocalizations?: { 'en-US': string } | null;
+  options: Option[];
+  disabled: Disabled;
   category: string;
   cooldown: number;
-  description: string;
-  options: Option[];
-  nameLocalizations?: { 'en-US': string };
-  descriptionLocalizations?: { 'en-US': string };
-  disabled: Disabled;
 }
 
 export interface Top {

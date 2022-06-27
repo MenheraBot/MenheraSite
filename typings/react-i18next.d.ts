@@ -8,6 +8,7 @@ import status from '../public/static/locales/pt-BR/status.json';
 import errors from '../public/static/locales/pt-BR/errors.json';
 import donate from '../public/static/locales/pt-BR/donate.json';
 import changelog from '../public/static/locales/pt-BR/changelog.json';
+import commands from '../public/static/locales/pt-BR/commands.json';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
@@ -20,6 +21,7 @@ declare module 'react-i18next' {
       errors: typeof errors;
       donate: typeof donate;
       changelog: typeof changelog;
+      commands: typeof commands;
     };
   }
 }
