@@ -1,3 +1,5 @@
+type i18nObj = Record<string, string>;
+
 export interface Choice {
   name: string;
   nameLocalizations?: { 'en-US': string };
@@ -18,9 +20,9 @@ type CommandType =
 export interface Option {
   type: CommandType;
   name: string;
-  nameLocalizations?: { 'en-US': string } | null;
+  nameLocalizations?: i18nObj | null;
   description: string;
-  descriptionLocalizations?: { 'en-US': string } | null;
+  descriptionLocalizations?: i18nObj | null;
   required: boolean;
   choices: Choice[];
   options: Option[];
@@ -33,9 +35,9 @@ export interface Disabled {
 
 export interface Command {
   name: string;
-  nameLocalizations?: { 'en-US': string } | null;
+  nameLocalizations?: i18nObj | null;
   description: string;
-  descriptionLocalizations?: { 'en-US': string } | null;
+  descriptionLocalizations?: i18nObj | null;
   options: Option[];
   disabled: Disabled;
   category: string;

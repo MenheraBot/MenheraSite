@@ -1,8 +1,9 @@
-import { fetchCommands } from '../services/api/api';
 import { useState, useMemo, useEffect } from 'react';
 
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 import { Command } from '../services/api/api.types';
 import { Header } from '../components/common/Header';
@@ -10,77 +11,12 @@ import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import { Button } from '../components/common/Button';
 import { SearchInput } from '../components/common/SearchInput';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+
+import { getCommands } from '../services/api/command';
 
 type Props = {
   commands: Command[];
   locale: string;
-};
-
-const extractSubcommands = (data: Command[]) => {
-  return data.reduce<Command[]>((cmds, command) => {
-    if (
-      command.options.length === 0 ||
-      !command.options.some((a) => a.type === 'SUB_COMMAND_GROUP' || a.type === 'SUB_COMMAND')
-    ) {
-      cmds.push({
-        ...command,
-        nameLocalizations: command.nameLocalizations ?? null,
-        options: command.options
-          ? command.options.map((a) => {
-              return {
-                ...a,
-                nameLocalizations: a.nameLocalizations ?? null,
-                descriptionLocalizations: a.descriptionLocalizations,
-              };
-            })
-          : [],
-        descriptionLocalizations: command.descriptionLocalizations ?? null,
-      });
-      return cmds;
-    }
-
-    command.options.forEach((opt) => {
-      if (opt.type === 'SUB_COMMAND_GROUP') {
-        opt.options.forEach((option) => {
-          cmds.push({
-            category: command.category,
-            cooldown: command.cooldown,
-            disabled: command.disabled,
-            description: option.description,
-            descriptionLocalizations: option.descriptionLocalizations ?? null,
-            options: option.options ?? [],
-            name: `${command.name} ${opt.name} ${option.name}`,
-            nameLocalizations: option.nameLocalizations
-              ? {
-                  'en-US': `${command.nameLocalizations?.['en-US']} ${opt.nameLocalizations?.['en-US']} ${option.nameLocalizations?.['en-US']}`,
-                }
-              : null,
-          });
-        });
-      }
-
-      if (opt.type === 'SUB_COMMAND') {
-        cmds.push({
-          category: command.category,
-          cooldown: command.cooldown,
-          disabled: command.disabled,
-          description: opt.description,
-          descriptionLocalizations: opt.descriptionLocalizations,
-          options: opt.options ?? [],
-          name: `${command.name} ${opt.name}`,
-          nameLocalizations: opt.nameLocalizations
-            ? {
-                'en-US': `${command.nameLocalizations?.['en-US']} ${opt.nameLocalizations?.['en-US']}`,
-              }
-            : null,
-        });
-      }
-    });
-
-    return cmds;
-  }, []);
 };
 
 const CommandPage = ({ commands }: Props): JSX.Element => {
@@ -107,10 +43,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
     return categoryCmds.sort((a, b) => a.name.localeCompare(b.name));
   }, [selectedCategory, commands]);
 
-  const { t, i18n } = useTranslation('commands');
-
-  const needLocalizate = i18n.language !== 'pt-BR';
-
+  const { t } = useTranslation('commands');
   return (
     <>
       <Header />
@@ -149,16 +82,10 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
                   className='border-b-2 border-b-separate-color py-6 px-1'
                 >
                   <span className='text-primary text-lg font-bold capitalize underline'>
-                    {needLocalizate && cmd.nameLocalizations?.['en-US']
-                      ? cmd.nameLocalizations?.['en-US']
-                      : cmd.name}
+                    {cmd.name}
                   </span>
-                  <p className='text-describe my-4'>
-                    {needLocalizate && cmd.descriptionLocalizations?.['en-US']
-                      ? cmd.descriptionLocalizations['en-US']
-                      : cmd.description}
-                  </p>
-                  <span className='text-describe'>
+                  <p className='text-describe my-4'>{cmd.description}</p>
+                  <span className='text-describe space-x-2'>
                     {cmd.options.map((op) => (
                       <span
                         key={`${cmd.name}-${op.name}`}
@@ -180,9 +107,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const rawCommands = await fetchCommands();
-
-  const commands = extractSubcommands(rawCommands);
+  const commands = await getCommands(locale as string);
 
   return {
     props: {
@@ -190,7 +115,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       commands,
       ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
     },
-    revalidate: 60,
+    // revalidate: 60,
   };
 };
 
