@@ -16,36 +16,7 @@ body {
   background-color: #191919;
   background-image:url('/background.svg');
 
-  
-  background-repeat: repeat;
   background-position: 0px 0px;
-
-  animation: animatedBackground 500s linear infinite;
-  -moz-animation: animatedBackground 500s linear infinite;
-  -webkit-animation: animatedBackground 500s linear infinite;
-  -ms-animation: animatedBackground 500s linear infinite;
-  -o-animation: animatedBackground 500s linear infinite;
-}
-
-@keyframes animatedBackground {
-  0% { background-position-x: 0;}
-  100% {background-position-x: -10000px ;}
-}
-@-moz-keyframes animatedBackground {
-  0% { background-position-x: 0;}
-  100% {background-position-x: -10000px ;}
-}
-@-webkit-keyframes animatedBackground {
-  0% { background-position-x: 0;}
-  100% {background-position-x: -10000px ;}
-}
-@-ms-keyframes animatedBackground {
-  0% { background-position-x: 0;}
-  100% {background-position-x: -10000px ;}
-}
-@-o-keyframes animatedBackground {
-  0% { background-position-x: 0;}
-  100% {background-position-x: -10000px ;}
 }
 
 ::-webkit-scrollbar {
