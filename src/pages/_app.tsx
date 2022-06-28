@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/global.css';
 
-import App, { AppContext, AppProps } from 'next/app';
+import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -30,7 +30,7 @@ const Application = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-Application.getInitialProps = async (appContext: AppContext) => ({
+export const getInitialProps = async (appContext: AppContext): Promise<AppInitialProps> => ({
   ...(await App.getInitialProps(appContext)),
 });
 
