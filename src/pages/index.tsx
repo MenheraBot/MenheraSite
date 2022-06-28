@@ -186,7 +186,13 @@ const HomePage = (): JSX.Element => {
             src='/home-section-4-bg.png'
             layout='fill'
             alt='Discord'
-            className='-z-10 bg-contain'
+            className='-z-10 bg-contain sm:block hidden'
+          />
+          <Image
+            src='/home-section-4-bg-mobile.png'
+            layout='fill'
+            alt='Discord'
+            className='-z-10 bg-contain sm:hidden block'
           />
           <div className='p-6 lg:p-0 mx-auto max-w-7xl flex justify-between relative'>
             <div className='md:py-6'>
