@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/global.css';
 
-import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -29,9 +29,5 @@ const Application = ({ Component, pageProps }: AppProps) => {
     </>
   );
 };
-
-export const getInitialProps = async (appContext: AppContext): Promise<AppInitialProps> => ({
-  ...(await App.getInitialProps(appContext)),
-});
 
 export default appWithTranslation(Application);
