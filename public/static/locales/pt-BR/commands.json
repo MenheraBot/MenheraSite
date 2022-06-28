@@ -2,8 +2,8 @@
   "title": "Conheça meus comandos",
   "commands": "Comandos",
   "description": "Eu conto com mais de 70 comandos diferentes para te divertir e para facilitar para vocês, eles são divididos por categorias, que podem ser vistas abaixo",
-  "list": "Lista de comandos",
   "categories": {
+    "title": "Categorias",
     "actions": "Ações",
     "fun": "Diversão",
     "economy": "Economia",
@@ -11,6 +11,9 @@
     "info": "Informativo",
     "util": "Útil"
   },
-  "info": "Clique para mais informações",
-  "search": "Pesquisar comando"
+  "search": "Pesquisar comando",
+  "by-search": "Pesquisa por '{{input}}'",
+  "by-category": "Comandos de {{category}}",
+  "clear": "Limpar busca",
+  "unknown": "Não conheço nenhum comando chamado '{{input}}'"
 }

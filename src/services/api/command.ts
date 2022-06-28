@@ -7,7 +7,7 @@ const isParentCommand = (options: Option[]) =>
 
 const extractSubcommands = (data: Command[], locale: string): Command[] => {
   return data.reduce<Command[]>((commands, command) => {
-    function extractSubCommandGroup(parent: string, options: Option[]): Option[] {
+    function extractOptions(parent: string, options: Option[]): Option[] {
       const newOptions: Option[] = [];
 
       for (const index in options) {
@@ -18,13 +18,13 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
         const subName = `${parent} ${optionName}`;
 
         if (option.type === 'SUB_COMMAND_GROUP') {
-          extractSubCommandGroup(subName, option.options);
+          extractOptions(subName, option.options);
         } else if (option.type === 'SUB_COMMAND') {
           const subcommand = {
             ...command,
             description: optionDesc,
             name: subName,
-            options: extractSubCommandGroup(subName, option.options),
+            options: extractOptions(subName, option.options),
           };
 
           commands.push(subcommand);
@@ -39,13 +39,13 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
     const cmdName = command.nameLocalizations?.[locale] ?? command.name;
 
     if (isParentCommand(command.options)) {
-      extractSubCommandGroup(cmdName, command.options);
+      extractOptions(cmdName, command.options);
     } else {
       const cmd: Command = {
         ...command,
         name: cmdName,
         description: command.descriptionLocalizations?.[locale] ?? command.description,
-        options: extractSubCommandGroup(cmdName, command.options),
+        options: extractOptions(cmdName, command.options),
       };
       commands.push(cmd);
     }

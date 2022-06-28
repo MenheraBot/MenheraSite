@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, ChangeEvent } from 'react';
 
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -29,6 +29,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
   }, [commands]);
 
   const [selectedCategory, setCategory] = useState(categories[0]);
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     if (router && router.query) {
@@ -39,9 +40,21 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
   }, [router, categories]);
 
   const filteredCommands = useMemo(() => {
+    if (searchInput.length > 0)
+      return commands.filter(
+        (cmd) =>
+          cmd.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+          cmd.nameLocalizations?.['en-US'].toLowerCase().includes(searchInput.toLowerCase()),
+      );
+
     const categoryCmds = commands.filter((cmd) => cmd.category === selectedCategory);
     return categoryCmds.sort((a, b) => a.name.localeCompare(b.name));
-  }, [selectedCategory, commands]);
+  }, [selectedCategory, commands, searchInput]);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
 
   const { t } = useTranslation('commands');
   return (
@@ -56,48 +69,79 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
         <p className='text-describe text-xl'>{t('description')}</p>
 
         <div className='md:flex flex-row justify-between gap-10 md:mt-10'>
-          <ul className='bg-secondary-bg py-11 px-4 my-6 flex flex-col gap-6 w-full max-w-xs'>
+          <ul className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex flex-col gap-6 w-full max-w-xs'>
+            <li key={'categories-title'} className='text-white'>
+              <h2 className='text-white font-bold text-2xl md:text-4xl'>{t('categories.title')}</h2>
+            </li>
             {categories.map((category) => (
               <li key={category}>
                 <Button
                   className='w-full text-start'
-                  variant={selectedCategory === category ? 'primary' : 'secondary'}
-                  onClick={() => setCategory(category)}
+                  variant={selectedCategory === category && !searchInput ? 'primary' : 'secondary'}
+                  onClick={() => {
+                    setCategory(category);
+                    setSearchInput('');
+                  }}
                 >
                   {t(`categories.${category as 'fun'}`)}
                 </Button>
               </li>
             ))}
           </ul>
-          <div className='bg-secondary-bg py-11 px-4 mb-6 flex-1'>
+          <div className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex-1'>
             <div className='md:flex flex-row-reverse justify-between items-center'>
-              <SearchInput placeholder={t('search')} />
-              <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>{t('list')}</h2>
+              <SearchInput
+                value={searchInput}
+                onChange={handleInputChange}
+                placeholder={t('search')}
+              />
+              <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>
+                {searchInput
+                  ? t('by-search', { input: searchInput })
+                  : t('by-category', { category: t(`categories.${selectedCategory as 'fun'}`) })}
+              </h2>
             </div>
-            <h4 className='text-white font-bold text-xl'>{t('info')}</h4>
-            <ul className='mt-6 overflow-auto h-full max-h-96 w-full'>
-              {filteredCommands.map((cmd) => (
+            <ul className='overflow-auto h-full max-h-96 w-full'>
+              {filteredCommands.length > 0 ? (
+                filteredCommands.map((cmd) => (
+                  <li
+                    key={cmd.name.replaceAll(' ', '-')}
+                    className='border-b-2 border-b-separate-color py-6 px-1'
+                  >
+                    <span className='text-primary text-lg font-bold capitalize underline'>
+                      {cmd.name}
+                    </span>
+                    <p className='text-describe my-4'>{cmd.description}</p>
+                    <span className='text-describe space-x-2'>
+                      <span>/{cmd.name}</span>
+                      {cmd.options.map((op) => (
+                        <span
+                          key={`${cmd.name}-${op.name}`}
+                          className='hover:text-primary cursor-pointer'
+                        >
+                          {op.required ? `{${op.name}}` : `[${op.name}]`}
+                        </span>
+                      ))}
+                    </span>
+                  </li>
+                ))
+              ) : (
                 <li
-                  key={cmd.name.replaceAll(' ', '-')}
-                  className='border-b-2 border-b-separate-color py-6 px-1'
+                  key={'empty'}
+                  className='flex flex-col border-b-2 border-b-separate-color pb-6 px-1'
                 >
-                  <span className='text-primary text-lg font-bold capitalize underline'>
-                    {cmd.name}
+                  <span className='text-primary text-lg font-bold'>
+                    {t('unknown', { input: searchInput })}
                   </span>
-                  <p className='text-describe my-4'>{cmd.description}</p>
-                  <span className='text-describe space-x-2'>
-                    <span>/{cmd.name}</span>
-                    {cmd.options.map((op) => (
-                      <span
-                        key={`${cmd.name}-${op.name}`}
-                        className='hover:text-primary cursor-pointer'
-                      >
-                        {op.required ? `{${op.name}}` : `[${op.name}]`}
-                      </span>
-                    ))}
-                  </span>
+                  <Button
+                    className='text-start w-fit mt-5'
+                    variant={'primary'}
+                    onClick={() => setSearchInput('')}
+                  >
+                    {t('clear')}
+                  </Button>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
         </div>

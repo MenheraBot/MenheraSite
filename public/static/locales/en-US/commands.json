@@ -2,8 +2,8 @@
   "title": "Know my commands",
   "commands": "Commands",
   "description": "I have more than 70 different commands to amuse you and to make it easier for you, they are divided into categories, which can be seen below  ",
-  "list": "Commands List",
   "categories": {
+    "title": "Categories",
     "actions": "Actions",
     "fun": "Fun",
     "economy": "Economy",
@@ -11,6 +11,9 @@
     "info": "Info",
     "util": "Util"
   },
-  "info": "Click for more info",
-  "search": "Search command"
+  "search": "Search command",
+  "by-search": "Search for '{{input}}'",
+  "by-category": "{{category}} Commands",
+  "clear": "Clear search",
+  "unknown": "I don't know any commands called '{{input}}'"
 }
