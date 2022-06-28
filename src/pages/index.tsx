@@ -199,11 +199,12 @@ const HomePage = (): JSX.Element => {
               </p>
               <Button>{t('add-me.add')}</Button>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src='/menhera-de-fone.svg'
-              alt='Discord'
+            <Image
               className='hidden lg:block absolute h-full right-0'
+              src='/menhera-de-fone.svg'
+              height={336}
+              width={264}
+              alt='Discord'
             />
           </div>
         </section>
