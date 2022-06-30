@@ -1,4 +1,4 @@
-import { fetchDisabledCommands } from '../services/api/api';
+import { fetchDisabledCommands, fetchShardStatus } from '../services/api/api';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
@@ -10,11 +10,12 @@ import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { SearchInput } from '../components/common/SearchInput';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type Props = {
   lang: string;
   disabledCommands: Command[];
+  lastShardStatus: ShardData[];
 };
 
 type Status = 'success' | 'error' | 'warning';
@@ -85,16 +86,20 @@ const services = [
   },
 ];
 
-const StatusPage = (): JSX.Element => {
+const StatusPage = ({ disabledCommands, lastShardStatus }): JSX.Element => {
   const { t } = useTranslation('status');
 
-  const [status, setStatus] = useState<ShardData[]>([]);
+  const [status, setStatus] = useState<ShardData[]>(lastShardStatus);
 
-  if (typeof window !== 'undefined') {
-    const ws = new WebSocket(process.env.NEXT_PUBLIC_WS_URL);
+  useEffect(() => {
+      const interval = setInterval(() => {
+        const updatedStatus = await fetchShardStatus();
 
-    ws.onmessage = (msg) => setStatus(JSON.parse(msg.data));
-  }
+        setStatus(updatedStatus);
+      }, 15_000)
+      
+      return () => clearInterval(interval)
+  }, []);
 
   return (
     <>
@@ -156,12 +161,14 @@ const StatusPage = (): JSX.Element => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const disabledCommands = await fetchDisabledCommands();
+  const lastShardStatus = await fetchShardStatus();
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['status', 'header', 'footer'])),
       lang: locale as string,
       disabledCommands,
+      lastShardStatus,
     },
     revalidate: 60,
   };
