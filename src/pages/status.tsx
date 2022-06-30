@@ -1,8 +1,8 @@
-import { fetchCommands } from '../services/api/api';
+import { fetchDisabledCommands } from '../services/api/api';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Command } from '../services/api/api.types';
+import { Command, ShardData } from '../services/api/api.types';
 
 import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
@@ -10,6 +10,7 @@ import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { SearchInput } from '../components/common/SearchInput';
 import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 
 type Props = {
   lang: string;
@@ -86,6 +87,15 @@ const services = [
 
 const StatusPage = (): JSX.Element => {
   const { t } = useTranslation('status');
+
+  const [status, setStatus] = useState<ShardData[]>([]);
+
+  if (typeof window !== 'undefined') {
+    const ws = new WebSocket(process.env.NEXT_PUBLIC_WS_URL);
+
+    ws.onmessage = (msg) => setStatus(JSON.parse(msg.data));
+  }
+
   return (
     <>
       <Header />
@@ -123,12 +133,12 @@ const StatusPage = (): JSX.Element => {
                 })}
               </span>
               <div className='flex flex-wrap gap-6 my-2'>
-                {service.shards.map((shard) => (
+                {status.map((shard) => (
                   <div
                     key={shard.id}
                     className={classnames(
                       'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
-                      borderColor(shard.status),
+                      borderColor('success'), //TODO
                     )}
                   >
                     {shard.id}
@@ -145,13 +155,13 @@ const StatusPage = (): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const commands = await fetchCommands();
+  const disabledCommands = await fetchDisabledCommands();
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['status', 'header', 'footer'])),
       lang: locale as string,
-      disabledCommands: commands.filter((c) => c.disabled?.isDisabled),
+      disabledCommands,
     },
     revalidate: 60,
   };

@@ -4,6 +4,7 @@ declare global {
       API_URL: string;
       BLOG_URL: string;
       NEXT_PUBLIC_API_URL: string;
+      NEXT_PUBLIC_WS_URL: string;
       NEXT_PUBLIC_GITHUB_URL: string;
       NEXT_PUBLIC_SUPPORT_URL: string;
       NEXT_PUBLIC_BOT_INVITE_URL: string;

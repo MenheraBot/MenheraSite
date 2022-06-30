@@ -21,4 +21,5 @@ export const fetchGithub = async (): Promise<string> => {
 };
 
 export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
-export const fetchStatus = (): Promise<ShardData[]> => fetch('/shards');
+export const fetchDisabledCommands = (): Promise<Command[]> => fetch('/disabled');
+export const fetchShardStatus = (): Promise<ShardData[]> => fetch('/shards');
