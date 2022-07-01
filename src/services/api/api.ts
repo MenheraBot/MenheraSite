@@ -21,5 +21,8 @@ export const fetchGithub = async (): Promise<string> => {
 };
 
 export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
-export const fetchDisabledCommands = (): Promise<Command[]> => fetch('/disabled');
-export const fetchShardStatus = (): Promise<ShardData[]> => fetch('/shards');
+
+export const fetchShardStatus = (): Promise<ShardData[]> =>
+  fetch<ShardData[]>('/shards').then((res) =>
+    res.map((shard) => ({ ...shard, isOff: shard.lastPingAt < Date.now() - 25_000 })),
+  );

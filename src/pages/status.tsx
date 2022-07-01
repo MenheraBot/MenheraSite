@@ -1,8 +1,8 @@
-import { fetchDisabledCommands, fetchShardStatus } from '../services/api/api';
+import { fetchShardStatus } from '../services/api/api';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Command, ShardData } from '../services/api/api.types';
+import { ShardData } from '../services/api/api.types';
 
 import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
@@ -10,11 +10,10 @@ import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { SearchInput } from '../components/common/SearchInput';
 import { useTranslation } from 'next-i18next';
-import { useState, useEffect } from 'react';
+import useSWR from 'swr';
 
 type Props = {
   lang: string;
-  disabledCommands: Command[];
   lastShardStatus: ShardData[];
 };
 
@@ -66,40 +65,23 @@ const StatusText = ({ children, status }: StatusTextProps) => {
   );
 };
 
-function rand<A>(arr: A[]): A {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+const getStatusColor = (shard: ShardData): Status => {
+  if (shard.isOff) return 'error';
+  if (shard.unavailable > 0) return 'warning';
+  if (shard.ping > 100) return 'warning';
+  if (shard.ping > 500) return 'error';
+  return 'success';
+};
 
-const services = [
-  {
-    name: 'Discord Bot',
-    activeShards: 20,
-    problematicShards: 10,
-    shards: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      cluster: 1,
-      uptime: '1h',
-      serverCount: 100,
-      status: rand(['success', 'error', 'warning'] as Status[]),
-      offlineServers: 0,
-    })),
-  },
-];
-
-const StatusPage = ({ disabledCommands, lastShardStatus }): JSX.Element => {
+const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
   const { t } = useTranslation('status');
 
-  const [status, setStatus] = useState<ShardData[]>(lastShardStatus);
-
-  useEffect(() => {
-      const interval = setInterval(() => {
-        const updatedStatus = await fetchShardStatus();
-
-        setStatus(updatedStatus);
-      }, 15_000)
-      
-      return () => clearInterval(interval)
-  }, []);
+  const { data: shardsData } = useSWR<ShardData[]>('/info/shards', {
+    fetcher: fetchShardStatus,
+    refreshInterval: 15_000,
+    errorRetryCount: 3,
+    fallbackData: lastShardStatus,
+  });
 
   return (
     <>
@@ -125,33 +107,33 @@ const StatusPage = ({ disabledCommands, lastShardStatus }): JSX.Element => {
           <SearchInput placeholder={t('server-id')} />
         </div>
         <div>
-          {services.map((service, i) => (
-            <div key={i} className='flex flex-col'>
-              <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
-                {t('service', { name: service.name })}
-              </h2>
-              <span className='text-describe'>
-                {t('problems', {
-                  problematics: service.problematicShards,
-                  all: service.shards.length,
-                  name: service.name,
-                })}
-              </span>
-              <div className='flex flex-wrap gap-6 my-2'>
-                {status.map((shard) => (
+          <div className='flex flex-col'>
+            <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
+              {t('service', { name: 'Menhera Bot' })}
+            </h2>
+
+            <span className='text-describe'>
+              {t('problems', {
+                problematics: shardsData?.filter((s) => s.isOff).length ?? 0,
+                all: shardsData?.length,
+                name: t('shards'),
+              })}
+            </span>
+            <div className='flex flex-wrap gap-6 my-2'>
+              {shardsData &&
+                shardsData.map((shard) => (
                   <div
                     key={shard.id}
                     className={classnames(
                       'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
-                      borderColor('success'), //TODO
+                      borderColor(getStatusColor(shard)), //TODO
                     )}
                   >
                     {shard.id}
                   </div>
                 ))}
-              </div>
             </div>
-          ))}
+          </div>
         </div>
       </main>
       <Footer />
@@ -160,17 +142,15 @@ const StatusPage = ({ disabledCommands, lastShardStatus }): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const disabledCommands = await fetchDisabledCommands();
   const lastShardStatus = await fetchShardStatus();
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['status', 'header', 'footer'])),
       lang: locale as string,
-      disabledCommands,
       lastShardStatus,
     },
-    revalidate: 60,
+    revalidate: 15,
   };
 };
 
