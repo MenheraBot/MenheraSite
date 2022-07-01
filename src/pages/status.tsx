@@ -148,7 +148,6 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
             <h2 className='font-bold text-3xl md:text-3xl text-white my-6'>
               {t('service', { name: 'Menhera Bot' })}
             </h2>
-
             <span className='text-describe'>
               {t('problems', {
                 problematics: shardsData?.filter((s) => s.isOff).length ?? 0,
