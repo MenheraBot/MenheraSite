@@ -73,21 +73,27 @@ const ShardTooltip = ({ children, shard }: { children: React.ReactNode; shard: S
       {children}
       <div className='absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex text-left'>
         <span className='relative z-10 p-2 min-w-max leading-none text-white whitespace-no-wrap bg-primary-bg shadow-lg rounded-md'>
-          <div className='text-primary font-bold text-2xl mb-4'>Shard {shard.id}</div>
+          <div className='text-primary font-bold text-lg mb-1'>Shard {shard.id}</div>
           <div className='text-white border-b-2 border-b-separate-color pb-1'>
             Cluster: <span className='text-describe'>{shard.clusterId}</span>
           </div>
-          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-3'>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
+            Ping: <span className='text-describe'>{shard.ping}ms</span>
+          </div>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
             Uptime:{' '}
             <span className='text-describe'>
               {dayjs(shard.uptime).format('DD[d], HH[h], mm[m], ss[s]')}
             </span>
           </div>
-          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-3'>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
             {t('servers')} <span className='text-describe'>{shard.guilds}</span>
           </div>
-          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-3'>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
             {t('unavailable')} <span className='text-describe'>{shard.unavailable}</span>
+          </div>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
+            {t('users')} <span className='text-describe'>{shard.members}</span>
           </div>
         </span>
         <div className='w-3 h-3 -mt-2 rotate-45 bg-primary-bg' />

@@ -9,5 +9,6 @@
   "problems": "{{problematics}} / {{all}} {{name}} estão com problemas",
   "shards": "shards",
   "servers": "Servidores:",
-  "unavailable": "Servidores Indisponíveis:"
+  "unavailable": "Servidores Indisponíveis:",
+  "users": "Usuários:"
 }
