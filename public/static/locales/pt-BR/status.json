@@ -7,5 +7,7 @@
   "server-id": "ID de seu servidor",
   "service": "Serviço: {{name}}",
   "problems": "{{problematics}} / {{all}} {{name}} estão com problemas",
-  "shards": "shards"
+  "shards": "shards",
+  "servers": "Servidores:",
+  "unavailable": "Servidores Indisponíveis:"
 }

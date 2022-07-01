@@ -7,5 +7,7 @@
   "server-id": "Your server ID",
   "service": "Service: {{name}}",
   "problems": "{{problematics}} / {{all}} {{name}} have problems",
-  "shards": "shards"
+  "shards": "shards",
+  "servers": "Guilds:",
+  "unavailable": "Unavailable Guilds:"
 }

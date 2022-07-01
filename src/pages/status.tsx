@@ -1,5 +1,5 @@
 import { fetchShardStatus } from '../services/api/api';
-
+import dayjs from 'dayjs';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { ShardData } from '../services/api/api.types';
@@ -65,6 +65,37 @@ const StatusText = ({ children, status }: StatusTextProps) => {
   );
 };
 
+const ShardTooltip = ({ children, shard }: { children: React.ReactNode; shard: ShardData }) => {
+  const { t } = useTranslation('status');
+
+  return (
+    <div className='relative flex flex-col items-center group'>
+      {children}
+      <div className='absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex text-left'>
+        <span className='relative z-10 p-2 min-w-max leading-none text-white whitespace-no-wrap bg-primary-bg shadow-lg rounded-md'>
+          <div className='text-primary font-bold text-2xl mb-4'>Shard {shard.id}</div>
+          <div className='text-white border-b-2 border-b-separate-color pb-1'>
+            Cluster: <span className='text-describe'>{shard.clusterId}</span>
+          </div>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-3'>
+            Uptime:{' '}
+            <span className='text-describe'>
+              {dayjs(shard.uptime).format('DD[d], HH[h], mm[m], ss[s]')}
+            </span>
+          </div>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-3'>
+            {t('servers')} <span className='text-describe'>{shard.guilds}</span>
+          </div>
+          <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-3'>
+            {t('unavailable')} <span className='text-describe'>{shard.unavailable}</span>
+          </div>
+        </span>
+        <div className='w-3 h-3 -mt-2 rotate-45 bg-primary-bg' />
+      </div>
+    </div>
+  );
+};
+
 const getStatusColor = (shard: ShardData): Status => {
   if (shard.isOff) return 'error';
   if (shard.unavailable > 0) return 'warning';
@@ -87,7 +118,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
     <>
       <Header />
       <SectionDivider title='Status' withoutSpace className='mt-10 mb-6 px-6' />
-      <main className='mx-auto max-w-7xl px-6 pb-6'>
+      <main className='mx-auto max-w-6xl px-6 pb-6'>
         <div className='md:flex flex-row'>
           <div>
             <h1 className='text-white my-4 text-4xl font-bold'>{t('active-services')}</h1>
@@ -122,15 +153,17 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
             <div className='flex flex-wrap gap-6 my-2'>
               {shardsData &&
                 shardsData.map((shard) => (
-                  <div
-                    key={shard.id}
-                    className={classnames(
-                      'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
-                      borderColor(getStatusColor(shard)), //TODO
-                    )}
-                  >
-                    {shard.id}
-                  </div>
+                  <ShardTooltip key={`${shard.id}-tooltip`} shard={shard}>
+                    <div
+                      key={`${shard.id}-shard`}
+                      className={classnames(
+                        'border-2 h-12 w-12 rounded flex text-center justify-center items-center font-bold text-2xl bg-secondary-bg text-white',
+                        borderColor(getStatusColor(shard)),
+                      )}
+                    >
+                      {shard.id}
+                    </div>
+                  </ShardTooltip>
                 ))}
             </div>
           </div>
