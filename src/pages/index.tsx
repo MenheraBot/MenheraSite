@@ -92,7 +92,9 @@ const HomePage = (): JSX.Element => {
                 </li>
               ))}
             </ul>
-            <Button>{t('invite')}</Button>
+            <a href='/invite' target='_blank'>
+              <Button>{t('invite')}</Button>
+            </a>
           </div>
           <div className='hidden flex-1 lg:flex justify-center items-center gap-4'>
             <Image
@@ -210,7 +212,9 @@ const HomePage = (): JSX.Element => {
               <p className='text-describe font-describe mt-4 mb-6 md:text-xl max-w-3xl'>
                 {t('add-me.description')}
               </p>
-              <Button>{t('add-me.add')}</Button>
+              <a href='/invite' target='_blank'>
+                <Button>{t('add-me.add')}</Button>
+              </a>
             </div>
             <Image
               className='hidden lg:block absolute h-full right-0'

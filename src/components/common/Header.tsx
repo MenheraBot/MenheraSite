@@ -15,7 +15,6 @@ import { FaClipboardList } from 'react-icons/fa';
 import { useTranslation } from 'next-i18next';
 
 import { IconType } from 'react-icons';
-import { Button } from './Button';
 import { useRouter } from 'next/router';
 
 interface NavbarItem {
@@ -105,7 +104,12 @@ export function Header(): JSX.Element {
           ))}
         </ul>
       </nav>
-      <Button className='hidden ml-14 md:block'>{t('login')}</Button>
+      <button
+        className='cursor-not-allowed p-2 px-5 h-12 text-white bg-primary rounded-full font-bold hidden ml-14 focus:outline-none disabled:opacity-75 md:block'
+        disabled
+      >
+        {t('login')}
+      </button>
       <HiMenu
         color='white'
         size={25}
