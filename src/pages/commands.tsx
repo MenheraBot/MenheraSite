@@ -160,7 +160,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       commands,
       ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
     },
-    // revalidate: 60,
+    revalidate: 500,
   };
 };
 

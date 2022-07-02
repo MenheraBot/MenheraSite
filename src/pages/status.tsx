@@ -8,7 +8,6 @@ import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
-import { SearchInput } from '../components/common/SearchInput';
 import { useTranslation } from 'next-i18next';
 import useSWR from 'swr';
 
@@ -141,7 +140,6 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
               </li>
             </ul>
           </div>
-          <SearchInput placeholder={t('server-id')} />
         </div>
         <div>
           <div className='flex flex-col'>
