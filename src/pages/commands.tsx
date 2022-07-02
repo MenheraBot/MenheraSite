@@ -134,12 +134,15 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
                     <span className='text-describe space-x-2'>
                       <span>/{cmd.name}</span>
                       {cmd.options.map((op) => (
-                        <span
+                        <div
                           key={`${cmd.name}-${op.name}`}
-                          className='hover:text-primary cursor-pointer'
+                          className='hover:text-primary inline-block relative cursor-pointer group'
                         >
-                          {op.required ? `{${op.name}}` : `[${op.name}]`}
-                        </span>
+                          {op.required ? `<${op.name}>` : `[${op.name}]`}
+                          <span className='text-describe w-fit md:w-max text-xs -ml-12 hidden text-center py-2 px-3 absolute z-50 rounded-xl bg-stone-900 borderrounded group-hover:block'>
+                            {op.description}
+                          </span>
+                        </div>
                       ))}
                     </span>
                   </li>
