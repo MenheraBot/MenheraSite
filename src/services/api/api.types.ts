@@ -20,6 +20,7 @@ type CommandType =
 export interface Option {
   type: CommandType;
   name: string;
+  originalName: string;
   nameLocalizations?: i18nObj | null;
   description: string;
   descriptionLocalizations?: i18nObj | null;
@@ -35,6 +36,7 @@ export interface Disabled {
 
 export interface Command {
   name: string;
+  originalName: string;
   nameLocalizations?: i18nObj | null;
   description: string;
   descriptionLocalizations?: i18nObj | null;

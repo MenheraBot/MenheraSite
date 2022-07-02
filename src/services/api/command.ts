@@ -7,7 +7,7 @@ const isParentCommand = (options: Option[]) =>
 
 const extractSubcommands = (data: Command[], locale: string): Command[] => {
   return data.reduce<Command[]>((commands, command) => {
-    function extractOptions(parent: string, options: Option[]): Option[] {
+    function extractOptions(parent: string, options: Option[], originalParent: string): Option[] {
       const newOptions: Option[] = [];
 
       for (const index in options) {
@@ -16,20 +16,27 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
         const optionDesc = option.descriptionLocalizations?.[locale] ?? option.description;
 
         const subName = `${parent} ${optionName}`;
+        const originalSubName = `${originalParent} ${option.name}`;
 
         if (option.type === 'SUB_COMMAND_GROUP') {
-          extractOptions(subName, option.options);
+          extractOptions(subName, option.options, originalSubName);
         } else if (option.type === 'SUB_COMMAND') {
           const subcommand = {
             ...command,
             description: optionDesc,
             name: subName,
-            options: extractOptions(subName, option.options),
+            originalName: originalSubName,
+            options: extractOptions(subName, option.options, originalSubName),
           };
 
           commands.push(subcommand);
         } else {
-          newOptions.push({ ...option, name: optionName, description: optionDesc });
+          newOptions.push({
+            ...option,
+            originalName: option.name,
+            name: optionName,
+            description: optionDesc,
+          });
         }
       }
 
@@ -39,13 +46,14 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
     const cmdName = command.nameLocalizations?.[locale] ?? command.name;
 
     if (isParentCommand(command.options)) {
-      extractOptions(cmdName, command.options);
+      extractOptions(cmdName, command.options, command.name);
     } else {
       const cmd: Command = {
         ...command,
         name: cmdName,
+        originalName: command.name,
         description: command.descriptionLocalizations?.[locale] ?? command.description,
-        options: extractOptions(cmdName, command.options),
+        options: extractOptions(cmdName, command.options, command.name),
       };
       commands.push(cmd);
     }

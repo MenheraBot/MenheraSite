@@ -13,6 +13,7 @@ import { Button } from '../components/common/Button';
 import { SearchInput } from '../components/common/SearchInput';
 
 import { getCommands } from '../services/api/command';
+import CommandExampleModal from '../components/CommandExampleModal';
 
 type Props = {
   commands: Command[];
@@ -30,14 +31,26 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
 
   const [selectedCategory, setCategory] = useState(categories[0]);
   const [searchInput, setSearchInput] = useState('');
+  const [showingModal, setShowingModal] = useState<{ show: boolean; command?: Command }>({
+    show: false,
+  });
 
   useEffect(() => {
     if (router && router.query) {
-      const founded = categories.find((a) => a === router.query?.category);
+      const foundedCategory = categories.find((a) => a === router.query?.category);
 
-      if (founded) setCategory(founded);
+      if (foundedCategory) setCategory(foundedCategory);
+
+      if (router.query?.command) {
+        const foundedCommand = commands.find((a) => a.originalName === router.query.command);
+
+        if (foundedCommand) {
+          setShowingModal({ show: true, command: foundedCommand });
+          setCategory(foundedCommand.category);
+        }
+      }
     }
-  }, [router, categories]);
+  }, [router, categories, commands]);
 
   const filteredCommands = useMemo(() => {
     if (searchInput.length > 0)
@@ -102,11 +115,16 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
               </h2>
             </div>
             <ul className='overflow-auto h-full max-h-96 w-full'>
+              <CommandExampleModal
+                command={showingModal.command}
+                showing={showingModal.show}
+                setOpen={setShowingModal}
+              />
               {filteredCommands.length > 0 ? (
                 filteredCommands.map((cmd) => (
                   <li
                     key={cmd.name.replaceAll(' ', '-')}
-                    onClick={() => alert('MOSTRAR EXEMPLO AQUI')}
+                    onClick={() => setShowingModal({ show: true, command: cmd })}
                     className='border-b-2 cursor-help border-b-separate-color py-6 px-1'
                   >
                     <span className='text-primary text-lg font-bold capitalize underline'>
