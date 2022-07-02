@@ -42,7 +42,7 @@ const useCategories = () => {
     },
     {
       name: t('categories.rpg'),
-      id: 'rpg',
+      id: 'roleplay',
       description: t('categories.rpg-description'),
       Icon: RiSwordLine,
     },
@@ -174,7 +174,14 @@ const HomePage = (): JSX.Element => {
                 <p className='text-describe font-describe text-base mb-6 md:max-w-sm lg:max-w-md'>
                   {category.description}
                 </p>
-                <Link href={{ pathname: '/commands', query: { category: category.id } }} passHref>
+                <Link
+                  href={{
+                    pathname: '/commands',
+                    hash: `#table`,
+                    query: { category: category.id },
+                  }}
+                  passHref
+                >
                   <Button>{t('see-commands')}</Button>
                 </Link>
               </div>

@@ -16,7 +16,7 @@ export function Button({ className, variant = 'primary', ...props }: ButtonProps
       className={classnames(
         className,
         variants[variant],
-        'hover:cursor-pointer p-2 px-5 h-12 text-white rounded-full font-bold',
+        'hover:cursor-pointer hover:brightness-75 p-2 px-5 h-12 text-white rounded-full font-bold',
       )}
       {...props}
     ></button>
