@@ -46,7 +46,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
     <>
       <Header />
       <main className='container p-6 mx-auto max-w-7xl lg:flex flex-row gap-6'>
-        <nav className='bg-secondary-bg py-11 px-4 mb-6 mt-10 w-full max-w-sm h-min'>
+        <nav className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 mt-10 w-full max-w-sm h-min'>
           <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>{t('versions')}</h2>
           <ul className='mt-6 overflow-auto h-full max-h-96 w-full'>
             {versions?.map((version) => (
@@ -68,7 +68,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
           </ul>
         </nav>
         {currentVersion && (
-          <div className='bg-secondary-bg py-11 px-4 mb-6 mt-10 flex-1'>
+          <div className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 mt-10 flex-1'>
             <h1 className='text-primary font-bold text-3xl md:text-4xl mt-6'>
               {t('title', { version: currentVersion?.versionName })}
             </h1>
