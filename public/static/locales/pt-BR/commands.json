@@ -15,5 +15,8 @@
   "by-search": "Pesquisa por '{{input}}'",
   "by-category": "Comandos de {{category}}",
   "clear": "Limpar busca",
-  "unknown": "Não conheço nenhum comando chamado '{{input}}'"
+  "unknown": "Não conheço nenhum comando chamado '{{input}}'",
+  "modal": {
+    "command": "Comando:"
+  }
 }

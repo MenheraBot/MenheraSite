@@ -82,7 +82,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
         <p className='text-describe text-xl'>{t('description')}</p>
 
         <div className='md:flex flex-row justify-between gap-10 md:mt-10'>
-          <ul className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex flex-col gap-6 w-full max-w-xs'>
+          <ul className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex flex-col gap-6 w-full mt-4 md:mt-0 md:max-w-xs'>
             <li key={'categories-title'} className='text-white'>
               <h2 className='text-white font-bold text-2xl md:text-4xl'>{t('categories.title')}</h2>
             </li>
