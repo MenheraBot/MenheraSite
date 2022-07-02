@@ -106,7 +106,8 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
                 filteredCommands.map((cmd) => (
                   <li
                     key={cmd.name.replaceAll(' ', '-')}
-                    className='border-b-2 border-b-separate-color py-6 px-1'
+                    onClick={() => alert('MOSTRAR EXEMPLO AQUI')}
+                    className='border-b-2 cursor-help border-b-separate-color py-6 px-1'
                   >
                     <span className='text-primary text-lg font-bold capitalize underline'>
                       {cmd.name}

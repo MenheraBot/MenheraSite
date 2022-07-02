@@ -1,5 +1,6 @@
 import { fetchShardStatus } from '../services/api/api';
 import dayjs from 'dayjs';
+import dayjsDuration from 'dayjs/plugin/duration';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { ShardData } from '../services/api/api.types';
@@ -10,6 +11,8 @@ import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { useTranslation } from 'next-i18next';
 import useSWR from 'swr';
+
+dayjs.extend(dayjsDuration);
 
 type Props = {
   lang: string;
@@ -82,7 +85,8 @@ const ShardTooltip = ({ children, shard }: { children: React.ReactNode; shard: S
           <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
             Uptime:{' '}
             <span className='text-describe'>
-              {dayjs(shard.uptime).format('DD[d], HH[h], mm[m], ss[s]')}
+              {console.log(shard.uptime)}
+              {dayjs.duration(shard.uptime).format('DD[d], HH[h], mm[m], ss[s]')}
             </span>
           </div>
           <div className='text-white border-b-2 last:border-none border-b-separate-color pb-1 pt-2'>
