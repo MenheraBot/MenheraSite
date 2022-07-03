@@ -1,14 +1,14 @@
 import 'react-i18next';
 
-import footer from '../public/static/locales/pt-BR/footer.json';
-import header from '../public/static/locales/pt-BR/header.json';
-import index from '../public/static/locales/pt-BR/index.json';
-import legal from '../public/static/locales/pt-BR/legal.json';
-import status from '../public/static/locales/pt-BR/status.json';
-import errors from '../public/static/locales/pt-BR/errors.json';
-import donate from '../public/static/locales/pt-BR/donate.json';
-import changelog from '../public/static/locales/pt-BR/changelog.json';
-import commands from '../public/static/locales/pt-BR/commands.json';
+import footer from '../locales/pt-BR/footer.json';
+import header from '../locales/pt-BR/header.json';
+import index from '../locales/pt-BR/index.json';
+import legal from '../locales/pt-BR/legal.json';
+import status from '../locales/pt-BR/status.json';
+import errors from '../locales/pt-BR/errors.json';
+import donate from '../locales/pt-BR/donate.json';
+import changelog from '../locales/pt-BR/changelog.json';
+import commands from '../locales/pt-BR/commands.json';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {

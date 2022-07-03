@@ -99,21 +99,21 @@ const HomePage = (): JSX.Element => {
           </div>
           <div className='hidden flex-1 lg:flex justify-center items-center gap-4'>
             <Image
-              src='/home-section-1.png'
+              src='/images/home-section-1.png'
               width={150}
               height={400}
               layout='intrinsic'
               alt='Menhera comendo pipica'
             />
             <Image
-              src='/home-section-1.png'
+              src='/images/home-section-1.png'
               width={150}
               height={500}
               layout='intrinsic'
               alt='Menhera comendo pipica'
             />
             <Image
-              src='/home-section-1.png'
+              src='/images/home-section-1.png'
               width={150}
               height={400}
               layout='intrinsic'
@@ -131,7 +131,11 @@ const HomePage = (): JSX.Element => {
           className='relative flex flex-row items-center mx-auto max-w-7xl'
         >
           <div className='hidden md:block absolute h-3/4 w-56'>
-            <Image src='/home-section-2-menhera.png' layout='fill' alt='Menhera de olho em você!' />
+            <Image
+              src='/images/home-section-2-menhera.png'
+              layout='fill'
+              alt='Menhera de olho em você!'
+            />
           </div>
           <div className='bg-secondary-bg md:ml-20 px-6 py-8 md:flex gap-3 justify-around items-center flex-1'>
             <div className='max-w-max shrink md:max-w-md'>
@@ -197,13 +201,13 @@ const HomePage = (): JSX.Element => {
         </section>
         <section className='relative h-full w-full'>
           <Image
-            src='/home-section-4-bg.png'
+            src='/images/home-section-4-bg.png'
             layout='fill'
             alt='Discord'
             className='-z-10 bg-contain sm:block hidden'
           />
           <Image
-            src='/home-section-4-bg-mobile.png'
+            src='/images/home-section-4-bg-mobile.png'
             layout='fill'
             alt='Discord'
             className='-z-10 bg-contain sm:hidden block'
@@ -223,7 +227,7 @@ const HomePage = (): JSX.Element => {
             </div>
             <Image
               className='hidden lg:block absolute h-full right-0'
-              src='/menhera-de-fone.svg'
+              src='/images/menhera-de-fone.svg'
               height={336}
               width={264}
               alt='Discord'
@@ -232,7 +236,12 @@ const HomePage = (): JSX.Element => {
         </section>
         <section className='container min-h-fit px-6 pt-6 mx-auto max-w-7xl flex items-center justify-between'>
           <div className='hidden md:block -mb-3 -z-10'>
-            <Image src='/menhera-piscando.png' width='374' height='390' alt='Menhera piscando!' />
+            <Image
+              src='/images/menhera-piscando.png'
+              width='374'
+              height='390'
+              alt='Menhera piscando!'
+            />
           </div>
           <div>
             <SectionDivider title={t('about-me')} withoutSpace className='mb-6' />
