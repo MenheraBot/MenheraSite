@@ -49,12 +49,19 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                 x
               </span>
             </div>
-            <div className='relative p-6 flex-auto'>
-              <p className='my-4 text-describe text-lg leading-relaxed'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit qui molestiae, cum
-                exercitationem quis temporibus sed porro maiores in obcaecati voluptatem! Iste, quam
-                magni ab eum ducimus est voluptate quisquam.
-              </p>
+            <div className='relative px-6 flex-auto'>
+              {command.options.length > 0 && (
+                <h3 className='text-white py-5 text-2xl'>{t('modal.command-options')}</h3>
+              )}
+              {command.options.map((option) => (
+                <div
+                  key={`{${command.name}-${option.name}-modal`}
+                  className='text-describe mb-3 text-lg leading-relaxed border-separate border-b border-gray-400 last:border-none'
+                >
+                  <span className='text-white capitalize'> {option.name} - </span>{' '}
+                  {option.description}
+                </div>
+              ))}
             </div>
           </div>
         </div>

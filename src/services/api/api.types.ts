@@ -2,7 +2,7 @@ type i18nObj = Record<string, string>;
 
 export interface Choice {
   name: string;
-  nameLocalizations?: { 'en-US': string };
+  nameLocalizations?: i18nObj;
   value: string;
 }
 

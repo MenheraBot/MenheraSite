@@ -17,6 +17,31 @@
   "clear": "Clear search",
   "unknown": "I don't know any commands called '{{input}}'",
   "modal": {
-    "command": "Command:"
+    "command": "Command:",
+    "command-options": "Command options",
+    "option-type": "Type: $t(option-types.{{type}}).",
+    "option-example": "Example: $t(option-examples.{{type}}).",
+    "option-required": "This option is required!",
+    "option-optional": "This option is optional."
+  },
+  "option-types": {
+    "STRING": "String",
+    "INTEGER": "Integer",
+    "BOOLEAN": "Boolean",
+    "USER": "User",
+    "CHANNEL": "Channel",
+    "ROLE": "Role",
+    "NUMBER": "Number",
+    "ATTACHMENT": "Attachment"
+  },
+  "option-examples": {
+    "STRING": "I love you!",
+    "INTEGER": "6",
+    "BOOLEAN": "True",
+    "USER": "@Luxanna",
+    "CHANNEL": "#general",
+    "ROLE": "@admins",
+    "NUMBER": "2,69",
+    "ATTACHMENT": "[image.png]"
   }
 }

@@ -26,6 +26,11 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
             description: optionDesc,
             name: subName,
             originalName: originalSubName,
+            choices:
+              option?.choices?.map((a) => ({
+                ...a,
+                name: a.nameLocalizations?.[locale] ?? a.name,
+              })) ?? [],
             options: extractOptions(subName, option.options, originalSubName),
           };
 
@@ -36,6 +41,11 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
             originalName: option.name,
             name: optionName,
             description: optionDesc,
+            choices:
+              option?.choices?.map((a) => ({
+                ...a,
+                name: a.nameLocalizations?.[locale] ?? a.name,
+              })) ?? [],
           });
         }
       }

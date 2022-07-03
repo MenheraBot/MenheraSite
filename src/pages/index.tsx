@@ -2,6 +2,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Header } from '../components/common/Header';
 import { HiCheck, HiStar, HiOutlineEmojiHappy } from 'react-icons/hi';
+import { IoIosArrowDown } from 'react-icons/io';
 import { RiSwordLine } from 'react-icons/ri';
 import { FaRegKissWinkHeart } from 'react-icons/fa';
 import { Button } from '../components/common/Button';
@@ -119,6 +120,10 @@ const HomePage = (): JSX.Element => {
               alt='Menhera comendo pipica'
             />
           </div>
+          <IoIosArrowDown
+            className='text-primary bottom animate-bounce absolute hidden md:block inset-x-1/2 bottom-0'
+            size={50}
+          />
         </section>
         <SectionDivider className='hidden md:flex' />
         <section

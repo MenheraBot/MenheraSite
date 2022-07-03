@@ -17,6 +17,31 @@
   "clear": "Limpar busca",
   "unknown": "Não conheço nenhum comando chamado '{{input}}'",
   "modal": {
-    "command": "Comando:"
+    "command": "Comando:",
+    "command-options": "Opções do comando",
+    "option-type": "Tipo: $t(option-types.{{type}}).",
+    "option-example": "Exemplo: $t(option-examples.{{type}}).",
+    "option-required": "Essa opção é obrigatória!",
+    "option-optional": "Essa opção é facultativa."
+  },
+  "option-types": {
+    "STRING": "Frase",
+    "INTEGER": "Número Inteiro",
+    "BOOLEAN": "Booleano",
+    "USER": "Usuário",
+    "CHANNEL": "Canal",
+    "ROLE": "Cargo",
+    "NUMBER": "Número",
+    "ATTACHMENT": "Anexo"
+  },
+  "option-examples": {
+    "STRING": "Eu te amo!",
+    "INTEGER": "6",
+    "BOOLEAN": "Falso",
+    "USER": "@Luxanna",
+    "CHANNEL": "#geral",
+    "ROLE": "@moderadores",
+    "NUMBER": "2,69",
+    "ATTACHMENT": "[imagem.png]"
   }
 }
