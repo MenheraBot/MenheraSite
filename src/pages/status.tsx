@@ -73,7 +73,7 @@ const ShardTooltip = ({ children, shard }: { children: React.ReactNode; shard: S
   return (
     <div className='relative flex flex-col items-center group'>
       {children}
-      <div className='absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex text-left'>
+      <div className='absolute bottom-7 flex-col items-center hidden mb-6 group-hover:flex text-left'>
         <span className='relative z-10 p-2 min-w-max leading-none text-white whitespace-no-wrap bg-primary-bg shadow-lg rounded-md'>
           <div className='text-primary font-bold text-lg mb-1'>Shard {shard.id}</div>
           <div className='text-white border-b-2 border-b-separate-color pb-1'>
