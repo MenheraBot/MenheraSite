@@ -72,7 +72,9 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   layout='intrinsic'
                   width={400}
                   height={380}
-                  alt='Exemplo do comando'
+                  placeholder='blur'
+                  blurDataURL='/examples/example_placeholder.png'
+                  alt={`Exemplo de execução do comando ${command.name}`}
                 />
               )}
             </div>
