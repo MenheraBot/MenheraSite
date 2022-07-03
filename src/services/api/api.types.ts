@@ -44,6 +44,7 @@ export interface Command {
   disabled: Disabled;
   category: string;
   cooldown: number;
+  hasTutorial: boolean;
 }
 
 export interface Top {

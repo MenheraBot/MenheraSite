@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import { Dispatch, MutableRefObject, SetStateAction, useEffect, useRef } from 'react';
 import { Command } from '../services/api/api.types';
 
@@ -49,7 +50,7 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                 x
               </span>
             </div>
-            <div className='relative px-6 flex-auto'>
+            <div className='px-6 flex-1'>
               {command.options.length > 0 && (
                 <h3 className='text-white py-5 text-2xl'>{t('modal.command-options')}</h3>
               )}
@@ -62,6 +63,18 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   {option.description}
                 </div>
               ))}
+              {command.hasTutorial && (
+                <Image
+                  src={`/examples/${command.category}/${command.originalName.replaceAll(
+                    ' ',
+                    '_',
+                  )}.gif`}
+                  layout='intrinsic'
+                  width={400}
+                  height={380}
+                  alt='Exemplo do comando'
+                />
+              )}
             </div>
           </div>
         </div>

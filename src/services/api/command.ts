@@ -1,3 +1,4 @@
+import { existsSync } from 'fs';
 import { fetchCommands } from './api';
 import { Command, Option } from './api.types';
 
@@ -76,5 +77,12 @@ export async function getCommands(locale: string): Promise<Command[]> {
   const commands = await fetchCommands();
   const extractedCommands = extractSubcommands(commands, locale);
 
-  return extractedCommands;
+  const extractedCommandsWithTutorial = extractedCommands.map((command) => ({
+    ...command,
+    hasTutorial: existsSync(
+      `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
+    ),
+  }));
+
+  return extractedCommandsWithTutorial;
 }
