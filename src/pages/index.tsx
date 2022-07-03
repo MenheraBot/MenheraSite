@@ -16,7 +16,7 @@ const ranking = Array.from({ length: 10 }).map((_, i) => ({
   hunted: Math.floor(Math.random() * 30),
   position: i + 1,
   huntType: 'angels' as const,
-  tag: 'Luxanna#5757',
+  tag: 'AAAADSDSDVCDSRSDCSDCFSFCFSFCSFFS#5757',
 }));
 
 const useCategories = () => {
@@ -134,7 +134,7 @@ const HomePage = (): JSX.Element => {
             <Image src='/home-section-2-menhera.png' layout='fill' alt='Menhera de olho em você!' />
           </div>
           <div className='bg-secondary-bg md:ml-20 px-6 py-8 md:flex gap-3 justify-around items-center flex-1'>
-            <div className='max-w-lg md:max-w-md'>
+            <div className='max-w-max shrink md:max-w-md'>
               <small className='flex items-center gap-2'>
                 <span className='text-primary font-bold'>{t('weekly-ranking')}</span>
                 <div className='bg-separate-color h-1 flex-1 px-2' />
@@ -144,7 +144,7 @@ const HomePage = (): JSX.Element => {
               </h1>
               <p className='text-describe text-base mt-4'>{t('ranking-description')}</p>
             </div>
-            <ul className='mt-6 overflow-auto h-full max-h-72 w-full max-w-lg'>
+            <ul className='mt-6 overflow-auto h-full max-h-72 w-full max-w-full md:max-w-lg flex-none lg:flex-1'>
               {ranking.map((user, index) => (
                 <li
                   key={`${user.tag}-${index}`}
