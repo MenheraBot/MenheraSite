@@ -35,7 +35,7 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
 
   return (
     <>
-      <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 bg-opacity-70 bg-black outline-none focus:outline-none'>
+      <div className='justify-center items-center flex overflow-x-hidden w-full overflow-y-auto fixed inset-0 z-50 bg-opacity-70 bg-black outline-none focus:outline-none'>
         <div ref={ref} className='relative w-auto my-6 mx-auto max-w-3xl'>
           <div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-[#171717] outline-none focus:outline-none'>
             <div className='flex flex-row justify-between p-5 rounded-t'>
