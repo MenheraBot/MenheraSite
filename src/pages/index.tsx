@@ -147,7 +147,10 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
               </h1>
               <p className='text-describe text-base mt-4'>{t('ranking-description')}</p>
             </div>
-            <ul className='mt-6 overflow-auto h-full max-h-72 w-full max-w-full md:max-w-lg flex-none lg:flex-1'>
+            <ul
+              id='ranking'
+              className='mt-6 overflow-auto h-full max-h-72 w-full max-w-full md:max-w-lg flex-none lg:flex-1'
+            >
               {weekly.map((data) => (
                 <li key={`${data.type}-top`} className='mt-6 first:mt-0 mr-3 pb-4 md:mr-10'>
                   <div className='text-white top-0 sticky bg-secondary-bg capitalize font-bold text-2xl'>
