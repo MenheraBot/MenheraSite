@@ -71,7 +71,7 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
   const toWritableUTF = (str: string): string => str.replace(/[^\x00-\xFF]/g, '');
 
   return (
-    <Layout>
+    <Layout page='index'>
       <main>
         <section id='descritpion' className='flex-1 flex p-6 container min-h-fit mx-auto max-w-7xl'>
           <div className='md:max-w-xl'>

@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Menhera Bot",
+    "description": "Menhera Bot é um bot brasileiro focado em Diversão e RPG para o Discord com 12 classes e 8 raças diferentes para se aventurar no Mundo de Boleham."
+  },
   "greetings": "Oii, eu sou a",
   "mission": "Minha missão é divertir o teu servidor com diversas funcionalidades que tu podes ver",
   "here": " aqui",

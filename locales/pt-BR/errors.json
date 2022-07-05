@@ -1,9 +1,17 @@
 {
   "404": {
+    "seo": {
+      "title": "Não Encontrado - Menhera Bot",
+      "description": "Menhera Bot é um bot brasileiro focado em Diversão e RPG para o Discord com 12 classes e 8 raças diferentes para se aventurar no Mundo de Boleham."
+    },
     "title": "Eita boy! Essa página não exsite",
     "description": "Ou talvez ela deveria existir (?), mas provavelmente ela não existe mesmo :/\nCaso realmente ache que essa página existe, verifique o URL se ela está correta, ou se preferir, verifique nos links abaixo se a página desejada existe."
   },
   "500": {
+    "seo": {
+      "title": "Erro Interno - Menhera Bot",
+      "description": "Menhera Bot é um bot brasileiro focado em Diversão e RPG para o Discord com 12 classes e 8 raças diferentes para se aventurar no Mundo de Boleham."
+    },
     "title": "Opsies, I think I kicked some cables",
     "description": "Ocorreu um erro aqui na minha casa. Não posso te dizer certo o que aconteceu, mas com certeza coisa boa não foi! Tente novamente mais tarde."
   }

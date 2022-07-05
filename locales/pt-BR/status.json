@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Status - Menhera Bot",
+    "description": "Status dos serviços da Menhera Bot, um bot brasileiro focado em Diversão e RPG para o Discord com 12 classes e 8 raças diferentes para se aventurar no Mundo de Boleham."
+  },
   "active-services": "Serviços Ativos",
   "services-description": "Para que eu seja quem eu sou, eu necessido de diversas aplicações para me ajudarem a criar as funcionalidades que todos amamos. Abaixo estão todas as aplicações que fazem eu, a MenheraBot ser quem sou",
   "working-fine": "Nenhum Problema",
