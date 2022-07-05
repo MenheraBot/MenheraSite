@@ -4,16 +4,14 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Header } from '../components/common/Header';
-import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
+import Layout from '../components/PageLayout';
 
 const DonatePage = (): JSX.Element => {
   const { t } = useTranslation('donate');
 
   return (
-    <>
-      <Header />
+    <Layout>
       <main className='container p-6 mx-auto max-w-7xl  mb-10'>
         <SectionDivider title={t('donate')} withoutSpace className='mb-10' />
         <div className='lg:flex justify-around items-center'>
@@ -35,8 +33,7 @@ const DonatePage = (): JSX.Element => {
           </div>
         </div>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

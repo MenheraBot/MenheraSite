@@ -6,14 +6,13 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
 import { Command } from '../services/api/api.types';
-import { Header } from '../components/common/Header';
-import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import { Button } from '../components/common/Button';
 import { SearchInput } from '../components/common/SearchInput';
 
 import { getCommands } from '../services/api/command';
 import CommandExampleModal from '../components/CommandExampleModal';
+import Layout from '../components/PageLayout';
 
 type Props = {
   commands: Command[];
@@ -71,8 +70,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
 
   const { t } = useTranslation('commands');
   return (
-    <>
-      <Header />
+    <Layout>
       <main className='mx-auto max-w-7xl px-6'>
         <SectionDivider title={t('commands')} withoutSpace className='my-6' />
         <h1 className='text-white font-bold text-3xl md:text-4xl mb-3'>
@@ -171,8 +169,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
           </div>
         </div>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

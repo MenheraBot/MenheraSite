@@ -1,15 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Header } from '../components/common/Header';
-import { Footer } from '../components/common/Footer';
+import Layout from '../components/PageLayout';
 
 const LegalPage = (): JSX.Element => {
   const { t, i18n } = useTranslation('legal');
 
   return (
-    <>
-      <Header />
+    <Layout>
       <main className='container p-6 mx-auto max-w-7xl'>
         <div>
           <h1 id='privacy' className='text-white font-bold text-3xl md:text-4x'>
@@ -103,8 +101,7 @@ const LegalPage = (): JSX.Element => {
           </p>
         </div>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

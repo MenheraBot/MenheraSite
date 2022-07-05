@@ -1,13 +1,12 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { Header } from '../components/common/Header';
 import { HiCheck, HiStar, HiOutlineEmojiHappy } from 'react-icons/hi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiSwordLine } from 'react-icons/ri';
 import { FaRegKissWinkHeart } from 'react-icons/fa';
 import { Button } from '../components/common/Button';
 import Image from 'next/image';
-import { Footer } from '../components/common/Footer';
+import Layout from '../components/PageLayout';
 import { SectionDivider } from '../components/common/SectionDivider';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
@@ -72,8 +71,7 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
   const toWritableUTF = (str: string): string => str.replace(/[^\x00-\xFF]/g, '');
 
   return (
-    <>
-      <Header />
+    <Layout>
       <main>
         <section id='descritpion' className='flex-1 flex p-6 container min-h-fit mx-auto max-w-7xl'>
           <div className='md:max-w-xl'>
@@ -255,9 +253,8 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
             </p>
           </div>
         </section>
-        <Footer />
       </main>
-    </>
+    </Layout>
   );
 };
 

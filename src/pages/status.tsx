@@ -5,12 +5,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { ShardData } from '../services/api/api.types';
 
-import { Header } from '../components/common/Header';
-import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { useTranslation } from 'next-i18next';
 import useSWR from 'swr';
+import Layout from '../components/PageLayout';
 
 dayjs.extend(dayjsDuration);
 
@@ -123,8 +122,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
   });
 
   return (
-    <>
-      <Header />
+    <Layout>
       <SectionDivider title='Status' withoutSpace className='mt-10 mb-6 px-6' />
       <main className='mx-auto max-w-6xl px-6 pb-6'>
         <div className='md:flex flex-row'>
@@ -175,8 +173,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
           </div>
         </div>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
