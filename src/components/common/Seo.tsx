@@ -43,8 +43,8 @@ export function Seo({ page }: Props): JSX.Element {
       <meta httpEquiv='content-language' content={i18n.language} />
 
       <meta property='og:locale' content={i18n.language} />
-      <meta property='og:locale:alternate' content='pt-BR' />
-      <meta property='og:locale:alternate' content='en-US' />
+      <meta property='og:locale:alternate' content='pt_BR' />
+      <meta property='og:locale:alternate' content='en_US' />
       <meta property='og:title' content={t('title')} />
       <meta property='og:type' content='website' />
       <meta property='og:url' content='https://menherabot.xyz/' />
