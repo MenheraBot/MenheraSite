@@ -265,7 +265,7 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const weeklyHunters = await fetchWeeklyHunters();
 
-  const weekly = weeklyHunters.reduce<WeeklyTopFiltered[]>(
+  const rawWeekly = weeklyHunters.reduce<WeeklyTopFiltered[]>(
     (acc, user) => {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const found = acc.find((item) => item.type === user.hunt_type)!;
@@ -283,7 +283,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
     ],
   );
 
-  weekly.map((a) => ({
+  const weekly = rawWeekly.map((a) => ({
     type: a.type,
     users: a.users.sort((a, b) => b.hunted - a.hunted).slice(0, 10),
   }));
