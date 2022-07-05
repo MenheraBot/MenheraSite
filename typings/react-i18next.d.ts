@@ -1,4 +1,4 @@
-import 'react-i18next';
+/* import 'react-i18next';
 
 import footer from '../locales/pt-BR/footer.json';
 import header from '../locales/pt-BR/header.json';
@@ -10,7 +10,7 @@ import donate from '../locales/pt-BR/donate.json';
 import changelog from '../locales/pt-BR/changelog.json';
 import commands from '../locales/pt-BR/commands.json';
 
-declare module 'react-i18next' {
+ declare module 'react-i18next' {
   interface CustomTypeOptions {
     resources: {
       footer: typeof footer;
@@ -25,3 +25,6 @@ declare module 'react-i18next' {
     };
   }
 }
+
+TODO: Fix transtlation typesafe
+*/

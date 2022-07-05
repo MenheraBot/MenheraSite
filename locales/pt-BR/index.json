@@ -12,13 +12,14 @@
   "weekly-ranking": "#Rank Semanal",
   "best-hunters": "Os Melhores da Semana",
   "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia!",
-  "hunted": "Caçou {{amount}} $t(huntTypes.{{type}})",
+  "hunted": "Caçou {{amount}}",
   "commands": "Comandos",
+  "unknown-tag": "Nome Desconhecido #{{tag}}",
   "huntTypes": {
     "demons": "Demônios",
     "giants": "Gigantes",
     "angels": "Anjos",
-    "arcanjos": "Arcanjos",
+    "archangels": "Arcanjos",
     "demigods": "Semideuses",
     "gods": "Deuses"
   },

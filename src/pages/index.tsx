@@ -11,13 +11,8 @@ import { Footer } from '../components/common/Footer';
 import { SectionDivider } from '../components/common/SectionDivider';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
-
-const ranking = Array.from({ length: 10 }).map((_, i) => ({
-  hunted: Math.floor(Math.random() * 30),
-  position: i + 1,
-  huntType: 'angels' as const,
-  tag: 'AAAADSDSDVCDSRSDCSDCFSFCFSFCSFFS#5757',
-}));
+import { WeeklyTopFiltered } from '../services/api/api.types';
+import { fetchWeeklyHunters } from '../services/api/api';
 
 const useCategories = () => {
   const { t } = useTranslation('index');
@@ -65,7 +60,11 @@ const useFeatures = () => {
   return features;
 };
 
-const HomePage = (): JSX.Element => {
+type Props = {
+  weekly: WeeklyTopFiltered[];
+};
+
+const HomePage = ({ weekly }: Props): JSX.Element => {
   const { t } = useTranslation('index');
   const features = useFeatures();
   const categories = useCategories();
@@ -149,21 +148,27 @@ const HomePage = (): JSX.Element => {
               <p className='text-describe text-base mt-4'>{t('ranking-description')}</p>
             </div>
             <ul className='mt-6 overflow-auto h-full max-h-72 w-full max-w-full md:max-w-lg flex-none lg:flex-1'>
-              {ranking.map((user, index) => (
-                <li
-                  key={`${user.tag}-${index}`}
-                  className='mt-6 first:mt-0 mr-3 pb-4 border-b-2 border-b-separate-color md:mr-10'
-                >
-                  <span className='text-white capitalize font-bold text-base'>
-                    {t(`huntTypes.${user.huntType}`)}
-                  </span>
-                  <div className='flex justify-between mt-4 text-white'>
-                    <span className='font-medium'>{user.tag}</span>
-                    <span className='font-bold'>#{user.position}</span>
+              {weekly.map((data) => (
+                <li key={`${data.type}-top`} className='mt-6 first:mt-0 mr-3 pb-4 md:mr-10'>
+                  <div className='text-white top-0 sticky bg-secondary-bg capitalize font-bold text-2xl'>
+                    {t(`huntTypes.${data.type}s`)}
                   </div>
-                  <span className='font-bold text-primary'>
-                    {t('hunted', { amount: user.hunted, type: user.huntType })}
-                  </span>
+                  {data.users.map((user, position) => (
+                    <div
+                      className='border-b-2 border-b-separate-color'
+                      key={`${user.user_id}-${user.hunt_type}`}
+                    >
+                      <div className='flex justify-between mt-4 text-white '>
+                        <span className='font-medium'>
+                          {user.user_tag ?? t('unknown-tag', { tag: position + 1 })}
+                        </span>
+                        <span className='font-bold'>#{position + 1}</span>
+                      </div>
+                      <span className='font-bold text-primary'>
+                        {t('hunted', { amount: user.hunted })}
+                      </span>
+                    </div>
+                  ))}
                 </li>
               ))}
             </ul>
@@ -257,9 +262,35 @@ const HomePage = (): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
+  const weeklyHunters = await fetchWeeklyHunters();
+
+  const weekly = weeklyHunters.reduce<WeeklyTopFiltered[]>(
+    (acc, user) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const found = acc.find((item) => item.type === user.hunt_type)!;
+      found.users.push(user);
+
+      return acc;
+    },
+    [
+      { type: 'demon', users: [] },
+      { type: 'giant', users: [] },
+      { type: 'angel', users: [] },
+      { type: 'archangel', users: [] },
+      { type: 'demigod', users: [] },
+      { type: 'god', users: [] },
+    ],
+  );
+
+  weekly.map((a) => ({
+    type: a.type,
+    users: a.users.sort((a, b) => b.hunted - a.hunted).slice(0, 10),
+  }));
+
   return {
     props: {
+      weekly,
       ...(await serverSideTranslations(locale as string, ['index', 'header', 'footer'])),
     },
   };

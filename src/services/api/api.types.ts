@@ -65,3 +65,17 @@ export interface ShardData {
   members: number;
   clusterId: number;
 }
+
+export type HuntTypes = 'demon' | 'giant' | 'angel' | 'archangel' | 'demigod' | 'god';
+
+export type WeeklyHuntersTop = {
+  user_id: string;
+  hunt_type: HuntTypes;
+  hunted: number;
+  user_tag: string;
+};
+
+export type WeeklyTopFiltered = {
+  type: HuntTypes;
+  users: WeeklyHuntersTop[];
+};

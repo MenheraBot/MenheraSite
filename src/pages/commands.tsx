@@ -101,7 +101,10 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
               </li>
             ))}
           </ul>
-          <div id='table' className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex-1'>
+          <div
+            id='table'
+            className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex-1 select-none'
+          >
             <div className='md:flex flex-row-reverse justify-between items-center'>
               <SearchInput
                 value={searchInput}
