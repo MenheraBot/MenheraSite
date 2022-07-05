@@ -1,4 +1,7 @@
-{
+{"seo": {
+  "title": "Legal - Menhera Bot",
+  "description": "Menhera Bot is a Brazilian bot focused on Fun and RPG for Discord with 12 classes and 8 different races to venture into the World of Boleham."
+},
   "last-change": "Last Modified: {{date}}",
   "privacy": {
     "title": "Privacy Policy",

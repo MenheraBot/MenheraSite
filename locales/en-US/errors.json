@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Not Found - Menhera Bot",
+    "description": "Menhera Bot is a Brazilian bot focused on Fun and RPG for Discord with 12 classes and 8 different races to venture into the World of Boleham."
+  },
   "404": {
     "title": "Opps, this page doesn't exists",
     "description": "Or maybe it should exist (?), but it probably doesn't :/\nIf you really think this page exists, check the URL if it's correct, or if you prefer, check the links below if the page desired exists."
