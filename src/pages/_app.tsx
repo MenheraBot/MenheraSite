@@ -5,16 +5,21 @@ import { AppProps } from 'next/app';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import * as gtag from '../analytics/gtag';
-import Analytics from '../analytics/Analytics';
 import { appWithTranslation } from 'next-i18next';
+import Script from 'next/script';
 
 const Application = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
+      const pageview = (url: string): void => {
+        window.gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
+          page_path: url,
+        });
+      };
+
+      pageview(url);
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -26,9 +31,26 @@ const Application = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      <Script
+        strategy='afterInteractive'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+      />
+      <Script
+        strategy='afterInteractive'
+        id='ga'
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       {/* @ts-expect-error nao entendi o pq */}
       <Component {...pageProps} />
-      <Analytics />
     </>
   );
 };
