@@ -8,7 +8,7 @@ const NotFoundPage = (): JSX.Element => {
   const { t } = useTranslation('errors');
 
   return (
-    <Layout>
+    <Layout page='errors'>
       <main className='mx-auto max-w-7xl p-6 text-center flex flex-col items-center '>
         <ErrorView statusCode={404} title={t('404.title')} text={t('404.description')} />
       </main>

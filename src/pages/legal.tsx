@@ -7,7 +7,7 @@ const LegalPage = (): JSX.Element => {
   const { t, i18n } = useTranslation('legal');
 
   return (
-    <Layout>
+    <Layout page='legal'>
       <main className='container p-6 mx-auto max-w-7xl'>
         <div>
           <h1 id='privacy' className='text-white font-bold text-3xl md:text-4x'>

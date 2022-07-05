@@ -11,7 +11,7 @@ const DonatePage = (): JSX.Element => {
   const { t } = useTranslation('donate');
 
   return (
-    <Layout>
+    <Layout page='donate'>
       <main className='container p-6 mx-auto max-w-7xl  mb-10'>
         <SectionDivider title={t('donate')} withoutSpace className='mb-10' />
         <div className='lg:flex justify-around items-center'>

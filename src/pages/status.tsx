@@ -122,7 +122,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
   });
 
   return (
-    <Layout>
+    <Layout page='status'>
       <SectionDivider title='Status' withoutSpace className='mt-10 mb-6 px-6' />
       <main className='mx-auto max-w-6xl px-6 pb-6'>
         <div className='md:flex flex-row'>

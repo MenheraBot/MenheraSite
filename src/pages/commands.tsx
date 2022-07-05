@@ -70,7 +70,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
 
   const { t } = useTranslation('commands');
   return (
-    <Layout>
+    <Layout page='commands'>
       <main className='mx-auto max-w-7xl px-6'>
         <SectionDivider title={t('commands')} withoutSpace className='my-6' />
         <h1 className='text-white font-bold text-3xl md:text-4xl mb-3'>

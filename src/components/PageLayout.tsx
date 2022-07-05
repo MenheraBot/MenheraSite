@@ -4,13 +4,13 @@ import { Header } from './common/Header';
 
 type Props = {
   children: React.ReactNode;
-  page?: string;
+  page: string;
 };
 
 const Layout = ({ children, page }: Props): JSX.Element => {
   return (
     <>
-      <Seo page={page ?? 'sexo'} />
+      <Seo page={page} />
       <Header />
       {children}
       <Footer />
