@@ -69,6 +69,8 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
   const features = useFeatures();
   const categories = useCategories();
 
+  const toWritableUTF = (str: string): string => str.replace(/[^\x00-\xFF]/g, '');
+
   return (
     <>
       <Header />
@@ -157,7 +159,7 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
                     >
                       <div className='flex justify-between mt-4 text-white '>
                         <span className='font-medium'>
-                          {user.user_tag ?? t('unknown-tag', { tag: position + 1 })}
+                          {toWritableUTF(user.user_tag ?? t('unknown-tag', { tag: position + 1 }))}
                         </span>
                         <span className='font-bold'>#{position + 1}</span>
                       </div>

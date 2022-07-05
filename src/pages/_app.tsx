@@ -16,7 +16,9 @@ const Application = ({ Component, pageProps }: AppProps) => {
     const handleRouteChange = (url: string) => {
       gtag.pageview(url);
     };
+
     router.events.on('routeChangeComplete', handleRouteChange);
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
@@ -24,6 +26,7 @@ const Application = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      {/* @ts-expect-error nao entendi o pq */}
       <Component {...pageProps} />
       <Analytics />
     </>
