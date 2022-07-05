@@ -24,7 +24,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "jest.setup.js", "jest.config.js", "jest.setup.js", "jest.config.js"  ],
   "exclude": [
     "node_modules",
     "./cypress",
