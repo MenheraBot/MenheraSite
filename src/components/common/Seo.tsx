@@ -55,8 +55,6 @@ export function Seo({ page }: Props): JSX.Element {
       />
       <meta property='og:image:type' content='image/png' />
       <meta property='og:site_name' content='MenheraBot' />
-      <meta property='og:image:width' content='1024' />
-      <meta property='og:image:height' content='1024' />
       <meta property='og:description' content={t('description')} />
     </Head>
   );
