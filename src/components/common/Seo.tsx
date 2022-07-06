@@ -56,10 +56,10 @@ export function Seo({ page }: Props): JSX.Element {
       <meta property='og:image:type' content='image/png' />
       <meta property='og:site_name' content='MenheraBot' />
       <meta property='og:description' content={t('description')} />
-      
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@__MenheraBot" />
-      <meta name="twitter:creator" content="@Luxanna_Dev" />
+
+      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:site' content='@__MenheraBot' />
+      <meta name='twitter:creator' content='@Luxanna_Dev' />
     </Head>
   );
 }
