@@ -289,6 +289,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       weekly,
       ...(await serverSideTranslations(locale as string, ['index', 'header', 'footer'])),
     },
+    revalidate: 5400,
   };
 };
 
