@@ -21,6 +21,7 @@ export function Seo({ page }: Props): JSX.Element {
       <title>{t('title')}</title>
       <meta name='description' content={t('description')} />
       <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
+      <link rel='icon' href='/favicon.ico' type='image/x-icon' />
 
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <meta httpEquiv='Content-Type' content='text/html;charset=UTF-8' />
@@ -30,7 +31,7 @@ export function Seo({ page }: Props): JSX.Element {
       <meta charSet='utf-8' />
       <meta
         name='keywords'
-        content='menhera, bot, discord, discordbot, menherabot, menhera bot, bot brasileiro'
+        content='menhera, bot, discord, discordbot, menherabot, menhera bot, bot brasileiro, menhera bot commands, menherabot comandos, comandos, menhera bot comandos'
       />
       <meta name='theme-color' content='#975AFF' />
 
@@ -47,12 +48,11 @@ export function Seo({ page }: Props): JSX.Element {
       <meta property='og:locale:alternate' content='en_US' />
       <meta property='og:title' content={t('title')} />
       <meta property='og:type' content='website' />
-      <meta property='og:url' content='https://menherabot.xyz/' />
-      <meta property='og:image' content='https://menherabot.xyz/images/menhera-bot.png' />
-      <meta
-        property='og:image:secure_url'
-        content='https://menherabot.xyz/images/menhera-bot.png'
-      />
+      <meta property='og:url' content={canonicalUrl} />
+      <meta property='og:ttl' content='600' />
+      <meta property='og:image' content='https://menherabot.xyz/images/logo.png' />
+      <meta property='og:image:secure_url' content='https://menherabot.xyz/images/logo.png' />
+      <meta property='og:image:width' content='320' />
       <meta property='og:image:type' content='image/png' />
       <meta property='og:site_name' content='MenheraBot' />
       <meta property='og:description' content={t('description')} />
@@ -60,6 +60,7 @@ export function Seo({ page }: Props): JSX.Element {
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:site' content='@__MenheraBot' />
       <meta name='twitter:creator' content='@Luxanna_Dev' />
+      <meta name='twitter:title' content={t('title')} />
     </Head>
   );
 }
