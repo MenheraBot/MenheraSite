@@ -7,9 +7,8 @@ import { fetchGithub } from '../../services/api/api';
 import { ChangelogVersion, parseChangelog } from '../../services/changelogParser';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
-import { Header } from '../../components/common/Header';
-import { Footer } from '../../components/common/Footer';
 import classNames from 'classnames';
+import Layout from '../../components/PageLayout';
 
 type Props = {
   versions: ChangelogVersion[];
@@ -43,8 +42,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
   }
 
   return (
-    <>
-      <Header />
+    <Layout page='changelog'>
       <main className='container p-6 mx-auto max-w-7xl lg:flex flex-row gap-6'>
         <nav className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 mt-10 w-full max-w-sm h-min'>
           <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>{t('versions')}</h2>
@@ -84,8 +82,7 @@ const ChangelogVersionPage = ({ currentVersion, versions }: Props): JSX.Element 
           </div>
         )}
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
