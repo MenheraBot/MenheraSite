@@ -1,7 +1,6 @@
 import { Footer } from './common/Footer';
 import { Seo } from './common/Seo';
 import { Header } from './common/Header';
-import { Announcement } from './Annoucement';
 
 type Props = {
   children: React.ReactNode;
@@ -13,7 +12,6 @@ const Layout = ({ children, page }: Props): JSX.Element => {
     <>
       <Seo page={page} />
       <Header />
-      <Announcement />
       {children}
       <Footer />
     </>
