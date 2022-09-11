@@ -259,7 +259,9 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const weeklyHunters = await fetchWeeklyHunters();
+ // const weeklyHunters = await fetchWeeklyHunters();
+
+  const weeklyHunters = [];
 
   const rawWeekly = weeklyHunters.reduce<WeeklyTopFiltered[]>(
     (acc, user) => {
@@ -289,7 +291,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       weekly,
       ...(await serverSideTranslations(locale as string, ['index', 'header', 'footer'])),
     },
-    revalidate: 5400,
+ //   revalidate: 5400,
   };
 };
 

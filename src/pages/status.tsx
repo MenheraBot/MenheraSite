@@ -119,7 +119,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
     refreshInterval: 15_000,
     errorRetryCount: 3,
     fallbackData: lastShardStatus,
-  });
+  }); 
 
   return (
     <Layout page='status'>
@@ -186,7 +186,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       lang: locale as string,
       lastShardStatus,
     },
-    revalidate: 15,
+   // revalidate: 15,
   };
 };
 
