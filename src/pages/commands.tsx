@@ -174,8 +174,7 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  // const commands = await getCommands(locale as string);
-  const commands = [];
+  const commands = await getCommands(locale as string);
 
   return {
     props: {
@@ -183,7 +182,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       commands,
       ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
     },
-    //revalidate: 500,
+    revalidate: 500,
   };
 };
 

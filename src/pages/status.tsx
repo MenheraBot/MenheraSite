@@ -27,14 +27,12 @@ interface StatusTextProps {
 
 /* Why not this?
 Tailwind read the classnames before build, so it dont know what is the real classname
-
 const statusColor = (status: Status, className: 'border' | 'bg' | 'text') =>
   status === 'success'
     ? `${className}-status-success`
     : status === 'error'
     ? `${className}-status-error`
     : `${className}-status-warning`;
-
 */
 const bgColor = (status: Status) =>
   status === 'success'
@@ -119,7 +117,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
     refreshInterval: 15_000,
     errorRetryCount: 3,
     fallbackData: lastShardStatus,
-  }); 
+  });
 
   return (
     <Layout page='status'>
@@ -186,7 +184,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       lang: locale as string,
       lastShardStatus,
     },
-   // revalidate: 15,
+    revalidate: 15,
   };
 };
 
