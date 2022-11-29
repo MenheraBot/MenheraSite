@@ -87,7 +87,7 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
             </p>
             <ul className='grid grid-cols-2 my-6 gap-2'>
               {features.map((feature, index) => (
-                <li key={index} className='text-white text-xs font-bold flex gap-3'>
+                <li key={index} className='text-white text-base font-bold flex gap-3'>
                   <HiCheck color='#38FF40' /> {feature}
                 </li>
               ))}
