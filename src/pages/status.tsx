@@ -114,7 +114,7 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
 
   const { data: shardsData } = useSWR<ShardData[]>('/info/shards', {
     fetcher: fetchShardStatus,
-    refreshInterval: 15_000,
+    refreshInterval: 45_000,
     errorRetryCount: 3,
     fallbackData: lastShardStatus,
   });
@@ -184,7 +184,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       lang: locale as string,
       lastShardStatus,
     },
-    revalidate: 15,
+    revalidate: 45,
   };
 };
 
