@@ -26,5 +26,5 @@ export const fetchWeeklyHunters = (): Promise<WeeklyHuntersTop[]> => fetch('/hun
 
 export const fetchShardStatus = (): Promise<ShardData[]> =>
   fetch<ShardData[]>('/shards').then((res) =>
-    res.map((shard) => ({ ...shard, isOff: shard.lastPingAt < Date.now() - 25_000 })),
+    res.map((shard) => ({ ...shard, isOff: shard.lastPingAt < Date.now() - 90_000 })),
   );
