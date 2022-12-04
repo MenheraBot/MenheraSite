@@ -29,23 +29,23 @@
     "option-optional": "This option is optional."
   },
   "option-types": {
-    "STRING": "String",
-    "INTEGER": "Integer",
-    "BOOLEAN": "Boolean",
-    "USER": "User",
-    "CHANNEL": "Channel",
-    "ROLE": "Role",
-    "NUMBER": "Number",
-    "ATTACHMENT": "Attachment"
+    "3": "String",
+    "4": "Integer",
+    "5": "Boolean",
+    "6": "User",
+    "7": "Channel",
+    "8": "Role",
+    "10": "Number",
+    "11": "Attachment"
   },
   "option-examples": {
-    "STRING": "I love you!",
-    "INTEGER": "6",
-    "BOOLEAN": "True",
-    "USER": "@Luxanna",
-    "CHANNEL": "#general",
-    "ROLE": "@admins",
-    "NUMBER": "2,69",
-    "ATTACHMENT": "[image.png]"
+    "3": "I love you!",
+    "4": "6",
+    "5": "True",
+    "6": "@Luxanna",
+    "7": "#general",
+    "8": "@admins",
+    "10": "2,69",
+    "11": "[image.png]"
   }
 }
