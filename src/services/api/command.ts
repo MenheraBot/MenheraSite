@@ -3,7 +3,7 @@ import { fetchCommands } from './api';
 import { Command, Option } from './api.types';
 
 const isParentCommand = (options: Option[]) =>
-  options?.some((option) => option.type === 'SUB_COMMAND' || option.type === 'SUB_COMMAND_GROUP') ??
+  options?.some((option) => option.type === 1 || option.type === 2) ??
   false;
 
 const extractSubcommands = (data: Command[], locale: string): Command[] => {
@@ -19,9 +19,9 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
         const subName = `${parent} ${optionName}`;
         const originalSubName = `${originalParent} ${option.name}`;
 
-        if (option.type === 'SUB_COMMAND_GROUP') {
+        if (option.type === 2) {
           extractOptions(subName, option.options, originalSubName);
-        } else if (option.type === 'SUB_COMMAND') {
+        } else if (option.type === 1) {
           const subcommand = {
             ...command,
             description: optionDesc,
