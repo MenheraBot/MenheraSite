@@ -29,23 +29,23 @@
     "option-optional": "Essa opção é facultativa."
   },
   "option-types": {
-    "STRING": "Frase",
-    "INTEGER": "Número Inteiro",
-    "BOOLEAN": "Booleano",
-    "USER": "Usuário",
-    "CHANNEL": "Canal",
-    "ROLE": "Cargo",
-    "NUMBER": "Número",
-    "ATTACHMENT": "Anexo"
+    "3": "Frase",
+    "4": "Número Inteiro",
+    "5": "Booleano",
+    "6": "Usuário",
+    "7": "Canal",
+    "8": "Cargo",
+    "10": "Número",
+    "11": "Anexo"
   },
   "option-examples": {
-    "STRING": "Eu te amo!",
-    "INTEGER": "6",
-    "BOOLEAN": "Falso",
-    "USER": "@Luxanna",
-    "CHANNEL": "#geral",
-    "ROLE": "@moderadores",
-    "NUMBER": "2,69",
-    "ATTACHMENT": "[imagem.png]"
+    "3": "Eu te amo!",
+    "4": "6",
+    "5": "Falso",
+    "6": "@Luxanna",
+    "7": "#geral",
+    "8": "@moderadores",
+    "10": "2,69",
+    "11": "[imagem.png]"
   }
 }
