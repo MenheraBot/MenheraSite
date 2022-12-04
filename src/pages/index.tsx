@@ -38,7 +38,7 @@ const useCategories = () => {
     {
       name: t('categories.rpg'),
       id: 'roleplay',
-      description: t('categories.rpg-description'),
+      description: t('categories.rpg-description-off'),
       Icon: RiSwordLine,
     },
   ];
@@ -52,7 +52,7 @@ const useFeatures = () => {
   const features = [
     t('features.facility'),
     t('features.funny'),
-    t('features.battle'),
+    t('features.roleplay'),
     t('features.permissions'),
   ];
 
