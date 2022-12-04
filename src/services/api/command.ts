@@ -3,8 +3,7 @@ import { fetchCommands } from './api';
 import { Command, Option } from './api.types';
 
 const isParentCommand = (options: Option[]) =>
-  options?.some((option) => option.type === 1 || option.type === 2) ??
-  false;
+  options?.some((option) => option.type === 1 || option.type === 2) ?? false;
 
 const extractSubcommands = (data: Command[], locale: string): Command[] => {
   return data.reduce<Command[]>((commands, command) => {

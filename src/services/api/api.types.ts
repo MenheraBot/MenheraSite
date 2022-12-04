@@ -6,16 +6,7 @@ export interface Choice {
   value: string;
 }
 
-type CommandType =
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 10;
+type CommandType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10;
 
 export interface Option {
   type: CommandType;
