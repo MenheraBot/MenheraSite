@@ -1,24 +1,58 @@
-# Menhera Site
+<p align="center">
+    <img src="https://i.imgur.com/g9MuGLw.png" alt="Logo" width="160" height="160">
 
-![image](https://user-images.githubusercontent.com/59155752/138381666-327df7a3-f974-4cc0-9eee-339660ffcd8a.png)
+  <h3 align="center">📔 <b>Menhera Site</b> 📔</h3>
 
-The WebSite design is going to be remade, so please don't take to much right now
+  <p align="center">
+    The main website of MenheraBot
+    <br />
+    <a href="https://github.com/MenheraBot/MenheraBot"><strong>MenheraBot »</strong></a>
+    <br />
+    <br />
+  </p>
+</p>
 
+## 👨‍💻 | Contributing
 
-<img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="MenheraBot" src="https://i.imgur.com/jjgBki0.png">
+You may contribute to this project by opening an issue or creating a pull request on GitHub. Check bellow about running the project to get starting at development.
 
-MenheraBot is an open source Discord bot made in JavaScript with [Discord.js](https://discord.js.org) by [Luxanna](https://github.com/ySnoopyDogy)
-And this is her [site](https://menhera-site.vercel.app/)! It was made with [Next.js](https://nextjs.org/)
+## 🔥 | Running
 
-## Links
+1. 🧹 Clone the repository
 
-- [Discord](https://discord.gg/fZMdQbA)
-- [Github](https://github.com/ySnoopyDogy/MenheraBot)
-- [Top.GG](https://top.gg/bot/708014856711962654)
-- [Site](https://menhera-site.vercel.app/)
+```bash
+git clone https://github.com/MenheraBot/MenheraSite.git
+```
 
-## 💻 | Source
+2. 💻 Install dependencies
 
-This repository uses the AGPL-3.0 license. See the `LICENSE` file for more information!
-<br />
-Made with ❤️ by [Luxanna](https://github.com/ySnoopyDogy)
+```bash
+yarn install
+```
+
+3. 👾 Create and populate a .env file. Follow the .env.example file to do it. Just copy and paste everything that it should work.
+
+4. 🏃‍♂️ Start the webserver and yayy lets code
+
+```bash
+yarn dev
+```
+
+## 🔨 | Made With
+
+- [Next.js](https://nextjs.org/) 
+- [Tailwind](https://tailwindcss.com/)
+
+## ⚖️ | License
+
+Distributed under the GLP-3.0 License. See `LICENSE` for more information.
+
+## 📧 | Contact
+
+Discord: **Luxanna#5757**
+
+Twitter: **[@Luxanna_Dev](https://twitter.com/Luxanna_Dev)**
+
+---
+
+MenheraBot was made with ❤️ by Luxanna.
