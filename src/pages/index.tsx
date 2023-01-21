@@ -293,7 +293,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   return {
     props: {
       weekly,
-      nextWeeklyUpdate: weeklyHunters.nextUpdateAt,
+      nextWeeklyUpdate: weeklyHunters.nextUpdate,
       ...(await serverSideTranslations(locale as string, ['index', 'header', 'footer'])),
     },
     revalidate: 60,
