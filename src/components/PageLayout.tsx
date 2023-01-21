@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Layout = ({ children, page }: Props): JSX.Element => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('header');
 
   return (
     <main>
