@@ -104,12 +104,11 @@ export function Header(): JSX.Element {
           ))}
         </ul>
       </nav>
-      <button
-        className='cursor-not-allowed p-2 px-5 h-12 text-white bg-primary rounded-full font-bold hidden ml-14 focus:outline-none disabled:opacity-75 md:block'
-        disabled
-      >
-        {t('login')}
-      </button>
+      <a href='/invite' target='_blank'>
+        <button className='p-2 px-5 h-12 text-white bg-primary rounded-full font-bold hidden ml-14 focus:outline-none disabled:opacity-75 md:block hover:'>
+          {t('add')}
+        </button>
+      </a>
       <HiMenu
         color='white'
         size={25}
