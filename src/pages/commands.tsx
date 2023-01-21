@@ -78,96 +78,105 @@ const CommandPage = ({ commands }: Props): JSX.Element => {
           <span className='text-primary'>{' >~<'}</span>
         </h1>
         <p className='text-describe text-xl'>{t('description')}</p>
-
-        <div className='md:flex flex-row justify-between gap-10 md:mt-10'>
-          <ul className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex flex-col gap-6 w-full mt-4 md:mt-0 md:max-w-xs'>
-            <li key={'categories-title'} className='text-white'>
-              <h2 className='text-white font-bold text-2xl md:text-4xl'>{t('categories.title')}</h2>
-            </li>
-            {categories.map((category) => (
-              <li key={category}>
-                <Button
-                  className='w-full text-start'
-                  variant={selectedCategory === category && !searchInput ? 'primary' : 'secondary'}
-                  onClick={() => {
-                    setCategory(category);
-                    setSearchInput('');
-                  }}
-                >
-                  {t(`categories.${category as 'fun'}`)}
-                </Button>
+        {commands.length > 0 ? (
+          <div className='md:flex flex-row justify-between gap-10 md:mt-10'>
+            <ul className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex flex-col gap-6 w-full mt-4 md:mt-0 md:max-w-xs'>
+              <li key={'categories-title'} className='text-white'>
+                <h2 className='text-white font-bold text-2xl md:text-4xl'>
+                  {t('categories.title')}
+                </h2>
               </li>
-            ))}
-          </ul>
-          <div
-            id='table'
-            className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex-1 select-none'
-          >
-            <div className='md:flex flex-row-reverse justify-between items-center'>
-              <SearchInput
-                value={searchInput}
-                onChange={handleInputChange}
-                placeholder={t('search')}
-              />
-              <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>
-                {searchInput
-                  ? t('by-search', { input: searchInput })
-                  : t('by-category', { category: t(`categories.${selectedCategory as 'fun'}`) })}
-              </h2>
-            </div>
-            <ul className='overflow-auto h-full max-h-96 w-full'>
-              <CommandExampleModal
-                command={showingModal.command}
-                showing={showingModal.show}
-                setOpen={setShowingModal}
-              />
-              {filteredCommands.length > 0 ? (
-                filteredCommands.map((cmd) => (
-                  <li
-                    key={cmd.name.replaceAll(' ', '-')}
-                    onClick={() => setShowingModal({ show: true, command: cmd })}
-                    className='border-b-2 cursor-help border-b-separate-color py-6 px-1'
-                  >
-                    <span className='text-primary text-lg font-bold capitalize underline'>
-                      {cmd.name}
-                    </span>
-                    <p className='text-describe my-4'>{cmd.description}</p>
-                    <span className='text-describe space-x-2'>
-                      <span>/{cmd.name}</span>
-                      {cmd.options.map((op) => (
-                        <div
-                          key={`${cmd.name}-${op.name}`}
-                          className='hover:text-primary inline-block relative cursor-pointer group'
-                        >
-                          {op.required ? `<${op.name}>` : `[${op.name}]`}
-                          <span className='text-describe w-fit md:w-max text-xs -ml-12 hidden text-center py-2 px-3 absolute z-50 rounded-xl bg-stone-900 borderrounded group-hover:block'>
-                            {op.description}
-                          </span>
-                        </div>
-                      ))}
-                    </span>
-                  </li>
-                ))
-              ) : (
-                <li
-                  key={'empty'}
-                  className='flex flex-col border-b-2 border-b-separate-color pb-6 px-1'
-                >
-                  <span className='text-primary text-lg font-bold'>
-                    {t('unknown', { input: searchInput })}
-                  </span>
+              {categories.map((category) => (
+                <li key={category}>
                   <Button
-                    className='text-start w-fit mt-5'
-                    variant={'primary'}
-                    onClick={() => setSearchInput('')}
+                    className='w-full text-start'
+                    variant={
+                      selectedCategory === category && !searchInput ? 'primary' : 'secondary'
+                    }
+                    onClick={() => {
+                      setCategory(category);
+                      setSearchInput('');
+                    }}
                   >
-                    {t('clear')}
+                    {t(`categories.${category as 'fun'}`)}
                   </Button>
                 </li>
-              )}
+              ))}
             </ul>
+            <div
+              id='table'
+              className='bg-secondary-bg rounded-2xl py-11 px-4 mb-6 flex-1 select-none'
+            >
+              <div className='md:flex flex-row-reverse justify-between items-center'>
+                <SearchInput
+                  value={searchInput}
+                  onChange={handleInputChange}
+                  placeholder={t('search')}
+                />
+                <h2 className='text-white font-bold text-3xl md:text-4xl my-6'>
+                  {searchInput
+                    ? t('by-search', { input: searchInput })
+                    : t('by-category', { category: t(`categories.${selectedCategory as 'fun'}`) })}
+                </h2>
+              </div>
+              <ul className='overflow-auto h-full max-h-96 w-full'>
+                <CommandExampleModal
+                  command={showingModal.command}
+                  showing={showingModal.show}
+                  setOpen={setShowingModal}
+                />
+                {filteredCommands.length > 0 ? (
+                  filteredCommands.map((cmd) => (
+                    <li
+                      key={cmd.name.replaceAll(' ', '-')}
+                      onClick={() => setShowingModal({ show: true, command: cmd })}
+                      className='border-b-2 cursor-help border-b-separate-color py-6 px-1'
+                    >
+                      <span className='text-primary text-lg font-bold capitalize underline'>
+                        {cmd.name}
+                      </span>
+                      <p className='text-describe my-4'>{cmd.description}</p>
+                      <span className='text-describe space-x-2'>
+                        <span>/{cmd.name}</span>
+                        {cmd.options.map((op) => (
+                          <div
+                            key={`${cmd.name}-${op.name}`}
+                            className='hover:text-primary inline-block relative cursor-pointer group'
+                          >
+                            {op.required ? `<${op.name}>` : `[${op.name}]`}
+                            <span className='text-describe w-fit md:w-max text-xs -ml-12 hidden text-center py-2 px-3 absolute z-50 rounded-xl bg-stone-900 borderrounded group-hover:block'>
+                              {op.description}
+                            </span>
+                          </div>
+                        ))}
+                      </span>
+                    </li>
+                  ))
+                ) : (
+                  <li
+                    key={'empty'}
+                    className='flex flex-col border-b-2 border-b-separate-color pb-6 px-1'
+                  >
+                    <span className='text-primary text-lg font-bold'>
+                      {t('unknown', { input: searchInput })}
+                    </span>
+                    <Button
+                      className='text-start w-fit mt-5'
+                      variant={'primary'}
+                      onClick={() => setSearchInput('')}
+                    >
+                      {t('clear')}
+                    </Button>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className='bg-secondary-bg rounded-2xl my-11 py-11 px-4 mb-6 flex-1'>
+            <p className='text-describe text-xl'>{t('missing-commands-data')}</p>
+          </div>
+        )}
       </main>
     </Layout>
   );
