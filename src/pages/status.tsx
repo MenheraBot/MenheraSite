@@ -1,4 +1,3 @@
-import { fetchShardStatus } from '../services/api/api';
 import dayjs from 'dayjs';
 import dayjsDuration from 'dayjs/plugin/duration';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -8,16 +7,15 @@ import { ShardData } from '../services/api/api.types';
 import { SectionDivider } from '../components/common/SectionDivider';
 import classnames from 'classnames';
 import { useTranslation } from 'next-i18next';
-import useSWR from 'swr';
 import Layout from '../components/PageLayout';
 
 dayjs.extend(dayjsDuration);
 
-type Props = {
+/* type Props = {
   lang: string;
   lastShardStatus: ShardData[];
 };
-
+ */
 type Status = 'success' | 'error' | 'warning';
 
 interface StatusTextProps {
@@ -109,15 +107,33 @@ const getStatusColor = (shard: ShardData): Status => {
   return 'success';
 };
 
-const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
+const StatusPage = (): JSX.Element => {
   const { t } = useTranslation('status');
 
-  const { data: shardsData } = useSWR<ShardData[]>('/info/shards', {
+  /*   const { data: shardsData } = useSWR<ShardData[]>('/info/shards', {
     fetcher: fetchShardStatus,
     refreshInterval: 45_000,
     errorRetryCount: 3,
     fallbackData: lastShardStatus,
   });
+ */
+
+  const shardsData: ShardData[] = [
+    {
+      clusterId: 0,
+      connected: Date.now(),
+      guilds: -1,
+      id: 0,
+      isOff: false,
+      lastPingAt: Date.now(),
+      // @ts-expect-error yayy
+      members: 'O Gateway Explodiu',
+      memoryUsed: 0,
+      ping: 1,
+      unavailable: 0,
+      uptime: 666,
+    },
+  ];
 
   return (
     <Layout page='status'>
@@ -147,8 +163,8 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
             </h2>
             <span className='text-describe'>
               {t('problems', {
-                problematics: shardsData?.filter((s) => s.isOff).length ?? 0,
-                all: shardsData?.length,
+                problematics: 0,
+                all: 1,
                 name: t('shards'),
               })}
             </span>
@@ -175,16 +191,13 @@ const StatusPage = ({ lastShardStatus }: Props): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const lastShardStatus = await fetchShardStatus();
-
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['status', 'header', 'footer'])),
       lang: locale as string,
-      lastShardStatus,
     },
-    revalidate: 45,
+    // revalidate: 45,
   };
 };
 
