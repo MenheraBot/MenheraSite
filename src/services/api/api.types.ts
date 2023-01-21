@@ -66,6 +66,8 @@ export type WeeklyHuntersTop = {
   user_tag: string;
 };
 
+export type WeeklyHuntersTopDated = { data: WeeklyHuntersTop[]; nextUpdateAt: number };
+
 export type WeeklyTopFiltered = {
   type: HuntTypes;
   users: WeeklyHuntersTop[];

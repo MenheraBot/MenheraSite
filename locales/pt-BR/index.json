@@ -15,6 +15,7 @@
     "permissions": "Nenhuma Permissão Necessária"
   },
   "weekly-ranking": "#Rank Semanal",
+  "next-update": "Próxima Atualização: {{date}}",
   "best-hunters": "Os Melhores da Semana",
   "ranking-description": "Eu possuo um sistema de caças, onde jogadores podem caçar demônios, gigantes, anjos, arcanjos, semideuses e deuses. Aqui estão os melhores caçadores dos últimos 7 dias! O rank é atualizado todo dia!",
   "hunted": "Caçou {{amount}}",

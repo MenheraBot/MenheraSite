@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Command, ShardData, WeeklyHuntersTop } from './api.types';
+import { Command, ShardData, WeeklyHuntersTopDated } from './api.types';
 
 const fetch = async <R>(route: string): Promise<R> => {
   const res = await axios.get<R>(process.env.NEXT_PUBLIC_API_URL + route, {
@@ -22,7 +22,7 @@ export const fetchGithub = async (): Promise<string> => {
 
 export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
 
-export const fetchWeeklyHunters = (): Promise<WeeklyHuntersTop[]> => fetch('/hunts');
+export const fetchWeeklyHunters = (): Promise<WeeklyHuntersTopDated> => fetch('/hunts');
 
 export const fetchShardStatus = (): Promise<ShardData[]> =>
   fetch<ShardData[]>('/shards').then((res) =>

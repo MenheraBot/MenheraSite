@@ -61,10 +61,11 @@ const useFeatures = () => {
 
 type Props = {
   weekly: WeeklyTopFiltered[];
+  nextWeeklyUpdate: number;
 };
 
-const HomePage = ({ weekly }: Props): JSX.Element => {
-  const { t } = useTranslation('index');
+const HomePage = ({ weekly, nextWeeklyUpdate }: Props): JSX.Element => {
+  const { t, i18n } = useTranslation('index');
   const features = useFeatures();
   const categories = useCategories();
 
@@ -139,6 +140,11 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
                 <span className='text-primary font-bold'>{t('weekly-ranking')}</span>
                 <div className='bg-separate-color h-1 flex-1 px-2' />
               </small>
+              <span className='text-white font-bold'>
+                {t('next-update', {
+                  date: new Date(nextWeeklyUpdate).toLocaleString(i18n.language),
+                })}
+              </span>
               <h1 className='text-white font-bold text-3xl md:text-5xl mt-4'>
                 {t('best-hunters')}
               </h1>
@@ -261,7 +267,7 @@ const HomePage = ({ weekly }: Props): JSX.Element => {
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const weeklyHunters = await fetchWeeklyHunters();
 
-  const rawWeekly = weeklyHunters.reduce<WeeklyTopFiltered[]>(
+  const rawWeekly = weeklyHunters.data.reduce<WeeklyTopFiltered[]>(
     (acc, user) => {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const found = acc.find((item) => item.type === user.hunt_type)!;
@@ -287,9 +293,10 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   return {
     props: {
       weekly,
+      nextWeeklyUpdate: weeklyHunters.nextUpdateAt,
       ...(await serverSideTranslations(locale as string, ['index', 'header', 'footer'])),
     },
-    revalidate: 5400,
+    revalidate: 60,
   };
 };
 
