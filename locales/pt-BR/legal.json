@@ -6,7 +6,7 @@
   "last-change": "Última Modificação: {{date}}",
   "privacy": {
     "title": "Política de Privacidade",
-    "disclaimer": "Para disponibilizar nossos serviços, precisamos coletar alguns dados de nossos usuários. Nós não coletamos dados que não serão necessários para o funcionamento de nossos serviços. Precisamos deixar claro que, este documento pode ser alteado a qualquer momento, por isso, auxiliamos que sempre que for utilizar de nossos serviços, cheque este documento para entender como nós tratamos o que usamos.",
+    "disclaimer": "Para disponibilizar nossos serviços, precisamos coletar alguns dados de nossos usuários. Nós não coletamos dados que não serão necessários para o funcionamento de nossos serviços. Precisamos deixar claro que, este documento pode ser alterado a qualquer momento, por isso, auxiliamos que sempre que for utilizar de nossos serviços, cheque este documento para entender como nós tratamos o que usamos.",
     "collect": "Dados que Coletamos",
     "collect-description": "Nós armazenamos somente seu ID do Discord, que é uma informação pública que todos possuem acesso. Este é o único dado dos usuários que nós coletamos e armazenamos para conseguir identificar e ordenar informações do banco de dados referentes a cada perfil.",
     "protection": "Proteção de Dados",
