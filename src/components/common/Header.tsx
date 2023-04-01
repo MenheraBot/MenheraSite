@@ -48,7 +48,7 @@ export function useNavbarItems(): NavbarItem[] {
     },
     {
       name: t('status'),
-      href: '/status',
+      href: process.env.NEXT_PUBLIC_STATUSPAGE_URL ?? '/status' ,
       icon: HiOutlineStatusOnline,
       redirect: true,
     },
