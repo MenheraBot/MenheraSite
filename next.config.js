@@ -28,5 +28,10 @@ module.exports = {
       destination: process.env.NEXT_PUBLIC_SUPPORT_URL,
       permanent: true,
     },
+    {
+      source: '/status',
+      destination: process.env.NEXT_PUBLIC_STATUSPAGE_URL,
+      permanent: false,
+    },
   ],
 };
