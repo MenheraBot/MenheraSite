@@ -70,8 +70,8 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                     '_',
                   )}.gif`}
                   layout='intrinsic'
-                  width={400}
-                  height={380}
+                  width={command.dimensions.width}
+                  height={command.dimensions.height}
                   placeholder='blur'
                   blurDataURL='/examples/example_placeholder.png'
                   alt={`Exemplo de execução do comando ${command.name}`}
