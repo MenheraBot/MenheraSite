@@ -63,7 +63,7 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   {option.description}
                 </div>
               ))}
-              {(command.hasTutorial || !command.hasTutorial) && (
+              {command.hasTutorial && (
                 <Image
                   src={`/examples/${command.category}/${command.originalName.replaceAll(
                     ' ',
