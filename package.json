@@ -31,6 +31,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
+    "image-size": "^1.0.2",
     "next": "12.1.6",
     "next-i18next": "^11.0.0",
     "react": "^18.2.0",
@@ -47,6 +48,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.2.1",
     "@types/gtag.js": "^0.0.7",
+    "@types/image-size": "^0.8.0",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.2",
     "@types/react": "^17.0.26",

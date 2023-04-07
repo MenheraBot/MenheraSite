@@ -1,6 +1,7 @@
 import { existsSync } from 'fs';
 import { fetchCommands } from './api';
 import { Command, Option } from './api.types';
+import sizeOf from 'image-size';
 
 const isParentCommand = (options: Option[]) =>
   options?.some((option) => option.type === 1 || option.type === 2) ?? false;
@@ -76,12 +77,23 @@ export async function getCommands(locale: string): Promise<Command[]> {
   const commands = await fetchCommands();
   const extractedCommands = extractSubcommands(commands, locale);
 
-  const extractedCommandsWithTutorial = extractedCommands.map((command) => ({
-    ...command,
-    hasTutorial: existsSync(
+  const extractedCommandsWithExtraInfos = extractedCommands.map((command) => {
+    const hasTutorial = existsSync(
       `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
-    ),
-  }));
+    );
 
-  return extractedCommandsWithTutorial;
+    const dimensions = hasTutorial
+      ? sizeOf(
+          `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
+        )
+      : { width: 0, height: 0 };
+
+    return {
+      ...command,
+      hasTutorial,
+      dimensions,
+    };
+  });
+
+  return extractedCommandsWithExtraInfos;
 }
