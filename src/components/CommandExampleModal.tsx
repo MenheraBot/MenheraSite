@@ -63,15 +63,15 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   {option.description}
                 </div>
               ))}
-              {(command.hasTutorial || !command.hasTutorial) && (
+              {command.hasTutorial && (
                 <Image
                   src={`/examples/${command.category}/${command.originalName.replaceAll(
                     ' ',
                     '_',
                   )}.gif`}
                   layout='intrinsic'
-                  width={400}
-                  height={380}
+                  width={command.dimensions.width}
+                  height={command.dimensions.height}
                   placeholder='blur'
                   blurDataURL='/examples/example_placeholder.png'
                   alt={`Exemplo de execução do comando ${command.name}`}
