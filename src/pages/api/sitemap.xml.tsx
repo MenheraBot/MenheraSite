@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { fetchGithub } from '../../services/api/api';
-import { globby } from 'globby';
 import { parseChangelog } from '../../services/changelogParser';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
@@ -9,12 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   res.setHeader('Content-Type', 'text/xml');
   res.setHeader('Cache-control', 'stale-while-revalidate, s-maxage=3600');
 
-  const pages = await globby([
-    'src/pages/*.tsx',
-    '!src/pages/_*.tsx',
-    '!src/pages/404.tsx',
-    '!src/pages/api/*',
-  ]);
+  const pages = ['/index', '/commands', '/legal', '/changelog', '/donate'];
 
   const github = await fetchGithub();
 
@@ -27,8 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       <priority>0.9</priority>
     </url>
       ${pages
-        .map((page) => {
-          const path = page.replace('src/pages', '').replace('.tsx', '');
+        .map((path) => {
           const route = path === '/index' ? '' : path;
 
           return `
