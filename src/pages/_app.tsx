@@ -3,6 +3,8 @@ import '../styles/global.css';
 
 import { AppProps } from 'next/app';
 
+import { Analytics } from '@vercel/analytics/react';
+
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
@@ -49,6 +51,7 @@ const Application = ({ Component, pageProps }: AppProps) => {
           `,
         }}
       />
+      <Analytics />
       {/* @ts-expect-error nao entendi o pq */}
       <Component {...pageProps} />
     </>
