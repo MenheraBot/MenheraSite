@@ -7,6 +7,12 @@ module.exports = {
     domains: ['cdn.discordapp.com'],
   },
   i18n,
+  rewrites: async () => [
+    {
+      source: '/sitemap.xml',
+      destination: '/api/sitemap.xml',
+    },
+  ],
   redirects: async () => [
     {
       source: '/add',
