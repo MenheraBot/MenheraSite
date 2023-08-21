@@ -235,7 +235,7 @@ const HomePage = ({ weekly, nextWeeklyUpdate }: Props): JSX.Element => {
             </div>
             <Image
               className='hidden lg:block absolute h-full right-0'
-              src='/images/menhera-de-fone.svg'
+              src='/images/menhera-de-fone.png'
               height={336}
               width={264}
               alt='Discord'
