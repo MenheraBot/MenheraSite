@@ -20,8 +20,8 @@ export function Seo({ page }: Props): JSX.Element {
     <Head>
       <title>{t('title')}</title>
       <meta name='description' content={t('description')} />
-      <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
-      <link rel='icon' href='/favicon.ico' type='image/x-icon' />
+      <link rel='shortcut icon' href='/favicon.png' type='image/png' />
+      <link rel='icon' href='/favicon.png' type='image/png' />
 
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <meta httpEquiv='Content-Type' content='text/html;charset=UTF-8' />
