@@ -63,7 +63,7 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   {option.description}
                 </div>
               ))}
-              {command.hasTutorial && (
+              {
                 <Image
                   src={`/examples/${command.category}/${command.originalName.replaceAll(
                     ' ',
@@ -76,7 +76,7 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   blurDataURL='/examples/example_placeholder.png'
                   alt={`Exemplo de execução do comando ${command.name}`}
                 />
-              )}
+              }
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-import { existsSync } from 'fs';
 import { fetchCommands } from './api';
 import { Command, Option } from './api.types';
 import sizeOf from 'image-size';
@@ -78,19 +77,21 @@ export async function getCommands(locale: string): Promise<Command[]> {
   const extractedCommands = extractSubcommands(commands, locale);
 
   const extractedCommandsWithExtraInfos = extractedCommands.map((command) => {
-    const hasTutorial = existsSync(
-      `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
-    );
+    const dimensions = { width: 0, height: 0 };
 
-    const dimensions = hasTutorial
-      ? sizeOf(
-          `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
-        )
-      : { width: 0, height: 0 };
+    try {
+      const size = sizeOf(
+        `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
+      );
+
+      dimensions.height = size.height ?? 0;
+      dimensions.width = size.width ?? 0;
+    } catch (e) {
+      console.log(e);
+    }
 
     return {
       ...command,
-      hasTutorial,
       dimensions,
     };
   });
