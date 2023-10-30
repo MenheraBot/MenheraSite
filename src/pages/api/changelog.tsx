@@ -17,7 +17,7 @@ const getGithubData = async () => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-  const version = req.query;
+  const { version } = req.query;
 
   if (typeof version !== 'string') {
     res.statusCode = 400;
