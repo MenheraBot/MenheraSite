@@ -39,5 +39,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   res.statusCode = 200;
 
-  res.end(fromChangelog);
+  res.end(JSON.stringify(fromChangelog));
 }
