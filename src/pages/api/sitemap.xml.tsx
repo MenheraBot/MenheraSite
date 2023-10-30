@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   res.statusCode = 200;
 
   res.setHeader('Content-Type', 'text/xml');
-  res.setHeader('Cache-control', 'stale-while-revalidate, s-maxage=3600');
+  res.setHeader('Cache-control', 'stale-while-revalidate, maxage=3600');
 
   const pages = ['/index', '/commands', '/legal', '/changelog', '/donate'];
 
