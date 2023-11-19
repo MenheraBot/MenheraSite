@@ -63,20 +63,19 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   {option.description}
                 </div>
               ))}
-              {
-                <Image
-                  src={`/examples/${command.category}/${command.originalName.replaceAll(
-                    ' ',
-                    '_',
-                  )}.gif`}
-                  layout='intrinsic'
-                  width={command.dimensions.width}
-                  height={command.dimensions.height}
-                  placeholder='blur'
-                  blurDataURL='/examples/example_placeholder.png'
-                  alt={`Exemplo de execução do comando ${command.name}`}
-                />
-              }
+              <Image
+                key={command.originalName}
+                src={`/examples/${command.category}/${command.originalName.replaceAll(
+                  ' ',
+                  '_',
+                )}.gif`}
+                layout='intrinsic'
+                width={command.dimensions.width}
+                height={command.dimensions.height}
+                placeholder='blur'
+                blurDataURL='/examples/example_placeholder.png'
+                alt={`Exemplo de execução do comando ${command.name}`}
+              />
             </div>
           </div>
         </div>
