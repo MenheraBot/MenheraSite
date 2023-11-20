@@ -7,4 +7,5 @@ module.exports = {
     locales: ['en-US', 'pt-BR'],
   },
   localePath: path.resolve('./locales'),
+  defaultNS: 'header',
 };
