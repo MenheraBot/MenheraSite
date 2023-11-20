@@ -71,7 +71,7 @@ const BichoPage = (props: Props): JSX.Element => {
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
-    paths: [{ params: { page: ['1', '2'] } }],
+    paths: [{ params: { page: ['1'] } }, { params: { page: ['2'] } }],
     fallback: 'blocking',
   };
 };
