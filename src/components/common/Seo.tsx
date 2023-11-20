@@ -18,6 +18,7 @@ export function Seo({ page }: Props): JSX.Element {
 
   return (
     <Head>
+      <meta charSet='utf-8' />
       <title>{t('title')}</title>
       <meta name='description' content={t('description')} />
       <link rel='shortcut icon' href='/favicon.png' type='image/png' />
@@ -28,7 +29,6 @@ export function Seo({ page }: Props): JSX.Element {
       <meta name='robots' content='index, follow' />
       <meta name='googlebot' content='index, follow' />
       <link rel='canonical' href={canonicalUrl} />
-      <meta charSet='utf-8' />
       <meta
         name='keywords'
         content='menhera, bot, discord, discordbot, menherabot, menhera bot, bot brasileiro, menhera bot commands, menherabot comandos, comandos, menhera bot comandos'
