@@ -9,7 +9,7 @@ const variants = {
 interface ButtonProps extends ComponentProps<'button'> {
   variant?: keyof typeof variants;
   isDisabled?: boolean;
-  className: string;
+  className?: string;
 }
 
 export function Button({
@@ -21,7 +21,7 @@ export function Button({
   return (
     <button
       className={classnames({
-        [className]: true,
+        [className ?? '']: true,
         [variants[variant]]: true,
         'hover:cursor-pointer hover:brightness-75': !isDisabled,
         'brightness-75': isDisabled,
