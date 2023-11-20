@@ -8,16 +8,26 @@ const variants = {
 
 interface ButtonProps extends ComponentProps<'button'> {
   variant?: keyof typeof variants;
+  isDisabled?: boolean;
+  className: string;
 }
 
-export function Button({ className, variant = 'primary', ...props }: ButtonProps): JSX.Element {
+export function Button({
+  className,
+  variant = 'primary',
+  isDisabled = false,
+  ...props
+}: ButtonProps): JSX.Element {
   return (
     <button
-      className={classnames(
-        className,
-        variants[variant],
-        'hover:cursor-pointer hover:brightness-75 p-2 px-5 h-12 text-white rounded-full font-bold',
-      )}
+      className={classnames({
+        [className]: true,
+        [variants[variant]]: true,
+        'hover:cursor-pointer hover:brightness-75': !isDisabled,
+        'brightness-75': isDisabled,
+        'hover:cursor-default': isDisabled,
+        'p-2 px-5 h-12 text-white rounded-full font-bold': true,
+      })}
       {...props}
     ></button>
   );

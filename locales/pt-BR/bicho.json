@@ -17,6 +17,8 @@
   "bet": "Apostou {{bet}} ⭐",
   "profit": "Ganhou {{profit}} ⭐ ({{taxed}} %)",
   "choice": "Escolha: {{option}}",
+  "next-page": "Próxima Página",
+  "prev-page": "Página Anterior",
   "bichos": {
     "avestruz": "Avestruz",
     "águia": "Águia",
