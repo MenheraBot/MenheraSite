@@ -45,18 +45,20 @@ export interface Top {
   uses: number;
 }
 
-export interface ShardData {
+interface BichoPlayer {
+  id: string;
+  bet: number;
+  profit: number;
+  taxed: number;
+  didWin: boolean;
+  option: string;
+}
+
+export interface BichoGame {
   id: number;
-  memoryUsed: number;
-  uptime: number;
-  connected: number;
-  guilds: number;
-  unavailable: number;
-  ping: number;
-  lastPingAt: number;
-  isOff: boolean;
-  members: number;
-  clusterId: number;
+  date: number;
+  results: number[][];
+  players: BichoPlayer[];
 }
 
 export type HuntTypes = 'demon' | 'giant' | 'angel' | 'archangel' | 'demigod' | 'god';

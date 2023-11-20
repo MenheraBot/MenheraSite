@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   res.setHeader('Content-Type', 'text/xml');
   res.setHeader('Cache-control', 'stale-while-revalidate, maxage=3600');
 
-  const pages = ['/index', '/commands', '/legal', '/changelog', '/donate'];
+  const pages = ['/index', '/commands', '/bicho', '/changelog', '/donate', '/legal'];
 
   const github = await fetchGithub();
 
@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           return `
             <url>
                 <loc>${`https://menherabot.xyz${route}`}</loc>
-                <priority>${path === '/index' ? '1.0' : '0.8'}</priority>
+                <priority>${path === '/index' ? '1.0' : '0.9'}</priority>
             </url>
           `;
         })
@@ -37,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return `
               <url>
                   <loc>${`https://menherabot.xyz/changelog/${page.versionName}`}</loc>
-                  <priority>${i === 0 ? '0.7' : '0.3'}</priority>
+                  <priority>${i === 0 ? '0.7' : i < 10 ? '0.3' : '0.1'}</priority>
               </url>
             `;
           })

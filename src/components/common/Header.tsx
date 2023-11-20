@@ -10,7 +10,7 @@ import {
   HiOutlineStatusOnline,
   HiTranslate,
 } from 'react-icons/hi';
-import { FaClipboardList } from 'react-icons/fa';
+import { FaClipboardList, FaGhost } from 'react-icons/fa';
 
 import { useTranslation } from 'next-i18next';
 
@@ -38,6 +38,12 @@ export function useNavbarItems(): NavbarItem[] {
       name: t('commands'),
       href: '/commands',
       icon: FaClipboardList,
+      redirect: true,
+    },
+    {
+      name: t('bicho'),
+      href: '/bicho',
+      icon: FaGhost,
       redirect: true,
     },
     {

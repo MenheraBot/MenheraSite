@@ -43,9 +43,9 @@ const useFooter = () => {
       external: false,
     },
     {
-      redirect: 'https://github.com/MenheraBot/MenheraBot/discussions/132',
-      name: 'apeal',
-      external: true,
+      redirect: '/bicho',
+      name: 'bicho',
+      external: false,
     },
     {
       redirect: '/legal#terms-of-service',

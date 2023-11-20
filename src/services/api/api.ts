@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Command, ShardData, WeeklyHuntersTopDated } from './api.types';
+import { BichoGame, Command, WeeklyHuntersTopDated } from './api.types';
 
 const fetch = async <R>(route: string): Promise<R> => {
   const res = await axios.get<R>(process.env.NEXT_PUBLIC_API_URL + route, {
@@ -24,7 +24,4 @@ export const fetchCommands = (): Promise<Command[]> => fetch('/commands');
 
 export const fetchWeeklyHunters = (): Promise<WeeklyHuntersTopDated> => fetch('/hunts');
 
-export const fetchShardStatus = (): Promise<ShardData[]> =>
-  fetch<ShardData[]>('/shards').then((res) =>
-    res.map((shard) => ({ ...shard, isOff: shard.lastPingAt < Date.now() - 90_000 })),
-  );
+export const getBichoGames = (page: number): Promise<BichoGame[]> => fetch(`/bicho?page=${page}`);
