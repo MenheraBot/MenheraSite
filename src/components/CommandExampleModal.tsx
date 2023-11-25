@@ -68,7 +68,7 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                 src={`/examples/${command.category}/${command.originalName.replaceAll(
                   ' ',
                   '_',
-                )}.gif?v=${Date.now()}`}
+                )}.gif`}
                 layout='intrinsic'
                 width={command.dimensions.width}
                 height={command.dimensions.height}
