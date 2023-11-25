@@ -63,7 +63,6 @@ const CommandExampleModal = ({ command, setOpen, showing }: CommandExampleProps)
                   {option.description}
                 </div>
               ))}
-              {console.log(command.dimensions)}
               <Image
                 key={command.originalName}
                 src={`/examples/${command.category}/${command.originalName.replaceAll(

@@ -1,6 +1,9 @@
 import { fetchCommands } from './api';
 import { Command, Option } from './api.types';
-import sizeOf from 'image-size';
+import https from 'https';
+import sizeOf, { imageSize } from 'image-size';
+
+const MAX_BYTES_TO_GET_FROM_IMAGE = 2372;
 
 const isParentCommand = (options: Option[]) =>
   options?.some((option) => option.type === 1 || option.type === 2) ?? false;
@@ -72,29 +75,63 @@ const extractSubcommands = (data: Command[], locale: string): Command[] => {
   }, []);
 };
 
+const getDimensions = async (command: Command): Promise<{ height: number; width: number }> => {
+  try {
+    const dimensions = sizeOf(
+      `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
+    );
+
+    return { height: dimensions.height ?? 0, width: dimensions.width ?? 0 };
+  } catch (e) {
+    return new Promise((res) => {
+      let bytesRead = 0;
+      const chunks: Uint8Array[] = [];
+
+      https.get(
+        `https://menherabot.xyz/examples/${command.category}/${command.originalName.replaceAll(
+          ' ',
+          '_',
+        )}.gif`,
+        (response) => {
+          response.on('data', (chunk) => {
+            bytesRead += chunk.length;
+            chunks.push(chunk);
+            console.log(bytesRead);
+
+            if (bytesRead >= MAX_BYTES_TO_GET_FROM_IMAGE) {
+              response.destroy();
+
+              try {
+                const imageData = Buffer.concat(chunks);
+                const dimensions = imageSize(imageData);
+
+                res({ height: dimensions.height ?? 0, width: dimensions.width ?? 0 });
+              } catch {
+                console.log(`Command GIF example not found: ${command.originalName}`);
+                res({ height: 0, width: 0 });
+              }
+            }
+          });
+        },
+      );
+    });
+  }
+};
+
 export async function getCommands(locale: string): Promise<Command[]> {
   const commands = await fetchCommands();
   const extractedCommands = extractSubcommands(commands, locale);
 
-  const extractedCommandsWithExtraInfos = extractedCommands.map((command) => {
-    const dimensions = { width: 0, height: 0 };
+  const extractedCommandsWithExtraInfos = await Promise.all(
+    extractedCommands.map(async (command) => {
+      const dimensions = await getDimensions(command);
 
-    try {
-      const size = sizeOf(
-        `public/examples/${command.category}/${command.originalName.replaceAll(' ', '_')}.gif`,
-      );
-
-      dimensions.height = size.height ?? 0;
-      dimensions.width = size.width ?? 0;
-    } catch (e) {
-      console.log(e);
-    }
-
-    return {
-      ...command,
-      dimensions,
-    };
-  });
+      return {
+        ...command,
+        dimensions,
+      };
+    }),
+  );
 
   return extractedCommandsWithExtraInfos;
 }
