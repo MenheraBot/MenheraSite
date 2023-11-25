@@ -7,6 +7,8 @@ declare global {
       NEXT_PUBLIC_BOT_INVITE_URL: string;
       NEXT_PUBLIC_GA_ID: string;
       NEXT_PUBLIC_STATUSPAGE_URL: string;
+      PRIVATE_API_URL: string;
+      PRIVATE_API_TOKEN: string;
     }
   }
 }

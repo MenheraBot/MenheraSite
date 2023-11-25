@@ -61,6 +61,21 @@ export interface BichoGame {
   players: BichoPlayer[];
 }
 
+interface FoundDiscordUser {
+  id: string;
+  username: string;
+  displayName?: string;
+  avatar: string;
+  found: true;
+}
+
+interface UnknownDiscordUser {
+  id: string;
+  found: false;
+}
+
+export type DiscordUser = FoundDiscordUser | UnknownDiscordUser;
+
 export type HuntTypes = 'demon' | 'giant' | 'angel' | 'archangel' | 'demigod' | 'god';
 
 export type WeeklyHuntersTop = {

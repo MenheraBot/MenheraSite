@@ -1,15 +1,16 @@
 import { useTranslation, Trans } from 'next-i18next';
 import { Fragment, useState } from 'react';
-import { BichoGame } from '../services/api/api.types';
+import { BichoGame, DiscordUser } from '../services/api/api.types';
 import { BichoPlayerCard } from './BichoPlayerCard';
 import { mapResultToAnimal } from '../services/bicho';
 
 type BichoGameDisplayProps = {
   games: BichoGame[];
+  users: DiscordUser[];
   locale: string;
 };
 
-const BichoGamesTable = ({ games, locale }: BichoGameDisplayProps): JSX.Element => {
+const BichoGamesTable = ({ games, locale, users }: BichoGameDisplayProps): JSX.Element => {
   const { t } = useTranslation('bicho');
 
   const [expandedRow, setExpandedRow] = useState<null | number>(null);
@@ -106,7 +107,13 @@ const BichoGamesTable = ({ games, locale }: BichoGameDisplayProps): JSX.Element 
                     {game.players.length > 0 && (
                       <div className='flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                         {game.players.map((a) => (
-                          <BichoPlayerCard t={t} player={a} key={`bicho-player-card-${a.id}`} />
+                          <BichoPlayerCard
+                            t={t}
+                            player={a}
+                            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                            user={users.find((b) => b.id === a.id)!}
+                            key={`bicho-player-card-${a.id}`}
+                          />
                         ))}
                       </div>
                     )}

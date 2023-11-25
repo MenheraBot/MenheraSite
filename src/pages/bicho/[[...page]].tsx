@@ -3,8 +3,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { SectionDivider } from '../../components/common/SectionDivider';
 import Layout from '../../components/PageLayout';
-import { getBichoGames } from '../../services/api/api';
-import { BichoGame } from '../../services/api/api.types';
+import { getBichoGames, getUsers } from '../../services/api/api';
+import { BichoGame, DiscordUser } from '../../services/api/api.types';
 import BichoGameDisplay from '../../components/BichoGameDisplay';
 import { Button } from '../../components/common/Button';
 import { useRouter } from 'next/router';
@@ -14,6 +14,7 @@ const INITIAL_BICHO_PAGE = 1;
 
 type Props = {
   games: BichoGame[];
+  users: DiscordUser[];
   page: number;
   locale: string;
 };
@@ -42,7 +43,7 @@ const BichoPage = (props: Props): JSX.Element => {
         </h1>
         <p className='text-describe text-xl'>{t('description', { time: BICHO_HOURS_DURATION })}</p>
         {props.games.length > 0 ? (
-          <BichoGameDisplay games={props.games} locale={props.locale} />
+          <BichoGameDisplay users={props.users} games={props.games} locale={props.locale} />
         ) : (
           <div className='bg-secondary-bg rounded-2xl my-11 py-11 px-4 mb-6 flex-1'>
             <p className='text-describe text-xl'>{t('no-games', { page: props.page })}</p>
@@ -83,6 +84,9 @@ export const getStaticProps: GetStaticProps = async ({ locale, params = {} }) =>
   if (Number(page) < 1 || Number(page) > 99) return { redirect: { destination: '/bicho' } };
 
   const games = await getBichoGames(Number(page));
+  const users = await getUsers(
+    Array.from(new Set(games.flatMap((a) => a.players.map((b) => b.id)))),
+  );
 
   const lastGameAt = Date.now() - (games[0]?.date ?? Date.now());
 
@@ -96,6 +100,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, params = {} }) =>
     props: {
       games,
       page,
+      users,
       locale: locale ?? 'pt-BR',
       ...(await serverSideTranslations(locale ?? 'pt-BR', ['bicho', 'header', 'footer'])),
     },
