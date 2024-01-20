@@ -15,7 +15,7 @@
   "results": "Results",
   "no-players": "Nobody bet on this draw!",
   "bet": "Bet {{bet}} ⭐",
-  "profit": "Won {{profit}} ⭐ ({{taxed}} %)",
+  "profit": "Won {{profit}} ⭐",
   "choice": "Choice: {{option}}",
   "next-page": "Next Page",
   "prev-page": "Previous Page",

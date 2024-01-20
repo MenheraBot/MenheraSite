@@ -15,7 +15,7 @@
   "no-players": "Ninguém apostou nesse sorteio!",
   "biggest-profit": "Maior Ganho",
   "bet": "Apostou {{bet}} ⭐",
-  "profit": "Ganhou {{profit}} ⭐ ({{taxed}} %)",
+  "profit": "Ganhou {{profit}} ⭐",
   "choice": "Escolha: {{option}}",
   "next-page": "Próxima Página",
   "prev-page": "Página Anterior",

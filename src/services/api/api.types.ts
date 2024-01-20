@@ -49,7 +49,6 @@ interface BichoPlayer {
   id: string;
   bet: number;
   profit: number;
-  taxed: number;
   didWin: boolean;
   option: string;
 }

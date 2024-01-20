@@ -25,7 +25,6 @@ const BichoPlayerCard = ({
         {t(won ? 'profit' : 'bet', {
           bet: player.bet,
           profit: player.profit,
-          taxed: (((player.profit - player.taxed) / player.profit) * 100).toFixed(2),
         })}
       </p>
       <p className='text-white'>{t('choice', { option: optionBetToText(player.option, t) })}</p>
