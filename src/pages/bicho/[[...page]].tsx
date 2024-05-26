@@ -9,7 +9,7 @@ import BichoGameDisplay from '../../components/BichoGameDisplay';
 import { Button } from '../../components/common/Button';
 import { useRouter } from 'next/router';
 
-const BICHO_HOURS_DURATION = 6;
+const BICHO_HOURS_DURATION = 4;
 const INITIAL_BICHO_PAGE = 1;
 
 type Props = {
