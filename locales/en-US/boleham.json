@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "Boleham - Menhera Bot",
+    "description": "Boleham é um mundo cheio de magia. Conheça a história do RPG da MenheraBot. "
+  },
+  "boleham": "World of Boleham",
+  "title": "History of Boleham",
+  "chapters": "Chapters",
+  "description": "The World of Boleham is back at Menhera with its RPG. Discover the history of this universe",
+  "chapters-title": {
+    "world-of-boleham": "The World of Boleham",
+    "the-elemental-dragons": "The Elemental Dragons",
+    "born-of-all-creatures": "The born of all creatures",
+    "the-draconic-church": "The Draconic Churches",
+    "the-fall-of-gods": "The Fall of the Gods",
+    "menhera-summon": "The summon of the Menhera on Boleham",
+    "the-find-of-babel-dungeon": "The discovery of the Babel Dungeon",
+    "the-guild": "The creationg of the Guild",
+    "the-start-of-chaos": "The beginning of Chaos"
+  }
+}
