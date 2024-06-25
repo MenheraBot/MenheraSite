@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { useTranslation, Trans } from 'next-i18next';
 import { SectionDivider } from '../components/common/SectionDivider';
 import Layout from '../components/PageLayout';
 
@@ -50,7 +50,23 @@ const CommandPage = (): JSX.Element => {
             {storyChapters.map((chapter) => (
               <article key={chapter} id={chapter}>
                 <h3 className='mb-4 text-2xl font-bold'>{t(`chapters-title.${chapter}`)}</h3>
-                <p className='mb-4'>{t(`chapters-text.${chapter}`)}</p>
+                <p className='mb-4'>
+                  <Trans
+                    t={t}
+                    i18nKey={`chapters-text.${chapter}`}
+                    components={{
+                      nature: <span className='text-green-500' />,
+                      water: <span className='text-blue-500' />,
+                      fire: <span className='text-red-600' />,
+                      ice: <span className='text-blue-200' />,
+                      air: <span className='text-gray-400' />,
+                      earth: <span className='text-amber-700' />,
+                      lightning: <span className='text-yellow-500' />,
+                      darkness: <span className='text-primary' />,
+                      light: <span className='text-yellow-200' />,
+                    }}
+                  />
+                </p>
               </article>
             ))}
           </section>
