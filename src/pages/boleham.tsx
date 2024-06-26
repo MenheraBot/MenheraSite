@@ -3,6 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation, Trans } from 'next-i18next';
 import { SectionDivider } from '../components/common/SectionDivider';
 import Layout from '../components/PageLayout';
+import { FaDiscord } from 'react-icons/fa';
 
 type Props = {
   locale: string;
@@ -32,7 +33,6 @@ const CommandPage = (): JSX.Element => {
           <span className='text-primary'>{' :3'}</span>
         </h1>
         <p className='text-describe text-xl mb-10'>{t('description')}</p>
-        {/* ------------------------------------------------------------------------------ */}
         <div className='flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 text-white'>
           <aside className='w-full md:w-1/4 p-4 bg-secondary-bg rounded-md'>
             <h2 className='mb-4 text-xl font-bold'>{t('chapters')}</h2>
@@ -69,6 +69,11 @@ const CommandPage = (): JSX.Element => {
                 </p>
               </article>
             ))}
+            <p className='flex justify-end items-center'>
+              {t('credits')}
+              <FaDiscord className='ml-2' />
+              mareys
+            </p>
           </section>
         </div>
       </main>
