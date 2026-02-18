@@ -10,6 +10,26 @@ import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
 import Script from 'next/script';
 
+
+export const getInitialProps: GetInitialProps<Props> = async ({ locale }) => {
+  const commands = await getCommands(locale as string);
+
+  return {
+    props: {
+      locale: locale as string,
+      commands,
+      ...(await serverSideTranslations(locale as string, ['commands', 'header', 'footer'])),
+    },
+    revalidate: 500,
+  };
+};
+
+ export const getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    const nonce = ctx.req?.headers?.['x-nonce'] || '';
+    return { ...initialProps, nonce };
+  }
+
 const Application = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
