@@ -26,6 +26,7 @@ export const fetchWeeklyHunters = (): Promise<WeeklyHuntersTopDated> => fetch('/
 export const getBichoGames = (page: number): Promise<BichoGame[]> => fetch(`/bicho?page=${page}`);
 
 export const getUsers = async (users: string[]): Promise<DiscordUser[]> => {
+  if (!process.env.PRIVATE_API_URL) return [];
   const res = await axios.get(`${process.env.PRIVATE_API_URL}/users`, {
     headers: {
       Authorization: process.env.PRIVATE_API_TOKEN,
